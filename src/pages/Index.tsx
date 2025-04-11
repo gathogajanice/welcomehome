@@ -1,11 +1,20 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import Navbar from '@/components/Navbar';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <div className="flex-1 bg-white flex items-center justify-center p-6">
+        <div className="text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome to Our Investment Platform</h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+            Discover the future of investing with our comprehensive platform designed to help you grow your wealth sustainably.
+          </p>
+          <button className="bg-[#898684] text-white font-bold rounded-lg px-8 py-3 hover:bg-opacity-90 transition-all">
+            Learn More
+          </button>
+        </div>
       </div>
     </div>
   );

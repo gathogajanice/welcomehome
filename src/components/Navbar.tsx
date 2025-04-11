@@ -1,8 +1,6 @@
 
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
 
 const Navbar = () => {
   return (
@@ -10,25 +8,25 @@ const Navbar = () => {
       {/* Left Side Content */}
       <div className="flex items-center space-x-8">
         {/* Menu Icon and Text */}
-        <div className="flex items-center">
-          <div className="flex flex-col space-y-1 mr-2">
+        <div className="flex items-center space-x-2">
+          <div className="flex flex-col space-y-1">
             <div className="w-5 h-[1px] bg-white"></div>
             <div className="w-4 h-[1px] bg-white"></div>
           </div>
-          <span className="text-white text-xs tracking-wider font-light">MENU</span>
+          <span className="text-white text-xs tracking-[0.15em] font-light uppercase">Menu</span>
         </div>
         
         {/* Select an Object Button */}
         <div className="bg-white/80 rounded-none px-4 py-1.5">
-          <span className="text-black text-[11px] font-medium tracking-wide">SELECT AN OBJECT</span>
+          <span className="text-black text-[11px] tracking-[0.075em] font-medium uppercase">Select an Object</span>
         </div>
         
         {/* General Plan Text */}
-        <span className="text-white text-xs tracking-wider font-light hidden md:block">GENERAL PLAN</span>
+        <span className="text-white text-xs tracking-[0.15em] font-light uppercase hidden md:block">General Plan</span>
       </div>
 
       {/* Right Side Content */}
-      <div className="flex items-center space-x-5 md:space-x-5">
+      <div className="flex items-center space-x-6">
         {/* Phone Number */}
         <span className="hidden md:block text-white text-xs font-light">+34 (951) 870-700</span>
         
@@ -36,7 +34,7 @@ const Navbar = () => {
         <span className="hidden md:block text-white text-xs font-light">ES</span>
         
         {/* Agent Portal */}
-        <span className="hidden md:block text-white text-xs font-light">AGENT PORTAL</span>
+        <span className="hidden md:block text-white text-xs tracking-[0.075em] font-light uppercase">Agent Portal</span>
       </div>
     </header>
   );

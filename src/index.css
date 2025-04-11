@@ -99,6 +99,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 0.02em;
   }
 }
 
@@ -108,3 +109,9 @@
   padding: 0;
   text-align: left;
 }
+
+/* Added for proper text formatting in the navbar */
+.uppercase {
+  text-transform: uppercase;
+}
+

@@ -8,33 +8,32 @@ import { cn } from '@/lib/utils';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 
-// Villa images - cinematic with consistent mood
-const villaImages = [
+// Property images - cinematic, warm, modern villas in 4K
+const propertyImages = [
   "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070", // Golden hour villa
   "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=2070", // Luxury estate twilight
   "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?q=80&w=2070", // Moody architectural
   "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075", // Modern exterior dusk
   "https://images.unsplash.com/photo-1600607687644-afc93b20a606?q=80&w=2070", // Dramatic lighting
-  "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070"  // Evening luxury home
 ];
 
-// Residence images - cinematic with consistent mood
-const residenceImages = [
-  "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?q=80&w=2074", // Modern apartment
-  "https://images.unsplash.com/photo-1593696140826-c58b021acf8b?q=80&w=2070", // Luxury interior
-  "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2074", // Contemporary living
-  "https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?q=80&w=2070", // Elegant bedroom
-  "https://images.unsplash.com/photo-1560448204-61dc36dc98c8?q=80&w=2070", // High-end residence
-  "https://images.unsplash.com/photo-1484101403633-562f891dc89a?q=80&w=2070"  // Stylish condo
+// Community images - authentic Senegalese/West African imagery
+const communityImages = [
+  "https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?q=80&w=2070", // West African market scene
+  "https://images.unsplash.com/photo-1580323956656-26bbb1206e34?q=80&w=2071", // Traditional clothing
+  "https://images.unsplash.com/photo-1526598729284-0c5fc7ee567b?q=80&w=1930", // Village life
+  "https://images.unsplash.com/photo-1504264030396-4c2a566e381c?q=80&w=1931", // Family scene
+  "https://images.unsplash.com/photo-1571496526135-7d8974a89f71?q=80&w=2129", // Cultural activities
 ];
 
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [activeCategory, setActiveCategory] = useState<'VILLAS' | 'RESIDENCES'>('VILLAS');
-  const [images, setImages] = useState(villaImages);
+  const [activeCategory, setActiveCategory] = useState<'PROPERTY' | 'COMMUNITY'>('PROPERTY');
+  const [images, setImages] = useState(propertyImages);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [totalSlides, setTotalSlides] = useState(villaImages.length);
+  const [totalSlides, setTotalSlides] = useState(propertyImages.length);
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   // Set loaded state after component mount to trigger animations
   useEffect(() => {
@@ -42,14 +41,27 @@ const Hero = () => {
   }, []);
 
   // Handle category change
-  const handleCategoryChange = (category: 'VILLAS' | 'RESIDENCES') => {
-    setActiveCategory(category);
-    setImages(category === 'VILLAS' ? villaImages : residenceImages);
-    setTotalSlides(category === 'VILLAS' ? villaImages.length : residenceImages.length);
-    setActiveIndex(0);
-    if (swiperInstance) {
-      swiperInstance.slideTo(0);
-    }
+  const handleCategoryChange = (category: 'PROPERTY' | 'COMMUNITY') => {
+    if (category === activeCategory) return;
+    
+    // Start transition effect
+    setIsTransitioning(true);
+    
+    // After fade out, change images
+    setTimeout(() => {
+      setActiveCategory(category);
+      setImages(category === 'PROPERTY' ? propertyImages : communityImages);
+      setTotalSlides(category === 'PROPERTY' ? propertyImages.length : communityImages.length);
+      setActiveIndex(0);
+      if (swiperInstance) {
+        swiperInstance.slideTo(0);
+      }
+      
+      // Complete transition after images changed
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 300);
+    }, 600);
   };
 
   // Handle slide change
@@ -64,68 +76,76 @@ const Hero = () => {
 
   return (
     <div className="hero-container">
-      {/* Decorative borders */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-white/20 pointer-events-none z-10" />
-      <div className="absolute top-0 left-0 h-full w-[1px] bg-white/20 pointer-events-none z-10" />
+      {/* Ambient frame - decorative borders */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-white/25 pointer-events-none z-20" />
+      <div className="absolute top-0 left-0 h-full w-[1px] bg-white/25 pointer-events-none z-20" />
       
-      <Swiper
-        modules={[EffectFade, Autoplay]}
-        effect="fade"
-        loop={true}
-        autoplay={{ delay: 5000, disableOnInteraction: false }}
-        className={`hero-swiper ${isLoaded ? 'loaded' : ''}`}
-        onSwiper={setSwiperInstance}
-        onSlideChange={handleSlideChange}
-      >
-        {images.map((url, i) => (
-          <SwiperSlide key={`${activeCategory}-${i}`}>
-            <div className="slide-image-container">
-              <img 
-                src={url} 
-                alt={`${activeCategory === 'VILLAS' ? 'Luxury villa' : 'Luxury residence'} ${i+1}`} 
-                className="slide-image"
-                loading={i === 0 ? "eager" : "lazy"}
-              />
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      {/* Left/Right vignette blur */}
+      <div className="absolute inset-0 pointer-events-none z-10 bg-gradient-to-r from-black/30 via-transparent to-black/30" 
+           style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.3), transparent 15%, transparent 85%, rgba(0,0,0,0.3))' }} />
+      
+      {/* Main slider with transition effect */}
+      <div className={`w-full h-full transition-opacity duration-600 ease-in-out ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+        <Swiper
+          modules={[EffectFade, Autoplay]}
+          effect="fade"
+          loop={true}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          className={`hero-swiper ${isLoaded ? 'loaded' : ''}`}
+          onSwiper={setSwiperInstance}
+          onSlideChange={handleSlideChange}
+        >
+          {images.map((url, i) => (
+            <SwiperSlide key={`${activeCategory}-${i}`}>
+              <div className="slide-image-container">
+                <img 
+                  src={url} 
+                  alt={`${activeCategory === 'PROPERTY' ? 'Luxury property' : 'Senegalese community'} ${i+1}`} 
+                  className="slide-image"
+                  loading={i === 0 || i === images.length-1 || i === activeIndex || i === activeIndex+1 || i === activeIndex-1 ? "eager" : "lazy"}
+                />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
 
-      {/* Slide counter */}
-      <div className="absolute bottom-8 left-8 text-white font-canela text-2xl md:text-3xl z-20">
-        {formatSlideNumber(activeIndex + 1)} / {formatSlideNumber(totalSlides)}
+      {/* Slide counter with zoom hierarchy */}
+      <div className="absolute bottom-8 left-8 flex items-baseline gap-1 text-white z-40">
+        <span className="text-[3.5rem] font-bold tracking-tight font-canela">{formatSlideNumber(activeIndex + 1)}</span>
+        <span className="text-[1.5rem] font-light opacity-80 font-canela">/{formatSlideNumber(totalSlides)}</span>
       </div>
 
       {/* Category toggle buttons */}
-      <div className="absolute bottom-24 left-8 flex gap-4 text-white uppercase z-20">
+      <div className="absolute bottom-24 left-8 inline-flex border border-black/20 rounded-xl bg-transparent p-0.5 z-20">
         <button
-          className={`px-4 py-2 rounded-full transition-all duration-300 text-xs tracking-wider ${
-            activeCategory === 'VILLAS' ? 'bg-white/20' : 'opacity-50'
+          className={`px-6 py-3 rounded-lg transition-all duration-300 text-[#1A2A2E] text-sm tracking-wider font-bold font-apercu ${
+            activeCategory === 'PROPERTY' ? 'bg-black/10' : 'bg-transparent'
           }`}
-          onClick={() => handleCategoryChange('VILLAS')}
+          onClick={() => handleCategoryChange('PROPERTY')}
         >
-          Villas
+          PROPERTY
         </button>
         <button
-          className={`px-4 py-2 rounded-full transition-all duration-300 text-xs tracking-wider ${
-            activeCategory === 'RESIDENCES' ? 'bg-white/20' : 'opacity-50'
+          className={`px-6 py-3 rounded-lg transition-all duration-300 text-[#1A2A2E] text-sm tracking-wider font-bold font-apercu ${
+            activeCategory === 'COMMUNITY' ? 'bg-black/10' : 'bg-transparent'
           }`}
-          onClick={() => handleCategoryChange('RESIDENCES')}
+          onClick={() => handleCategoryChange('COMMUNITY')}
         >
-          Residences
+          COMMUNITY
         </button>
       </div>
 
-      {/* Navigation arrows */}
-      <div className="absolute bottom-8 right-8 flex gap-4 z-20">
+      {/* Navigation arrows with subtle animation */}
+      <div className="absolute bottom-8 right-8 flex gap-4 z-40">
         <button 
-          className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:bg-white/90 transition-colors shadow-lg"
+          className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:bg-white/90 transition-all duration-300 hover:translate-x-[-2px] shadow-lg"
           onClick={() => swiperInstance?.slidePrev()}
         >
           <ChevronLeft size={20} />
         </button>
         <button 
-          className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:bg-white/90 transition-colors shadow-lg"
+          className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:bg-white/90 transition-all duration-300 hover:translate-x-[2px] shadow-lg"
           onClick={() => swiperInstance?.slideNext()}
         >
           <ChevronRight size={20} />

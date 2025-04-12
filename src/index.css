@@ -206,13 +206,13 @@
     @apply w-full h-screen;
     object-fit: cover;
     opacity: 0;
-    transform: scale(1.075); /* Enhanced zoom effect */
-    transition: opacity 1s ease-in-out, transform 1.8s ease; /* Adjusted timing */
+    transform: translateX(-20px) scale(1.075); /* Enhanced parallax + zoom effect */
+    transition: opacity 1.2s ease-in-out, transform 2s ease; /* Adjusted timing */
   }
   
   .swiper-slide-active .slide-image {
     opacity: 1;
-    transform: scale(1);
+    transform: translateX(0) scale(1.0);
   }
 }
 

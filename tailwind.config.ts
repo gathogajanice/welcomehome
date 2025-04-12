@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -82,15 +81,16 @@ export default {
 				'accordion-up': {
 					from: {
 						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
 					}
+				},
+				animation: {
+					'accordion-down': 'accordion-down 0.2s ease-out',
+					'accordion-up': 'accordion-up 0.2s ease-out'
 				}
 			},
-			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+			fontFamily: {
+				'canela': ['Canela', 'serif'],
+				'apercu': ['ApercuMono', 'sans-serif']
 			}
 		}
 	},

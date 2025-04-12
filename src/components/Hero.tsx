@@ -10,7 +10,6 @@ import 'swiper/css/effect-fade';
 // Property images - Senegal-themed images
 const propertyImages = [
   "/lovable-uploads/e1b40968-92f2-43da-9c58-0421ededaeed.png", // People image
-  "/lovable-uploads/7451b6ff-3e25-4eb7-89c0-01540b3e1f5f.png", // New added image - fishermen on beach
   "/lovable-uploads/63427f01-4ea6-496d-9b20-f3eccdda8757.png", // Senegal travel bus
   "/lovable-uploads/fc99c9e7-80a3-4106-9a9f-1502fa6ca251.png", // Smiling girl
   "/lovable-uploads/6c3020ad-df5a-430d-9920-608d492d64ec.png", // Person holding polaroids
@@ -73,18 +72,18 @@ const Hero = () => {
         </Swiper>
       </div>
 
-      {/* Glassmorphic container with text - increased opacity and darkness for better text legibility */}
+      {/* Glassmorphic container with text - adjusted opacity for better text legibility */}
       <div className="absolute inset-0 flex items-center justify-center z-40 px-6">
-        <div className="backdrop-blur-md bg-black/40 border border-white/10 rounded-3xl w-full max-w-4xl p-12 text-white">
+        <div className="backdrop-blur-md bg-black/30 border border-white/10 rounded-3xl w-full max-w-4xl p-12 text-white">
           {/* Tagline */}
           <p className="text-lg font-bricolage mb-2 text-left opacity-80">
             Empowering you to invest in real estate
           </p>
           
-          {/* Main headline */}
+          {/* Main headline with colored text */}
           <h1 className="text-5xl md:text-7xl font-bricolage font-light text-left leading-tight mb-20">
             The Future of<br />
-            Fractional Real Estate<br />
+            Fractional <span className="text-[#73dfe5]">Real Estate</span><br />
             in Africa
           </h1>
           
@@ -92,19 +91,19 @@ const Hero = () => {
           <div className="flex flex-wrap gap-16 justify-start">
             <div className="flex items-baseline">
               <span className="text-4xl md:text-5xl font-bricolage">12</span>
-              <span className="text-orange-400 text-xl mx-1">+</span>
+              <span className="text-[#73dfe5] text-xl mx-1">+</span>
               <span className="text-gray-300 ml-2 font-bricolage">Lorem Ipsum</span>
             </div>
             
             <div className="flex items-baseline">
               <span className="text-4xl md:text-5xl font-bricolage">83K</span>
-              <span className="text-orange-400 text-xl mx-1">+</span>
+              <span className="text-[#73dfe5] text-xl mx-1">+</span>
               <span className="text-gray-300 ml-2 font-bricolage">Lorem Ipsum</span>
             </div>
             
             <div className="flex items-baseline">
               <span className="text-4xl md:text-5xl font-bricolage">4.2K</span>
-              <span className="text-orange-400 text-xl mx-1">+</span>
+              <span className="text-[#73dfe5] text-xl mx-1">+</span>
               <span className="text-gray-300 ml-2 font-bricolage">Lorem Ipsum</span>
             </div>
           </div>

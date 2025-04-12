@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -90,7 +91,8 @@ export default {
 			},
 			fontFamily: {
 				'canela': ['Canela', 'serif'],
-				'apercu': ['ApercuMono', 'sans-serif']
+				'apercu': ['ApercuMono', 'sans-serif'],
+				'bricolage': ['Bricolage Grotesque', 'sans-serif']
 			}
 		}
 	},

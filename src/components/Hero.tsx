@@ -10,11 +10,11 @@ import 'swiper/css/effect-fade';
 
 // Property images - cinematic architectural photography in 4K (no pools, clean facades)
 const propertyImages = [
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070", // Modern concrete home, overcast
-  "https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=2070", // Minimalist geometric architecture
-  "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2073", // Modern house with warm lighting
-  "https://images.unsplash.com/photo-1513584684374-8bab748fbf90?q=80&w=2065", // Elegant concrete home at dusk
-  "https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=2080", // Modern villa with moody atmosphere
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070", // Modern concrete home, overcast (keeping)
+  "https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=2070", // Minimalist geometric architecture (keeping)
+  "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=2070", // Senegalese village life
+  "https://images.unsplash.com/photo-1466442929976-97f336a657be?q=80&w=2070", // Traditional architecture in Senegal
+  "https://images.unsplash.com/photo-1492321936769-b49830bc1d1e?q=80&w=2070", // Nostalgic evening scene in West Africa
 ];
 
 const Hero = () => {

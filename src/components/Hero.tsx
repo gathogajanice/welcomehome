@@ -19,7 +19,6 @@ const propertyImages = [
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [totalSlides, setTotalSlides] = useState(propertyImages.length);
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
   
   // Set loaded state after component mount to trigger animations
@@ -30,11 +29,6 @@ const Hero = () => {
   // Handle slide change
   const handleSlideChange = (swiper: SwiperType) => {
     setActiveIndex(swiper.realIndex);
-  };
-
-  // Format slide numbers with leading zero
-  const formatSlideNumber = (num: number) => {
-    return String(num).padStart(2, '0');
   };
 
   return (
@@ -88,12 +82,6 @@ const Hero = () => {
             home
           </span>
         </div>
-      </div>
-
-      {/* Slide counter with zoom hierarchy */}
-      <div className="absolute bottom-8 left-8 flex items-baseline gap-1 text-white z-40">
-        <span className="text-[3.5rem] font-bold tracking-tight font-canela">{formatSlideNumber(activeIndex + 1)}</span>
-        <span className="text-[1.5rem] font-light opacity-80 font-canela">/{formatSlideNumber(totalSlides)}</span>
       </div>
 
       {/* Navigation arrows with subtle animation */}

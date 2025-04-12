@@ -72,9 +72,9 @@ const Hero = () => {
         </Swiper>
       </div>
 
-      {/* Glassmorphic container with text - adjusted opacity for better text legibility */}
-      <div className="absolute inset-0 flex items-center justify-center z-40 px-6">
-        <div className="backdrop-blur-md bg-black/30 border border-white/10 rounded-3xl w-full max-w-4xl p-12 text-white">
+      {/* Glassmorphic container with text - adjusted blur for better image visibility */}
+      <div className="absolute inset-0 flex items-center justify-center z-40 px-6 mt-8">
+        <div className="backdrop-blur-[2px] bg-black/25 border border-white/10 rounded-3xl w-full max-w-3xl p-10 text-white">
           {/* Tagline */}
           <p className="text-lg font-bricolage mb-2 text-left opacity-80">
             Empowering you to invest in real estate

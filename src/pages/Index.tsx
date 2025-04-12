@@ -6,7 +6,7 @@ const Index = () => {
     <div className="min-h-screen flex flex-col bg-[#f8f6f2]">
       {/* Main content */}
       <div className="relative z-10 mt-[100vh]">
-        <LocationsSection />
+        {/* <LocationsSection /> */}
       </div>
     </div>
   );

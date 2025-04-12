@@ -70,17 +70,41 @@ const Hero = () => {
         </Swiper>
       </div>
 
-      {/* Welcome Home Hero Text - not in capital letters */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center z-40">
-        <div className="text-white text-center">
-          <span className="block font-bricolage font-light text-[clamp(4rem,12vw,14rem)] tracking-[0.03em] leading-[1] opacity-0 transform translate-y-5" 
-                style={{animation: "fadeInUp 0.6s ease forwards"}}>
-            Welcome
-          </span>
-          <span className="block font-bricolage font-light text-[clamp(4rem,12vw,14rem)] tracking-[0.03em] leading-[1] opacity-0 transform translate-y-5"
-                style={{animation: "fadeInUp 0.6s ease forwards 0.3s"}}>
-            home
-          </span>
+      {/* Glassmorphic container with text */}
+      <div className="absolute inset-0 flex items-center justify-center z-40 px-6">
+        <div className="backdrop-blur-lg bg-black/30 border border-white/10 rounded-3xl w-full max-w-4xl p-12 text-white">
+          {/* Tagline */}
+          <p className="text-lg font-light mb-2 text-left opacity-80">
+            Empowering you to invest in real estate
+          </p>
+          
+          {/* Main headline */}
+          <h1 className="text-5xl md:text-7xl font-light text-left leading-tight mb-20">
+            Because everyone<br />
+            deserves to own<br />
+            build
+          </h1>
+          
+          {/* Stats row */}
+          <div className="flex flex-wrap gap-16 justify-start">
+            <div className="flex items-baseline">
+              <span className="text-4xl md:text-5xl font-canela">12</span>
+              <span className="text-orange-400 text-xl mx-1">+</span>
+              <span className="text-gray-300 ml-2">Lorem Ipsum</span>
+            </div>
+            
+            <div className="flex items-baseline">
+              <span className="text-4xl md:text-5xl font-canela">83K</span>
+              <span className="text-orange-400 text-xl mx-1">+</span>
+              <span className="text-gray-300 ml-2">Lorem Ipsum</span>
+            </div>
+            
+            <div className="flex items-baseline">
+              <span className="text-4xl md:text-5xl font-canela">4.2K</span>
+              <span className="text-orange-400 text-xl mx-1">+</span>
+              <span className="text-gray-300 ml-2">Lorem Ipsum</span>
+            </div>
+          </div>
         </div>
       </div>
 

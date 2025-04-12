@@ -1,18 +1,11 @@
-
-import Navbar from '@/components/Navbar';
+// Update this page (the content is just a fallback if you fail to update the page)
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Hero section */}
-      <div className="relative h-screen bg-neutral-800">
-        {/* Navbar */}
-        <Navbar />
-        
-        {/* Empty space below navbar - no content as per request */}
-        <div className="relative z-10 h-full">
-          {/* This space intentionally left empty as requested */}
-        </div>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
+        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
       </div>
     </div>
   );

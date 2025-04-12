@@ -7,7 +7,7 @@ const locations = [
   {
     time: "25",
     unit: "MIN DRIVE BY CAR",
-    label: "Malaga Train Station "Maria Zambrano"",
+    label: "Malaga Train Station \"Maria Zambrano\"",
     image: "https://images.unsplash.com/photo-1529148892821-090a35aec6ab?q=80&w=1324&auto=format&fit=crop"
   },
   {

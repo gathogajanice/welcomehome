@@ -72,9 +72,9 @@ const Hero = () => {
         </Swiper>
       </div>
 
-      {/* Glassmorphic container - now a square with slightly rounded corners */}
+      {/* Glassmorphic container - rectangular with yellow border */}
       <div className="absolute inset-0 flex items-center justify-center z-40 px-6">
-        <div className="backdrop-blur-[2px] bg-black/25 border border-white/10 rounded-lg aspect-square w-full max-w-md">
+        <div className="backdrop-blur-[2px] bg-black/25 border border-yellow-400/70 rounded-lg w-full max-w-3xl h-72">
           {/* Text content commented out for now */}
         </div>
       </div>

@@ -75,7 +75,10 @@ const Hero = () => {
       {/* Glassmorphic container - rectangular with increased height, more rounded corners and subtle shadow */}
       <div className="absolute inset-0 flex items-center justify-center z-40 px-6">
         <div className="backdrop-blur-[2px] bg-black/25 border border-white/20 rounded-xl w-full max-w-3xl h-96 shadow-[0_8px_30px_rgb(0,0,0,0.12)] transform translate-y-[-4px]">
-          {/* Text content commented out for now */}
+          {/* Hero title text centered in the container */}
+          <div className="flex items-center justify-center h-full w-full">
+            <h1 className="text-5xl font-bold text-white tracking-wider">FRACTIONALIZING</h1>
+          </div>
         </div>
       </div>
 

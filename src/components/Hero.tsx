@@ -9,11 +9,11 @@ import 'swiper/css/effect-fade';
 
 // Property images - cinematic architectural photography in 4K (no pools, clean facades)
 const propertyImages = [
+  "https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=2070", // Minimalist geometric architecture (now first)
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070", // Modern concrete home, overcast
   "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=2070", // Senegalese village life
   "https://images.unsplash.com/photo-1466442929976-97f336a657be?q=80&w=2070", // Traditional architecture in Senegal
-  "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=2070", // Dark villa theme
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070", // Modern concrete home, overcast (keeping)
-  "https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=2070", // Minimalist geometric architecture (keeping)
+  "https://images.unsplash.com/photo-1721322800607-8c38375eef04?q=80&w=2070", // New image replacing the dark villa theme
 ];
 
 const Hero = () => {
@@ -48,7 +48,7 @@ const Hero = () => {
            style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.3), transparent 15%, transparent 85%, rgba(0,0,0,0.3))' }} />
       
       {/* Black overlay for better text visibility */}
-      <div className="absolute inset-0 bg-black/30 pointer-events-none z-10" />
+      <div className="absolute inset-0 bg-black/40 pointer-events-none z-10" />
       
       {/* Main slider */}
       <div className="w-full h-full">
@@ -76,14 +76,14 @@ const Hero = () => {
         </Swiper>
       </div>
 
-      {/* Welcome Home Hero Text - not in capital letters */}
+      {/* Welcome Home Hero Text - slightly reduced and more bold */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-40">
         <div className="text-white text-center">
-          <span className="block font-bricolage font-normal text-[clamp(4rem,12vw,14rem)] tracking-[0.03em] leading-[1] opacity-0 transform translate-y-5" 
+          <span className="block font-bricolage font-bold text-[clamp(3.5rem,11vw,12rem)] tracking-[0.03em] leading-[1] opacity-0 transform translate-y-5" 
                 style={{animation: "fadeInUp 0.6s ease forwards"}}>
             Welcome
           </span>
-          <span className="block font-bricolage font-normal text-[clamp(4rem,12vw,14rem)] tracking-[0.03em] leading-[1] opacity-0 transform translate-y-5"
+          <span className="block font-bricolage font-bold text-[clamp(3.5rem,11vw,12rem)] tracking-[0.03em] leading-[1] opacity-0 transform translate-y-5"
                 style={{animation: "fadeInUp 0.6s ease forwards 0.3s"}}>
             home
           </span>

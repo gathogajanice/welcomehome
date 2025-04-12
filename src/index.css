@@ -206,8 +206,8 @@
     @apply w-full h-screen;
     object-fit: cover;
     opacity: 0;
-    transform: scale(1.05);
-    transition: opacity 1s ease-in-out, transform 2s ease;
+    transform: scale(1.075); /* Enhanced zoom effect */
+    transition: opacity 1s ease-in-out, transform 1.8s ease; /* Adjusted timing */
   }
   
   .swiper-slide-active .slide-image {

@@ -1,6 +1,7 @@
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import LocationsSection from "@/components/LocationsSection";
 
 const Index = () => {
   return (
@@ -10,6 +11,11 @@ const Index = () => {
       
       {/* Navbar - fixed position on top of hero */}
       <Navbar />
+      
+      {/* Main content */}
+      <div className="relative z-10 mt-[100vh]">
+        <LocationsSection />
+      </div>
     </div>
   );
 };

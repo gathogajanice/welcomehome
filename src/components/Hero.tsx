@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Autoplay } from 'swiper/modules';
@@ -6,13 +7,15 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 
-// Property images - cinematic architectural photography in 4K (no pools, clean facades)
+// Property images - Senegal-themed images
 const propertyImages = [
-  "https://images.unsplash.com/photo-1582529746056-89e81347e60c?q=80&w=2070", // Boats dock on sand image
-  "https://images.unsplash.com/photo-1466442929976-97f336a657be?q=80&w=2070", // Traditional architecture in Senegal
-  "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=2070", // Dark villa theme
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070", // Modern concrete home, overcast (keeping)
-  "https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=2070", // Minimalist geometric architecture (keeping)
+  "/lovable-uploads/e1b40968-92f2-43da-9c58-0421ededaeed.png", // People image
+  "/lovable-uploads/63427f01-4ea6-496d-9b20-f3eccdda8757.png", // Senegal travel bus
+  "/lovable-uploads/fc99c9e7-80a3-4106-9a9f-1502fa6ca251.png", // Smiling girl
+  "/lovable-uploads/6c3020ad-df5a-430d-9920-608d492d64ec.png", // Person holding polaroids
+  "/lovable-uploads/e2fd9bc5-9787-406b-963d-2a0b8f8515a1.png", // Yellow building by water
+  "/lovable-uploads/3c1c89aa-56ec-4553-8aaa-7e7c12feea72.png", // Red and yellow buildings
+  "/lovable-uploads/1d4323f5-9936-4e6f-9c63-382444393b84.png", // Boats on orange water
 ];
 
 const Hero = () => {

@@ -14,7 +14,7 @@ const propertyImages = [
   "https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=2070", // Minimalist geometric architecture (keeping)
   "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=2070", // Senegalese village life
   "https://images.unsplash.com/photo-1466442929976-97f336a657be?q=80&w=2070", // Traditional architecture in Senegal
-  "https://images.unsplash.com/photo-1492321936769-b49830bc1d1e?q=80&w=2070", // Nostalgic evening scene in West Africa
+  "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=2070", // Dark villa theme
 ];
 
 const Hero = () => {

@@ -207,8 +207,8 @@
     @apply w-full h-screen;
     object-fit: cover;
     opacity: 0;
-    transform: translateX(-20px) scale(1.075); /* Enhanced parallax + zoom effect */
-    transition: opacity 1.2s ease-in-out, transform 1.8s ease; /* Adjusted timing */
+    transform: translateX(20px) scale(1.075); /* Changed from -20px to 20px for left-to-right transition */
+    transition: opacity 1.2s ease-in-out, transform 1.8s ease; /* Kept the same timing */
   }
   
   .swiper-slide-active .slide-image {

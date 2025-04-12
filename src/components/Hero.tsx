@@ -72,16 +72,16 @@ const Hero = () => {
         </Swiper>
       </div>
 
-      {/* Container with text - removed backdrop blur, smaller container, positioned away from navbar */}
-      <div className="absolute inset-0 flex items-center justify-center z-40 px-6 pt-16">
-        <div className="bg-black/40 border border-white/10 rounded-3xl w-full max-w-3xl p-10 text-white">
+      {/* Glassmorphic container with text - adjusted opacity for better text legibility */}
+      <div className="absolute inset-0 flex items-center justify-center z-40 px-6">
+        <div className="backdrop-blur-md bg-black/30 border border-white/10 rounded-3xl w-full max-w-4xl p-12 text-white">
           {/* Tagline */}
           <p className="text-lg font-bricolage mb-2 text-left opacity-80">
             Empowering you to invest in real estate
           </p>
           
           {/* Main headline with colored text */}
-          <h1 className="text-5xl md:text-7xl font-bricolage font-light text-left leading-tight mb-16">
+          <h1 className="text-5xl md:text-7xl font-bricolage font-light text-left leading-tight mb-20">
             The Future of<br />
             Fractional <span className="text-[#73dfe5]">Real Estate</span><br />
             in Africa

@@ -78,7 +78,7 @@ const Hero = () => {
           {/* Hero title text centered in the container */}
           <div className="flex items-center justify-center h-full w-full">
             <div className="text-center">
-              <h1 className="font-bricolage text-5xl md:text-6xl font-light text-white leading-tight">
+              <h1 className="font-bricolage text-5xl md:text-6xl font-bold text-white leading-tight">
                 The Future of<br />
                 Fractional <span className="text-[#6DD6DB]">Real Estate</span><br />
                 in Africa

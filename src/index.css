@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -207,7 +208,7 @@
     object-fit: cover;
     opacity: 0;
     transform: translateX(-20px) scale(1.075); /* Enhanced parallax + zoom effect */
-    transition: opacity 1.2s ease-in-out, transform 2s ease; /* Adjusted timing */
+    transition: opacity 1.2s ease-in-out, transform 1.8s ease; /* Adjusted timing */
   }
   
   .swiper-slide-active .slide-image {

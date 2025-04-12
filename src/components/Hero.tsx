@@ -41,8 +41,8 @@ const Hero = () => {
       <div className="absolute inset-0 pointer-events-none z-10" 
            style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.3), transparent 15%, transparent 85%, rgba(0,0,0,0.3))' }} />
       
-      {/* Black overlay for better text visibility */}
-      <div className="absolute inset-0 bg-black/30 pointer-events-none z-10" />
+      {/* Black overlay for better text visibility - reduced opacity */}
+      <div className="absolute inset-0 bg-black/20 pointer-events-none z-10" />
       
       {/* Main slider */}
       <div className="w-full h-full">
@@ -70,16 +70,16 @@ const Hero = () => {
         </Swiper>
       </div>
 
-      {/* Glassmorphic container with text */}
+      {/* Glassmorphic container with text - reduced blur and opacity */}
       <div className="absolute inset-0 flex items-center justify-center z-40 px-6">
-        <div className="backdrop-blur-lg bg-black/30 border border-white/10 rounded-3xl w-full max-w-4xl p-12 text-white">
+        <div className="backdrop-blur-sm bg-black/15 border border-white/10 rounded-3xl w-full max-w-4xl p-12 text-white">
           {/* Tagline */}
-          <p className="text-lg font-light mb-2 text-left opacity-80">
+          <p className="text-lg font-bricolage mb-2 text-left opacity-80">
             Empowering you to invest in real estate
           </p>
           
           {/* Main headline */}
-          <h1 className="text-5xl md:text-7xl font-light text-left leading-tight mb-20">
+          <h1 className="text-5xl md:text-7xl font-bricolage font-light text-left leading-tight mb-20">
             Because everyone<br />
             deserves to own<br />
             build
@@ -88,21 +88,21 @@ const Hero = () => {
           {/* Stats row */}
           <div className="flex flex-wrap gap-16 justify-start">
             <div className="flex items-baseline">
-              <span className="text-4xl md:text-5xl font-canela">12</span>
+              <span className="text-4xl md:text-5xl font-bricolage">12</span>
               <span className="text-orange-400 text-xl mx-1">+</span>
-              <span className="text-gray-300 ml-2">Lorem Ipsum</span>
+              <span className="text-gray-300 ml-2 font-bricolage">Lorem Ipsum</span>
             </div>
             
             <div className="flex items-baseline">
-              <span className="text-4xl md:text-5xl font-canela">83K</span>
+              <span className="text-4xl md:text-5xl font-bricolage">83K</span>
               <span className="text-orange-400 text-xl mx-1">+</span>
-              <span className="text-gray-300 ml-2">Lorem Ipsum</span>
+              <span className="text-gray-300 ml-2 font-bricolage">Lorem Ipsum</span>
             </div>
             
             <div className="flex items-baseline">
-              <span className="text-4xl md:text-5xl font-canela">4.2K</span>
+              <span className="text-4xl md:text-5xl font-bricolage">4.2K</span>
               <span className="text-orange-400 text-xl mx-1">+</span>
-              <span className="text-gray-300 ml-2">Lorem Ipsum</span>
+              <span className="text-gray-300 ml-2 font-bricolage">Lorem Ipsum</span>
             </div>
           </div>
         </div>

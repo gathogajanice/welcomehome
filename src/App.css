@@ -1,8 +1,7 @@
 
+/* We're removing the root max-width and padding to allow the hero to span full width */
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 

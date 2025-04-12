@@ -77,7 +77,13 @@ const Hero = () => {
         <div className="backdrop-blur-[2px] bg-black/25 border border-white/20 rounded-xl w-full max-w-3xl h-96 shadow-[0_8px_30px_rgb(0,0,0,0.12)] transform translate-y-[-4px]">
           {/* Hero title text centered in the container */}
           <div className="flex items-center justify-center h-full w-full">
-            <h1 className="text-5xl font-bold text-white tracking-wider">FRACTIONALIZING</h1>
+            <div className="text-center">
+              <h1 className="font-bricolage text-5xl md:text-6xl font-light text-white leading-tight">
+                The Future of<br />
+                Fractional <span className="text-[#6DD6DB]">Real Estate</span><br />
+                in Africa
+              </h1>
+            </div>
           </div>
         </div>
       </div>

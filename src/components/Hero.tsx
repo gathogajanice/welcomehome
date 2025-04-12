@@ -10,6 +10,7 @@ import 'swiper/css/effect-fade';
 // Property images - Senegal-themed images
 const propertyImages = [
   "/lovable-uploads/e1b40968-92f2-43da-9c58-0421ededaeed.png", // People image
+  "/lovable-uploads/7451b6ff-3e25-4eb7-89c0-01540b3e1f5f.png", // New added image - fishermen on beach
   "/lovable-uploads/63427f01-4ea6-496d-9b20-f3eccdda8757.png", // Senegal travel bus
   "/lovable-uploads/fc99c9e7-80a3-4106-9a9f-1502fa6ca251.png", // Smiling girl
   "/lovable-uploads/6c3020ad-df5a-430d-9920-608d492d64ec.png", // Person holding polaroids
@@ -72,9 +73,9 @@ const Hero = () => {
         </Swiper>
       </div>
 
-      {/* Glassmorphic container with text - reduced blur and opacity */}
+      {/* Glassmorphic container with text - increased opacity and darkness for better text legibility */}
       <div className="absolute inset-0 flex items-center justify-center z-40 px-6">
-        <div className="backdrop-blur-sm bg-black/15 border border-white/10 rounded-3xl w-full max-w-4xl p-12 text-white">
+        <div className="backdrop-blur-md bg-black/40 border border-white/10 rounded-3xl w-full max-w-4xl p-12 text-white">
           {/* Tagline */}
           <p className="text-lg font-bricolage mb-2 text-left opacity-80">
             Empowering you to invest in real estate
@@ -82,9 +83,9 @@ const Hero = () => {
           
           {/* Main headline */}
           <h1 className="text-5xl md:text-7xl font-bricolage font-light text-left leading-tight mb-20">
-            Because everyone<br />
-            deserves to own<br />
-            build
+            The Future of<br />
+            Fractional Real Estate<br />
+            in Africa
           </h1>
           
           {/* Stats row */}

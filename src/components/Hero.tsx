@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Autoplay } from 'swiper/modules';
@@ -9,7 +8,7 @@ import 'swiper/css/effect-fade';
 
 // Property images - cinematic architectural photography in 4K (no pools, clean facades)
 const propertyImages = [
-  "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=2070", // Senegalese village life
+  "https://images.unsplash.com/photo-1582529746056-89e81347e60c?q=80&w=2070", // Boats dock on sand image
   "https://images.unsplash.com/photo-1466442929976-97f336a657be?q=80&w=2070", // Traditional architecture in Senegal
   "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=2070", // Dark villa theme
   "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070", // Modern concrete home, overcast (keeping)

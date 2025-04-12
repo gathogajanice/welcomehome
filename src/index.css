@@ -115,3 +115,29 @@
   text-transform: uppercase;
 }
 
+/* Sleek hover animations */
+.sleek-hover-container {
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.sleek-hover-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.4s ease;
+  z-index: 0;
+  border-radius: 4px;
+}
+
+.sleek-hover-container:hover::before,
+.sleek-hover-container:active::before {
+  transform: scaleX(1);
+}

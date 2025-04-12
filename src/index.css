@@ -3,6 +3,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Canela';
+  src: url('/fonts/Canela-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ApercuMono';
+  src: url('/fonts/ApercuMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -50,9 +66,6 @@
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
-
-    /* Adding cream color variable */
-    --cream: 36 33% 97%;
   }
 
   .dark {
@@ -104,31 +117,128 @@
   }
 }
 
-/* Adding cream color class for the CTA button */
-.bg-cream {
-  background-color: #f9f7f2;  /* Cream color */
+@layer components {
+  .nav-link {
+    @apply relative inline-block;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute h-[2px] bg-black w-0 left-0 bottom-[-4px] origin-left transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* Mobile menu link styling */
+  .mobile-nav-link {
+    @apply relative inline-block;
+  }
+
+  .mobile-nav-link::after {
+    @apply content-[''] absolute h-[2px] bg-white w-0 left-1/2 -translate-x-1/2 bottom-[-4px] origin-center transition-all duration-300;
+  }
+
+  .mobile-nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .menu-overlay .overflow-hidden {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  /* New sleek hover animation */
+  .sleek-hover-container {
+    @apply relative overflow-hidden;
+  }
+
+  .sleek-hover-container::before {
+    @apply content-[''] absolute inset-0 -z-0 bg-black/5 opacity-0 scale-95 transition-all duration-300 ease-out rounded-md;
+    transform-origin: center;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+
+  .sleek-hover-container:hover::before {
+    @apply opacity-100 scale-100;
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.06);
+  }
+  
+  .hamburger-icon {
+    @apply transition-transform duration-300;
+  }
+  
+  .hamburger-icon:hover {
+    @apply scale-110;
+  }
+  
+  .separator-line {
+    @apply animate-pulse;
+  }
+
+  /* Hamburger to X animation */
+  .hamburger-icon.active .hamburger-line-1 {
+    transform: translateY(3px) rotate(45deg);
+    width: 24px;
+  }
+
+  .hamburger-icon.active .hamburger-line-2 {
+    transform: translateY(-3px) rotate(-45deg);
+    width: 24px;
+  }
 }
 
-/* These styles replace the inline style tag in the Navbar component */
-.sleek-hover-container {
-  position: relative;
-  overflow: hidden;
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.sleek-hover-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.05);
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.4s ease;
-  z-index: 0;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
-.sleek-hover-container:hover::before {
-  transform: scaleX(1);
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
 }

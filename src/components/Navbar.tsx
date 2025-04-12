@@ -65,34 +65,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Adding CSS directly in the component using style tag without the jsx attribute */}
-      <style>
-        {`
-          .sleek-hover-container {
-            position: relative;
-            overflow: hidden;
-          }
-          
-          .sleek-hover-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.05);
-            transform: scaleX(0);
-            transform-origin: center;
-            transition: transform 0.4s ease;
-            z-index: 0;
-          }
-          
-          .sleek-hover-container:hover::before {
-            transform: scaleX(1);
-          }
-        `}
-      </style>
-
       <header 
         className={cn(
           "w-full h-16 px-8 md:px-12 flex items-center justify-between fixed top-0 left-0 z-50 rounded-lg font-canela",

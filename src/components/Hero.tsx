@@ -72,40 +72,10 @@ const Hero = () => {
         </Swiper>
       </div>
 
-      {/* Glassmorphic container with text - text content commented out */}
-      <div className="absolute inset-0 flex items-center justify-center z-40 px-6 mt-8">
-        <div className="backdrop-blur-[2px] bg-black/25 border border-white/10 rounded-3xl w-full max-w-3xl p-10 text-white">
-          {/* Text content commented out for now
-          <p className="text-lg font-bricolage mb-2 text-left opacity-80">
-            Empowering you to invest in real estate
-          </p>
-          
-          <h1 className="text-5xl md:text-7xl font-bricolage font-light text-left leading-tight mb-20">
-            The Future of<br />
-            Fractional <span className="text-[#73dfe5]">Real Estate</span><br />
-            in Africa
-          </h1>
-          
-          <div className="flex flex-wrap gap-16 justify-start">
-            <div className="flex items-baseline">
-              <span className="text-4xl md:text-5xl font-bricolage">12</span>
-              <span className="text-[#73dfe5] text-xl mx-1">+</span>
-              <span className="text-gray-300 ml-2 font-bricolage">Lorem Ipsum</span>
-            </div>
-            
-            <div className="flex items-baseline">
-              <span className="text-4xl md:text-5xl font-bricolage">83K</span>
-              <span className="text-[#73dfe5] text-xl mx-1">+</span>
-              <span className="text-gray-300 ml-2 font-bricolage">Lorem Ipsum</span>
-            </div>
-            
-            <div className="flex items-baseline">
-              <span className="text-4xl md:text-5xl font-bricolage">4.2K</span>
-              <span className="text-[#73dfe5] text-xl mx-1">+</span>
-              <span className="text-gray-300 ml-2 font-bricolage">Lorem Ipsum</span>
-            </div>
-          </div>
-          */}
+      {/* Glassmorphic container - now a square with slightly rounded corners */}
+      <div className="absolute inset-0 flex items-center justify-center z-40 px-6">
+        <div className="backdrop-blur-[2px] bg-black/25 border border-white/10 rounded-lg aspect-square w-full max-w-md">
+          {/* Text content commented out for now */}
         </div>
       </div>
 

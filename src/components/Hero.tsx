@@ -8,16 +8,16 @@ import { cn } from '@/lib/utils';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 
-// Property images - cinematic, warm, modern villas in 4K
+// Property images - cinematic architectural photography in 4K (no pools, clean facades)
 const propertyImages = [
-  "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070", // Golden hour villa
-  "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=2070", // Luxury estate twilight
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070", // Modern concrete home, overcast
+  "https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=2070", // Minimalist geometric architecture
+  "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070", // Modern house at golden hour
   "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?q=80&w=2070", // Moody architectural
-  "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075", // Modern exterior dusk
-  "https://images.unsplash.com/photo-1600607687644-afc93b20a606?q=80&w=2070", // Dramatic lighting
+  "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=2070", // Modern villa with clean lines
 ];
 
-// Community images - authentic Senegalese/West African imagery
+// Community images - authentic Senegalese/West African cultural imagery
 const communityImages = [
   "https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?q=80&w=2070", // West African market scene
   "https://images.unsplash.com/photo-1580323956656-26bbb1206e34?q=80&w=2071", // Traditional clothing
@@ -81,7 +81,7 @@ const Hero = () => {
       <div className="absolute top-0 left-0 h-full w-[1px] bg-white/25 pointer-events-none z-20" />
       
       {/* Left/Right vignette blur */}
-      <div className="absolute inset-0 pointer-events-none z-10 bg-gradient-to-r from-black/30 via-transparent to-black/30" 
+      <div className="absolute inset-0 pointer-events-none z-10" 
            style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.3), transparent 15%, transparent 85%, rgba(0,0,0,0.3))' }} />
       
       {/* Main slider with transition effect */}
@@ -102,7 +102,7 @@ const Hero = () => {
                   src={url} 
                   alt={`${activeCategory === 'PROPERTY' ? 'Luxury property' : 'Senegalese community'} ${i+1}`} 
                   className="slide-image"
-                  loading={i === 0 || i === images.length-1 || i === activeIndex || i === activeIndex+1 || i === activeIndex-1 ? "eager" : "lazy"}
+                  loading={i === 0 ? "eager" : "lazy"}
                 />
               </div>
             </SwiperSlide>
@@ -119,7 +119,7 @@ const Hero = () => {
       {/* Category toggle buttons */}
       <div className="absolute bottom-24 left-8 inline-flex border border-black/20 rounded-xl bg-transparent p-0.5 z-20">
         <button
-          className={`px-6 py-3 rounded-lg transition-all duration-300 text-[#1A2A2E] text-sm tracking-wider font-bold font-apercu ${
+          className={`px-6 py-3 rounded-lg transition-all duration-300 text-[#1A2A2E] text-sm tracking-wider font-extrabold font-apercu ${
             activeCategory === 'PROPERTY' ? 'bg-black/10' : 'bg-transparent'
           }`}
           onClick={() => handleCategoryChange('PROPERTY')}
@@ -127,7 +127,7 @@ const Hero = () => {
           PROPERTY
         </button>
         <button
-          className={`px-6 py-3 rounded-lg transition-all duration-300 text-[#1A2A2E] text-sm tracking-wider font-bold font-apercu ${
+          className={`px-6 py-3 rounded-lg transition-all duration-300 text-[#1A2A2E] text-sm tracking-wider font-extrabold font-apercu ${
             activeCategory === 'COMMUNITY' ? 'bg-black/10' : 'bg-transparent'
           }`}
           onClick={() => handleCategoryChange('COMMUNITY')}

@@ -4,8 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Autoplay } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 
@@ -23,7 +21,6 @@ const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [totalSlides, setTotalSlides] = useState(propertyImages.length);
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
-  const [viewType, setViewType] = useState("property");
   
   // Set loaded state after component mount to trigger animations
   useEffect(() => {
@@ -79,39 +76,14 @@ const Hero = () => {
       {/* WELCOME HOME Hero Text */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-40">
         <div className="text-white text-center">
-          <span className="block font-canela uppercase font-normal text-[clamp(4rem,12vw,14rem)] tracking-[0.03em] leading-[1] opacity-0 transform translate-y-5" 
+          <span className="block font-bricolage uppercase font-normal text-[clamp(4rem,12vw,14rem)] tracking-[0.03em] leading-[1] opacity-0 transform translate-y-5" 
                 style={{animation: "fadeInUp 0.6s ease forwards"}}>
             WELCOME
           </span>
-          <span className="block font-canela uppercase font-normal text-[clamp(4rem,12vw,14rem)] tracking-[0.03em] leading-[1] opacity-0 transform translate-y-5"
+          <span className="block font-bricolage uppercase font-normal text-[clamp(4rem,12vw,14rem)] tracking-[0.03em] leading-[1] opacity-0 transform translate-y-5"
                 style={{animation: "fadeInUp 0.6s ease forwards 0.3s"}}>
             HOME
           </span>
-        </div>
-      </div>
-
-      {/* Paragraph Text (Bottom Left) */}
-      <div className="absolute bottom-[6rem] left-8 z-40 max-w-[480px]">
-        <p className="font-canela text-base md:text-xl text-white font-light leading-[1.6]">
-          Welcome to your future sanctuary — where design meets comfort, and every sunrise feels like a new beginning.
-        </p>
-
-        {/* Toggle Group for PROPERTY/COMMUNITY */}
-        <div className="mt-6 border border-white/20 rounded-xl inline-flex p-1">
-          <ToggleGroup type="single" defaultValue="property" value={viewType} onValueChange={(val) => val && setViewType(val)}>
-            <ToggleGroupItem 
-              value="property"
-              className={`text-[0.875rem] uppercase tracking-[0.08em] font-apercu px-4 py-1.5 rounded-lg ${viewType === 'property' ? 'bg-white/15 text-black' : 'bg-transparent text-white'}`}
-            >
-              PROPERTY
-            </ToggleGroupItem>
-            <ToggleGroupItem 
-              value="community"
-              className={`text-[0.875rem] uppercase tracking-[0.08em] font-apercu px-4 py-1.5 rounded-lg ${viewType === 'community' ? 'bg-white/15 text-black' : 'bg-transparent text-white'}`}
-            >
-              COMMUNITY
-            </ToggleGroupItem>
-          </ToggleGroup>
         </div>
       </div>
 

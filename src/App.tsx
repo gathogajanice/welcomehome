@@ -7,6 +7,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import Hero from "./components/Hero";
+import Navbar from "./components/Navbar";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -15,6 +17,12 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider delayDuration={0}>
       <BrowserRouter>
+        {/* Hero slider positioned behind everything */}
+        <Hero />
+        
+        {/* Navbar - fixed position on top of hero */}
+        <Navbar />
+        
         <Toaster />
         <Sonner />
         <Routes>

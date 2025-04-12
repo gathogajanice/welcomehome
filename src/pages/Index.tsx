@@ -5,7 +5,7 @@ import LocationsSection from "@/components/LocationsSection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#f8f6f2]">
       {/* Hero slider positioned behind the navbar */}
       <Hero />
       

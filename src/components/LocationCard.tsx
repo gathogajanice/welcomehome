@@ -1,12 +1,11 @@
 
 import React, { useState } from 'react';
-import { MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 type LocationCardProps = {
-  time: string;       // e.g. "25"
-  unit: string;       // e.g. "MIN DRIVE BY CAR"
-  label: string;      // e.g. "Malaga Train Station "Maria Zambrano""
+  time: string;       // e.g. "65%"
+  unit: string;       // e.g. "ANNUAL GROWTH"
+  label: string;      // e.g. "Property Value Increase"
   image: string;      // path to hover image
 };
 
@@ -15,11 +14,13 @@ const LocationCard = ({ time, unit, label, image }: LocationCardProps) => {
   
   return (
     <div 
-      className="w-[280px] h-[180px] p-6 bg-[#F7F5F2] rounded-md relative overflow-hidden transition-colors duration-300 ease-in-out flex-shrink-0 scroll-snap-align-start"
+      className="w-[280px] h-[180px] p-6 bg-[#F7F5F2] rounded-md relative overflow-hidden transition-all duration-500 ease-in-out flex-shrink-0 scroll-snap-align-start"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{
         backgroundColor: isHovered ? '#ffffff' : '#F7F5F2',
+        boxShadow: isHovered ? '0 10px 25px rgba(0,0,0,0.05)' : 'none',
+        transform: isHovered ? 'translateY(-5px)' : 'translateY(0)',
       }}
     >
       {/* Hover image with animation */}
@@ -27,7 +28,7 @@ const LocationCard = ({ time, unit, label, image }: LocationCardProps) => {
         src={image} 
         alt={label}
         className={cn(
-          "absolute inset-0 w-full h-full object-cover z-[5] transition-all duration-800 ease-in-out",
+          "absolute inset-0 w-full h-full object-cover z-[5] transition-all duration-700 ease-in-out",
           isHovered ? "opacity-100 scale-100" : "opacity-0 scale-105"
         )}
       />
@@ -56,11 +57,6 @@ const LocationCard = ({ time, unit, label, image }: LocationCardProps) => {
             {label}
           </h3>
         </div>
-      </div>
-      
-      {/* Pin icon */}
-      <div className="absolute bottom-4 right-4 w-8 h-8 rounded-full border border-gray-300 bg-white/80 flex items-center justify-center text-black hover:bg-gray-100 transition z-20" title="View on map">
-        <MapPin className="w-4 h-4" />
       </div>
     </div>
   );

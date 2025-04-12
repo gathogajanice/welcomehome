@@ -79,11 +79,11 @@ const Hero = () => {
       {/* Welcome Home Hero Text - not in capital letters */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-40">
         <div className="text-white text-center">
-          <span className="block font-bricolage font-normal text-[clamp(4rem,12vw,14rem)] tracking-[0.03em] leading-[1] opacity-0 transform translate-y-5" 
+          <span className="block font-bricolage font-light text-[clamp(4rem,12vw,14rem)] tracking-[0.03em] leading-[1] opacity-0 transform translate-y-5" 
                 style={{animation: "fadeInUp 0.6s ease forwards"}}>
             Welcome
           </span>
-          <span className="block font-bricolage font-normal text-[clamp(4rem,12vw,14rem)] tracking-[0.03em] leading-[1] opacity-0 transform translate-y-5"
+          <span className="block font-bricolage font-light text-[clamp(4rem,12vw,14rem)] tracking-[0.03em] leading-[1] opacity-0 transform translate-y-5"
                 style={{animation: "fadeInUp 0.6s ease forwards 0.3s"}}>
             home
           </span>

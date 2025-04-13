@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Autoplay } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
@@ -18,77 +18,14 @@ const propertyImages = [
   "/lovable-uploads/1d4323f5-9936-4e6f-9c63-382444393b84.png", // Boats on orange water
 ];
 
-// Text for typing animation
-const typeText = "Real Estate";
-
 const Hero = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [imagesLoaded, setImagesLoaded] = useState(0);
-  const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
-  const [typedText, setTypedText] = useState("");
-  const [isTyping, setIsTyping] = useState(false);
-  const typeTextIndex = useRef(0);
   
-  // Preload all images
-  useEffect(() => {
-    const imagePromises = propertyImages.map((url) => {
-      return new Promise((resolve) => {
-        const img = new Image();
-        img.src = url;
-        img.onload = () => {
-          setImagesLoaded(prev => prev + 1);
-          resolve(url);
-        };
-        img.onerror = () => {
-          // Even if image fails, we consider it "loaded" to avoid blocking
-          setImagesLoaded(prev => prev + 1);
-          resolve(url);
-        };
-      });
-    });
-    
-    Promise.all(imagePromises).then(() => {
-      setAllImagesLoaded(true);
-      // Add small delay to ensure smooth transition
-      setTimeout(() => {
-        setIsLoaded(true);
-        // Start typing animation after a short delay
-        setTimeout(() => setIsTyping(true), 800);
-      }, 300);
-    });
-  }, []);
-
-  // Typing animation effect
-  useEffect(() => {
-    if (isTyping && typedText !== typeText) {
-      const typingInterval = setInterval(() => {
-        if (typeTextIndex.current < typeText.length) {
-          setTypedText((prev) => prev + typeText[typeTextIndex.current]);
-          typeTextIndex.current += 1;
-        } else {
-          clearInterval(typingInterval);
-        }
-      }, 150); // Speed of typing
-      
-      return () => clearInterval(typingInterval);
-    }
-  }, [isTyping, typedText]);
-
   // Handle slide change
   const handleSlideChange = (swiper: SwiperType) => {
     setActiveIndex(swiper.realIndex);
   };
-
-  // Simple loading spinner while images are being preloaded
-  if (!allImagesLoaded) {
-    return (
-      <div className="hero-container flex items-center justify-center bg-black">
-        <div className="spinner w-8 h-8 border-4 border-white/20 border-t-white rounded-full animate-spin"></div>
-      </div>
-    );
-  }
 
   return (
     <div className="hero-container">
@@ -110,7 +47,7 @@ const Hero = () => {
           effect="fade"
           loop={true}
           autoplay={{ delay: 5000, disableOnInteraction: false }}
-          className={`hero-swiper ${isLoaded ? 'loaded' : ''}`}
+          className="hero-swiper"
           onSwiper={setSwiperInstance}
           onSlideChange={handleSlideChange}
         >
@@ -129,21 +66,17 @@ const Hero = () => {
         </Swiper>
       </div>
 
-      {/* Updated hero content with the new design */}
+      {/* Hero content with simplified text */}
       <div className="absolute inset-0 flex items-center justify-center z-40 px-6">
         <div className="backdrop-blur-[2px] bg-black/25 border border-white/20 rounded-xl w-full max-w-3xl p-12 shadow-[0_8px_30px_rgb(0,0,0,0.12)] transform translate-y-[-4px]">
           {/* Hero title text centered in the container */}
           <div className="flex flex-col items-center justify-center h-full w-full">
             <div className="text-center">
-              <h1 className="font-clash text-4xl md:text-5xl font-semibold text-white leading-tight mb-4">
+              <h1 className="font-clash text-3xl md:text-4xl font-medium text-white leading-tight mb-4">
                 The Future of <span className="text-[#6DD6DB] inline-block">Fractional</span>
                 <br />
-                <span className="text-[#6DD6DB] inline-block">{typedText}<span className="animate-pulse">|</span></span> in Africa
+                <span className="text-[#6DD6DB] inline-block">Real Estate</span> in Africa
               </h1>
-              <p className="font-apercu text-white/90 text-base md:text-lg max-w-2xl mx-auto mt-6">
-                Welcome Home offers a unique approach to real estate investing by eliminating traditional 
-                barriers such as credit constraints and limited down payment options.
-              </p>
             </div>
           </div>
         </div>

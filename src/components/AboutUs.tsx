@@ -2,8 +2,8 @@
 import React from 'react';
 import { HelpCircle, Target, Plane, Lightbulb } from 'lucide-react';
 
-// Import the dotted path image
-import dottedPath from '/public/lovable-uploads/3bb747cf-dfd2-4e10-824d-5f16d753fb12.png';
+// Import the dotted path image - fixed path by removing "/public" prefix
+import dottedPath from '/lovable-uploads/3bb747cf-dfd2-4e10-824d-5f16d753fb12.png';
 
 // Card data structure
 type CardData = {

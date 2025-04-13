@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { HelpCircle, Target, Plane, Lightbulb } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 // Card data structure
 type CardData = {
@@ -38,11 +39,36 @@ const AboutUs = () => {
     },
   ];
 
+  // Animation variants
+  const iconAnimation = {
+    animate: {
+      y: [0, -5, 0],
+      transition: {
+        duration: 2,
+        ease: "easeInOut",
+        repeat: Infinity,
+        repeatType: "reverse" as const
+      }
+    }
+  };
+  
+  const textVariants = {
+    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: -20 }
+  };
+  
+  const imageVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
+
   return (
     <section 
-      className="relative min-h-screen w-full bg-cover bg-center bg-no-repeat py-20 overflow-hidden" 
+      className="relative min-h-screen w-full py-24 overflow-hidden" 
       style={{
-        backgroundImage: "url('/lovable-uploads/97d6ddfa-aa0a-464e-8696-6b1a48362452.png')"
+        backgroundImage: "url('/lovable-uploads/97d6ddfa-aa0a-464e-8696-6b1a48362452.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center"
       }} 
       id="about-us"
     >
@@ -58,44 +84,69 @@ const AboutUs = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Title section */}
         <div className="text-center mb-16">
-          <h2 className="font-clash font-bold text-5xl md:text-6xl text-[#00BFFF] mb-4">
+          <h2 className="font-media-sans font-bold text-5xl md:text-6xl text-[#00BFFF] mb-4">
             About Us
             <span className="block h-1 w-20 bg-[#00BFFF] mx-auto mt-2"></span>
           </h2>
-          <p className="font-apercu text-lg text-[#333] max-w-md mx-auto">
+          <p className="font-media-sans text-lg text-[#333] max-w-md mx-auto">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
         </div>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 px-6 md:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10 px-6 md:px-12">
           {cards.map((card, index) => (
-            <div 
-              key={index} 
-              className="relative bg-white rounded-xl border border-[#C8E7FA] shadow-md p-6 h-[280px] flex flex-col items-start text-left transition-transform duration-500 group overflow-hidden hover:shadow-xl hover:-translate-y-2"
+            <motion.div 
+              key={index}
+              whileHover="hover"
+              initial="initial"
+              className="relative bg-white rounded-[4rem] border border-gray-100 h-[480px] overflow-hidden"
             >
-              {/* Icon - now using image instead of Lucide icon */}
-              <div className="w-12 h-12 mb-4 flex items-center justify-center z-10">
-                <img 
-                  src={card.icon} 
-                  alt={`${card.title} icon`}
-                  className="w-8 h-8 object-contain"
-                />
+              {/* Content container */}
+              <div className="p-8 h-full flex flex-col items-center text-center">
+                {/* Icon with continuous animation */}
+                <motion.div 
+                  className="w-16 h-16 rounded-2xl bg-[#f8f6f2] flex items-center justify-center mb-6"
+                  animate="animate"
+                  variants={iconAnimation}
+                >
+                  <img 
+                    src={card.icon} 
+                    alt={`${card.title} icon`}
+                    className="w-8 h-8 object-contain"
+                  />
+                </motion.div>
+
+                {/* Text content that fades out on hover */}
+                <motion.div 
+                  className="z-10"
+                  variants={{
+                    initial: { opacity: 1 },
+                    hover: { opacity: 0, transition: { duration: 0.3 } }
+                  }}
+                >
+                  <h3 className="font-media-sans text-[1.5rem] font-bold text-[#111] mb-4">{card.title}</h3>
+                  <p className="font-apercu text-base text-[#444] leading-relaxed">
+                    {card.description}
+                  </p>
+                </motion.div>
+
+                {/* Image that slides in on hover */}
+                <motion.div
+                  className="absolute inset-0 w-full h-full"
+                  variants={{
+                    initial: { opacity: 0, y: 30 },
+                    hover: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  }}
+                >
+                  <img
+                    src={card.image}
+                    alt={`${card.title} image`}
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
               </div>
-
-              {/* Text content */}
-              <h3 className="font-clash text-lg font-semibold text-[#111] mb-2 z-10">{card.title}</h3>
-              <p className="font-apercu text-sm text-[#444] leading-relaxed z-10">
-                {card.description}
-              </p>
-
-              {/* Hover image reveal */}
-              <img
-                src={card.image}
-                alt={`${card.title} image`}
-                className="absolute inset-0 w-full h-full opacity-0 scale-105 object-cover transition-all duration-700 ease-in-out group-hover:opacity-20 group-hover:scale-100 z-0"
-              />
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

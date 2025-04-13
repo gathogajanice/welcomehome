@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { HelpCircle, Target, Plane, Lightbulb } from 'lucide-react';
 
 // Card data structure
 type CardData = {
@@ -39,7 +39,13 @@ const AboutUs = () => {
   ];
 
   return (
-    <section className="relative min-h-screen w-full bg-[url('/lovable-uploads/97d6ddfa-aa0a-464e-8696-6b1a48362452.png')] bg-blend-overlay bg-cover py-20 overflow-hidden" id="about-us">
+    <section 
+      className="relative min-h-screen w-full bg-cover bg-center bg-no-repeat py-20 overflow-hidden" 
+      style={{
+        backgroundImage: "url('/lovable-uploads/97d6ddfa-aa0a-464e-8696-6b1a48362452.png')"
+      }} 
+      id="about-us"
+    >
       {/* Dotted path decoration - using the uploaded doodle image */}
       <div className="absolute top-[-40px] left-[-20px] w-1/2 max-w-md opacity-60 z-0">
         <img 

@@ -6,17 +6,17 @@ const StatsSection = () => {
   // Stats data array
   const stats = [
     {
-      number: "70%",
+      number: "62%",
       title: "Reduction in Transaction Costs",
       description: "(Compared to traditional real estate channels)"
     },
     {
-      number: "12B+",
+      number: "11B+",
       title: "Market Opportunity",
       description: "(Africa's real estate by 2030 is within reach)"
     },
     {
-      number: "100+",
+      number: "88+",
       title: "Investors Showing Interest",
       description: "(From the U.S., Europe, and Senegal)"
     }
@@ -31,12 +31,10 @@ const StatsSection = () => {
   // Animation effect for numbers with continuous motion
   useEffect(() => {
     const targets = stats.map(stat => stat.number);
-    const animationDuration = 2000; // milliseconds
     let lastTime = 0;
     
     const animateNumbers = (timestamp: number) => {
       if (!lastTime) lastTime = timestamp;
-      const elapsed = timestamp - lastTime;
       
       // Create a continuous oscillating effect
       // Using sine wave to create smooth oscillation between 0.85 and 1
@@ -78,7 +76,7 @@ const StatsSection = () => {
 
   return (
     <section 
-      className="w-full bg-[#0e517d] py-16 relative z-10 overflow-hidden" 
+      className="w-full bg-[#0e517d] py-10 relative z-10 overflow-hidden" 
       id="stats-section"
       style={{
         backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)",
@@ -87,24 +85,24 @@ const StatsSection = () => {
     >
       <div className="container mx-auto px-4">
         {/* Stats container */}
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
           {stats.map((stat, index) => (
             <div 
               key={index} 
-              className="relative flex flex-col items-center text-white py-6 px-3 max-w-[250px] mx-auto"
+              className="relative flex flex-col items-center justify-center text-white py-4 px-2 max-w-[220px] mx-auto border border-[#4bbfe2]/30 rounded-lg bg-[#0e517d]/50"
             >
               {/* Number with animation */}
-              <h2 className="font-clash text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-white">
-                {animatedNumbers[index] || <Skeleton className="h-12 w-16 bg-white/10" />}
+              <h2 className="font-clash text-2xl md:text-3xl lg:text-4xl font-bold mb-1 text-white">
+                {animatedNumbers[index] || <Skeleton className="h-10 w-14 bg-white/10" />}
               </h2>
               
               {/* Title */}
-              <h3 className="font-apercu text-[#4bbfe2] text-xs md:text-sm lg:text-base mb-1 text-center">
+              <h3 className="font-apercu text-[#4bbfe2] text-xs md:text-xs lg:text-sm mb-1 text-center">
                 {stat.title}
               </h3>
               
               {/* Description */}
-              <p className="font-apercu text-white/70 text-xs md:text-xs max-w-[180px] text-center">
+              <p className="font-apercu text-white/70 text-[10px] md:text-[10px] lg:text-xs max-w-[170px] text-center">
                 {stat.description}
               </p>
             </div>

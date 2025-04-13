@@ -1,10 +1,12 @@
 
 import React, { useEffect, useState, useMemo } from 'react';
 import { motion, useAnimate } from "framer-motion";
+import { FaInfoCircle, FaBullseye, FaPlane, FaLightbulb, FaChartLine, FaRocket } from 'react-icons/fa';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 // Card data structure
 type CardData = {
-  icon: string;
+  icon: React.ElementType;
   title: string;
   description: string;
   image: string;
@@ -12,6 +14,7 @@ type CardData = {
 
 const AboutUs = () => {
   const [activeCard, setActiveCard] = useState(0);
+  const isMobile = useIsMobile();
 
   // Create individual hooks for each control
   const [scope1, animate1] = useAnimate();
@@ -40,8 +43,8 @@ const AboutUs = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveCard((prev) => (prev + 1) % 6); // Updated to 6 cards
-    }, 3000); // Slightly slower than Features to maintain subtlety
+      setActiveCard((prev) => (prev + 1) % 6);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -53,8 +56,8 @@ const AboutUs = () => {
         
         await animate(scope.current, 
           { 
-            scale: [1, 1.15, 1], // Slightly more subtle than Features
-            rotate: [0, 180, 0], // Half rotation for subtlety
+            scale: [1, 1.15, 1],
+            rotate: [0, 180, 0],
           }, 
           { 
             duration: 2,
@@ -70,43 +73,43 @@ const AboutUs = () => {
     return () => {};
   }, [controls]);
 
-  // Card data with African-themed images - added 2 more cards
+  // Card data with React icons
   const cards: CardData[] = [
     {
-      icon: "/lovable-uploads/cbae74d9-9537-4991-a534-c6cc8de0641f.png",
+      icon: FaInfoCircle,
       title: "Who We Are?",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      image: "/lovable-uploads/e1b40968-92f2-43da-9c58-0421ededaeed.png", // African architecture image
+      image: "/lovable-uploads/e1b40968-92f2-43da-9c58-0421ededaeed.png",
     },
     {
-      icon: "/lovable-uploads/cdb81e0e-7b55-4079-ab5c-0068cac75785.png",
+      icon: FaBullseye,
       title: "Our Mission",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      image: "/lovable-uploads/63427f01-4ea6-496d-9b20-f3eccdda8757.png", // Senegal community image
+      image: "/lovable-uploads/63427f01-4ea6-496d-9b20-f3eccdda8757.png",
     },
     {
-      icon: "/lovable-uploads/dd0611ca-5bcd-4971-ba11-363baf42026a.png",
+      icon: FaPlane,
       title: "Travel Feature",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      image: "/lovable-uploads/1d4323f5-9936-4e6f-9c63-382444393b84.png", // West African scene
+      image: "/lovable-uploads/1d4323f5-9936-4e6f-9c63-382444393b84.png",
     },
     {
-      icon: "/lovable-uploads/103d4b82-df9b-4a43-b3c4-d421e178c215.png",
+      icon: FaLightbulb,
       title: "Innovative Approach",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      image: "/lovable-uploads/fc99c9e7-80a3-4106-9a9f-1502fa6ca251.png", // Modern African city
+      image: "/lovable-uploads/fc99c9e7-80a3-4106-9a9f-1502fa6ca251.png",
     },
     {
-      icon: "/lovable-uploads/cbae74d9-9537-4991-a534-c6cc8de0641f.png",
+      icon: FaChartLine,
       title: "Our Values",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      image: "/lovable-uploads/e1b40968-92f2-43da-9c58-0421ededaeed.png", // Reusing first image
+      image: "/lovable-uploads/e1b40968-92f2-43da-9c58-0421ededaeed.png",
     },
     {
-      icon: "/lovable-uploads/cdb81e0e-7b55-4079-ab5c-0068cac75785.png",
+      icon: FaRocket,
       title: "Future Goals",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      image: "/lovable-uploads/63427f01-4ea6-496d-9b20-f3eccdda8757.png", // Reusing second image
+      image: "/lovable-uploads/63427f01-4ea6-496d-9b20-f3eccdda8757.png",
     },
   ];
 
@@ -116,7 +119,7 @@ const AboutUs = () => {
       id="about-us"
     >
       <div className="container mx-auto px-4 relative z-10">
-        {/* Title section using the same styling as Features but with scribble underline */}
+        {/* Title section using the same styling with scribble underline */}
         <div className="text-center mb-16">
           <div className="flex justify-center">
             <div className="inline-block px-4 py-1 text-sm font-medium bg-[#0e517d]/10 text-[#0e517d] border border-[#0e517d]/20 font-clash">
@@ -125,7 +128,7 @@ const AboutUs = () => {
           </div>
           <h2 className="mt-5 text-4xl font-bold font-clash text-[#0e517d] mb-4">
             About Us
-            {/* Scribble underline instead of straight line */}
+            {/* Scribble underline */}
             <div className="relative flex justify-center mt-2">
               <svg className="w-32 h-4" viewBox="0 0 100 10" xmlns="http://www.w3.org/2000/svg">
                 <path 
@@ -142,76 +145,77 @@ const AboutUs = () => {
           </p>
         </div>
 
-        {/* Cards grid - updated to 6 cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 px-6 md:px-12">
-          {cards.map((card, index) => (
-            <motion.div 
-              key={index} 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className={`
-                relative bg-white rounded-xl border border-[#C8E7FA] shadow-md p-6 h-[300px] 
-                flex flex-col items-start text-left transition-transform duration-500 
-                group overflow-hidden hover:shadow-xl hover:-translate-y-2
-                ${activeCard === index ? 'shadow-[0_8px_32px_0_rgba(14,81,125,0.2)]' : ''}
-              `}
-            >
-              {/* Glowing effect similar to Features */}
-              <div 
-                className={`
-                  absolute inset-0 bg-gradient-to-r from-transparent via-[#0e517d]/10 to-transparent
-                  transition-opacity duration-1000 pointer-events-none
-                  ${activeCard === index ? 'opacity-100' : 'opacity-0'}
-                `}
-                style={{
-                  transform: 'translateX(-100%)',
-                  animation: activeCard === index ? 'shine 2s ease-in-out' : 'none',
-                }}
-              />
-
-              {/* Icon - maintain color even during animation */}
+        {/* Cards grid - responsive with narrower cards */}
+        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-10 px-4 md:px-8`}>
+          {cards.map((card, index) => {
+            const Icon = card.icon;
+            
+            return (
               <motion.div 
-                ref={controls[index].scope}
-                className="w-16 h-16 mb-4 flex items-center justify-center z-10"
-                style={{
-                  background: 'rgba(14, 81, 125, 0.1)',
-                  border: '1px solid rgba(14, 81, 125, 0.2)',
-                  boxShadow: '0 8px 32px 0 rgba(14, 81, 125, 0.1)',
-                  borderRadius: '12px',
-                  padding: '12px',
-                }}
-                whileHover={{ 
-                  scale: 1.1,
-                  rotate: 180,
-                  background: 'rgba(14, 81, 125, 0.2)',
-                  transition: { duration: 0.3 }
-                }}
+                key={index} 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className={`
+                  relative bg-white rounded-xl border border-[#C8E7FA] shadow-md p-5 
+                  h-[260px] max-w-[280px] mx-auto
+                  flex flex-col items-start text-left transition-transform duration-500 
+                  group overflow-hidden hover:shadow-xl hover:-translate-y-2
+                  ${activeCard === index ? 'shadow-[0_8px_32px_0_rgba(14,81,125,0.2)]' : ''}
+                `}
               >
-                <img 
-                  src={card.icon} 
-                  alt={`${card.title} icon`}
-                  className="w-12 h-12 object-contain"
+                {/* Glowing effect similar to Features */}
+                <div 
+                  className={`
+                    absolute inset-0 bg-gradient-to-r from-transparent via-[#0e517d]/10 to-transparent
+                    transition-opacity duration-1000 pointer-events-none
+                    ${activeCard === index ? 'opacity-100' : 'opacity-0'}
+                  `}
+                  style={{
+                    transform: 'translateX(-100%)',
+                    animation: activeCard === index ? 'shine 2s ease-in-out' : 'none',
+                  }}
+                />
+
+                {/* Icon - maintain color during animation */}
+                <motion.div 
+                  ref={controls[index].scope}
+                  className="w-16 h-16 mb-4 flex items-center justify-center z-10"
+                  style={{
+                    background: 'rgba(14, 81, 125, 0.1)',
+                    border: '1px solid rgba(14, 81, 125, 0.2)',
+                    boxShadow: '0 8px 32px 0 rgba(14, 81, 125, 0.1)',
+                    borderRadius: '12px',
+                    padding: '12px',
+                  }}
+                  whileHover={{ 
+                    scale: 1.1,
+                    rotate: 180,
+                    background: 'rgba(14, 81, 125, 0.2)',
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  <Icon size={24} className="text-[#0e517d]" />
+                </motion.div>
+
+                {/* Text content */}
+                <h3 className="font-clash text-lg font-semibold text-[#0e517d] mb-2 z-10">{card.title}</h3>
+                <p className="font-apercu text-sm text-gray-600 leading-relaxed z-10">
+                  {card.description}
+                </p>
+
+                {/* Background image - only visible on hover */}
+                <img
+                  src={card.image}
+                  alt={`${card.title} image`}
+                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out scale-105 z-0
+                    opacity-0 group-hover:opacity-20
+                  `}
                 />
               </motion.div>
-
-              {/* Text content */}
-              <h3 className="font-clash text-lg font-semibold text-[#0e517d] mb-2 z-10">{card.title}</h3>
-              <p className="font-apercu text-sm text-gray-600 leading-relaxed z-10">
-                {card.description}
-              </p>
-
-              {/* Background image - only visible on hover or when active */}
-              <img
-                src={card.image}
-                alt={`${card.title} image`}
-                className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out scale-105 z-0
-                  opacity-0 group-hover:opacity-20
-                `}
-              />
-            </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

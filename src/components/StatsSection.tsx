@@ -1,8 +1,11 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { Skeleton } from "./ui/skeleton";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const StatsSection = () => {
+  const isMobile = useIsMobile();
+  
   // Stats data array with two additional stats
   const stats = [
     {
@@ -101,8 +104,8 @@ const StatsSection = () => {
       }}
     >
       <div className="container mx-auto px-4">
-        {/* Stats container - updated to grid-cols-5 to span full width */}
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-2 lg:gap-3">
+        {/* Stats container - responsive grid */}
+        <div className={`max-w-6xl mx-auto grid grid-cols-1 ${isMobile ? '' : 'sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5'} gap-4 md:gap-2 lg:gap-3`}>
           {stats.map((stat, index) => (
             <div 
               key={index} 
@@ -114,7 +117,7 @@ const StatsSection = () => {
               </h2>
               
               {/* Title */}
-              <h3 className="font-apercu text-[#4bbfe2] text-xs md:text-xs lg:text-sm mb-1 text-center">
+              <h3 className="font-clash text-[#4bbfe2] text-xs md:text-xs lg:text-sm mb-1 text-center">
                 {stat.title}
               </h3>
               

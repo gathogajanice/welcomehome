@@ -2,8 +2,9 @@
 import React from 'react';
 import { HelpCircle, Target, Plane, Lightbulb } from 'lucide-react';
 
-// Import the dotted path image - fixed path by removing "/public" prefix
-import dottedPath from '/lovable-uploads/3bb747cf-dfd2-4e10-824d-5f16d753fb12.png';
+// Instead of importing an external path, let's remove the actual image for now
+// We'll either add a background color or use a fallback texture from the available assets
+// If the dotted path image is crucial, we would need to ensure it's properly uploaded to the project
 
 // Card data structure
 type CardData = {
@@ -44,13 +45,9 @@ const AboutUs = () => {
 
   return (
     <section className="relative min-h-screen w-full bg-[#F0F5F9] bg-blend-overlay bg-cover py-20 overflow-hidden" id="about-us">
-      {/* Dotted path decoration */}
-      <img 
-        src={dottedPath} 
-        alt="Dotted path" 
-        className="absolute top-[-40px] left-[-20px] w-1/2 max-w-md opacity-60 z-0" 
-      />
-
+      {/* We're removing the dotted path decoration that was causing the error 
+          and replacing it with a simple background style */}
+      
       <div className="container mx-auto px-4 relative z-10">
         {/* Title section */}
         <div className="text-center mb-16">

@@ -1,146 +1,136 @@
 
 import React, { useState, useEffect } from 'react';
-import { cn } from '@/lib/utils';
-import { useIsMobile } from '@/hooks/use-mobile';
-
-const NavLink = ({ 
-  children, 
-  className, 
-  onClick 
-}: { 
-  children: React.ReactNode;
-  className?: string;
-  onClick?: () => void;
-}) => {
-  return (
-    <a href="#" className={cn("nav-link px-3 py-1", className)} onClick={onClick}>
-      <span className="text-black text-[11px] tracking-[0.075em] font-medium uppercase font-apercu-mono">
-        {children}
-      </span>
-    </a>
-  );
-};
-
-const MobileMenuLink = ({ 
-  children, 
-  delay,
-  onClick
-}: { 
-  children: React.ReactNode;
-  delay: number;
-  onClick?: () => void;
-}) => {
-  return (
-    <div 
-      className="overflow-hidden py-4"
-      style={{ animationDelay: `${delay}ms` }}
-    >
-      <a 
-        href="#" 
-        className="mobile-nav-link text-white text-2xl md:text-3xl tracking-wide uppercase font-canela"
-        onClick={onClick}
-      >
-        {children}
-      </a>
-    </div>
-  );
-};
+import { Link } from 'react-router-dom';
+import { useMobile } from '@/hooks/use-mobile';
 
 const Navbar = () => {
+  const isMobile = useMobile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const isMobile = useIsMobile();
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const closeMenu = () => setIsMenuOpen(false);
-
+  // Handle scroll events
   useEffect(() => {
-    // Set a small timeout to trigger the animation after component mount
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 100);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
 
-    return () => clearTimeout(timer);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    // Toggle body scroll
+    document.body.style.overflow = !isMenuOpen ? 'hidden' : '';
+  };
+  
+  // Navigation links array for easy management
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'Features', path: '/features' },
+    // Add more links as needed
+  ];
+
+  // Use a different className for mobile menu links
+  const linkClassName = isMobile ? 'mobile-nav-link' : 'nav-link';
 
   return (
     <>
+      {/* Main navbar */}
       <header 
-        className={cn(
-          "w-full h-16 px-8 md:px-12 flex items-center justify-between fixed top-0 left-0 z-50 rounded-lg font-canela",
-          "bg-white/30 backdrop-blur-[10px] border border-white/20",
-          "transition-all duration-600 ease-out will-change-transform will-change-opacity",
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-[10px]"
-        )}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md
+          ${isScrolled ? 'bg-white/90 shadow-sm' : 'bg-transparent'}
+        `}
       >
-        {/* Left Side Content */}
-        <div className="flex items-center space-x-8">
-          {/* Menu Icon and Text */}
-          <div 
-            className="flex items-center space-x-2 glassmorphic-hover px-3 py-1 cursor-pointer"
-            onClick={toggleMenu}
-            role="button"
-            aria-label="Toggle menu"
-          >
-            <div className={cn("flex flex-col space-y-1 hamburger-icon relative", isMenuOpen && "active")}>
-              <div className="w-6 h-[1.5px] bg-black transition-all duration-300 origin-center hamburger-line-1"></div>
-              <div className="w-5 h-[1.5px] bg-black transition-all duration-300 origin-center hamburger-line-2"></div>
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex justify-between items-center">
+            {/* Logo/Brand */}
+            <div className="flex items-center">
+              <Link to="/" className="text-2xl font-bold text-black">
+                LOGO
+              </Link>
             </div>
-            <span className="text-black text-xs tracking-[0.15em] font-light uppercase">Menu</span>
-          </div>
-          
-          {/* Navigation Links Container */}
-          <div className="hidden md:flex items-center space-x-6">
-            <NavLink>Home</NavLink>
-            <NavLink>About</NavLink>
-            <NavLink>Explore</NavLink>
-          </div>
-        </div>
+            
+            {/* Desktop navigation links */}
+            {!isMobile && (
+              <nav className="flex gap-8 items-center">
+                {navLinks.map((link, index) => (
+                  <Link 
+                    key={index} 
+                    to={link.path} 
+                    className={`${linkClassName} text-sm font-medium text-black hover:text-gray-600 transition-colors`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </nav>
+            )}
 
-        {/* Right Side Content */}
-        <div className="flex items-center space-x-6">
-          {/* Phone Number */}
-          <div className="hidden md:flex items-center sleek-hover-container px-3 py-1 rounded-md relative">
-            <span className="text-black text-xs font-light relative z-10">+254 710293233</span>
-            <span className="text-black mx-2 font-light separator-line relative z-10">/</span>
-            <span className="text-black text-xs font-light relative z-10">SE</span>
-          </div>
-          
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center">
-            <a 
-              href="#" 
-              className="sleek-hover-container bg-cream text-black text-xs tracking-[0.075em] font-light uppercase px-4 py-1.5 rounded-md relative"
-            >
-              <span className="relative z-10">Start Investing</span>
-            </a>
+            {/* CTA Button (desktop) or Menu Button (mobile) */}
+            {isMobile ? (
+              <button 
+                className="hamburger-icon p-2" 
+                onClick={toggleMenu}
+                aria-label="Toggle menu"
+              >
+                <div 
+                  className={`hamburger-line-1 w-6 h-0.5 bg-black mb-1 transition-all duration-300 ${isMenuOpen ? 'transform rotate-45 translate-y-1.5' : ''}`}
+                ></div>
+                <div 
+                  className={`hamburger-line-2 w-6 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? 'transform -rotate-45' : ''}`}
+                ></div>
+              </button>
+            ) : (
+              <Link 
+                to="/" 
+                className="bg-cream text-black py-2.5 px-6 font-medium rounded-sm hover:bg-cream/90 transition-colors text-sm"
+              >
+                Get Started
+              </Link>
+            )}
           </div>
         </div>
       </header>
 
       {/* Mobile Menu Overlay */}
-      <div 
-        className={cn(
-          "fixed inset-0 bg-black/80 backdrop-blur-sm z-40 menu-overlay transition-opacity duration-500",
-          isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        )}
-        onClick={closeMenu}
-      >
+      {isMobile && (
         <div 
-          className={cn(
-            "flex flex-col items-center justify-center h-full transition-transform duration-500",
-            isMenuOpen ? "translate-y-0" : "-translate-y-20"
-          )}
-          onClick={(e) => e.stopPropagation()}
+          className={`menu-overlay fixed inset-0 bg-black bg-opacity-95 z-40 transition-all duration-500 ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+          onClick={toggleMenu}
         >
-          <nav className="text-center">
-            <MobileMenuLink delay={100} onClick={closeMenu}>Home</MobileMenuLink>
-            <MobileMenuLink delay={200} onClick={closeMenu}>About</MobileMenuLink>
-            <MobileMenuLink delay={300} onClick={closeMenu}>Explore</MobileMenuLink>
-            <MobileMenuLink delay={400} onClick={closeMenu}>Contact</MobileMenuLink>
-          </nav>
+          <div 
+            className={`flex flex-col items-center justify-center h-full transition-transform duration-500 ${isMenuOpen ? 'translate-y-0' : 'translate-y-20'}`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <nav className="flex flex-col items-center gap-8">
+              {navLinks.map((link, index) => (
+                <Link 
+                  key={index} 
+                  to={link.path} 
+                  className={`${linkClassName} text-xl font-medium text-white hover:text-gray-300 transition-colors`}
+                  onClick={toggleMenu}
+                >
+                  <div className="overflow-hidden">
+                    {link.name}
+                  </div>
+                </Link>
+              ))}
+              
+              <div className="mt-8">
+                <Link
+                  to="/"
+                  className="bg-white text-black py-3 px-8 font-medium rounded-sm"
+                  onClick={toggleMenu}
+                >
+                  <div className="overflow-hidden">
+                    Get Started
+                  </div>
+                </Link>
+              </div>
+            </nav>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

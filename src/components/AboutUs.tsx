@@ -169,8 +169,8 @@ const AboutUs = () => {
           </p>
         </div>
 
-        {/* Cards grid - responsive with narrower cards and reduced spacing */}
-        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-8 px-3 md:px-6`}>
+        {/* Cards grid - reduced spacing between cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mt-6 px-2 md:px-4">
           {cards.map((card, index) => {
             const Icon = card.icon;
             
@@ -183,7 +183,7 @@ const AboutUs = () => {
                 viewport={{ once: true }}
                 className={`
                   relative bg-white rounded-xl border border-[#C8E7FA] shadow-md p-5 
-                  h-[240px] max-w-[260px] mx-auto
+                  h-[220px] max-w-[260px] mx-auto
                   flex flex-col items-start text-left transition-transform duration-500 
                   group overflow-hidden hover:shadow-xl hover:-translate-y-2
                   ${activeCard === index ? 'shadow-[0_8px_32px_0_rgba(14,81,125,0.2)]' : ''}

@@ -94,6 +94,10 @@ export default {
 				'apercu': ['ApercuMono', 'sans-serif'],
 				'bricolage': ['Bricolage Grotesque', 'sans-serif'],
 				'clash': ['Clash Display', 'sans-serif']
+			},
+			transitionDuration: {
+				'1500': '1500ms',
+				'2000': '2000ms',
 			}
 		}
 	},

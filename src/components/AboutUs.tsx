@@ -1,5 +1,5 @@
-import React from 'react';
-import { HelpCircle, Target, Plane, Lightbulb } from 'lucide-react';
+
+import React, { useState, useEffect } from 'react';
 
 // Card data structure
 type CardData = {
@@ -10,31 +10,42 @@ type CardData = {
 };
 
 const AboutUs = () => {
-  // Card data with African-themed images
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    // Delay the image reveal animation
+    const timer = setTimeout(() => {
+      setImagesLoaded(true);
+    }, 1200);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Card data with high-quality house images featuring moody orange hues
   const cards: CardData[] = [
     {
       icon: "/lovable-uploads/cbae74d9-9537-4991-a534-c6cc8de0641f.png",
       title: "Who We Are?",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      image: "/lovable-uploads/e1b40968-92f2-43da-9c58-0421ededaeed.png", // African architecture image
+      image: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=3540&auto=format&fit=crop", // Sunset hued house
     },
     {
       icon: "/lovable-uploads/cdb81e0e-7b55-4079-ab5c-0068cac75785.png",
       title: "Our Mission",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      image: "/lovable-uploads/63427f01-4ea6-496d-9b20-f3eccdda8757.png", // Senegal community image
+      image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=3540&auto=format&fit=crop", // Golden-hour house
     },
     {
       icon: "/lovable-uploads/dd0611ca-5bcd-4971-ba11-363baf42026a.png",
       title: "Travel Feature",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      image: "/lovable-uploads/1d4323f5-9936-4e6f-9c63-382444393b84.png", // West African scene
+      image: "https://images.unsplash.com/photo-1513584684374-8bab748fbf90?q=80&w=3546&auto=format&fit=crop", // Modern orange-tinted house
     },
     {
       icon: "/lovable-uploads/103d4b82-df9b-4a43-b3c4-d421e178c215.png",
       title: "Innovative Approach",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      image: "/lovable-uploads/fc99c9e7-80a3-4106-9a9f-1502fa6ca251.png", // Modern African city
+      image: "https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=3387&auto=format&fit=crop", // Sunset glow home
     },
   ];
 
@@ -58,9 +69,9 @@ const AboutUs = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Title section */}
         <div className="text-center mb-16">
-          <h2 className="font-clash font-bold text-5xl md:text-6xl text-[#00BFFF] mb-4">
+          <h2 className="font-clash font-bold text-5xl md:text-6xl text-[#F97316] mb-4">
             About Us
-            <span className="block h-1 w-20 bg-[#00BFFF] mx-auto mt-2"></span>
+            <span className="block h-1 w-20 bg-[#F97316] mx-auto mt-2"></span>
           </h2>
           <p className="font-apercu text-lg text-[#333] max-w-md mx-auto">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -72,9 +83,9 @@ const AboutUs = () => {
           {cards.map((card, index) => (
             <div 
               key={index} 
-              className="relative bg-white rounded-xl border border-[#C8E7FA] shadow-md p-6 h-[280px] flex flex-col items-start text-left transition-transform duration-500 group overflow-hidden hover:shadow-xl hover:-translate-y-2"
+              className="relative bg-white rounded-xl border border-[#FEC6A1] shadow-md p-6 h-[280px] flex flex-col items-start text-left transition-transform duration-500 group overflow-hidden hover:shadow-xl hover:-translate-y-2"
             >
-              {/* Icon - now using image instead of Lucide icon */}
+              {/* Icon */}
               <div className="w-12 h-12 mb-4 flex items-center justify-center z-10">
                 <img 
                   src={card.icon} 
@@ -89,12 +100,22 @@ const AboutUs = () => {
                 {card.description}
               </p>
 
-              {/* Hover image reveal */}
-              <img
-                src={card.image}
-                alt={`${card.title} image`}
-                className="absolute inset-0 w-full h-full opacity-0 scale-105 object-cover transition-all duration-700 ease-in-out group-hover:opacity-20 group-hover:scale-100 z-0"
-              />
+              {/* House image with reveal animation */}
+              <div 
+                className={`absolute inset-0 w-full h-full transition-all duration-1500 ease-out ${
+                  imagesLoaded ? 'opacity-25 scale-100' : 'opacity-0 scale-105'
+                }`}
+              >
+                <img
+                  src={card.image}
+                  alt={`${card.title} house`}
+                  className="w-full h-full object-cover"
+                  style={{ filter: 'sepia(20%) saturate(140%)' }} // Add orange/warm tint
+                />
+              </div>
+              
+              {/* Overlay gradient for better text visibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-white via-white/70 to-transparent opacity-60 z-5"></div>
             </div>
           ))}
         </div>

@@ -1,7 +1,5 @@
 
 import React from 'react';
-import LocationsSection from "@/components/LocationsSection";
-import Hero from "@/components/Hero";
 import AboutUs from "@/components/AboutUs";
 
 const Index = () => {
@@ -11,7 +9,6 @@ const Index = () => {
       {/* Main content */}
       <div className="relative z-10 mt-[100vh]">
         <AboutUs />
-        <LocationsSection />
       </div>
     </div>
   );

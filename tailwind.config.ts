@@ -92,7 +92,8 @@ export default {
 			fontFamily: {
 				'canela': ['Canela', 'serif'],
 				'apercu': ['ApercuMono', 'sans-serif'],
-				'bricolage': ['Bricolage Grotesque', 'sans-serif']
+				'bricolage': ['Bricolage Grotesque', 'sans-serif'],
+				'clash': ['Clash Display', 'sans-serif']
 			}
 		}
 	},

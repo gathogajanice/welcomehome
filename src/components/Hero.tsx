@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Autoplay } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
@@ -18,12 +18,18 @@ const propertyImages = [
   "/lovable-uploads/1d4323f5-9936-4e6f-9c63-382444393b84.png", // Boats on orange water
 ];
 
+// Text for typing animation
+const typeText = "Real Estate";
+
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState(0);
   const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+  const [typedText, setTypedText] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
+  const typeTextIndex = useRef(0);
   
   // Preload all images
   useEffect(() => {
@@ -46,9 +52,29 @@ const Hero = () => {
     Promise.all(imagePromises).then(() => {
       setAllImagesLoaded(true);
       // Add small delay to ensure smooth transition
-      setTimeout(() => setIsLoaded(true), 300);
+      setTimeout(() => {
+        setIsLoaded(true);
+        // Start typing animation after a short delay
+        setTimeout(() => setIsTyping(true), 800);
+      }, 300);
     });
   }, []);
+
+  // Typing animation effect
+  useEffect(() => {
+    if (isTyping && typedText !== typeText) {
+      const typingInterval = setInterval(() => {
+        if (typeTextIndex.current < typeText.length) {
+          setTypedText((prev) => prev + typeText[typeTextIndex.current]);
+          typeTextIndex.current += 1;
+        } else {
+          clearInterval(typingInterval);
+        }
+      }, 150); // Speed of typing
+      
+      return () => clearInterval(typingInterval);
+    }
+  }, [isTyping, typedText]);
 
   // Handle slide change
   const handleSlideChange = (swiper: SwiperType) => {
@@ -60,7 +86,7 @@ const Hero = () => {
     return (
       <div className="hero-container flex items-center justify-center bg-black">
         <div className="text-center">
-          <div className="mb-4 text-white font-bricolage text-xl">Loading experience...</div>
+          <div className="mb-4 text-white font-clash text-xl">Loading experience...</div>
           <div className="w-64 h-1 bg-gray-700 rounded-full overflow-hidden">
             <div 
               className="h-full bg-[#6DD6DB] transition-all duration-500 ease-out"
@@ -120,9 +146,9 @@ const Hero = () => {
           {/* Hero title text centered in the container */}
           <div className="flex items-center justify-center h-full w-full">
             <div className="text-center">
-              <h1 className="font-bricolage text-5xl md:text-6xl font-bold text-white leading-tight">
+              <h1 className="font-clash text-5xl md:text-6xl font-bold text-white leading-tight">
                 The Future of<br />
-                Fractional <span className="text-[#6DD6DB]">Real Estate</span><br />
+                Fractional <span className="text-[#6DD6DB] inline-block min-w-[185px]">{typedText}<span className="animate-pulse">|</span></span><br />
                 in Africa
               </h1>
             </div>

@@ -115,29 +115,53 @@ const AboutUs = () => {
 
   return (
     <section 
-      className="relative min-h-screen w-full py-20 overflow-hidden bg-white" 
+      className="relative min-h-screen w-full py-16 overflow-hidden bg-[#f8f6f2]" 
       id="about-us"
+      style={{ 
+        backgroundImage: "url('/textures/fiber-light.png')", 
+        backgroundRepeat: "repeat" 
+      }}
     >
       <div className="container mx-auto px-4 relative z-10">
-        {/* Title section using the same styling with scribble underline */}
-        <div className="text-center mb-16">
-          <div className="flex justify-center">
-            <div className="inline-block px-4 py-1 text-sm font-medium bg-[#0e517d]/10 text-[#0e517d] border border-[#0e517d]/20 font-clash">
-              About Us
-            </div>
-          </div>
-          <h2 className="mt-5 text-4xl font-bold font-clash text-[#0e517d] mb-4">
+        {/* Title section with animated scribble underline */}
+        <div className="text-center mb-12">
+          <h2 className="mt-5 text-4xl font-bold font-clash text-[#0e517d] mb-2">
             About Us
-            {/* Scribble underline */}
+            {/* Animated scribble underline */}
             <div className="relative flex justify-center mt-2">
-              <svg className="w-32 h-4" viewBox="0 0 100 10" xmlns="http://www.w3.org/2000/svg">
-                <path 
+              <motion.svg 
+                className="w-32 h-4" 
+                viewBox="0 0 100 10" 
+                xmlns="http://www.w3.org/2000/svg"
+                animate={{ 
+                  y: [0, -2, 0, 2, 0],
+                  scaleX: [1, 1.03, 1, 0.97, 1]
+                }}
+                transition={{ 
+                  repeat: Infinity, 
+                  duration: 5,
+                  ease: "easeInOut"
+                }}
+              >
+                <motion.path 
                   d="M0,5 C10,2 15,8 25,5 C35,2 40,8 50,5 C60,2 65,8 75,5 C85,2 90,8 100,5" 
                   fill="none" 
                   stroke="#0e517d" 
                   strokeWidth="2"
+                  animate={{
+                    d: [
+                      "M0,5 C10,2 15,8 25,5 C35,2 40,8 50,5 C60,2 65,8 75,5 C85,2 90,8 100,5",
+                      "M0,5 C10,8 15,2 25,5 C35,8 40,2 50,5 C60,8 65,2 75,5 C85,8 90,2 100,5",
+                      "M0,5 C10,2 15,8 25,5 C35,2 40,8 50,5 C60,2 65,8 75,5 C85,2 90,8 100,5"
+                    ]
+                  }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 8,
+                    ease: "easeInOut"
+                  }}
                 />
-              </svg>
+              </motion.svg>
             </div>
           </h2>
           <p className="font-apercu text-lg text-gray-600 max-w-md mx-auto">
@@ -145,8 +169,8 @@ const AboutUs = () => {
           </p>
         </div>
 
-        {/* Cards grid - responsive with narrower cards */}
-        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-10 px-4 md:px-8`}>
+        {/* Cards grid - responsive with narrower cards and reduced spacing */}
+        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-8 px-3 md:px-6`}>
           {cards.map((card, index) => {
             const Icon = card.icon;
             
@@ -159,7 +183,7 @@ const AboutUs = () => {
                 viewport={{ once: true }}
                 className={`
                   relative bg-white rounded-xl border border-[#C8E7FA] shadow-md p-5 
-                  h-[260px] max-w-[280px] mx-auto
+                  h-[240px] max-w-[260px] mx-auto
                   flex flex-col items-start text-left transition-transform duration-500 
                   group overflow-hidden hover:shadow-xl hover:-translate-y-2
                   ${activeCard === index ? 'shadow-[0_8px_32px_0_rgba(14,81,125,0.2)]' : ''}
@@ -181,13 +205,13 @@ const AboutUs = () => {
                 {/* Icon - maintain color during animation */}
                 <motion.div 
                   ref={controls[index].scope}
-                  className="w-16 h-16 mb-4 flex items-center justify-center z-10"
+                  className="w-14 h-14 mb-3 flex items-center justify-center z-10"
                   style={{
                     background: 'rgba(14, 81, 125, 0.1)',
                     border: '1px solid rgba(14, 81, 125, 0.2)',
                     boxShadow: '0 8px 32px 0 rgba(14, 81, 125, 0.1)',
                     borderRadius: '12px',
-                    padding: '12px',
+                    padding: '10px',
                   }}
                   whileHover={{ 
                     scale: 1.1,
@@ -196,7 +220,7 @@ const AboutUs = () => {
                     transition: { duration: 0.3 }
                   }}
                 >
-                  <Icon size={24} className="text-[#0e517d]" />
+                  <Icon size={22} className="text-[#0e517d]" />
                 </motion.div>
 
                 {/* Text content */}

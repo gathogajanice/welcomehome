@@ -20,18 +20,60 @@ const propertyImages = [
 
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(0);
+  const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
   
-  // Set loaded state after component mount to trigger animations
+  // Preload all images
   useEffect(() => {
-    setIsLoaded(true);
+    const imagePromises = propertyImages.map((url) => {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.src = url;
+        img.onload = () => {
+          setImagesLoaded(prev => prev + 1);
+          resolve(url);
+        };
+        img.onerror = () => {
+          // Even if image fails, we consider it "loaded" to avoid blocking
+          setImagesLoaded(prev => prev + 1);
+          resolve(url);
+        };
+      });
+    });
+    
+    Promise.all(imagePromises).then(() => {
+      setAllImagesLoaded(true);
+      // Add small delay to ensure smooth transition
+      setTimeout(() => setIsLoaded(true), 300);
+    });
   }, []);
 
   // Handle slide change
   const handleSlideChange = (swiper: SwiperType) => {
     setActiveIndex(swiper.realIndex);
   };
+
+  // Loader while images are being preloaded
+  if (!allImagesLoaded) {
+    return (
+      <div className="hero-container flex items-center justify-center bg-black">
+        <div className="text-center">
+          <div className="mb-4 text-white font-bricolage text-xl">Loading experience...</div>
+          <div className="w-64 h-1 bg-gray-700 rounded-full overflow-hidden">
+            <div 
+              className="h-full bg-[#6DD6DB] transition-all duration-500 ease-out"
+              style={{ width: `${(imagesLoaded / propertyImages.length) * 100}%` }}
+            />
+          </div>
+          <div className="mt-2 text-white/60 text-sm">
+            {imagesLoaded} of {propertyImages.length} assets
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="hero-container">
@@ -78,7 +120,7 @@ const Hero = () => {
           {/* Hero title text centered in the container */}
           <div className="flex items-center justify-center h-full w-full">
             <div className="text-center">
-              <h1 className="font-bricolage text-5xl md:text-6xl font-light text-white leading-tight">
+              <h1 className="font-bricolage text-5xl md:text-6xl font-bold text-white leading-tight">
                 The Future of<br />
                 Fractional <span className="text-[#6DD6DB]">Real Estate</span><br />
                 in Africa

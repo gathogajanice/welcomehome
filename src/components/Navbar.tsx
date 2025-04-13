@@ -97,7 +97,7 @@ const Navbar = () => {
           {/* Navigation Links Container */}
           <div className="hidden md:flex items-center space-x-6">
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/invest">Invest</NavLink>
+            <NavLink to="/features">Features</NavLink>
             <NavLink to="/about">About</NavLink>
           </div>
         </div>
@@ -140,7 +140,7 @@ const Navbar = () => {
         >
           <nav className="text-center">
             <MobileMenuLink to="/" delay={100} onClick={closeMenu}>Home</MobileMenuLink>
-            <MobileMenuLink to="/invest" delay={200} onClick={closeMenu}>Invest</MobileMenuLink>
+            <MobileMenuLink to="/features" delay={200} onClick={closeMenu}>Features</MobileMenuLink>
             <MobileMenuLink to="/about" delay={300} onClick={closeMenu}>About</MobileMenuLink>
             <MobileMenuLink to="/contact" delay={400} onClick={closeMenu}>Contact</MobileMenuLink>
           </nav>

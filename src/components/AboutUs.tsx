@@ -2,9 +2,6 @@
 import React from 'react';
 import { HelpCircle, Target, Plane, Lightbulb } from 'lucide-react';
 
-// Import the dotted path image
-import dottedPath from '/public/lovable-uploads/3bb747cf-dfd2-4e10-824d-5f16d753fb12.png';
-
 // Card data structure
 type CardData = {
   icon: React.ElementType;
@@ -43,13 +40,27 @@ const AboutUs = () => {
   ];
 
   return (
-    <section className="relative min-h-screen w-full bg-[#F0F5F9] bg-blend-overlay bg-cover py-20 overflow-hidden" id="about-us">
-      {/* Dotted path decoration */}
-      <img 
-        src={dottedPath} 
-        alt="Dotted path" 
-        className="absolute top-[-40px] left-[-20px] w-1/2 max-w-md opacity-60 z-0" 
-      />
+    <section className="relative min-h-screen w-full bg-[url('/textures/fiber-light.png')] bg-[#F0F5F9] bg-blend-overlay bg-cover py-20 overflow-hidden" id="about-us">
+      {/* Dotted path decoration - using a simple SVG path instead of an image */}
+      <div className="absolute top-[-40px] left-[-20px] w-1/2 max-w-md opacity-60 z-0">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path 
+            fill="none" 
+            stroke="#00BFFF" 
+            strokeWidth="1" 
+            strokeDasharray="5,5"
+            d="M10,80 Q50,30 100,90 T180,100" 
+          />
+          <path 
+            fill="none" 
+            stroke="#00BFFF" 
+            strokeWidth="1" 
+            strokeDasharray="5,5"
+            d="M20,100 Q60,50 110,110 T190,120" 
+            strokeOpacity="0.6"
+          />
+        </svg>
+      </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Title section */}

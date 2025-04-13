@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { HelpCircle, Target, Plane, Lightbulb } from 'lucide-react';
 
@@ -40,21 +41,10 @@ const AboutUs = () => {
 
   return (
     <section 
-      className="relative min-h-screen w-full bg-cover bg-center bg-no-repeat py-20 overflow-hidden" 
-      style={{
-        backgroundImage: "url('/lovable-uploads/97d6ddfa-aa0a-464e-8696-6b1a48362452.png')"
-      }} 
+      className="relative min-h-screen w-full py-20 overflow-hidden bg-white" 
       id="about-us"
     >
-      {/* Dotted path decoration - using the uploaded doodle image */}
-      <div className="absolute top-[-40px] left-[-20px] w-1/2 max-w-md opacity-60 z-0">
-        <img 
-          src="/lovable-uploads/0ba03bf7-67e6-4a4e-a18c-5c4890729a57.png"
-          alt="Dotted path"
-          className="w-full"
-        />
-      </div>
-
+      {/* Removed dotted path decoration */}
       <div className="container mx-auto px-4 relative z-10">
         {/* Title section */}
         <div className="text-center mb-16">

@@ -1,147 +1,113 @@
-
 import React, { useState, useEffect } from 'react';
-import { cn } from '@/lib/utils';
-import { useIsMobile } from '@/hooks/use-mobile';
-
-const NavLink = ({ 
-  children, 
-  className, 
-  onClick 
-}: { 
-  children: React.ReactNode;
-  className?: string;
-  onClick?: () => void;
-}) => {
-  return (
-    <a href="#" className={cn("nav-link px-3 py-1", className)} onClick={onClick}>
-      <span className="text-black text-[11px] tracking-[0.075em] font-medium uppercase font-apercu-mono">
-        {children}
-      </span>
-    </a>
-  );
-};
-
-const MobileMenuLink = ({ 
-  children, 
-  delay,
-  onClick
-}: { 
-  children: React.ReactNode;
-  delay: number;
-  onClick?: () => void;
-}) => {
-  return (
-    <div 
-      className="overflow-hidden py-4"
-      style={{ animationDelay: `${delay}ms` }}
-    >
-      <a 
-        href="#" 
-        className="mobile-nav-link text-white text-2xl md:text-3xl tracking-wide uppercase font-canela"
-        onClick={onClick}
-      >
-        {children}
-      </a>
-    </div>
-  );
-};
+import { Link } from 'react-router-dom';
+import { X } from 'lucide-react';
+import { useMobile } from '@/hooks/use-mobile';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const isMobile = useIsMobile();
+  const [isTransparent, setIsTransparent] = useState(true);
+  const isMobile = useMobile();
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const closeMenu = () => setIsMenuOpen(false);
-
+  // Handle scroll events to update navbar transparency
   useEffect(() => {
-    // Set a small timeout to trigger the animation after component mount
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 100);
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 100) {
+        setIsTransparent(false);
+      } else {
+        setIsTransparent(true);
+      }
+    };
 
-    return () => clearTimeout(timer);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return (
-    <>
-      <header 
-        className={cn(
-          "w-full h-16 px-8 md:px-12 flex items-center justify-between fixed top-0 left-0 z-50 rounded-lg font-canela",
-          "bg-white/30 backdrop-blur-[10px] border border-white/20",
-          "transition-all duration-600 ease-out will-change-transform will-change-opacity",
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-[10px]"
-        )}
-      >
-        {/* Left Side Content */}
-        <div className="flex items-center space-x-8">
-          {/* Menu Icon and Text */}
-          <div 
-            className="flex items-center space-x-2 glassmorphic-hover px-3 py-1 cursor-pointer"
-            onClick={toggleMenu}
-            role="button"
-            aria-label="Toggle menu"
-          >
-            <div className={cn("flex flex-col space-y-1 hamburger-icon relative", isMenuOpen && "active")}>
-              <div className="w-6 h-[1.5px] bg-black transition-all duration-300 origin-center hamburger-line-1"></div>
-              <div className="w-5 h-[1.5px] bg-black transition-all duration-300 origin-center hamburger-line-2"></div>
-            </div>
-            <span className="text-black text-xs tracking-[0.15em] font-light uppercase">Menu</span>
-          </div>
-          
-          {/* Navigation Links Container */}
-          <div className="hidden md:flex items-center space-x-6">
-            <NavLink>Home</NavLink>
-            <NavLink>About</NavLink>
-            <NavLink>Explore</NavLink>
-          </div>
-        </div>
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
-        {/* Right Side Content */}
-        <div className="flex items-center space-x-6">
-          {/* Phone Number */}
-          <div className="hidden md:flex items-center sleek-hover-container px-3 py-1 rounded-md relative">
-            <span className="text-black text-xs font-light relative z-10">+254 710293233</span>
-            <span className="text-black mx-2 font-light separator-line relative z-10">/</span>
-            <span className="text-black text-xs font-light relative z-10">SE</span>
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  // Navigation links
+  const navLinks = [
+    { label: 'Home', path: '/' },
+    { label: 'About Us', path: '/#about-us' },
+    { label: 'About Us 2', path: '/about-us-2' },
+  ];
+
+  return (
+    <nav
+      className={`fixed top-0 left-0 w-full z-20 transition-colors duration-300 ${
+        isTransparent ? 'bg-transparent' : 'bg-white shadow-md'
+      }`}
+    >
+      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+        {/* Logo */}
+        <Link to="/" className="font-bold text-xl text-black">
+          Your Logo
+        </Link>
+
+        {/* Desktop Navigation */}
+        {!isMobile && (
+          <div className="hidden md:flex items-center space-x-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className="nav-link text-black hover:text-gray-800 transition-colors duration-300"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
-          
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center">
-            <a 
-              href="#" 
-              className="sleek-hover-container bg-cream text-black text-xs tracking-[0.075em] font-light uppercase px-4 py-1.5 rounded-md relative"
-            >
-              <span className="relative z-10">Start Investing</span>
-            </a>
-          </div>
-        </div>
-      </header>
+        )}
+
+        {/* Mobile Menu Button */}
+        {isMobile && (
+          <button
+            onClick={toggleMenu}
+            className="hamburger-icon relative w-10 h-10 flex flex-col justify-center items-center space-y-1 group"
+          >
+            <span className="hamburger-line-1 block h-0.5 w-6 bg-black rounded-full transition-all duration-300"></span>
+            <span className="hamburger-line-2 block h-0.5 w-6 bg-black rounded-full transition-all duration-300"></span>
+          </button>
+        )}
+      </div>
 
       {/* Mobile Menu Overlay */}
-      <div 
-        className={cn(
-          "fixed inset-0 bg-black/80 backdrop-blur-sm z-40 menu-overlay transition-opacity duration-500",
-          isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        )}
-        onClick={closeMenu}
-      >
-        <div 
-          className={cn(
-            "flex flex-col items-center justify-center h-full transition-transform duration-500",
-            isMenuOpen ? "translate-y-0" : "-translate-y-20"
-          )}
-          onClick={(e) => e.stopPropagation()}
+      {isMobile && (
+        <div
+          className={`menu-overlay fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-10 transform transition-transform duration-300 ${
+            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+          style={{ display: isMenuOpen ? 'block' : 'none' }}
         >
-          <nav className="text-center">
-            <MobileMenuLink delay={100} onClick={closeMenu}>Home</MobileMenuLink>
-            <MobileMenuLink delay={200} onClick={closeMenu}>About</MobileMenuLink>
-            <MobileMenuLink delay={300} onClick={closeMenu}>Explore</MobileMenuLink>
-            <MobileMenuLink delay={400} onClick={closeMenu}>Contact</MobileMenuLink>
-          </nav>
+          <div className="absolute top-0 left-0 w-3/4 h-full bg-gray-800 text-white p-6 flex flex-col space-y-4 overflow-hidden">
+            {/* Close Button */}
+            <button onClick={closeMenu} className="absolute top-4 right-4">
+              <X className="h-6 w-6" />
+            </button>
+
+            {/* Mobile Navigation Links */}
+            <nav className="mt-12 flex flex-col space-y-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className="mobile-nav-link text-lg hover:text-gray-300 transition-colors duration-300"
+                  onClick={closeMenu}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
         </div>
-      </div>
-    </>
+      )}
+    </nav>
   );
 };
 

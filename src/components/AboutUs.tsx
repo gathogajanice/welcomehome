@@ -18,6 +18,8 @@ const AboutUs = () => {
   const [scope2, animate2] = useAnimate();
   const [scope3, animate3] = useAnimate();
   const [scope4, animate4] = useAnimate();
+  const [scope5, animate5] = useAnimate();
+  const [scope6, animate6] = useAnimate();
 
   // Memoize the controls array
   const controls = useMemo(() => [
@@ -25,16 +27,20 @@ const AboutUs = () => {
     { scope: scope2, animate: animate2 },
     { scope: scope3, animate: animate3 },
     { scope: scope4, animate: animate4 },
+    { scope: scope5, animate: animate5 },
+    { scope: scope6, animate: animate6 },
   ], [
     scope1, animate1,
     scope2, animate2,
     scope3, animate3,
     scope4, animate4,
+    scope5, animate5,
+    scope6, animate6,
   ]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveCard((prev) => (prev + 1) % 4);
+      setActiveCard((prev) => (prev + 1) % 6); // Updated to 6 cards
     }, 3000); // Slightly slower than Features to maintain subtlety
 
     return () => clearInterval(interval);
@@ -64,7 +70,7 @@ const AboutUs = () => {
     return () => {};
   }, [controls]);
 
-  // Card data with African-themed images
+  // Card data with African-themed images - added 2 more cards
   const cards: CardData[] = [
     {
       icon: "/lovable-uploads/cbae74d9-9537-4991-a534-c6cc8de0641f.png",
@@ -90,6 +96,18 @@ const AboutUs = () => {
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       image: "/lovable-uploads/fc99c9e7-80a3-4106-9a9f-1502fa6ca251.png", // Modern African city
     },
+    {
+      icon: "/lovable-uploads/cbae74d9-9537-4991-a534-c6cc8de0641f.png",
+      title: "Our Values",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      image: "/lovable-uploads/e1b40968-92f2-43da-9c58-0421ededaeed.png", // Reusing first image
+    },
+    {
+      icon: "/lovable-uploads/cdb81e0e-7b55-4079-ab5c-0068cac75785.png",
+      title: "Future Goals",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      image: "/lovable-uploads/63427f01-4ea6-496d-9b20-f3eccdda8757.png", // Reusing second image
+    },
   ];
 
   return (
@@ -98,24 +116,34 @@ const AboutUs = () => {
       id="about-us"
     >
       <div className="container mx-auto px-4 relative z-10">
-        {/* Title section using the same styling as Features */}
+        {/* Title section using the same styling as Features but with scribble underline */}
         <div className="text-center mb-16">
           <div className="flex justify-center">
-            <div className="inline-block px-4 py-1 text-sm font-medium bg-[#0e517d]/10 text-[#0e517d] border border-[#0e517d]/20">
+            <div className="inline-block px-4 py-1 text-sm font-medium bg-[#0e517d]/10 text-[#0e517d] border border-[#0e517d]/20 font-clash">
               About Us
             </div>
           </div>
           <h2 className="mt-5 text-4xl font-bold font-clash text-[#0e517d] mb-4">
             About Us
-            <span className="block h-1 w-20 bg-[#0e517d] mx-auto mt-2"></span>
+            {/* Scribble underline instead of straight line */}
+            <div className="relative flex justify-center mt-2">
+              <svg className="w-32 h-4" viewBox="0 0 100 10" xmlns="http://www.w3.org/2000/svg">
+                <path 
+                  d="M0,5 C10,2 15,8 25,5 C35,2 40,8 50,5 C60,2 65,8 75,5 C85,2 90,8 100,5" 
+                  fill="none" 
+                  stroke="#0e517d" 
+                  strokeWidth="2"
+                />
+              </svg>
+            </div>
           </h2>
           <p className="font-apercu text-lg text-gray-600 max-w-md mx-auto">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
         </div>
 
-        {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 px-6 md:px-12">
+        {/* Cards grid - updated to 6 cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 px-6 md:px-12">
           {cards.map((card, index) => (
             <motion.div 
               key={index} 
@@ -124,7 +152,7 @@ const AboutUs = () => {
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
               className={`
-                relative bg-white rounded-xl border border-[#C8E7FA] shadow-md p-6 h-[280px] 
+                relative bg-white rounded-xl border border-[#C8E7FA] shadow-md p-6 h-[300px] 
                 flex flex-col items-start text-left transition-transform duration-500 
                 group overflow-hidden hover:shadow-xl hover:-translate-y-2
                 ${activeCard === index ? 'shadow-[0_8px_32px_0_rgba(14,81,125,0.2)]' : ''}
@@ -143,7 +171,7 @@ const AboutUs = () => {
                 }}
               />
 
-              {/* Icon - using the same animation and styling as Features but LARGER */}
+              {/* Icon - maintain color even during animation */}
               <motion.div 
                 ref={controls[index].scope}
                 className="w-16 h-16 mb-4 flex items-center justify-center z-10"
@@ -157,14 +185,14 @@ const AboutUs = () => {
                 whileHover={{ 
                   scale: 1.1,
                   rotate: 180,
-                  background: 'rgba(14, 81, 125, 0.9)',
+                  background: 'rgba(14, 81, 125, 0.2)',
                   transition: { duration: 0.3 }
                 }}
               >
                 <img 
                   src={card.icon} 
                   alt={`${card.title} icon`}
-                  className="w-12 h-12 object-contain group-hover:filter group-hover:brightness-200"
+                  className="w-12 h-12 object-contain"
                 />
               </motion.div>
 
@@ -174,13 +202,12 @@ const AboutUs = () => {
                 {card.description}
               </p>
 
-              {/* Background image with enhanced visibility on active card */}
+              {/* Background image - only visible on hover or when active */}
               <img
                 src={card.image}
                 alt={`${card.title} image`}
                 className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out scale-105 z-0
-                  ${activeCard === index ? 'opacity-30' : 'opacity-0'}
-                  group-hover:opacity-20 group-hover:scale-100
+                  opacity-0 group-hover:opacity-20
                 `}
               />
             </motion.div>

@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Skeleton } from "./ui/skeleton";
 
 const StatsSection = () => {
-  // Stats data array
+  // Stats data array with two additional stats
   const stats = [
     {
       number: "62%",
@@ -19,11 +19,21 @@ const StatsSection = () => {
       number: "88+",
       title: "Investors Showing Interest",
       description: "(From the U.S., Europe, and Senegal)"
+    },
+    {
+      number: "24/7",
+      title: "Service Availability",
+      description: "(Supporting global time zones and inquiries)"
+    },
+    {
+      number: "42%",
+      title: "Annual Growth Rate",
+      description: "(Exceeding local market averages since launch)"
     }
   ];
   
   // State for animated numbers
-  const [animatedNumbers, setAnimatedNumbers] = useState<string[]>(["0%", "0B+", "0+"]);
+  const [animatedNumbers, setAnimatedNumbers] = useState<string[]>(["0%", "0B+", "0+", "0/0", "0%"]);
   
   // Ref for animation frame
   const animationFrameRef = useRef<number | null>(null);
@@ -53,6 +63,13 @@ const StatsSection = () => {
           const targetValue = parseFloat(target);
           const value = Math.min(Math.round(targetValue * oscillation), targetValue);
           return `${value}+`;
+        } else if (target.includes('/')) {
+          const parts = target.split('/');
+          const targetValue1 = parseFloat(parts[0]);
+          const targetValue2 = parseFloat(parts[1]);
+          const value1 = Math.min(Math.round(targetValue1 * oscillation), targetValue1);
+          const value2 = Math.min(Math.round(targetValue2 * oscillation), targetValue2);
+          return `${value1}/${value2}`;
         }
         return target;
       });
@@ -84,8 +101,8 @@ const StatsSection = () => {
       }}
     >
       <div className="container mx-auto px-4">
-        {/* Stats container */}
-        <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Stats container - updated to grid-cols-5 to span full width */}
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-2 lg:gap-3">
           {stats.map((stat, index) => (
             <div 
               key={index} 

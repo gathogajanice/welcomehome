@@ -71,34 +71,44 @@ const Features = () => {
     return () => {};
   }, [controls]);
 
+  // Background images for features cards
+  const backgroundImages = [
+    "/lovable-uploads/e1b40968-92f2-43da-9c58-0421ededaeed.png",
+    "/lovable-uploads/63427f01-4ea6-496d-9b20-f3eccdda8757.png",
+    "/lovable-uploads/1d4323f5-9936-4e6f-9c63-382444393b84.png",
+    "/lovable-uploads/fc99c9e7-80a3-4106-9a9f-1502fa6ca251.png",
+    "/lovable-uploads/e1b40968-92f2-43da-9c58-0421ededaeed.png",
+    "/lovable-uploads/63427f01-4ea6-496d-9b20-f3eccdda8757.png",
+  ];
+
   const coinFeatures = [
     {
-      icon: <FaLink className="w-6 h-6 text-[#0e517d] group-hover:text-white transition-colors duration-300" />,
+      icon: <FaLink className="w-8 h-8 text-[#0e517d] group-hover:text-white transition-colors duration-300" />,
       title: "Lorem Ipsum",
       description: <span>Lorem ipsum dolor sit amet, <span className="text-xl font-bold">consectetur</span> adipiscing elit. Sed do eiusmod tempor incididunt.</span>
     },
     {
-      icon: <FaWater className="w-6 h-6 text-[#0e517d] group-hover:text-white transition-colors duration-300" />,
+      icon: <FaWater className="w-8 h-8 text-[#0e517d] group-hover:text-white transition-colors duration-300" />,
       title: "Dolor Sit Amet",
       description: <span>Ut enim ad minim veniam, <span className="text-xl font-bold">quis nostrud</span> exercitation ullamco laboris nisi.</span>
     },
     {
-      icon: <FaSeedling className="w-6 h-6 text-[#0e517d] group-hover:text-white transition-colors duration-300" />,
+      icon: <FaSeedling className="w-8 h-8 text-[#0e517d] group-hover:text-white transition-colors duration-300" />,
       title: "Consectetur Elit",
       description: <span>Duis aute irure dolor in reprehenderit, <span className="text-xl font-bold">voluptate</span> velit esse cillum dolore eu fugiat.</span>
     },
     {
-      icon: <FaLock className="w-6 h-6 text-[#0e517d] group-hover:text-white transition-colors duration-300" />,
+      icon: <FaLock className="w-8 h-8 text-[#0e517d] group-hover:text-white transition-colors duration-300" />,
       title: "Tempor Incididunt",
       description: <span>Excepteur sint occaecat <span className="text-xl font-bold">cupidatat</span> non proident, sunt in culpa qui officia.</span>
     },
     {
-      icon: <FaChartBar className="w-6 h-6 text-[#0e517d] group-hover:text-white transition-colors duration-300" />,
+      icon: <FaChartBar className="w-8 h-8 text-[#0e517d] group-hover:text-white transition-colors duration-300" />,
       title: "Labore Et Dolore",
       description: <span>Nemo enim ipsam voluptatem <span className="text-xl font-bold">quia voluptas</span> sit aspernatur aut odit aut fugit.</span>
     },
     {
-      icon: <FaRecycle className="w-6 h-6 text-[#0e517d] group-hover:text-white transition-colors duration-300" />,
+      icon: <FaRecycle className="w-8 h-8 text-[#0e517d] group-hover:text-white transition-colors duration-300" />,
       title: "Aliquid Ex Ea",
       description: <span>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam.</span>
     }
@@ -109,7 +119,7 @@ const Features = () => {
       <section className="container mx-auto px-4">
         <div className="text-center mb-16">
           <div className="flex justify-center">
-            <div className="inline-block px-4 py-1 rounded-full text-sm font-medium bg-[#0e517d]/10 text-[#0e517d] border border-[#0e517d]/20">
+            <div className="inline-block px-4 py-1 text-sm font-medium bg-[#0e517d]/10 text-[#0e517d] border border-[#0e517d]/20">
               Features
             </div>
           </div>
@@ -150,10 +160,22 @@ const Features = () => {
                 }}
               />
 
+              {/* Background image with enhanced visibility on active card */}
+              <div 
+                className={`
+                  absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-700
+                  ${activeCard === index ? 'opacity-25' : 'opacity-0'}
+                  group-hover:opacity-15
+                `}
+                style={{
+                  backgroundImage: `url(${backgroundImages[index]})`,
+                }}
+              />
+
               {/* Card content */}
               <motion.div 
                 ref={controls[index].scope}
-                className="relative p-3 rounded-xl w-fit mb-4 overflow-hidden"
+                className="relative p-4 rounded-xl w-fit mb-4 overflow-hidden z-10"
                 style={{
                   background: 'rgba(14, 81, 125, 0.1)',
                   border: '1px solid rgba(14, 81, 125, 0.2)',
@@ -170,10 +192,10 @@ const Features = () => {
                   {feature.icon}
                 </div>
               </motion.div>
-              <h3 className="text-xl font-clash mb-4 text-[#0e517d]">
+              <h3 className="text-xl font-clash mb-4 text-[#0e517d] relative z-10">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed font-apercu">
+              <p className="text-gray-600 leading-relaxed font-apercu relative z-10">
                 {feature.description}
               </p>
             </motion.div>
@@ -181,8 +203,7 @@ const Features = () => {
         </div>
       </section>
 
-      <style>
-        {`
+      <style>{`
         @keyframes shine {
           0% {
             transform: translateX(-100%);
@@ -194,8 +215,7 @@ const Features = () => {
             transform: translateX(100%);
           }
         }
-        `}
-      </style>
+      `}</style>
     </div>
   );
 };

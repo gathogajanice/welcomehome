@@ -101,7 +101,7 @@ const AboutUs = () => {
         {/* Title section using the same styling as Features */}
         <div className="text-center mb-16">
           <div className="flex justify-center">
-            <div className="inline-block px-4 py-1 rounded-full text-sm font-medium bg-[#0e517d]/10 text-[#0e517d] border border-[#0e517d]/20">
+            <div className="inline-block px-4 py-1 text-sm font-medium bg-[#0e517d]/10 text-[#0e517d] border border-[#0e517d]/20">
               About Us
             </div>
           </div>
@@ -143,10 +143,10 @@ const AboutUs = () => {
                 }}
               />
 
-              {/* Icon - using the same animation and styling as Features */}
+              {/* Icon - using the same animation and styling as Features but LARGER */}
               <motion.div 
                 ref={controls[index].scope}
-                className="w-12 h-12 mb-4 flex items-center justify-center z-10"
+                className="w-16 h-16 mb-4 flex items-center justify-center z-10"
                 style={{
                   background: 'rgba(14, 81, 125, 0.1)',
                   border: '1px solid rgba(14, 81, 125, 0.2)',
@@ -164,7 +164,7 @@ const AboutUs = () => {
                 <img 
                   src={card.icon} 
                   alt={`${card.title} icon`}
-                  className="w-8 h-8 object-contain group-hover:filter group-hover:brightness-200"
+                  className="w-12 h-12 object-contain group-hover:filter group-hover:brightness-200"
                 />
               </motion.div>
 
@@ -174,11 +174,14 @@ const AboutUs = () => {
                 {card.description}
               </p>
 
-              {/* Hover image reveal */}
+              {/* Background image with enhanced visibility on active card */}
               <img
                 src={card.image}
                 alt={`${card.title} image`}
-                className="absolute inset-0 w-full h-full opacity-0 scale-105 object-cover transition-all duration-700 ease-in-out group-hover:opacity-20 group-hover:scale-100 z-0"
+                className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out scale-105 z-0
+                  ${activeCard === index ? 'opacity-30' : 'opacity-0'}
+                  group-hover:opacity-20 group-hover:scale-100
+                `}
               />
             </motion.div>
           ))}

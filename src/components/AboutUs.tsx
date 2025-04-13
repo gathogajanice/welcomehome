@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { HelpCircle, Target, Plane, Lightbulb } from 'lucide-react';
 
 // Card data structure
 type CardData = {
@@ -39,7 +39,13 @@ const AboutUs = () => {
   ];
 
   return (
-    <section className="relative min-h-screen w-full bg-[url('/lovable-uploads/97d6ddfa-aa0a-464e-8696-6b1a48362452.png')] bg-blend-overlay bg-cover py-20 overflow-hidden" id="about-us">
+    <section 
+      className="relative min-h-screen w-full bg-cover bg-center bg-no-repeat py-20 overflow-hidden" 
+      style={{
+        backgroundImage: "url('/lovable-uploads/97d6ddfa-aa0a-464e-8696-6b1a48362452.png')"
+      }} 
+      id="about-us"
+    >
       {/* Dotted path decoration - using the uploaded doodle image */}
       <div className="absolute top-[-40px] left-[-20px] w-1/2 max-w-md opacity-60 z-0">
         <img 
@@ -52,11 +58,11 @@ const AboutUs = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Title section */}
         <div className="text-center mb-16">
-          <h2 className="font-medium-sans font-bold text-5xl md:text-6xl text-[#00BFFF] mb-4">
+          <h2 className="font-clash font-bold text-5xl md:text-6xl text-[#00BFFF] mb-4">
             About Us
             <span className="block h-1 w-20 bg-[#00BFFF] mx-auto mt-2"></span>
           </h2>
-          <p className="font-medium-sans text-lg text-[#333] max-w-md mx-auto">
+          <p className="font-apercu text-lg text-[#333] max-w-md mx-auto">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
         </div>
@@ -78,8 +84,8 @@ const AboutUs = () => {
               </div>
 
               {/* Text content */}
-              <h3 className="font-medium-sans text-lg font-semibold text-[#111] mb-2 z-10">{card.title}</h3>
-              <p className="font-medium-sans text-sm text-[#444] leading-relaxed z-10">
+              <h3 className="font-clash text-lg font-semibold text-[#111] mb-2 z-10">{card.title}</h3>
+              <p className="font-apercu text-sm text-[#444] leading-relaxed z-10">
                 {card.description}
               </p>
 

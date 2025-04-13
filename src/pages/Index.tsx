@@ -2,6 +2,7 @@
 import React from 'react';
 import LocationsSection from "@/components/LocationsSection";
 import Hero from "@/components/Hero";
+import AboutUs from "@/components/AboutUs";
 
 const Index = () => {
   return (
@@ -9,6 +10,7 @@ const Index = () => {
       {/* Hero section is loaded in App.tsx */}
       {/* Main content */}
       <div className="relative z-10 mt-[100vh]">
+        <AboutUs />
         {/* <LocationsSection /> */}
       </div>
     </div>

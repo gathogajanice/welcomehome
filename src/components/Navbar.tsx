@@ -2,32 +2,37 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { Link } from 'react-router-dom';
 
 const NavLink = ({ 
   children, 
-  className, 
+  className,
+  to,
   onClick 
 }: { 
   children: React.ReactNode;
   className?: string;
+  to: string;
   onClick?: () => void;
 }) => {
   return (
-    <a href="#" className={cn("nav-link px-3 py-1", className)} onClick={onClick}>
+    <Link to={to} className={cn("nav-link px-3 py-1", className)} onClick={onClick}>
       <span className="text-black text-[11px] tracking-[0.075em] font-medium uppercase font-apercu-mono">
         {children}
       </span>
-    </a>
+    </Link>
   );
 };
 
 const MobileMenuLink = ({ 
   children, 
   delay,
+  to,
   onClick
 }: { 
   children: React.ReactNode;
   delay: number;
+  to: string;
   onClick?: () => void;
 }) => {
   return (
@@ -35,13 +40,13 @@ const MobileMenuLink = ({
       className="overflow-hidden py-4"
       style={{ animationDelay: `${delay}ms` }}
     >
-      <a 
-        href="#" 
+      <Link
+        to={to}
         className="mobile-nav-link text-white text-2xl md:text-3xl tracking-wide uppercase font-canela"
         onClick={onClick}
       >
         {children}
-      </a>
+      </Link>
     </div>
   );
 };
@@ -91,9 +96,9 @@ const Navbar = () => {
           
           {/* Navigation Links Container */}
           <div className="hidden md:flex items-center space-x-6">
-            <NavLink>Home</NavLink>
-            <NavLink>About</NavLink>
-            <NavLink>Explore</NavLink>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/features">Features</NavLink>
+            <NavLink to="/about">About</NavLink>
           </div>
         </div>
 
@@ -134,10 +139,10 @@ const Navbar = () => {
           onClick={(e) => e.stopPropagation()}
         >
           <nav className="text-center">
-            <MobileMenuLink delay={100} onClick={closeMenu}>Home</MobileMenuLink>
-            <MobileMenuLink delay={200} onClick={closeMenu}>About</MobileMenuLink>
-            <MobileMenuLink delay={300} onClick={closeMenu}>Explore</MobileMenuLink>
-            <MobileMenuLink delay={400} onClick={closeMenu}>Contact</MobileMenuLink>
+            <MobileMenuLink to="/" delay={100} onClick={closeMenu}>Home</MobileMenuLink>
+            <MobileMenuLink to="/features" delay={200} onClick={closeMenu}>Features</MobileMenuLink>
+            <MobileMenuLink to="/about" delay={300} onClick={closeMenu}>About</MobileMenuLink>
+            <MobileMenuLink to="/contact" delay={400} onClick={closeMenu}>Contact</MobileMenuLink>
           </nav>
         </div>
       </div>

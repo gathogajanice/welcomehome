@@ -93,8 +93,7 @@ export default {
 				'canela': ['Canela', 'serif'],
 				'apercu': ['ApercuMono', 'sans-serif'],
 				'bricolage': ['Bricolage Grotesque', 'sans-serif'],
-				'clash': ['Clash Display', 'sans-serif'],
-				'media-sans': ['"DM Sans"', 'sans-serif'], // Added DM Sans as an alternative
+				'clash': ['Clash Display', 'sans-serif']
 			}
 		}
 	},

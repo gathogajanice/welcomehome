@@ -183,7 +183,8 @@ const Features = () => {
             </div>
           </div>
 
-          <style jsx global>{`
+          <style>
+            {`
             @keyframes shine {
               0% {
                 transform: translateX(-100%);
@@ -195,7 +196,8 @@ const Features = () => {
                 transform: translateX(100%);
               }
             }
-          `}</style>
+            `}
+          </style>
         </section>
       </div>
     </div>

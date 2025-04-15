@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+
+import React from 'react';
 import { Instagram, Linkedin } from 'lucide-react';
 
 const teamMembers = [
@@ -26,17 +27,9 @@ const teamMembers = [
   }
 ];
 
-// Preload images
-useEffect(() => {
-  teamMembers.forEach(member => {
-    const img = new Image();
-    img.src = member.image;
-  });
-}, []);
-
 const Team = () => {
-  // Preload images
-  useEffect(() => {
+  // Moved useEffect inside the component function
+  React.useEffect(() => {
     teamMembers.forEach(member => {
       const img = new Image();
       img.src = member.image;

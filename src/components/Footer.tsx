@@ -1,23 +1,22 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, ArrowUp } from 'lucide-react';
 import { Button } from './ui/button';
-
 const Footer = () => {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
-
-  return (
-    <footer className="bg-[#f8f6f2] px-4 py-16 mt-20">
+  return <footer className="bg-[#f8f6f2] px-4 py-16 mt-20">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Brand Section */}
         <div className="space-y-4">
           <div className="text-left space-y-2">
-            <h2 className="text-3xl font-clash">
+            <h2 className="font-bricolage text-base">
               The Future of<br />
-              <span className="text-[#ea384c]">Real Estate</span><br />
+              <span className="text-[#6dd6db]">Real Estate</span><br />
               Investment <span className="text-xs align-top">®</span>
             </h2>
             <p className="text-sm font-apercu uppercase text-gray-600">Own a piece of the world</p>
@@ -69,37 +68,25 @@ const Footer = () => {
         </div>
 
         {/* Subscribe Section */}
-        <div className="text-left space-y-6">
+        <div className="text-left space-y-6 ">
           <div className="space-y-4">
             <h3 className="text-[#ea384c] font-clash text-xl">Subscribe Today</h3>
             <div className="relative">
-              <input
-                type="email"
-                placeholder="Enter Your Email"
-                className="w-full px-4 py-2 pl-10 border border-gray-200 rounded-lg font-apercu bg-white"
-              />
+              <input type="email" placeholder="Enter Your Email" className="w-full px-4 py-2 pl-10 border border-gray-200 rounded-lg font-apercu bg-white" />
               <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
             </div>
           </div>
 
-          <Button 
-            className="w-full bg-[#ea384c] hover:bg-[#ea384c]/90 text-white font-bricolage"
-          >
+          <Button className="w-full bg-[#ea384c] hover:bg-[#ea384c]/90 text-white font-bricolage">
             START INVESTING TODAY
           </Button>
         </div>
 
         {/* Scroll to Top Button */}
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-2 bg-[#ea384c] text-white rounded-full shadow-lg hover:bg-[#ea384c]/90 transition-colors"
-          aria-label="Scroll to top"
-        >
+        <button onClick={scrollToTop} className="fixed bottom-8 right-8 p-2 bg-[#ea384c] text-white rounded-full shadow-lg hover:bg-[#ea384c]/90 transition-colors" aria-label="Scroll to top">
           <ArrowUp size={24} />
         </button>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;

@@ -4,6 +4,7 @@ import AboutUs2 from "@/components/AboutUs2";
 import StatsSection from "@/components/StatsSection";
 import Invest from "@/pages/Invest";
 import WhyInvest from "@/pages/WhyInvest";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -13,9 +14,10 @@ const Index = () => {
       {/* Main content */}
       <div className="relative z-10 mt-[100vh]">
         <AboutUs2 />
-        <WhyInvest />
         <StatsSection />
+        <WhyInvest />
         <Invest />
+        <Footer />
       </div>
     </div>
   );

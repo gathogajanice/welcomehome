@@ -13,15 +13,15 @@ const Welcome = () => {
       <div className="container mx-auto px-4">
         <div className="relative flex flex-col items-center justify-center max-w-[220px] mx-auto border border-[#4bbfe2]/30 rounded-lg bg-[#0e517d]/50 p-8 md:p-12">
           <p className="font-clash text-[#4bbfe2] text-xs md:text-sm mb-1 text-center">
-            Invest like never before, Senegal is the Future.
+            Invest like never before
           </p>
           
           <div className="mb-4">
             <h1 className="text-white text-2xl md:text-3xl lg:text-4xl font-clash font-light mb-2 text-center">
-              Invest with
+              Welcome
             </h1>
             <div className="text-white text-3xl md:text-4xl lg:text-5xl font-clash font-bold leading-tight text-center">
-              WELCOME<br />HOME
+              HOME
             </div>
           </div>
         </div>
@@ -31,3 +31,4 @@ const Welcome = () => {
 };
 
 export default Welcome;
+

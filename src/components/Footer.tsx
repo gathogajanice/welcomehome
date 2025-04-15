@@ -30,7 +30,7 @@ const Footer = () => {
             </div>
             
             <div className="space-y-3 pt-4">
-              <h3 className="text-[#6dd6db] font-bricolage text-lg text-left">Contact Us</h3>
+              <h3 className="text-black font-bricolage text-lg text-left font-bold">Contact Us</h3>
               <div className="space-y-2">
                 <a href="tel:+16315335450" className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
                   <Phone size={16} className="text-[#6dd6db]" />
@@ -72,7 +72,7 @@ const Footer = () => {
           {/* Office Locations */}
           <div className="text-left space-y-6">
             <div className="space-y-2">
-              <h3 className="font-bricolage text-base">New York Office</h3>
+              <h3 className="font-bricolage text-base font-bold text-black">New York Office</h3>
               <div className="flex items-start gap-2">
                 <MapPin size={16} className="text-[#6dd6db] mt-1 flex-shrink-0" />
                 <p className="font-bricolage text-sm text-gray-600">
@@ -83,7 +83,7 @@ const Footer = () => {
             </div>
             
             <div className="space-y-2">
-              <h3 className="font-bricolage text-base">Senegal Office</h3>
+              <h3 className="font-bricolage text-base font-bold text-black">Senegal Office</h3>
               <div className="flex items-start gap-2">
                 <MapPin size={16} className="text-[#6dd6db] mt-1 flex-shrink-0" />
                 <p className="font-bricolage text-sm text-gray-600">
@@ -99,7 +99,7 @@ const Footer = () => {
           {/* Subscribe Section */}
           <div className="text-left space-y-6">
             <div className="space-y-4">
-              <h3 className="text-[#6dd6db] font-bricolage text-lg">Subscribe Today</h3>
+              <h3 className="text-black font-bricolage text-lg font-bold">Subscribe Today</h3>
               <div className="space-y-3">
                 <div className="relative">
                   <input 
@@ -118,29 +118,22 @@ const Footer = () => {
                     backgroundPosition: 'center'
                   }}
                 >
-                  START INVESTING TODAY
+                  JOIN US
                 </Button>
               </div>
             </div>
           </div>
         </div>
-
-        {/* Future of Real Estate Investment Bold Text */}
-        <div className="absolute bottom-0 left-0 w-full text-center py-4">
-          <h2 className="font-bricolage text-3xl font-bold text-[#1E5987]">
-            The Future of Real Estate Investment
-          </h2>
-        </div>
-
-        {/* Scroll to Top Button */}
-        <button 
-          onClick={scrollToTop} 
-          className="fixed bottom-8 right-8 p-3 bg-[#6dd6db] text-white rounded-full shadow-lg hover:bg-[#6dd6db]/90 transition-colors z-50" 
-          aria-label="Scroll to top"
-        >
-          <ArrowUp size={24} />
-        </button>
       </div>
+
+      {/* Scroll to Top Button */}
+      <button 
+        onClick={scrollToTop} 
+        className="fixed bottom-8 right-8 p-3 bg-[#6dd6db] text-white rounded-full shadow-lg hover:bg-[#6dd6db]/90 transition-colors z-50" 
+        aria-label="Scroll to top"
+      >
+        <ArrowUp size={24} />
+      </button>
     </footer>
   );
 };

@@ -14,28 +14,28 @@ import { type CarouselApi } from "@/components/ui/carousel";
 const features = [
   {
     number: "1",
-    title: "Property Selection",
-    description: "We help you identify prime investment opportunities in high-growth areas, ensuring the best potential returns on your investment."
+    title: "Space Planning",
+    description: "Our expert designers create personalized layouts that maximize your living space and enhance functionality."
   },
   {
     number: "2",
-    title: "Investment Planning",
-    description: "Our expert team guides you through the investment process, from financial planning to property acquisition strategies."
+    title: "Style Consultation",
+    description: "Work with our design team to discover your unique style and create a cohesive look for your home."
   },
   {
     number: "3",
-    title: "Documentation",
-    description: "We handle all the paperwork and legal requirements, making the investment process seamless and hassle-free."
+    title: "Quality Selection",
+    description: "Choose from our curated collection of premium furniture and decor pieces from trusted manufacturers."
   },
   {
     number: "4",
-    title: "Property Management",
-    description: "Our comprehensive property management services ensure your investment is well-maintained and generates optimal returns."
+    title: "Professional Installation",
+    description: "Our skilled team ensures proper assembly and placement of all furniture pieces for a perfect finish."
   },
   {
     number: "5",
-    title: "After-Sales Support",
-    description: "Our commitment to your satisfaction extends beyond the final transaction. We conduct a thorough final walkthrough to ensure your satisfaction, and also offer comprehensive after-sales support for warranty claims, maintenance, and care instructions."
+    title: "After-Care Service",
+    description: "Enjoy peace of mind with our comprehensive warranty and maintenance support for all furnished spaces."
   }
 ];
 
@@ -74,8 +74,8 @@ const Invest = () => {
                       </div>
                       <div className="bg-gray-100 min-h-[300px] md:min-h-[400px]">
                         <img 
-                          src="/lovable-uploads/192f0284-ce72-4c13-aa31-90b6a71b8152.png"
-                          alt="Luxury interior"
+                          src={`https://source.unsplash.com/random/800x600?furniture,${feature.title.toLowerCase()}`}
+                          alt={feature.title}
                           className="w-full h-full object-cover"
                         />
                       </div>

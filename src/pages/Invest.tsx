@@ -14,28 +14,28 @@ import { type CarouselApi } from "@/components/ui/carousel";
 const features = [
   {
     number: "1",
-    title: "Space Planning",
-    description: "Our expert designers create personalized layouts that maximize your living space and enhance functionality."
+    title: "Home Selection",
+    description: "Our expert team helps you find the perfect home that matches your lifestyle and investment goals."
   },
   {
     number: "2",
-    title: "Style Consultation",
-    description: "Work with our design team to discover your unique style and create a cohesive look for your home."
+    title: "Property Inspection",
+    description: "Thorough evaluation of every property ensuring you make an informed decision for your new home."
   },
   {
     number: "3",
-    title: "Quality Selection",
-    description: "Choose from our curated collection of premium furniture and decor pieces from trusted manufacturers."
+    title: "Documentation",
+    description: "We handle all the paperwork and legal requirements, making your home-buying journey stress-free."
   },
   {
     number: "4",
-    title: "Professional Installation",
-    description: "Our skilled team ensures proper assembly and placement of all furniture pieces for a perfect finish."
+    title: "Move-In Support",
+    description: "Complete assistance with the moving process and initial setup of your new home."
   },
   {
     number: "5",
-    title: "After-Care Service",
-    description: "Enjoy peace of mind with our comprehensive warranty and maintenance support for all furnished spaces."
+    title: "After-Sales Care",
+    description: "Ongoing support and maintenance services to ensure your home remains perfect for years to come."
   }
 ];
 
@@ -47,8 +47,8 @@ const Invest = () => {
     <section className="min-h-screen bg-[#f8f6f2] py-24">
       <div className="container mx-auto px-4">
         <h1 className="text-4xl md:text-5xl font-clash mb-16">
-          How We <span className="text-[#6DD6DB]">Simplify</span> Your<br />
-          Furnishing Experience
+          How We Make Your <span className="text-[#6DD6DB]">Dream Home</span><br />
+          A Reality
         </h1>
         
         <Carousel

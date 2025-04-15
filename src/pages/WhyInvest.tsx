@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
@@ -8,28 +7,28 @@ import { DollarSign, Globe, Home, LineChart } from "lucide-react";
 const hotspots = [
   {
     id: 1,
-    position: { top: '25%', left: '45%' },
+    position: { top: '20%', left: '35%' },
     title: 'Fractional Ownership',
     description: 'Own a piece of prime real estate with minimal investment',
     icon: <Home className="h-5 w-5 text-black" />
   },
   {
     id: 2,
-    position: { top: '40%', left: '60%' },
+    position: { top: '35%', left: '55%' },
     title: 'Generational Wealth',
     description: 'Build lasting financial security for your family',
     icon: <LineChart className="h-5 w-5 text-black" />
   },
   {
     id: 3,
-    position: { top: '55%', left: '40%' },
+    position: { top: '60%', left: '30%' },
     title: 'Invest in Any Currency',
     description: 'Flexible investment options across multiple currencies',
     icon: <DollarSign className="h-5 w-5 text-black" />
   },
   {
     id: 4,
-    position: { top: '70%', left: '55%' },
+    position: { top: '75%', left: '50%' },
     title: 'Simple & Transparent',
     description: 'Clear processes with no hidden fees',
     icon: <Globe className="h-5 w-5 text-black" />
@@ -52,8 +51,9 @@ const WhyInvest = () => {
           {hotspots.map((hotspot) => (
             <div 
               key={hotspot.id}
-              className="absolute h-6 w-6 rounded-full bg-black animate-pulse opacity-70 
-                         hover:scale-110 transition-transform duration-300"
+              className="absolute h-6 w-6 rounded-full bg-black opacity-70 
+                         hover:scale-110 transition-transform duration-300
+                         [animation:ripple_2s_ease-in-out_infinite]"
               style={{ 
                 top: hotspot.position.top, 
                 left: hotspot.position.left 

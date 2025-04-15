@@ -296,3 +296,15 @@
 .read-the-docs {
   color: #888;
 }
+
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}

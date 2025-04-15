@@ -4,7 +4,7 @@ import CapsuleGrid from './CapsuleGrid';
 
 const AboutUs2 = () => {
   return (
-    <section className="bg-[#f8f6f2] min-h-screen px-4 py-16">
+    <section className="bg-[#fffaf3] min-h-screen px-4 py-16">
       <div className="text-center mb-16">
         <h1 className="text-[2.5rem] font-bold font-bricolage">
           <span className="text-[#1f1f2e] relative inline-block">
@@ -26,7 +26,7 @@ const AboutUs2 = () => {
           </span>
           <span className="text-[#6DD6DB]"> Us</span>
         </h1>
-        <p className="font-apercu text-[#13517b] mt-4 text-lg">Welcome home is where your investments grow.</p>
+        <p className="font-apercu text-black mt-4 text-base">Welcome home is where your investments grow. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel felis nec nisl accumsan tincidunt a et libero.</p>
       </div>
       <CapsuleGrid />
     </section>

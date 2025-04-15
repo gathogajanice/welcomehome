@@ -68,7 +68,7 @@ const StatsSection = () => {
         >
           <CarouselContent>
             {stats.map((stat, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/5">
+              <CarouselItem key={index} className={isMobile ? "md:basis-1/2 lg:basis-1/5" : "basis-1/5"}>
                 <div className="relative flex flex-col items-center justify-center text-white py-4 px-2 max-w-[220px] mx-auto border border-[#4bbfe2]/30 rounded-lg bg-[#0e517d]/50">
                   <h2 className="font-clash text-2xl md:text-3xl lg:text-4xl font-bold mb-1 text-white">
                     {stat.number}
@@ -83,8 +83,8 @@ const StatsSection = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden md:flex" />
-          <CarouselNext className="hidden md:flex" />
+          <CarouselPrevious />
+          <CarouselNext />
         </Carousel>
       </div>
     </section>

@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Skeleton } from "./ui/skeleton";
 import { useIsMobile } from "@/hooks/use-mobile";

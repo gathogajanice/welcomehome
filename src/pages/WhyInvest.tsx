@@ -2,7 +2,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { 
-  Building2,
   TrendingUp,
   Coins,
   Users,
@@ -12,83 +11,48 @@ import {
 
 const WhyInvest = () => {
   return (
-    <section className="min-h-screen bg-[#f8f6f2] py-24">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left side with content */}
-          <div className="text-left">
-            <h1 className="text-4xl md:text-6xl font-clash mb-6">
-              Why Invest in{' '}
-              <span className="text-[#6DD6DB] relative">
-                Real Estate
-                <span className="absolute bottom-1 left-0 w-full border-b-2 border-[#6DD6DB] border-wavy"></span>
-              </span>
-            </h1>
+    <section className="min-h-screen bg-[#f8f6f2] px-4 py-16">
+      <div className="container mx-auto">
+        <div className="text-center mb-16">
+          <h1 className="text-[2.5rem] font-bold font-bricolage">
+            <span className="text-[#1f1f2e] relative inline-block">
+              Why
+              <svg className="absolute left-0 right-0 -bottom-1 w-full" viewBox="0 0 100 10" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,5 C20,2 30,8 50,5 C70,2 80,8 100,5" fill="none" stroke="#6DD6DB" strokeWidth="3" strokeLinecap="round" className="animate-pulse" />
+              </svg>
+            </span>
+            <span className="text-[#6DD6DB]"> Invest</span>
+          </h1>
+          <p className="font-apercu text-[#13517b] mt-4 text-center text-sm">
+            Explore the potential of strategic real estate investments
+          </p>
+        </div>
 
-            <p className="text-lg mb-6 text-gray-700">
-              Real estate is often considered a non-depreciating asset because
-              it typically maintains or increases in value over time.
-            </p>
+        <div className="text-left">
+          <h1 className="text-4xl md:text-5xl font-clash mb-6">
+            Why Invest in{' '}
+            <span className="text-[#6DD6DB] relative">
+              Real Estate
+              <span className="absolute bottom-1 left-0 w-full border-b-2 border-[#6DD6DB] border-wavy"></span>
+            </span>
+          </h1>
 
-            <p className="text-lg mb-8 text-gray-700">
-              Unlike other assets such as vehicles or equipment, real estate
-              generally appreciates in value due to factors such as location,
-              improvements, and demand.
-            </p>
+          <p className="text-lg mb-6 text-gray-700">
+            Real estate is often considered a non-depreciating asset because
+            it typically maintains or increases in value over time.
+          </p>
 
-            <Button 
-              className="bg-[#6DD6DB] hover:bg-[#6DD6DB]/90 text-white font-medium px-8 py-6 text-lg shadow-lg transition-all duration-300 hover:translate-y-[-2px]"
-            >
-              START INVESTING TODAY
-            </Button>
-          </div>
+          <p className="text-lg mb-8 text-gray-700">
+            Unlike other assets such as vehicles or equipment, real estate
+            generally appreciates in value due to factors such as location,
+            improvements, and demand.
+          </p>
 
-          {/* Right side with icons grid */}
-          <div className="grid grid-cols-2 gap-6 mt-8 lg:mt-0">
-            {[
-              {
-                icon: <Building2 className="w-8 h-8" />,
-                title: "Fractional Ownership",
-                description: "Own a piece of premium properties"
-              },
-              {
-                icon: <TrendingUp className="w-8 h-8" />,
-                title: "Value Growth",
-                description: "Benefit from property appreciation"
-              },
-              {
-                icon: <Coins className="w-8 h-8" />,
-                title: "Multiple Currencies",
-                description: "Invest in any currency"
-              },
-              {
-                icon: <Users className="w-8 h-8" />,
-                title: "Community",
-                description: "Join our investor network"
-              },
-              {
-                icon: <LineChart className="w-8 h-8" />,
-                title: "Performance",
-                description: "Track your investments"
-              },
-              {
-                icon: <ShieldCheck className="w-8 h-8" />,
-                title: "Security",
-                description: "Safe & verified transactions"
-              }
-            ].map((item, index) => (
-              <div 
-                key={index}
-                className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer"
-              >
-                <div className="text-[#6DD6DB] group-hover:text-[#5BC0C5] transition-colors duration-300">
-                  {item.icon}
-                </div>
-                <h3 className="text-lg font-medium mt-3 mb-1">{item.title}</h3>
-                <p className="text-sm text-gray-600">{item.description}</p>
-              </div>
-            ))}
-          </div>
+          <Button 
+            className="bg-[#1f1f2e] hover:bg-[#1f1f2e]/90 text-white font-medium px-8 py-6 text-lg shadow-lg transition-all duration-300 hover:translate-y-[-2px]"
+          >
+            START INVESTING TODAY
+          </Button>
         </div>
       </div>
     </section>
@@ -96,3 +60,4 @@ const WhyInvest = () => {
 };
 
 export default WhyInvest;
+

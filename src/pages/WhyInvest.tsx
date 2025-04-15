@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
@@ -79,18 +78,9 @@ const WhyInvest = () => {
         {/* Right column - Content */}
         <div className="space-y-8 text-left">
           <div className="space-y-4">
-            <h1 className="text-5xl md:text-6xl font-bricolage">
-              <span className="text-[#1f1f2e]">Why </span>
-              <span className="text-[#33C3F0] relative inline-block">
-                Invest
-                <span className="absolute -bottom-3 left-0 w-full">
-                  <img 
-                    src="/lovable-uploads/b1b73eff-f480-4f2c-993d-ba570ba41bf9.png" 
-                    alt="Wavy underline" 
-                    className="w-full"
-                  />
-                </span>
-              </span>
+            <h1 className="text-5xl md:text-6xl font-bold font-bricolage">
+              <span className="text-[#1f1f2e]">Why Invest in Real Estate in </span>
+              <span className="text-[#33C3F0]">Africa</span>
             </h1>
             
             <p className="text-sm text-gray-700 font-apercu max-w-[90%]">

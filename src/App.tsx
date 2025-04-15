@@ -11,7 +11,7 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Invest from "./pages/Invest";
 import Team from "./pages/Team";
-import Welcome from "./pages/Welcome";
+// Removed Welcome import
 
 // Create a client
 const queryClient = new QueryClient();
@@ -32,7 +32,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/invest" element={<Invest />} />
           <Route path="/team" element={<Team />} />
-          <Route path="/welcome" element={<Welcome />} />
+          {/* Removed Welcome route */}
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

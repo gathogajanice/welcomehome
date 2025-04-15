@@ -14,8 +14,8 @@ const Index = () => {
       {/* Main content */}
       <div className="relative z-10 mt-[100vh]">
         <AboutUs2 />
-        <StatsSection />
         <WhyInvest />
+        <StatsSection />
         <Invest />
         <Footer />
       </div>

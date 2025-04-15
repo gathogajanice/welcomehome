@@ -1,3 +1,4 @@
+
 import React from 'react';
 import {
   Carousel,
@@ -9,25 +10,29 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { useCarouselAutoplay } from '@/hooks/useCarouselAutoplay';
 import { type CarouselApi } from "@/components/ui/carousel";
+import { Home, Wallet, Plane } from "lucide-react";
 
 const features = [
   {
     number: "01",
     title: "Browse & Invest",
     description: "Purchase fractional land ownership with ease through our intuitive platform.",
-    image: "photo-1460925895917-afdab827c52f"
+    image: "/lovable-uploads/293a4382-83c2-4670-bd8e-d9931606822b.png",
+    icon: <Home className="h-6 w-6 text-[#6DD6DB]" />
   },
   {
     number: "02",
     title: "Secure Transactions",
     description: "All transactions are verified via blockchain & smart contracts for maximum security.",
-    image: "photo-1487058792275-0ad4aaf24ca7"
+    image: "/lovable-uploads/c8f858fb-5926-49f2-b059-2d25cc0e4187.png",
+    icon: <Wallet className="h-6 w-6 text-[#6DD6DB]" />
   },
   {
     number: "03",
     title: "Earn & Travel",
     description: "Membership unlocks luxury stays in Africa, combining investment with unforgettable experiences.",
-    image: "photo-1721322800607-8c38375eef04"
+    image: "/lovable-uploads/4566365b-edc6-4515-b315-d227161fd149.png",
+    icon: <Plane className="h-6 w-6 text-[#6DD6DB]" />
   }
 ];
 
@@ -38,7 +43,7 @@ const Invest = () => {
   return (
     <section className="min-h-screen bg-[#f8f6f2] py-24">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-clash mb-16">
+        <h1 className="text-4xl md:text-5xl font-bricolage mb-16">
           Simple, <span className="text-[#6DD6DB]">Secure</span>, Smart<br />
           Transactions
         </h1>
@@ -58,15 +63,18 @@ const Invest = () => {
                   <CardContent className="p-0">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="p-8 flex flex-col justify-center items-start text-left">
-                        <span className="text-7xl font-light text-[#6DD6DB] mb-4">
-                          {feature.number}
-                        </span>
-                        <h3 className="text-2xl font-clash mb-4">{feature.title}</h3>
-                        <p className="text-gray-600">{feature.description}</p>
+                        <div className="flex items-center gap-3 mb-4">
+                          <span className="text-7xl font-light text-[#6DD6DB] font-bricolage">
+                            {feature.number}
+                          </span>
+                          {feature.icon}
+                        </div>
+                        <h3 className="text-2xl font-bricolage mb-4">{feature.title}</h3>
+                        <p className="text-gray-600 font-bricolage">{feature.description}</p>
                       </div>
                       <div className="bg-gray-100 min-h-[300px] md:min-h-[400px]">
                         <img 
-                          src={`https://source.unsplash.com/${feature.image}`}
+                          src={feature.image}
                           alt={feature.title}
                           className="w-full h-full object-cover"
                         />

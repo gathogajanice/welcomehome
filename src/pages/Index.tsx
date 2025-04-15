@@ -4,6 +4,7 @@ import AboutUs2 from "@/components/AboutUs2";
 import StatsSection from "@/components/StatsSection";
 import Invest from "@/pages/Invest";
 import WhyInvest from "@/pages/WhyInvest";
+import Team from "@/pages/Team";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -17,6 +18,7 @@ const Index = () => {
         <WhyInvest />
         <StatsSection />
         <Invest />
+        <Team />
         <Footer />
       </div>
     </div>

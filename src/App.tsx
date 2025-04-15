@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -10,6 +11,7 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Invest from "./pages/Invest";
 import Team from "./pages/Team";
+import Welcome from "./pages/Welcome";
 
 // Create a client
 const queryClient = new QueryClient();

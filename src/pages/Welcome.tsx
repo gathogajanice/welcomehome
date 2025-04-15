@@ -15,28 +15,18 @@ const Welcome = () => {
       />
       
       <div className="container mx-auto px-4 z-10">
-        <div className="bg-black/30 backdrop-blur-sm rounded-3xl p-12 md:p-16 max-w-7xl mx-auto">
+        <div className="bg-black/30 backdrop-blur-sm rounded-3xl p-12 md:p-16 max-w-7xl mx-auto text-center">
           <p className="text-white/90 text-xl md:text-2xl mb-6">
             Invest like never before, Senegal is the Future.
           </p>
           
           <div className="mb-12">
-            <h1 className="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bricolage font-light mb-4">
+            <h1 className="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bricolage font-light mb-4 text-center">
               Invest with
             </h1>
-            <div className="text-[#33C3F0] text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bricolage font-bold leading-tight">
+            <div className="text-[#33C3F0] text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bricolage font-bold leading-tight text-center">
               WELCOME<br />HOME
             </div>
-          </div>
-          
-          <div className="space-y-8 max-w-2xl">
-            <p className="text-white/90 text-lg md:text-xl">
-              Marginalized communities may be more likely to face discrimination in housing and lending practices, which can make it difficult to secure loans or purchase property.
-            </p>
-            
-            <p className="text-white/90 text-lg md:text-xl">
-              Additionally, economic disparities can make it challenging for individuals to save for a down payment or maintain the financial stability necessary to invest in real estate.
-            </p>
           </div>
         </div>
       </div>

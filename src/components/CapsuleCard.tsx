@@ -12,12 +12,12 @@ interface CapsuleCardProps {
 const CapsuleCard = ({ image, title, subtitle, icon }: CapsuleCardProps) => {
   const getIcon = () => {
     switch (icon) {
-      case "question": return <HelpCircle className="w-6 h-6 text-white animate-pulse" />;
-      case "target": return <Target className="w-6 h-6 text-white animate-pulse" />;
-      case "briefcase": return <Briefcase className="w-6 h-6 text-white animate-pulse" />;
-      case "lightbulb": return <Lightbulb className="w-6 h-6 text-white animate-pulse" />;
-      case "chart": return <TrendingUp className="w-6 h-6 text-white animate-pulse" />;
-      case "rocket": return <Rocket className="w-6 h-6 text-white animate-pulse" />;
+      case "question": return <HelpCircle className="w-6 h-6 text-[#13517b] animate-pulse" />;
+      case "target": return <Target className="w-6 h-6 text-[#13517b] animate-pulse" />;
+      case "briefcase": return <Briefcase className="w-6 h-6 text-[#13517b] animate-pulse" />;
+      case "lightbulb": return <Lightbulb className="w-6 h-6 text-[#13517b] animate-pulse" />;
+      case "chart": return <TrendingUp className="w-6 h-6 text-[#13517b] animate-pulse" />;
+      case "rocket": return <Rocket className="w-6 h-6 text-[#13517b] animate-pulse" />;
     }
   };
 

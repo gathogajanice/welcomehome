@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Skeleton } from "./ui/skeleton";
 import { useIsMobile } from "@/hooks/use-mobile";
 import {
@@ -14,7 +14,7 @@ import { useCarouselAutoplay } from "@/hooks/useCarouselAutoplay";
 const StatsSection = () => {
   const isMobile = useIsMobile();
   
-  // Stats data array with two additional stats
+  // Stats data array with actual numbers
   const stats = [
     {
       number: "62%",
@@ -42,13 +42,11 @@ const StatsSection = () => {
       description: "(Exceeding local market averages since launch)"
     }
   ];
-  
-  // State for animated numbers
-  const [animatedNumbers, setAnimatedNumbers] = useState<string[]>(["0%", "0B+", "0+", "0/0", "0%"]);
+
   const [api, setApi] = React.useState<any>();
 
-  // Set up autoplay
-  const autoplay = useCarouselAutoplay(api, 3000);
+  // Set up autoplay with slower speed (5 seconds)
+  const autoplay = useCarouselAutoplay(api, 5000);
 
   return (
     <section 
@@ -73,7 +71,7 @@ const StatsSection = () => {
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/5">
                 <div className="relative flex flex-col items-center justify-center text-white py-4 px-2 max-w-[220px] mx-auto border border-[#4bbfe2]/30 rounded-lg bg-[#0e517d]/50">
                   <h2 className="font-clash text-2xl md:text-3xl lg:text-4xl font-bold mb-1 text-white">
-                    {animatedNumbers[index] || <Skeleton className="h-10 w-14 bg-white/10" />}
+                    {stat.number}
                   </h2>
                   <h3 className="font-clash text-[#4bbfe2] text-xs md:text-xs lg:text-sm mb-1 text-center">
                     {stat.title}

@@ -26,6 +26,7 @@ const AboutUs2 = () => {
           </span>
           <span className="text-[#6DD6DB]"> Us</span>
         </h1>
+        <p className="font-apercu text-[#13517b] mt-4 text-lg">Welcome home is where your investments grow.</p>
       </div>
       <CapsuleGrid />
     </section>

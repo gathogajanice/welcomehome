@@ -1,71 +1,95 @@
 
 import React from 'react';
-import { Button } from "@/components/ui/button";
-import { Puzzle, Coins, CircleDollarSign } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Card, CardContent } from "@/components/ui/card";
+import { useCarouselAutoplay } from '@/hooks/useCarouselAutoplay';
+import { type CarouselApi } from "@/components/ui/carousel";
+
+const features = [
+  {
+    number: "1",
+    title: "Property Selection",
+    description: "We help you identify prime investment opportunities in high-growth areas, ensuring the best potential returns on your investment."
+  },
+  {
+    number: "2",
+    title: "Investment Planning",
+    description: "Our expert team guides you through the investment process, from financial planning to property acquisition strategies."
+  },
+  {
+    number: "3",
+    title: "Documentation",
+    description: "We handle all the paperwork and legal requirements, making the investment process seamless and hassle-free."
+  },
+  {
+    number: "4",
+    title: "Property Management",
+    description: "Our comprehensive property management services ensure your investment is well-maintained and generates optimal returns."
+  },
+  {
+    number: "5",
+    title: "After-Sales Support",
+    description: "Our commitment to your satisfaction extends beyond the final transaction. We conduct a thorough final walkthrough to ensure your satisfaction, and also offer comprehensive after-sales support for warranty claims, maintenance, and care instructions."
+  }
+];
 
 const Invest = () => {
+  const [api, setApi] = React.useState<CarouselApi>();
+  const autoplay = useCarouselAutoplay(api, 5000);
+
   return (
-    <section className="bg-[#f8f6f2] min-h-screen py-16 px-4">
-      <div className="container mx-auto max-w-7xl flex flex-col lg:flex-row items-center gap-12">
-        {/* Left side - Image */}
-        <div className="w-full lg:w-1/2 relative">
-          <div className="relative w-full aspect-[4/3]">
-            <img 
-              src="/lovable-uploads/048f4686-4894-46dd-8007-643db0f1550d.png"
-              alt="Modern house"
-              className="object-contain w-full h-full"
-            />
+    <section className="min-h-screen bg-[#f8f6f2] py-24">
+      <div className="container mx-auto px-4">
+        <h1 className="text-4xl md:text-5xl font-clash mb-16">
+          How We <span className="text-[#6DD6DB]">Simplify</span> Your<br />
+          Furnishing Experience
+        </h1>
+        
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full max-w-5xl mx-auto"
+          setApi={setApi}
+        >
+          <CarouselContent>
+            {features.map((feature, index) => (
+              <CarouselItem key={index} className="md:basis-1/1 lg:basis-1/1">
+                <Card className="bg-white rounded-2xl overflow-hidden shadow-lg">
+                  <CardContent className="p-0">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="p-8 flex flex-col justify-center items-start text-left">
+                        <span className="text-7xl font-light text-[#6DD6DB] mb-4">
+                          {feature.number}
+                        </span>
+                        <h3 className="text-2xl font-clash mb-4">{feature.title}</h3>
+                        <p className="text-gray-600">{feature.description}</p>
+                      </div>
+                      <div className="bg-gray-100 min-h-[300px] md:min-h-[400px]">
+                        <img 
+                          src="/lovable-uploads/192f0284-ce72-4c13-aa31-90b6a71b8152.png"
+                          alt="Luxury interior"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <div className="hidden md:block">
+            <CarouselPrevious className="absolute -left-12 top-1/2" />
+            <CarouselNext className="absolute -right-12 top-1/2" />
           </div>
-        </div>
-
-        {/* Right side - Content */}
-        <div className="w-full lg:w-1/2 text-left">
-          <h1 className="text-[2.5rem] md:text-[3.5rem] font-bricolage leading-tight mb-6">
-            Why Invest in{" "}
-            <span className="text-[#e67b46] relative">
-              Real Estate?
-              <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#e67b46]"></div>
-            </span>
-          </h1>
-          
-          <p className="text-gray-700 mb-4 text-lg">
-            Real estate is often considered a non-depreciating asset because it typically maintains or increases in value over time.
-          </p>
-          
-          <p className="text-gray-700 mb-8 text-lg">
-            Unlike other assets such as vehicles or equipment, real estate generally appreciates in value due to factors such as location, improvements, and demand.
-          </p>
-
-          <Button 
-            className="bg-[#e67b46] hover:bg-[#d16b3d] text-white px-8 py-6 rounded-lg text-lg font-medium mb-12"
-          >
-            START INVESTING TODAY
-          </Button>
-
-          {/* Features section */}
-          <div className="bg-[#13517b] rounded-2xl p-8 text-white grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="flex flex-col items-center text-center">
-              <div className="bg-white/10 p-4 rounded-full mb-4">
-                <Puzzle className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-medium mb-2">Fractional Ownership</h3>
-            </div>
-
-            <div className="flex flex-col items-center text-center">
-              <div className="bg-white/10 p-4 rounded-full mb-4">
-                <Coins className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-medium mb-2">Generational wealth</h3>
-            </div>
-
-            <div className="flex flex-col items-center text-center">
-              <div className="bg-white/10 p-4 rounded-full mb-4">
-                <CircleDollarSign className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-medium mb-2">Invest in any currency</h3>
-            </div>
-          </div>
-        </div>
+        </Carousel>
       </div>
     </section>
   );

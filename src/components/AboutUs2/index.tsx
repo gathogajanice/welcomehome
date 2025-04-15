@@ -12,7 +12,7 @@ const AboutUs2 = () => {
           </span>
           <span className="text-[#6DD6DB]"> Us</span>
         </h1>
-        <p className="font-apercu text-[#13517b] mt-4 text-center text-sm"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel felis nec nisl accumsan tincidunt a et libero.</p>
+        <p className="font-apercu text-[#13517b] mt-4 text-center text-sm"></p>
       </div>
       <CapsuleGrid />
     </section>;

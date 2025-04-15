@@ -13,14 +13,14 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-white px-4 py-16 mt-20 relative">
-      <div className="container mx-auto border border-gray-200 rounded-2xl p-8">
+    <footer className="bg-[#f8f6f2] px-4 py-16 relative">
+      <div className="container mx-auto border border-[#1E5987] rounded-2xl p-8 bg-white">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="text-left">
-              <div className="backdrop-blur-sm bg-white/30 border border-white/50 shadow-lg rounded-xl p-4 inline-block">
-                <h2 className="font-bricolage text-lg">
+              <div className="backdrop-blur-sm bg-white/30 border border-[#1E5987] shadow-lg rounded-xl p-4 inline-block">
+                <h2 className="font-bricolage text-lg font-bold">
                   The Future of<br />
                   <span className="text-[#6dd6db] text-2xl font-medium">Real Estate</span><br />
                   Investment <span className="text-xs align-top">®</span>
@@ -110,7 +110,13 @@ const Footer = () => {
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
                 </div>
                 <Button 
-                  className="w-full bg-[#6dd6db] hover:bg-[#6dd6db]/90 text-white font-bricolage text-sm py-2"
+                  className="w-full bg-[#1E5987] text-white font-bricolage text-sm px-8 py-2 rounded-full 
+                    border-2 border-dashed border-white/60 transition-all hover:bg-[#1E5987]"
+                  style={{
+                    backgroundImage: `url('/lovable-uploads/b8954deb-dd19-4087-8329-72a90b45e6bc.png')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
                 >
                   START INVESTING TODAY
                 </Button>
@@ -119,10 +125,17 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Future of Real Estate Investment Bold Text */}
+        <div className="absolute bottom-0 left-0 w-full text-center py-4">
+          <h2 className="font-bricolage text-3xl font-bold text-[#1E5987]">
+            The Future of Real Estate Investment
+          </h2>
+        </div>
+
         {/* Scroll to Top Button */}
         <button 
           onClick={scrollToTop} 
-          className="absolute bottom-8 right-8 p-3 bg-[#6dd6db] text-white rounded-full shadow-lg hover:bg-[#6dd6db]/90 transition-colors" 
+          className="fixed bottom-8 right-8 p-3 bg-[#6dd6db] text-white rounded-full shadow-lg hover:bg-[#6dd6db]/90 transition-colors z-50" 
           aria-label="Scroll to top"
         >
           <ArrowUp size={24} />

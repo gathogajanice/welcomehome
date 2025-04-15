@@ -42,7 +42,7 @@ const hotspots = [{
   icon: <Globe className="h-5 w-5 text-black" />
 }];
 const WhyInvest = () => {
-  return <section className="min-h-screen bg-[#f8f6f2] px-4 py-16">
+  return <section className="min-h-screen bg-[#f8faff] px-4 py-16">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* Left column - Interactive Africa map with hotspots */}
         <div className="relative">

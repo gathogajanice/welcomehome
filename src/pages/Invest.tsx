@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import {
   Carousel,
@@ -49,7 +48,7 @@ const Invest = () => {
   }, []);
 
   return (
-    <section className="min-h-screen bg-[#f8f6f2] py-24">
+    <section className="min-h-screen bg-[#f8faff] py-24">
       <div className="container mx-auto px-4">
         <h1 className="text-4xl md:text-5xl font-bricolage font-bold mb-16">
           Simple, <span className="text-[#6DD6DB]">Secure</span>, Smart<br />

@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import { Linkedin } from 'lucide-react';
+import { Instagram, Linkedin } from 'lucide-react';
 
 const Team = () => {
   const teamMembers = [
@@ -10,9 +10,9 @@ const Team = () => {
       image: "/lovable-uploads/f07d7f91-c94c-43b8-85b4-25f9d3f4b04c.png",
       quote: "Building the future of finance",
       social: {
-        x: "#",
+        twitter: "#",
         linkedin: "#",
-        behance: "#"
+        instagram: "#"
       }
     },
     {
@@ -21,9 +21,9 @@ const Team = () => {
       image: "/lovable-uploads/91c0dd1d-dbf3-48d6-904c-21dcf5c1f23c.png",
       quote: "Innovation through collaboration",
       social: {
-        x: "#",
+        twitter: "#",
         linkedin: "#",
-        behance: "#"
+        instagram: "#"
       }
     }
   ];
@@ -37,7 +37,7 @@ const Team = () => {
   }, []);
 
   return (
-    <div className="bg-[#f8f6f2] py-16">
+    <div className="bg-[#f8faff] py-16">
       <div className="container mx-auto px-4">
         {/* Title Section - No underline */}
         <div className="text-center mb-16">
@@ -49,9 +49,9 @@ const Team = () => {
         {/* Team Members Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {teamMembers.map((member, index) => (
-            <div key={index} className="relative">
+            <div key={index} className="relative group">
               {/* Background Box */}
-              <div className="absolute inset-0 bg-[#1E5987] rounded-2xl -skew-y-2 transform"></div>
+              <div className="absolute inset-0 bg-[#1E5987] rounded-2xl -skew-y-2 transform transition-transform duration-300 group-hover:skew-y-0"></div>
               
               {/* Content */}
               <div className="relative p-6 flex flex-col items-center">
@@ -79,7 +79,7 @@ const Team = () => {
                 
                 {/* Social Links */}
                 <div className="flex space-x-4">
-                  <a href={member.social.x} className="text-white hover:text-[#6dd6db] transition-colors">
+                  <a href={member.social.twitter} className="text-white hover:text-[#6dd6db] transition-colors">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M15.2 0h3.9l-8.5 9.8 9.9 14.2h-7.8l-6.1-8.7-6.9 8.7H-4.2l9.1-10.5L-4.5 0h8l5.5 7.9L15.2 0zm-1.4 21.5h2.1L5.1 2.4H2.9l10.9 19.1z"/>
                     </svg>
@@ -87,10 +87,8 @@ const Team = () => {
                   <a href={member.social.linkedin} className="text-white hover:text-[#6dd6db] transition-colors">
                     <Linkedin size={20} />
                   </a>
-                  <a href={member.social.behance} className="text-white hover:text-[#6dd6db] transition-colors">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M22.5 18.5h-6v-2h6v2zm-9-7.5c0-1.657-1.343-3-3-3H6v12h4.5c1.657 0 3-1.343 3-3 0-1.657-1.343-3-3-3 1.657 0 3-1.343 3-3zM6 10.5h4.5c.827 0 1.5.673 1.5 1.5s-.673 1.5-1.5 1.5H6v-3zm4.5 3c.827 0 1.5.673 1.5 1.5s-.673 1.5-1.5 1.5H6v-3h4.5z"/>
-                    </svg>
+                  <a href={member.social.instagram} className="text-white hover:text-[#6dd6db] transition-colors">
+                    <Instagram size={20} />
                   </a>
                 </div>
               </div>
@@ -103,4 +101,3 @@ const Team = () => {
 };
 
 export default Team;
-

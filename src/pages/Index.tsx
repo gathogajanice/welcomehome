@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-[#f8f6f2]">
+    <div className="min-h-screen flex flex-col bg-[#f8faff]">
       {/* Hero section is loaded in App.tsx */}
       
       {/* Main content */}

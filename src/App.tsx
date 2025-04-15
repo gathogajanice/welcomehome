@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
+import Invest from "./pages/Invest";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
         <Sonner />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/invest" element={<Invest />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

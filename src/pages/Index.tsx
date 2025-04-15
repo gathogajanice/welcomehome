@@ -3,6 +3,7 @@ import React from 'react';
 import AboutUs2 from "@/components/AboutUs2";
 import StatsSection from "@/components/StatsSection";
 import LocationsSection from "@/components/LocationsSection";
+import Invest from "./Invest";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       {/* Main content */}
       <div className="relative z-10 mt-[100vh]">
         <AboutUs2 />
+        <Invest />
         <StatsSection />
         <LocationsSection />
       </div>

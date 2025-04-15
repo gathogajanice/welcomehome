@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -10,6 +11,7 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Invest from "./pages/Invest";
 import Team from "./pages/Team";
+import Welcome from "./pages/Welcome";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -30,6 +32,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/invest" element={<Invest />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/welcome" element={<Welcome />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

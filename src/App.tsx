@@ -10,7 +10,6 @@ import NotFound from "./pages/NotFound";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Invest from "./pages/Invest";
-import WhyInvestInUs from "./pages/WhyInvestInUs";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -30,7 +29,6 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/invest" element={<Invest />} />
-          <Route path="/why-invest-in-us" element={<WhyInvestInUs />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

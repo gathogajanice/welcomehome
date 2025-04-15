@@ -1,40 +1,33 @@
+
 import React, { useEffect } from 'react';
 import { Instagram, Linkedin } from 'lucide-react';
 
-const teamMembers = [
-  {
-    name: "Sharufa Walker",
-    role: "CEO & Co-founder",
-    image: "/lovable-uploads/f07d7f91-c94c-43b8-85b4-25f9d3f4b04c.png",
-    quote: "Building the future of finance",
-    social: {
-      twitter: "#",
-      linkedin: "#",
-      instagram: "#"
-    }
-  },
-  {
-    name: "Mamadou Ka",
-    role: "Co-founder",
-    image: "/lovable-uploads/91c0dd1d-dbf3-48d6-904c-21dcf5c1f23c.png",
-    quote: "Innovation through collaboration",
-    social: {
-      twitter: "#",
-      linkedin: "#",
-      instagram: "#"
-    }
-  }
-];
-
-// Preload images
-useEffect(() => {
-  teamMembers.forEach(member => {
-    const img = new Image();
-    img.src = member.image;
-  });
-}, []);
-
 const Team = () => {
+  const teamMembers = [
+    {
+      name: "Sharufa Walker",
+      role: "CEO & Co-founder",
+      image: "/lovable-uploads/f07d7f91-c94c-43b8-85b4-25f9d3f4b04c.png",
+      quote: "Building the future of finance",
+      social: {
+        twitter: "#",
+        linkedin: "#",
+        instagram: "#"
+      }
+    },
+    {
+      name: "Mamadou Ka",
+      role: "Co-founder",
+      image: "/lovable-uploads/91c0dd1d-dbf3-48d6-904c-21dcf5c1f23c.png",
+      quote: "Innovation through collaboration",
+      social: {
+        twitter: "#",
+        linkedin: "#",
+        instagram: "#"
+      }
+    }
+  ];
+
   // Preload images
   useEffect(() => {
     teamMembers.forEach(member => {
@@ -49,7 +42,7 @@ const Team = () => {
         {/* Title Section - No underline */}
         <div className="text-center mb-16">
           <h1 className="font-bricolage text-5xl md:text-6xl lg:text-7xl font-light mb-4">
-            Meet the <span className="font-bold text-[#33C3F0]">Incredible</span> Team
+            Meet the <span className="font-bold">Incredible</span> Team
           </h1>
         </div>
 
@@ -58,7 +51,7 @@ const Team = () => {
           {teamMembers.map((member, index) => (
             <div key={index} className="relative group">
               {/* Background Box */}
-              <div className="absolute inset-0 bg-[#1E5987] rounded-2xl -skew-y-2 transform transition-all duration-500 ease-in-out group-hover:skew-y-0 group-hover:scale-105 group-hover:shadow-xl"></div>
+              <div className="absolute inset-0 bg-[#1E5987] rounded-2xl -skew-y-2 transform transition-transform duration-300 group-hover:skew-y-0"></div>
               
               {/* Content */}
               <div className="relative p-6 flex flex-col items-center">

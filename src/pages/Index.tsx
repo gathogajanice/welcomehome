@@ -5,7 +5,6 @@ import StatsSection from "@/components/StatsSection";
 import Invest from "@/pages/Invest";
 import WhyInvest from "@/pages/WhyInvest";
 import Team from "@/pages/Team";
-import Welcome from "@/pages/Welcome";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -20,7 +19,6 @@ const Index = () => {
         <StatsSection />
         <Invest />
         <Team />
-        <Welcome />
         <Footer />
       </div>
     </div>

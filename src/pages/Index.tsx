@@ -2,7 +2,6 @@
 import React from 'react';
 import AboutUs2 from "@/components/AboutUs2";
 import StatsSection from "@/components/StatsSection";
-import LocationsSection from "@/components/LocationsSection";
 import Invest from "@/pages/Invest";
 import WhyInvest from "@/pages/WhyInvest";
 
@@ -17,7 +16,6 @@ const Index = () => {
         <Invest />
         <WhyInvest />
         <StatsSection />
-        <LocationsSection />
       </div>
     </div>
   );

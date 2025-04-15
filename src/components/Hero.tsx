@@ -65,7 +65,7 @@ const Hero = () => {
               <h1 className="font-clash text-3xl md:text-4xl text-white leading-tight mb-4 font-normal">
                 The Future of <span className="inline-block text-slate-50">Fractional</span>
                 <br />
-                <span className="text-[#6DD6DB] inline-block text-7xl font-semibold">Real Estate</span> in Africa
+                <span className="text-[#6DD6DB] inline-block text-7xl font-medium">Real Estate</span> in Africa
               </h1>
             </div>
           </div>

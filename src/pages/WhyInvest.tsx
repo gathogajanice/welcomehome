@@ -1,34 +1,35 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { DollarSign, Globe, Home, LineChart } from "lucide-react";
 
+// Define data for the hotspots
 const hotspots = [
   {
     id: 1,
-    position: { top: '30%', left: '48%' },
+    position: { top: '25%', left: '45%' },
     title: 'Fractional Ownership',
     description: 'Own a piece of prime real estate with minimal investment',
     icon: <Home className="h-5 w-5 text-[#33C3F0]" />
   },
   {
     id: 2,
-    position: { top: '45%', left: '55%' },
+    position: { top: '40%', left: '60%' },
     title: 'Generational Wealth',
     description: 'Build lasting financial security for your family',
     icon: <LineChart className="h-5 w-5 text-[#33C3F0]" />
   },
   {
     id: 3,
-    position: { top: '52%', left: '42%' },
+    position: { top: '55%', left: '40%' },
     title: 'Invest in Any Currency',
     description: 'Flexible investment options across multiple currencies',
     icon: <DollarSign className="h-5 w-5 text-[#33C3F0]" />
   },
   {
     id: 4,
-    position: { top: '60%', left: '50%' },
+    position: { top: '70%', left: '55%' },
     title: 'Simple & Transparent',
     description: 'Clear processes with no hidden fees',
     icon: <Globe className="h-5 w-5 text-[#33C3F0]" />
@@ -49,31 +50,27 @@ const WhyInvest = () => {
           
           {/* Interactive hotspots */}
           {hotspots.map((hotspot) => (
-            <HoverCard key={hotspot.id} openDelay={0} closeDelay={0}>
+            <HoverCard key={hotspot.id}>
               <HoverCardTrigger asChild>
                 <button 
-                  className="absolute h-6 w-6 rounded-full bg-[#33C3F0]/80 hover:bg-[#33C3F0] transition-colors
-                           animate-pulse hover:animate-none"
+                  className="absolute h-6 w-6 rounded-full bg-[#33C3F0] hover:bg-[#1f1f2e] transition-all 
+                             hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#33C3F0]"
                   style={{ 
                     top: hotspot.position.top, 
-                    left: hotspot.position.left,
-                    boxShadow: '0 0 0 rgba(51, 195, 240, 0.4)',
-                    animation: 'pulse 2s infinite'
+                    left: hotspot.position.left 
                   }}
                 >
                   <span className="sr-only">{hotspot.title}</span>
                 </button>
               </HoverCardTrigger>
-              <HoverCardContent className="rounded-full backdrop-blur-md bg-white/80 border-none shadow-lg p-4 w-48">
-                <div className="flex items-center gap-2">
+              <HoverCardContent className="backdrop-blur-md bg-white/80 border-none shadow-lg p-4 w-64">
+                <div className="flex items-center space-x-2">
                   <div className="rounded-full bg-[#f8f6f2] p-2">
                     {hotspot.icon}
                   </div>
-                  <div className="flex-1">
-                    <h4 className="font-bricolage text-sm font-medium text-[#1f1f2e]">{hotspot.title}</h4>
-                    <p className="text-xs text-gray-600 mt-1">{hotspot.description}</p>
-                  </div>
+                  <h4 className="font-bricolage text-lg text-[#1f1f2e]">{hotspot.title}</h4>
                 </div>
+                <p className="text-sm text-gray-600 mt-2">{hotspot.description}</p>
               </HoverCardContent>
             </HoverCard>
           ))}
@@ -83,9 +80,9 @@ const WhyInvest = () => {
         <div className="space-y-8 text-left">
           <div className="space-y-4">
             <h1 className="text-5xl md:text-6xl font-bricolage">
-              <span className="text-[#1f1f2e]">Why Invest in </span>
+              <span className="text-[#1f1f2e]">Why </span>
               <span className="text-[#33C3F0] relative inline-block">
-                Real Estate
+                Invest
                 <span className="absolute -bottom-3 left-0 w-full">
                   <img 
                     src="/lovable-uploads/b1b73eff-f480-4f2c-993d-ba570ba41bf9.png" 
@@ -109,9 +106,13 @@ const WhyInvest = () => {
           </div>
 
           <Button 
-            className="bg-[#1E5987] text-white font-bricolage px-10 py-3 rounded-none text-lg 
-                     border-2 border-dashed border-white/60 transition-all duration-300 
-                     hover:bg-[#1E5987]/90 hover:scale-105"
+            className="bg-[#1E5987] text-white font-bricolage px-10 py-3 rounded-full text-lg 
+                     border-2 border-dashed border-white/60 transition-all hover:bg-[#1E5987]"
+            style={{ 
+              backgroundImage: `url('/lovable-uploads/b8954deb-dd19-4087-8329-72a90b45e6bc.png')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
           >
             START INVESTING TODAY
           </Button>

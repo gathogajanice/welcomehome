@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   Carousel,
@@ -13,29 +12,22 @@ import { type CarouselApi } from "@/components/ui/carousel";
 
 const features = [
   {
-    number: "1",
-    title: "Home Selection",
-    description: "Our expert team helps you find the perfect home that matches your lifestyle and investment goals."
+    number: "01",
+    title: "Browse & Invest",
+    description: "Purchase fractional land ownership with ease through our intuitive platform.",
+    image: "photo-1460925895917-afdab827c52f"
   },
   {
-    number: "2",
-    title: "Property Inspection",
-    description: "Thorough evaluation of every property ensuring you make an informed decision for your new home."
+    number: "02",
+    title: "Secure Transactions",
+    description: "All transactions are verified via blockchain & smart contracts for maximum security.",
+    image: "photo-1487058792275-0ad4aaf24ca7"
   },
   {
-    number: "3",
-    title: "Documentation",
-    description: "We handle all the paperwork and legal requirements, making your home-buying journey stress-free."
-  },
-  {
-    number: "4",
-    title: "Move-In Support",
-    description: "Complete assistance with the moving process and initial setup of your new home."
-  },
-  {
-    number: "5",
-    title: "After-Sales Care",
-    description: "Ongoing support and maintenance services to ensure your home remains perfect for years to come."
+    number: "03",
+    title: "Earn & Travel",
+    description: "Membership unlocks luxury stays in Africa, combining investment with unforgettable experiences.",
+    image: "photo-1721322800607-8c38375eef04"
   }
 ];
 
@@ -47,8 +39,8 @@ const Invest = () => {
     <section className="min-h-screen bg-[#f8f6f2] py-24">
       <div className="container mx-auto px-4">
         <h1 className="text-4xl md:text-5xl font-clash mb-16">
-          How We Make Your <span className="text-[#6DD6DB]">Dream Home</span><br />
-          A Reality
+          Simple, <span className="text-[#6DD6DB]">Secure</span>, Smart<br />
+          Transactions
         </h1>
         
         <Carousel
@@ -74,7 +66,7 @@ const Invest = () => {
                       </div>
                       <div className="bg-gray-100 min-h-[300px] md:min-h-[400px]">
                         <img 
-                          src={`https://source.unsplash.com/random/800x600?furniture,${feature.title.toLowerCase()}`}
+                          src={`https://source.unsplash.com/${feature.image}`}
                           alt={feature.title}
                           className="w-full h-full object-cover"
                         />

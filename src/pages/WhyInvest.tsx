@@ -7,28 +7,28 @@ import { DollarSign, Globe, Home, LineChart } from "lucide-react";
 const hotspots = [
   {
     id: 1,
-    position: { top: '20%', left: '35%' },
+    position: { top: '25%', left: '40%' },
     title: 'Fractional Ownership',
     description: 'Own a piece of prime real estate with minimal investment',
     icon: <Home className="h-5 w-5 text-black" />
   },
   {
     id: 2,
-    position: { top: '35%', left: '55%' },
+    position: { top: '45%', left: '55%' },
     title: 'Generational Wealth',
     description: 'Build lasting financial security for your family',
     icon: <LineChart className="h-5 w-5 text-black" />
   },
   {
     id: 3,
-    position: { top: '60%', left: '30%' },
+    position: { top: '65%', left: '35%' },
     title: 'Invest in Any Currency',
     description: 'Flexible investment options across multiple currencies',
     icon: <DollarSign className="h-5 w-5 text-black" />
   },
   {
     id: 4,
-    position: { top: '75%', left: '50%' },
+    position: { top: '70%', left: '60%' },
     title: 'Simple & Transparent',
     description: 'Clear processes with no hidden fees',
     icon: <Globe className="h-5 w-5 text-black" />
@@ -59,7 +59,7 @@ const WhyInvest = () => {
                 left: hotspot.position.left 
               }}
             >
-              <HoverCard>
+              <HoverCard openDelay={50} closeDelay={0}>
                 <HoverCardTrigger asChild>
                   <button className="w-full h-full flex items-center justify-center">
                     <span className="sr-only">{hotspot.title}</span>

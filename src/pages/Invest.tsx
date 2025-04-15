@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Carousel,
   CarouselContent,
@@ -40,10 +40,18 @@ const Invest = () => {
   const [api, setApi] = React.useState<CarouselApi>();
   const autoplay = useCarouselAutoplay(api, 5000);
 
+  // Preload images
+  useEffect(() => {
+    features.forEach(feature => {
+      const img = new Image();
+      img.src = feature.image;
+    });
+  }, []);
+
   return (
     <section className="min-h-screen bg-[#f8f6f2] py-24">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-bricolage mb-16">
+        <h1 className="text-4xl md:text-5xl font-bricolage font-bold mb-16">
           Simple, <span className="text-[#6DD6DB]">Secure</span>, Smart<br />
           Transactions
         </h1>
@@ -53,7 +61,7 @@ const Invest = () => {
             align: "start",
             loop: true,
           }}
-          className="w-full max-w-5xl mx-auto"
+          className="w-full max-w-4xl mx-auto"
           setApi={setApi}
         >
           <CarouselContent>
@@ -62,21 +70,22 @@ const Invest = () => {
                 <Card className="bg-white rounded-2xl overflow-hidden shadow-lg">
                   <CardContent className="p-0">
                     <div className="grid md:grid-cols-2 gap-6">
-                      <div className="p-8 flex flex-col justify-center items-start text-left">
+                      <div className="p-6 flex flex-col justify-center items-start text-left">
                         <div className="flex items-center gap-3 mb-4">
-                          <span className="text-7xl font-light text-[#6DD6DB] font-bricolage">
+                          <span className="text-6xl font-light text-[#6DD6DB] font-bricolage">
                             {feature.number}
                           </span>
                           {feature.icon}
                         </div>
-                        <h3 className="text-2xl font-bricolage mb-4">{feature.title}</h3>
-                        <p className="text-gray-600 font-bricolage">{feature.description}</p>
+                        <h3 className="text-2xl font-bricolage font-bold mb-4">{feature.title}</h3>
+                        <p className="text-gray-600 font-bricolage text-sm">{feature.description}</p>
                       </div>
-                      <div className="bg-gray-100 min-h-[300px] md:min-h-[400px]">
+                      <div className="bg-gray-100 min-h-[250px] md:min-h-[300px]">
                         <img 
                           src={feature.image}
                           alt={feature.title}
                           className="w-full h-full object-cover"
+                          loading="eager"
                         />
                       </div>
                     </div>

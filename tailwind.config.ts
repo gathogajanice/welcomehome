@@ -84,10 +84,16 @@ export default {
 						height: 'var(--radix-accordion-content-height)'
 					}
 				},
-				animation: {
-					'accordion-down': 'accordion-down 0.2s ease-out',
-					'accordion-up': 'accordion-up 0.2s ease-out'
-				}
+				'pulse': {
+                    '0%': { boxShadow: '0 0 0 0 rgba(0, 0, 0, 0.5)' },
+                    '70%': { boxShadow: '0 0 0 15px rgba(0, 0, 0, 0)' },
+                    '100%': { boxShadow: '0 0 0 0 rgba(0, 0, 0, 0)' }
+                },
+			},
+			animation: {
+				'accordion-down': 'accordion-down 0.2s ease-out',
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
 			},
 			fontFamily: {
 				'canela': ['Canela', 'serif'],

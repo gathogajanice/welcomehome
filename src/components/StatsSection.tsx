@@ -69,9 +69,10 @@ const StatsSection = () => {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.7 }}
-          className="text-center font-clash text-2xl md:text-3xl font-bold text-white mb-10"
+          className="text-center text-[2.5rem] font-bold font-clash text-white mb-10"
         >
-          Our Performance
+          <span className="text-white text-motion">Our</span>
+          <span className="text-[#6DD6DB]"> Performance</span>
         </motion.h2>
         
         <Carousel 

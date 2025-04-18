@@ -59,69 +59,72 @@ const Team = () => {
           className="text-center mb-16"
         >
           <h1 className="text-[2.5rem] font-bold font-clash">
-            <span className="text-[#1f1f2e] relative inline-block">Meet the</span>
+            <span className="text-[#1f1f2e] relative inline-block text-motion">Meet the</span>
             <span className="text-[#6DD6DB]"> Incredible</span>
             <span className="text-[#1f1f2e]"> Team</span>
           </h1>
         </motion.div>
 
         {/* Team Members Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           {teamMembers.map((member, index) => (
             <motion.div 
               key={index} 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * index, duration: 0.7 }}
-              className="relative group"
+              className="card-container relative max-w-[300px] mx-auto w-full"
             >
-              {/* Background Box - Now straight by default, animated on hover */}
-              <div 
-                className="absolute inset-0 bg-[#1E5987] rounded-2xl transform transition-all duration-500 ease-in-out group-hover:-skew-y-2 group-hover:scale-105 group-hover:shadow-xl"
-                style={{
-                  backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)",
-                  backgroundSize: "20px 20px"
-                }}
-              ></div>
-              
-              {/* Content */}
-              <div className="relative p-6 flex flex-col items-center">
-                {/* Profile Image - Zoomed in */}
-                <div className="mb-4 rounded-full overflow-hidden w-44 h-44 border-4 border-white shadow-xl">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover object-center scale-110"
-                    loading="eager"
-                  />
-                </div>
+              {/* Card with hover effects */}
+              <div className="team-card overflow-hidden rounded-2xl transition-all duration-500 ease-in-out hover:transform hover:scale-105 hover:-skew-y-2 hover:shadow-xl">
+                {/* Background with grid pattern */}
+                <div 
+                  className="absolute inset-0 bg-[#1E5987] rounded-2xl"
+                  style={{
+                    backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)",
+                    backgroundSize: "20px 20px"
+                  }}
+                ></div>
                 
-                {/* Name and Role */}
-                <h2 className="font-bricolage text-2xl font-bold text-white mb-1">
-                  {member.name}
-                </h2>
-                <p className="font-bricolage text-lg text-white/90 mb-3">
-                  {member.role}
-                </p>
+                {/* Content */}
+                <div className="relative p-6 flex flex-col items-center">
+                  {/* Profile Image - More zoomed in */}
+                  <div className="mb-4 rounded-full overflow-hidden w-44 h-44 border-4 border-white shadow-xl">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover object-center scale-125"
+                      loading="eager"
+                    />
+                  </div>
+                  
+                  {/* Name and Role */}
+                  <h2 className="font-bricolage text-2xl font-bold text-white mb-1">
+                    {member.name}
+                  </h2>
+                  <p className="font-bricolage text-lg text-white/90 mb-3">
+                    {member.role}
+                  </p>
 
-                {/* Quote */}
-                <p className="text-white/80 italic mb-4 text-sm">
-                  "{member.quote}"
-                </p>
-                
-                {/* Social Links */}
-                <div className="flex space-x-4">
-                  <a href={member.social.twitter} className="text-white hover:text-[#6dd6db] transition-colors">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M15.2 0h3.9l-8.5 9.8 9.9 14.2h-7.8l-6.1-8.7-6.9 8.7H-4.2l9.1-10.5L-4.5 0h8l5.5 7.9L15.2 0zm-1.4 21.5h2.1L5.1 2.4H2.9l10.9 19.1z"/>
-                    </svg>
-                  </a>
-                  <a href={member.social.linkedin} className="text-white hover:text-[#6dd6db] transition-colors">
-                    <Linkedin size={20} />
-                  </a>
-                  <a href={member.social.instagram} className="text-white hover:text-[#6dd6db] transition-colors">
-                    <Instagram size={20} />
-                  </a>
+                  {/* Quote */}
+                  <p className="text-white/80 italic mb-4 text-sm">
+                    "{member.quote}"
+                  </p>
+                  
+                  {/* Social Links with enhanced hover effects */}
+                  <div className="flex space-x-4">
+                    <a href={member.social.twitter} className="social-icon-container">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="social-icon text-white">
+                        <path d="M15.2 0h3.9l-8.5 9.8 9.9 14.2h-7.8l-6.1-8.7-6.9 8.7H-4.2l9.1-10.5L-4.5 0h8l5.5 7.9L15.2 0zm-1.4 21.5h2.1L5.1 2.4H2.9l10.9 19.1z"/>
+                      </svg>
+                    </a>
+                    <a href={member.social.linkedin} className="social-icon-container">
+                      <Linkedin size={20} className="social-icon text-white" />
+                    </a>
+                    <a href={member.social.instagram} className="social-icon-container">
+                      <Instagram size={20} className="social-icon text-white" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </motion.div>

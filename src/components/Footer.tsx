@@ -26,7 +26,7 @@ const Footer = () => {
       }}
     >
       <div className="container mx-auto border border-[#1E5987] rounded-2xl p-4 sm:p-6 md:p-8 bg-white">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="text-left">
@@ -59,19 +59,19 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Social Media Links */}
-            <div className="flex space-x-4 pt-4">
-              <a href="#" className="text-gray-600 hover:text-[#6dd6db] transition-colors">
-                <Instagram size={18} />
+            {/* Social Media Links with animation */}
+            <div className="flex space-x-4 pt-4 social-icons">
+              <a href="#" className="social-icon-container">
+                <Facebook size={18} className="social-icon text-gray-600" />
               </a>
-              <a href="#" className="text-gray-600 hover:text-[#6dd6db] transition-colors">
-                <Facebook size={18} />
+              <a href="#" className="social-icon-container">
+                <Twitter size={18} className="social-icon text-gray-600" />
               </a>
-              <a href="#" className="text-gray-600 hover:text-[#6dd6db] transition-colors">
-                <Twitter size={18} />
+              <a href="#" className="social-icon-container">
+                <Linkedin size={18} className="social-icon text-gray-600" />
               </a>
-              <a href="#" className="text-gray-600 hover:text-[#6dd6db] transition-colors">
-                <Linkedin size={18} />
+              <a href="#" className="social-icon-container">
+                <Instagram size={18} className="social-icon text-gray-600" />
               </a>
             </div>
           </div>

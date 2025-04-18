@@ -1,6 +1,8 @@
 
 import React from 'react';
 import CapsuleCard from '@/components/CapsuleCard';
+import { useIsMobile } from "@/hooks/use-mobile";
+import { motion } from 'framer-motion';
 
 const capsuleData = [
   {
@@ -30,16 +32,54 @@ const capsuleData = [
 ];
 
 const CapsuleGrid = () => {
+  const isMobile = useIsMobile();
+  
+  if (isMobile) {
+    return (
+      <motion.div 
+        id="about-us-capsules"
+        className="flex overflow-x-auto snap-x snap-mandatory -mx-4 px-4 pb-4 hide-scrollbar"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        {capsuleData.map((card, index) => (
+          <motion.div 
+            key={index}
+            className="flex-shrink-0 w-[85%] snap-start mr-4"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: index * 0.1, duration: 0.5 }}
+          >
+            <CapsuleCard
+              image={card.image}
+              title={card.title}
+              subtitle={card.subtitle}
+              icon={card.icon}
+            />
+          </motion.div>
+        ))}
+      </motion.div>
+    );
+  }
+  
+  // Desktop view
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center max-w-[1200px] mx-auto px-8">
       {capsuleData.map((card, index) => (
-        <CapsuleCard
+        <motion.div
           key={index}
-          image={card.image}
-          title={card.title}
-          subtitle={card.subtitle}
-          icon={card.icon}
-        />
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.1, duration: 0.5 }}
+        >
+          <CapsuleCard
+            image={card.image}
+            title={card.title}
+            subtitle={card.subtitle}
+            icon={card.icon}
+          />
+        </motion.div>
       ))}
     </div>
   );

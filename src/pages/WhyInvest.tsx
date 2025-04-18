@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
@@ -59,21 +58,19 @@ const WhyInvest = () => {
       }}
     >
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        {/* Left column - Interactive Africa map with hotspots */}
         <div className="relative">
           <img src="/lovable-uploads/1572c4f2-eb33-483a-a261-ad6032ac617d.png" alt="Africa Outline" className="w-full h-auto max-w-[500px] mx-auto" />
           
-          {/* Interactive hotspots with enhanced pulse */}
           {hotspots.map(hotspot => (
             <div 
               key={hotspot.id} 
-              className="absolute h-7 w-7 rounded-full bg-black opacity-80 
-                         hover:scale-125 transition-transform duration-300
-                         animate-[pulse_2s_ease-in-out_infinite]" 
+              className="absolute h-7 w-7 rounded-full bg-black/80
+                         hover:scale-110 transition-transform duration-500"
               style={{
                 top: hotspot.position.top,
                 left: hotspot.position.left,
-                transform: 'translate(-50%, -50%)', // Center the hotspot
+                transform: 'translate(-50%, -50%)',
+                animation: 'pulse 3s ease-in-out infinite',
               }}
             >
               <HoverCard openDelay={50} closeDelay={0}>
@@ -96,11 +93,10 @@ const WhyInvest = () => {
           ))}
         </div>
 
-        {/* Right column - Content */}
         <div className="space-y-8 text-left">
           <div className="space-y-4">
-            <h1 className="text-[2.5rem] font-bold font-clash">
-              <span className="text-[#1f1f2e] relative inline-block text-motion">Why Invest in Real Estate in </span>
+            <h1 className="text-[2.5rem] font-bricolage">
+              <span className="text-[#1f1f2e] relative inline-block">Why Invest in Real Estate in </span>
               <span className="text-[#6DD6DB]">Africa</span>
             </h1>
             

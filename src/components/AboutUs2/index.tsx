@@ -23,8 +23,8 @@ const AboutUs2 = () => {
         transition={{ delay: 0.2, duration: 0.7 }}
         className="text-center mb-16"
       >
-        <h1 className="text-[2.5rem] font-bold font-clash">
-          <span className="text-[#1f1f2e] relative inline-block text-motion">About</span>
+        <h1 className="text-[2.5rem] font-bricolage">
+          <span className="text-[#1f1f2e] relative inline-block">About</span>
           <span className="text-[#6DD6DB]"> Us</span>
         </h1>
         <p className="font-apercu text-[#13517b] mt-4 text-center text-sm"></p>

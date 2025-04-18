@@ -6,15 +6,14 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { useCarouselAutoplay } from "@/hooks/useCarouselAutoplay";
+import { motion } from 'framer-motion';
 
 const StatsSection = () => {
   const isMobile = useIsMobile();
   
-  // Stats data array with actual numbers
+  // Stats data array with actual numbers (added one more item)
   const stats = [
     {
       number: "62%",
@@ -40,6 +39,11 @@ const StatsSection = () => {
       number: "42%",
       title: "Annual Growth Rate",
       description: "(Exceeding local market averages since launch)"
+    },
+    {
+      number: "93%",
+      title: "Client Satisfaction",
+      description: "(Based on post-investment surveys)"
     }
   ];
 
@@ -49,7 +53,10 @@ const StatsSection = () => {
   const autoplay = useCarouselAutoplay(api, 5000);
 
   return (
-    <section 
+    <motion.section 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
       className="w-full bg-[#0e517d] py-10 relative z-10 overflow-hidden" 
       id="stats-section"
       style={{
@@ -58,6 +65,15 @@ const StatsSection = () => {
       }}
     >
       <div className="container mx-auto px-4">
+        <motion.h2 
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.7 }}
+          className="text-center font-clash text-2xl md:text-3xl font-bold text-white mb-10"
+        >
+          Our Performance
+        </motion.h2>
+        
         <Carousel 
           setApi={setApi}
           className="max-w-6xl mx-auto"
@@ -68,8 +84,13 @@ const StatsSection = () => {
         >
           <CarouselContent>
             {stats.map((stat, index) => (
-              <CarouselItem key={index} className={isMobile ? "md:basis-1/2 lg:basis-1/5" : "basis-1/5"}>
-                <div className="relative flex flex-col items-center justify-center text-white py-4 px-2 max-w-[220px] mx-auto border border-[#4bbfe2]/30 rounded-lg bg-[#0e517d]/50">
+              <CarouselItem key={index} className={isMobile ? "basis-full sm:basis-1/2" : "md:basis-1/3 lg:basis-1/4 xl:basis-1/5"}>
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * index, duration: 0.5 }}
+                  className="relative flex flex-col items-center justify-center text-white py-4 px-2 max-w-[220px] mx-auto border border-[#4bbfe2]/30 rounded-lg bg-[#0e517d]/50"
+                >
                   <h2 className="font-clash text-2xl md:text-3xl lg:text-4xl font-bold mb-1 text-white">
                     {stat.number}
                   </h2>
@@ -79,15 +100,13 @@ const StatsSection = () => {
                   <p className="font-apercu text-white/70 text-[10px] md:text-[10px] lg:text-xs max-w-[170px] text-center">
                     {stat.description}
                   </p>
-                </div>
+                </motion.div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
         </Carousel>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

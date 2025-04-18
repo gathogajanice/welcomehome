@@ -1,31 +1,47 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, ArrowUp, Instagram, Facebook, Twitter, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Facebook, Twitter, Linkedin } from 'lucide-react';
 import { Button } from './ui/button';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
+  // Preload background image
+  useEffect(() => {
+    const img = new Image();
+    img.src = '/lovable-uploads/b8954deb-dd19-4087-8329-72a90b45e6bc.png';
+  }, []);
 
   return (
-    <footer className="bg-[#f8f6f2] px-4 py-16 relative">
-      <div className="container mx-auto border border-[#1E5987] rounded-2xl p-8 bg-white">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <motion.footer 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="bg-[#eaf6ff] px-4 py-16 relative"
+      style={{
+        backgroundImage: "url('https://images.unsplash.com/photo-1566041510639-8d95a2490bfb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+        backgroundBlendMode: "overlay",
+        backgroundSize: "cover",
+        backgroundPosition: "center"
+      }}
+    >
+      <div className="container mx-auto border border-[#1E5987] rounded-2xl p-4 sm:p-6 md:p-8 bg-white">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="text-left">
-              <div className="backdrop-blur-sm bg-white/30 border border-[#1E5987] shadow-lg rounded-xl p-4 inline-block">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+                className="backdrop-blur-sm bg-white/30 border border-[#1E5987] shadow-lg rounded-xl p-4 inline-block"
+              >
                 <h2 className="font-bricolage text-lg font-bold">
                   The Future of<br />
                   <span className="text-[#6dd6db] text-2xl font-medium">Real Estate</span><br />
                   Investment <span className="text-xs align-top">®</span>
                 </h2>
-              </div>
+              </motion.div>
               <p className="text-xs font-bricolage uppercase text-gray-600 mt-2">Own a piece of the world</p>
             </div>
             
@@ -125,16 +141,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
-      {/* Scroll to Top Button */}
-      <button 
-        onClick={scrollToTop} 
-        className="fixed bottom-8 right-8 p-3 bg-[#6dd6db] text-white rounded-full shadow-lg hover:bg-[#6dd6db]/90 transition-colors z-50" 
-        aria-label="Scroll to top"
-      >
-        <ArrowUp size={24} />
-      </button>
-    </footer>
+    </motion.footer>
   );
 };
 

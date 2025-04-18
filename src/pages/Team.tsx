@@ -1,6 +1,7 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Instagram, Linkedin } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const teamMembers = [
   {
@@ -28,8 +29,8 @@ const teamMembers = [
 ];
 
 const Team = () => {
-  // Moved useEffect inside the component function
-  React.useEffect(() => {
+  // Preload images
+  useEffect(() => {
     teamMembers.forEach(member => {
       const img = new Image();
       img.src = member.image;
@@ -37,30 +38,61 @@ const Team = () => {
   }, []);
 
   return (
-    <div className="bg-[#f8faff] py-16">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="bg-[#eaf6ff] py-16"
+      style={{
+        backgroundImage: "url('https://images.unsplash.com/photo-1566041510639-8d95a2490bfb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+        backgroundBlendMode: "overlay",
+        backgroundSize: "cover",
+        backgroundPosition: "center"
+      }}
+    >
       <div className="container mx-auto px-4">
-        {/* Title Section - No underline */}
-        <div className="text-center mb-16">
-          <h1 className="font-bricolage text-5xl md:text-6xl lg:text-7xl font-light mb-4">
-            Meet the <span className="font-bold text-[#33C3F0]">Incredible</span> Team
+        {/* Title Section - Using consistent styling with other sections */}
+        <motion.div 
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.7 }}
+          className="text-center mb-16"
+        >
+          <h1 className="font-clash text-[2.5rem] font-bold">
+            <span className="text-[#1f1f2e] relative inline-block">Meet the</span>
+            <span className="text-[#33C3F0]"> Incredible</span>
+            <span className="text-[#1f1f2e]"> Team</span>
           </h1>
-        </div>
+        </motion.div>
 
         {/* Team Members Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {teamMembers.map((member, index) => (
-            <div key={index} className="relative group">
-              {/* Background Box */}
-              <div className="absolute inset-0 bg-[#1E5987] rounded-2xl -skew-y-2 transform transition-all duration-500 ease-in-out group-hover:skew-y-0 group-hover:scale-105 group-hover:shadow-xl"></div>
+            <motion.div 
+              key={index} 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 * index, duration: 0.7 }}
+              className="relative group"
+            >
+              {/* Background Box - Now straight by default, animated on hover */}
+              <div 
+                className="absolute inset-0 bg-[#1E5987] rounded-2xl transform transition-all duration-500 ease-in-out group-hover:-skew-y-2 group-hover:scale-105 group-hover:shadow-xl"
+                style={{
+                  backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)",
+                  backgroundSize: "20px 20px"
+                }}
+              ></div>
               
               {/* Content */}
               <div className="relative p-6 flex flex-col items-center">
-                {/* Profile Image - Reduced size */}
-                <div className="mb-4 rounded-full overflow-hidden w-48 h-48 border-4 border-white shadow-xl">
+                {/* Profile Image - Zoomed in */}
+                <div className="mb-4 rounded-full overflow-hidden w-44 h-44 border-4 border-white shadow-xl">
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center scale-110"
+                    loading="eager"
                   />
                 </div>
                 
@@ -92,11 +124,11 @@ const Team = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

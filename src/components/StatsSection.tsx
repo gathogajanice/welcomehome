@@ -84,7 +84,7 @@ const StatsSection = () => {
         >
           <CarouselContent>
             {stats.map((stat, index) => (
-              <CarouselItem key={index} className={isMobile ? "basis-full sm:basis-1/2" : "md:basis-1/3 lg:basis-1/4 xl:basis-1/5"}>
+              <CarouselItem key={index} className={isMobile ? "basis-full sm:basis-1/2" : "md:basis-1/2 lg:basis-1/3 xl:basis-1/5"}>
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}

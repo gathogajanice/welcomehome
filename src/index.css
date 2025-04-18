@@ -116,6 +116,19 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Responsive image preloading */
+  img {
+    @apply transition-opacity duration-300;
+  }
+  
+  img.loading {
+    @apply opacity-0;
+  }
+  
+  img.loaded {
+    @apply opacity-100;
+  }
 }
 
 @layer components {
@@ -208,13 +221,24 @@
     @apply w-full h-screen;
     object-fit: cover;
     opacity: 0;
-    transform: translateX(20px) scale(1.075); /* Changed from -20px to 20px for left-to-right transition */
-    transition: opacity 1.2s ease-in-out, transform 1.8s ease; /* Kept the same timing */
+    transform: translateX(20px) scale(1.075);
+    transition: opacity 1.2s ease-in-out, transform 1.8s ease;
   }
   
   .swiper-slide-active .slide-image {
     opacity: 1;
     transform: translateX(0) scale(1.0);
+  }
+  
+  /* Responsive styling for mobile devices */
+  @media (max-width: 768px) {
+    .hero-container {
+      height: 100vh;
+    }
+    
+    .slide-image {
+      object-position: center;
+    }
   }
   
   /* Location Card Styles */
@@ -236,13 +260,7 @@
     -webkit-overflow-scrolling: touch;
   }
 
-  .border-wavy {
-    text-decoration-style: wavy;
-    text-decoration-line: underline;
-    text-decoration-thickness: 2px;
-    text-decoration-color: #6DD6DB;
-    text-underline-offset: 8px;
-  }
+  /* Remove border-wavy class since we don't want the wave underline anymore */
 }
 
 @keyframes fadeInUp {
@@ -256,55 +274,48 @@
   }
 }
 
+/* New animations for page transitions */
+@keyframes pageTransition {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Text motion animation */
+@keyframes textFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.text-motion {
+  animation: textFloat 4s ease-in-out infinite;
+}
+
 #root {
   margin: 0 auto;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  h1 {
+    font-size: calc(1.8rem + 1vw) !important;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-@keyframes ripple {
-  0% {
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }

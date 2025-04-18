@@ -58,9 +58,9 @@ const Team = () => {
           transition={{ delay: 0.2, duration: 0.7 }}
           className="text-center mb-16"
         >
-          <h1 className="font-clash text-[2.5rem] font-bold">
+          <h1 className="text-[2.5rem] font-bold font-clash">
             <span className="text-[#1f1f2e] relative inline-block">Meet the</span>
-            <span className="text-[#33C3F0]"> Incredible</span>
+            <span className="text-[#6DD6DB]"> Incredible</span>
             <span className="text-[#1f1f2e]"> Team</span>
           </h1>
         </motion.div>

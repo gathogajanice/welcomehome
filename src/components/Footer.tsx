@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Instagram, Facebook, Linkedin } from 'lucide-react';
@@ -13,40 +12,29 @@ const Footer = () => {
   }, []);
 
   return (
-    <motion.footer 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="bg-[#eaf6ff] px-4 py-16 relative"
-      style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1566041510639-8d95a2490bfb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
-        backgroundBlendMode: "overlay",
-        backgroundSize: "cover",
-        backgroundPosition: "center"
-      }}
-    >
+    <div className="bg-[#eaf6ff] px-4 py-8 sm:py-16 relative" style={{
+      backgroundImage: "url('https://images.unsplash.com/photo-1566041510639-8d95a2490bfb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+      backgroundBlendMode: "overlay",
+      backgroundSize: "cover",
+      backgroundPosition: "center"
+    }}>
       <div className="container mx-auto border border-[#1E5987] rounded-2xl p-4 sm:p-6 md:p-8 bg-white">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="text-left">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1, duration: 0.5 }}
-                className="backdrop-blur-sm bg-white/30 border border-[#1E5987] shadow-lg rounded-xl p-4 inline-block"
-              >
+              <div className="backdrop-blur-sm bg-white/30 border border-[#1E5987] shadow-lg rounded-xl p-4 inline-block">
                 <h2 className="font-bricolage text-lg font-bold">
                   The Future of<br />
                   <span className="text-[#6dd6db] text-2xl font-medium">Real Estate</span><br />
                   Investment <span className="text-xs align-top">®</span>
                 </h2>
-              </motion.div>
+              </div>
               <p className="text-xs font-bricolage uppercase text-gray-600 mt-2">Own a piece of the world</p>
             </div>
             
             <div className="space-y-3 pt-4">
-              <h3 className="text-black font-bricolage text-lg text-left font-bold">Contact Us</h3>
+              <h3 className="text-black font-bricolage text-lg text-left font-medium">Contact Us</h3>
               <div className="space-y-2">
                 <a href="tel:+16315335450" className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
                   <Phone size={16} className="text-[#6dd6db]" />
@@ -59,17 +47,14 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Social Media Links with auto-animation */}
-            <div className="flex space-x-4 pt-4 social-icons">
+            {/* Social Media Links */}
+            <div className="flex space-x-4 pt-4">
               {['facebook', 'twitter', 'linkedin', 'instagram'].map((platform, index) => (
                 <a 
                   key={platform} 
                   href="#" 
-                  className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center 
-                             border border-white/30 relative overflow-hidden"
-                  style={{
-                    animation: `socialFill 4s ${index * 0.5}s infinite`
-                  }}
+                  className="social-icon-container w-9 h-9 rounded-full bg-white flex items-center justify-center 
+                           border border-[#1E5987] relative overflow-hidden transition-all duration-300"
                 >
                   {platform === 'twitter' ? (
                     <svg 
@@ -77,7 +62,7 @@ const Footer = () => {
                       className="w-5 h-5 text-gray-600 z-10"
                       fill="currentColor"
                     >
-                      <path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z" />
+                      <path d="M22 5.8a8.5 8.5 0 0 1-2.4.7 4.2 4.2 0 0 0 1.9-2.4 8.5 8.5 0 0 1-2.7 1 4.2 4.2 0 0 0-7.2 3.9A12 12 0 0 1 3 4.3a4.2 4.2 0 0 0 1.3 5.7 4.2 4.2 0 0 1-1.9-.5v.1a4.2 4.2 0 0 0 3.4 4.1 4.2 4.2 0 0 1-1.9.1A4.2 4.2 0 0 0 7.8 17 8.5 8.5 0 0 1 2 18.8a12 12 0 0 0 6.5 1.9c7.8 0 12.1-6.5 12.1-12.1v-.5A8.5 8.5 0 0 0 22 5.8z"/>
                     </svg>
                   ) : platform === 'facebook' ? (
                     <Facebook size={18} className="social-icon text-gray-600" />
@@ -156,7 +141,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </motion.footer>
+    </div>
   );
 };
 

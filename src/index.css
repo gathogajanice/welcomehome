@@ -337,6 +337,17 @@
       box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     }
   }
+  .social-icon-container {
+    transition: all 0.3s ease;
+  }
+
+  .social-icon-container:hover {
+    background-color: #1E5987;
+  }
+
+  .social-icon-container:hover .social-icon {
+    color: white;
+  }
 }
 
 @keyframes fadeInUp {
@@ -425,3 +436,4 @@
     @apply max-w-4xl;
   }
 }
+

@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Instagram, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -51,19 +50,11 @@ const Team = () => {
       }}
     >
       <div className="container mx-auto px-4">
-        {/* Title Section - Using consistent styling with other sections */}
-        <motion.div 
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.7 }}
-          className="text-center mb-16"
-        >
-          <h1 className="text-[2.5rem] font-bold font-clash">
-            <span className="text-[#1f1f2e] relative inline-block text-motion">Meet the</span>
-            <span className="text-[#6DD6DB]"> Incredible</span>
-            <span className="text-[#1f1f2e]"> Team</span>
+        <div className="text-center mb-16">
+          <h1 className="text-[2.5rem] font-bricolage font-medium">
+            Meet the <span className="text-[#6DD6DB]">Incredible</span> Team
           </h1>
-        </motion.div>
+        </div>
 
         {/* Team Members Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">

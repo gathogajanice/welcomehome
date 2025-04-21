@@ -20,6 +20,26 @@
   font-display: swap;
 }
 
+/* Add Troye Sans custom font face */
+@font-face {
+  font-family: 'Troye Sans';
+  src: url('/fonts/TroyeSans-Bold.woff2') format('woff2'),
+       url('/fonts/TroyeSans-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Beautifully Delicious custom font face */
+@font-face {
+  font-family: 'Beautifully Delicious';
+  src: url('/fonts/BeautifullyDelicious-9Ym2.woff2') format('woff2'),
+       url('/fonts/BeautifullyDelicious-9Ym2.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -202,10 +222,11 @@
     width: 24px;
   }
   
-  /* Hero Section Styles */
+  /* Hero Section Styles - optimized */
   .hero-container {
     @apply absolute top-0 left-0 w-full h-screen z-0;
     overflow: hidden;
+    will-change: transform;
   }
   
   .hero-swiper {
@@ -221,8 +242,9 @@
     @apply w-full h-screen;
     object-fit: cover;
     opacity: 0;
-    transform: translateX(20px) scale(1.075);
-    transition: opacity 1.2s ease-in-out, transform 1.8s ease;
+    transform: translateX(0) scale(1.05);
+    transition: opacity 1s ease-in-out, transform 1.5s ease;
+    will-change: opacity, transform;
   }
   
   .swiper-slide-active .slide-image {

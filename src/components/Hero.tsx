@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Autoplay } from 'swiper/modules';
@@ -95,53 +94,45 @@ const Hero = () => {
         </Swiper>
       </div>
 
-      {/* Hero content with updated text and styling - positioned lower in the frame */}
-      <div className="absolute inset-0 flex items-end pb-24 md:pb-32 justify-center z-40 px-6">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7 }}
-          className="backdrop-blur-[2px] bg-black/25 border border-white/20 rounded-xl w-full max-w-2xl p-6 md:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
-        >
-          <div className="flex flex-col items-center justify-center space-y-4">
-            {/* Main Title */}
-            <h1 className="font-['Troye_Sans'] text-5xl sm:text-6xl md:text-7xl text-[#fffbf0] leading-tight tracking-wide">
-              WELCOME HOME
-            </h1>
+      {/* Hero content - removed glass effect, adjusted positioning */}
+      <div className="absolute inset-0 flex items-end pb-32 md:pb-40 justify-center z-40 px-6">
+        <div className="flex flex-col items-center justify-center space-y-3">
+          {/* Main Title - updated font */}
+          <h1 className="font-bricolage text-5xl sm:text-6xl md:text-7xl text-[#fffbf0] leading-tight tracking-wide">
+            WELCOME HOME
+          </h1>
 
-            {/* Subtitle - reduced size */}
-            <p className="font-['Cormorant_Garamond'] text-base sm:text-lg md:text-xl text-[#fffbf0] uppercase tracking-[0.15em] mt-1">
-              WHERE OWNERSHIP MEETS ADVENTURE
-            </p>
+          {/* Subtitle - updated font and reduced spacing */}
+          <p className="font-cormorant text-base sm:text-lg md:text-xl text-[#fffbf0] uppercase tracking-[0.15em]">
+            WHERE OWNERSHIP MEETS ADVENTURE
+          </p>
 
-            {/* Locations - reduced size */}
-            <p className="font-['Beautifully_Delicious'] text-lg sm:text-xl md:text-2xl text-[#fffbf0] tracking-wide mt-2">
-              SENEGAL | GHANA | KENYA
-            </p>
+          {/* Locations - updated font and reduced spacing */}
+          <p className="font-delicious text-lg sm:text-xl md:text-2xl text-[#fffbf0] tracking-wide">
+            SENEGAL | GHANA | KENYA
+          </p>
 
-            {/* CTA Button - improved styling */}
-            <motion.button 
-              className="mt-5 px-6 py-2 border border-[#cbe9e9] rounded-xl bg-white/10 backdrop-blur-sm
-                       text-[#fffbf0] font-['Troye_Sans'] tracking-wider text-sm
-                       transition-all duration-300 flex items-center gap-2"
-              whileHover={{ 
-                scale: 1.03, 
-                boxShadow: "0 0 15px rgba(203, 233, 233, 0.4)",
-                backgroundColor: "rgba(255, 255, 255, 0.15)" 
-              }}
-              whileTap={{ scale: 0.98 }}
+          {/* CTA Button - slimmer border, updated hover effect */}
+          <motion.button 
+            className="mt-4 px-6 py-2 border border-[#cbe9e9] rounded-xl bg-white/5
+                     text-[#fffbf0] font-bricolage tracking-wider text-sm
+                     transition-all duration-300 flex items-center gap-2"
+            whileHover={{ 
+              scale: 1.02,
+              boxShadow: "0 0 15px rgba(203, 233, 233, 0.2)"
+            }}
+            whileTap={{ scale: 0.98 }}
+          >
+            JOIN THE MOVEMENT
+            <motion.span 
+              initial={{ x: 0 }}
+              whileHover={{ x: 3 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              JOIN THE MOVEMENT
-              <motion.span 
-                initial={{ x: 0 }}
-                whileHover={{ x: 3 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <ArrowRight className="h-4 w-4" />
-              </motion.span>
-            </motion.button>
-          </div>
-        </motion.div>
+              <ArrowRight className="h-4 w-4" />
+            </motion.span>
+          </motion.button>
+        </div>
       </div>
     </div>
   );

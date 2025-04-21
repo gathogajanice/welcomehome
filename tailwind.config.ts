@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -96,6 +95,9 @@ export default {
 				'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
 			},
 			fontFamily: {
+				'bricolage': ['"Bricolage Grotesque"', 'sans-serif'],
+				'cormorant': ['"Cormorant Garamond"', 'serif'],
+				'delicious': ['"Beautifully Delicious"', 'cursive'],
 				'canela': ['Canela', 'serif'],
 				'apercu': ['ApercuMono', 'sans-serif'],
 				'bricolage': ['Bricolage Grotesque', 'sans-serif'],

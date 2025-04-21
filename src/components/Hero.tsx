@@ -61,8 +61,8 @@ const Hero = () => {
         background: 'linear-gradient(to right, rgba(0,0,0,0.3), transparent 15%, transparent 85%, rgba(0,0,0,0.3))'
       }} />
       
-      {/* Black overlay for better text visibility - reduced opacity */}
-      <div className="absolute inset-0 bg-black/20 pointer-events-none z-10" />
+      {/* Updated background overlay with dark green tint */}
+      <div className="absolute inset-0 bg-[#032b22]/80 pointer-events-none z-10" />
       
       {/* Main slider */}
       <div className="w-full h-full">
@@ -84,7 +84,7 @@ const Hero = () => {
                 <img 
                   src={url} 
                   alt={`Luxury property ${i + 1}`} 
-                  className={`slide-image ${imagesLoaded[url] ? 'loaded' : 'loading'}`}
+                  className={`slide-image opacity-80 ${imagesLoaded[url] ? 'loaded' : 'loading'}`}
                   loading={i === 0 ? "eager" : "lazy"} 
                   fetchPriority={i === 0 ? "high" : "auto"}
                 />
@@ -94,32 +94,33 @@ const Hero = () => {
         </Swiper>
       </div>
 
-      {/* Hero content - removed glass effect, adjusted positioning */}
-      <div className="absolute inset-0 flex items-end pb-32 md:pb-40 justify-center z-40 px-6">
-        <div className="flex flex-col items-center justify-center space-y-3">
-          {/* Main Title - updated font */}
-          <h1 className="font-bricolage text-5xl sm:text-6xl md:text-7xl text-[#fffbf0] leading-tight tracking-wide">
+      {/* Updated hero content with new styling */}
+      <div className="absolute inset-0 flex items-end pb-24 md:pb-32 justify-center z-40 px-6">
+        <div className="flex flex-col items-center justify-center space-y-2">
+          {/* Bigger and bolder hero title */}
+          <h1 className="font-bricolage text-6xl sm:text-7xl md:text-8xl text-[#fffbf0] leading-tight tracking-wide font-bold">
             WELCOME HOME
           </h1>
 
-          {/* Subtitle - updated font and reduced spacing */}
+          {/* Subtitle - maintained size */}
           <p className="font-cormorant text-base sm:text-lg md:text-xl text-[#fffbf0] uppercase tracking-[0.15em]">
             WHERE OWNERSHIP MEETS ADVENTURE
           </p>
 
-          {/* Locations - updated font and reduced spacing */}
+          {/* Locations - maintained size */}
           <p className="font-delicious text-lg sm:text-xl md:text-2xl text-[#fffbf0] tracking-wide">
             SENEGAL | GHANA | KENYA
           </p>
 
-          {/* CTA Button - slimmer border, updated hover effect */}
+          {/* Updated glassy button with refined hover effect */}
           <motion.button 
-            className="mt-4 px-6 py-2 border border-[#cbe9e9] rounded-xl bg-white/5
+            className="mt-4 px-6 py-2 border border-[#cbe9e9] rounded-xl 
+                     bg-white/10 backdrop-blur-sm
                      text-[#fffbf0] font-bricolage tracking-wider text-sm
-                     transition-all duration-300 flex items-center gap-2"
+                     transition-all duration-300 flex items-center gap-2
+                     hover:bg-white/15 hover:shadow-[0_0_15px_rgba(203,233,233,0.3)]"
             whileHover={{ 
               scale: 1.02,
-              boxShadow: "0 0 15px rgba(203, 233, 233, 0.2)"
             }}
             whileTap={{ scale: 0.98 }}
           >

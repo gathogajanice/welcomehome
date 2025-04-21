@@ -437,3 +437,11 @@
   }
 }
 
+/* Font face for Beautifully Delicious if CDN fails */
+@font-face {
+  font-family: 'Beautifully Delicious';
+  src: url('https://fonts.cdnfonts.com/s/12194/BeautifullyDelicious-9Ym2.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

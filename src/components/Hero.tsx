@@ -78,23 +78,36 @@ const Hero = () => {
         </Swiper>
       </div>
 
-      {/* Hero content with simplified text */}
-      <div className="absolute inset-0 flex items-center justify-center z-40 px-6 rounded-full">
+      {/* Hero content with updated text and styling */}
+      <div className="absolute inset-0 flex items-center justify-center z-40 px-6">
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7 }}
-          className="backdrop-blur-[2px] bg-black/25 border border-white/20 rounded-xl w-full max-w-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.12)] transform translate-y-[-4px]"
+          className="backdrop-blur-[2px] bg-black/25 border border-white/20 rounded-xl w-full max-w-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
         >
-          {/* Hero title text centered in the container */}
-          <div className="flex flex-col items-center justify-center h-full w-full">
-            <div className="text-center">
-              <h1 className="font-clash text-2xl sm:text-3xl md:text-4xl text-white leading-tight mb-4 font-normal">
-                The Future of <span className="inline-block text-slate-50">Fractional</span>
-                <br />
-                <span className="text-[#6DD6DB] inline-block text-4xl sm:text-5xl md:text-7xl font-medium">Real Estate</span> in Africa
-              </h1>
-            </div>
+          <div className="flex flex-col items-center justify-center space-y-8">
+            {/* Main Title */}
+            <h1 className="font-['Outfit'] text-4xl sm:text-5xl md:text-6xl text-[#fffbf0] leading-tight tracking-wide">
+              WELCOME<br />/ HOME
+            </h1>
+
+            {/* Subtitle */}
+            <p className="font-['Cormorant_Garamond'] text-lg sm:text-xl md:text-2xl text-[#fffbf0] uppercase tracking-[0.2em] mt-4">
+              WHERE OWNERSHIP MEETS ADVENTURE
+            </p>
+
+            {/* Locations */}
+            <p className="font-['Beautifully_Delicious'] text-xl sm:text-2xl md:text-3xl text-[#fffbf0] tracking-wider mt-6">
+              SENEGAL | GHANA | KENYA
+            </p>
+
+            {/* CTA Button */}
+            <button className="mt-8 px-8 py-3 border-2 border-[#cbe9e9] rounded-lg bg-white/10 backdrop-blur-sm
+                           text-[#fffbf0] font-['Outfit'] tracking-wider
+                           transition-all duration-300 hover:bg-white/20 hover:scale-105">
+              JOIN THE MOVEMENT
+            </button>
           </div>
         </motion.div>
       </div>

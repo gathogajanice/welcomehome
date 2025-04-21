@@ -22,33 +22,34 @@ const propertyImages = [
 const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
-  const [imagesLoaded, setImagesLoaded] = useState<{[key: string]: boolean}>({});
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [allImagesLoaded, setAllImagesLoaded] = useState(0);
+
+  // Improved image preloading
+  useEffect(() => {
+    const loadImages = async () => {
+      const imagePromises = propertyImages.map((src) => {
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.src = src;
+          img.onload = () => {
+            setAllImagesLoaded(prev => prev + 1);
+            resolve(true);
+          };
+        });
+      });
+
+      await Promise.all(imagePromises);
+      setImagesLoaded(true);
+    };
+
+    loadImages();
+  }, []);
 
   // Handle slide change
   const handleSlideChange = (swiper: SwiperType) => {
     setActiveIndex(swiper.realIndex);
   };
-
-  // Preload images with improved tracking
-  useEffect(() => {
-    const imageLoaders: {[key: string]: HTMLImageElement} = {};
-    
-    propertyImages.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-      img.onload = () => {
-        setImagesLoaded(prev => ({...prev, [src]: true}));
-      };
-      imageLoaders[src] = img;
-    });
-    
-    return () => {
-      // Clean up image objects on unmount
-      Object.values(imageLoaders).forEach(img => {
-        img.onload = null;
-      });
-    };
-  }, []);
 
   return (
     <div className="hero-container">
@@ -61,14 +62,14 @@ const Hero = () => {
         background: 'linear-gradient(to right, rgba(0,0,0,0.3), transparent 15%, transparent 85%, rgba(0,0,0,0.3))'
       }} />
       
-      {/* Updated background overlay with dark green tint */}
-      <div className="absolute inset-0 bg-[#032b22]/80 pointer-events-none z-10" />
+      {/* Subtle dark green tint */}
+      <div className="absolute inset-0 bg-[#032b22]/40 pointer-events-none z-10" />
       
-      {/* Main slider */}
-      <div className="w-full h-full">
+      {/* Main slider - only show when images are loaded */}
+      <div className={`w-full h-full transition-opacity duration-1000 ${imagesLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <Swiper 
           modules={[EffectFade, Autoplay]} 
-          effect="fade" 
+          effect="fade"
           loop={true} 
           autoplay={{
             delay: 5000,
@@ -84,9 +85,9 @@ const Hero = () => {
                 <img 
                   src={url} 
                   alt={`Luxury property ${i + 1}`} 
-                  className={`slide-image opacity-80 ${imagesLoaded[url] ? 'loaded' : 'loading'}`}
-                  loading={i === 0 ? "eager" : "lazy"} 
-                  fetchPriority={i === 0 ? "high" : "auto"}
+                  className="slide-image opacity-90"
+                  loading="eager"
+                  fetchPriority="high"
                 />
               </div>
             </SwiperSlide>
@@ -94,25 +95,21 @@ const Hero = () => {
         </Swiper>
       </div>
 
-      {/* Updated hero content with new styling */}
-      <div className="absolute inset-0 flex items-end pb-24 md:pb-32 justify-center z-40 px-6">
+      {/* Hero content */}
+      <div className="absolute inset-0 flex items-end pb-28 md:pb-36 justify-center z-40 px-6">
         <div className="flex flex-col items-center justify-center space-y-2">
-          {/* Bigger and bolder hero title */}
           <h1 className="font-bricolage text-6xl sm:text-7xl md:text-8xl text-[#fffbf0] leading-tight tracking-wide font-bold">
             WELCOME HOME
           </h1>
 
-          {/* Subtitle - maintained size */}
           <p className="font-cormorant text-base sm:text-lg md:text-xl text-[#fffbf0] uppercase tracking-[0.15em]">
             WHERE OWNERSHIP MEETS ADVENTURE
           </p>
 
-          {/* Locations - maintained size */}
           <p className="font-delicious text-lg sm:text-xl md:text-2xl text-[#fffbf0] tracking-wide">
             SENEGAL | GHANA | KENYA
           </p>
 
-          {/* Updated glassy button with refined hover effect */}
           <motion.button 
             className="mt-4 px-6 py-2 border border-[#cbe9e9] rounded-xl 
                      bg-white/10 backdrop-blur-sm

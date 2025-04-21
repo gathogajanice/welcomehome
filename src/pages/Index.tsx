@@ -5,8 +5,8 @@ import StatsSection from "@/components/StatsSection";
 import Invest from "@/pages/Invest";
 import WhyInvest from "@/pages/WhyInvest";
 import Team from "@/pages/Team";
-// Removed Welcome import
 import Footer from "@/components/Footer";
+import PatternSection from "@/pages/PatternSection";
 
 const Index = () => {
   return (
@@ -15,12 +15,12 @@ const Index = () => {
       
       {/* Main content */}
       <div className="relative z-10 mt-[100vh]">
+        <PatternSection />
         <AboutUs2 />
         <WhyInvest />
         <StatsSection />
         <Invest />
         <Team />
-        {/* Removed Welcome component */}
         <Footer />
       </div>
     </div>

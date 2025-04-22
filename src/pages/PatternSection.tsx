@@ -14,7 +14,7 @@ const PatternSection = () => {
       <div className="relative z-10 container mx-auto px-8 md:px-16 py-24 flex flex-col md:flex-row items-start justify-between gap-16 bg-[#387f79]">
         {/* Text Content - left aligned with proper line breaks and spacing */}
         <div className="max-w-xl pl-4 md:pl-8 text-left">
-          <h2 className="font-cormorant text-4xl lg:text-6xl leading-tight font-bold md:text-5xl text-[#387f79]">
+          <h2 className="font-cormorant text-4xl lg:text-6xl leading-tight font-bold md:text-5xl text-slate-50">
             YOUR<br />
             INVESTMENT IS<br />
             YOUR PASSPORT<br />

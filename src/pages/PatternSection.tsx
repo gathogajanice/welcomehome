@@ -3,14 +3,15 @@ import React from 'react';
 
 const PatternSection = () => {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen bg-[#387f79]">
       {/* Solid background color with pattern overlay */}
-      <div className="absolute inset-0 bg-[#387f79]" style={{
+      <div className="absolute inset-0" style={{
         backgroundImage: 'url("/lovable-uploads/703a5d24-33a7-4c96-b342-78cea49ca921.png")',
-        backgroundSize: '800px auto', // Control the pattern size
+        backgroundSize: '300px auto', // Reduced size for more subtle effect
         backgroundPosition: 'center',
         backgroundRepeat: 'repeat',
-        opacity: 0.25 // Increased opacity for better visibility
+        opacity: 0.15, // Slightly reduced opacity
+        mixBlendMode: 'overlay' // Blend mode to maintain base color
       }} />
       
       {/* Content */}

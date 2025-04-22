@@ -1,14 +1,17 @@
+
 import React from 'react';
+
 const PatternSection = () => {
-  return <div className="relative min-h-screen">
+  return (
+    <div className="relative min-h-screen">
       {/* Solid background color with pattern overlay */}
       <div className="absolute inset-0 bg-[#387f79]" style={{
-      backgroundImage: 'url("/lovable-uploads/b68422c8-6928-491f-9658-6f650dc4b18d.png")',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      opacity: 0.08 // Very subtle pattern effect
-    }} />
+        backgroundImage: 'url("/lovable-uploads/703a5d24-33a7-4c96-b342-78cea49ca921.png")',
+        backgroundSize: '800px auto', // Control the pattern size
+        backgroundPosition: 'center',
+        backgroundRepeat: 'repeat',
+        opacity: 0.08 // Very subtle pattern effect
+      }} />
       
       {/* Content */}
       <div className="relative z-10 container mx-auto px-8 md:px-16 py-24 flex flex-col md:flex-row items-start justify-between gap-16 bg-[#387f79]">
@@ -30,12 +33,19 @@ const PatternSection = () => {
         {/* Image - smaller and more proportionate */}
         <div className="w-full md:w-1/3 overflow-hidden">
           <div className="aspect-[3/4] relative">
-            <img src="/lovable-uploads/b0216d6c-bcc4-4652-ada8-97c20f039f68.png" alt="Scenic property view" style={{
-            objectPosition: 'center'
-          }} className="w-full h-full object-cover rounded-3xl shadow-lg" />
+            <img 
+              src="/lovable-uploads/b0216d6c-bcc4-4652-ada8-97c20f039f68.png" 
+              alt="Scenic property view" 
+              className="w-full h-full object-cover rounded-3xl shadow-lg" 
+              style={{
+                objectPosition: 'center'
+              }}
+            />
           </div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default PatternSection;

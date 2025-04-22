@@ -22,7 +22,7 @@ const PatternSection = () => {
             STAYS AND<br />
             GLOBAL IMPACT
           </h2>
-          <p className="font-bricolage text-sm md:text-base text-white/90 leading-relaxed mt-8 max-w-md">
+          <p className="font-bricolage text-sm text-white/90 leading-relaxed mt-8 max-w-md my-[40px] md:text-sm">
             Write a paragraph that talks about your brand or property here. Convince your prospective clients to choose you and your offerings by highlighting the qualities that set you apart from the competition.
           </p>
         </div>
@@ -30,9 +30,9 @@ const PatternSection = () => {
         {/* Image - smaller and more proportionate */}
         <div className="w-full md:w-1/3 overflow-hidden">
           <div className="aspect-[3/4] relative">
-            <img src="/lovable-uploads/b0216d6c-bcc4-4652-ada8-97c20f039f68.png" alt="Scenic property view" className="w-full h-full object-cover rounded-3xl shadow-lg" style={{
+            <img src="/lovable-uploads/b0216d6c-bcc4-4652-ada8-97c20f039f68.png" alt="Scenic property view" style={{
             objectPosition: 'center'
-          }} />
+          }} className="w-full h-full object-cover rounded-3xl shadow-lg" />
           </div>
         </div>
       </div>

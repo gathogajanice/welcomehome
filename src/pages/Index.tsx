@@ -6,7 +6,7 @@ import Invest from "@/pages/Invest";
 import WhyInvest from "@/pages/WhyInvest";
 import Team from "@/pages/Team";
 import Footer from "@/components/Footer";
-import PatternSection from "@/pages/PatternSection";
+import WelcomeHome from "@/pages/WelcomeHome";
 
 const Index = () => {
   return (
@@ -15,7 +15,7 @@ const Index = () => {
       
       {/* Main content */}
       <div className="relative z-10 mt-[100vh]">
-        <PatternSection />
+        <WelcomeHome />
         <AboutUs2 />
         <WhyInvest />
         <StatsSection />

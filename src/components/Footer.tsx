@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Instagram, Facebook, Linkedin } from 'lucide-react';
@@ -18,15 +19,15 @@ const Footer = () => {
       backgroundSize: "cover",
       backgroundPosition: "center"
     }}>
-      <div className="container mx-auto border border-[#1E5987] rounded-2xl p-4 sm:p-6 md:p-8 bg-white">
+      <div className="container mx-auto border border-[#387f79] rounded-2xl p-4 sm:p-6 md:p-8 bg-white">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="text-left">
-              <div className="backdrop-blur-sm bg-white/30 border border-[#1E5987] shadow-lg rounded-xl p-4 inline-block">
+              <div className="backdrop-blur-sm bg-white/30 border border-[#387f79] shadow-lg rounded-xl p-4 inline-block">
                 <h2 className="font-bricolage text-lg font-bold">
                   The Future of<br />
-                  <span className="text-[#6dd6db] text-2xl font-medium">Real Estate</span><br />
+                  <span className="text-[#387f79] text-2xl font-medium">Real Estate</span><br />
                   Investment <span className="text-xs align-top">®</span>
                 </h2>
               </div>
@@ -36,12 +37,8 @@ const Footer = () => {
             <div className="space-y-3 pt-4">
               <h3 className="text-black font-bricolage text-lg text-left font-medium">Contact Us</h3>
               <div className="space-y-2">
-                <a href="tel:+16315335450" className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
-                  <Phone size={16} className="text-[#6dd6db]" />
-                  <span className="font-bricolage text-sm">+1 631 533 5450</span>
-                </a>
                 <a href="mailto:info@welcomehomeintl.com" className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
-                  <Mail size={16} className="text-[#6dd6db]" />
+                  <Mail size={16} className="text-[#387f79]" />
                   <span className="font-bricolage text-sm">info@welcomehomeintl.com</span>
                 </a>
               </div>
@@ -54,7 +51,7 @@ const Footer = () => {
                   key={platform} 
                   href="#" 
                   className="social-icon-container w-9 h-9 rounded-full bg-white flex items-center justify-center 
-                           border border-[#1E5987] relative overflow-hidden transition-all duration-300"
+                           border border-[#387f79] relative overflow-hidden transition-all duration-300"
                 >
                   {platform === 'twitter' ? (
                     <svg 
@@ -71,6 +68,7 @@ const Footer = () => {
                   ) : (
                     <Instagram size={18} className="social-icon text-gray-600" />
                   )}
+                  <div className="absolute inset-0 bg-[#387f79] opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                 </a>
               ))}
             </div>
@@ -90,7 +88,7 @@ const Footer = () => {
             <div className="space-y-2">
               <h3 className="font-bricolage text-base font-bold text-black">New York Office</h3>
               <div className="flex items-start gap-2">
-                <MapPin size={16} className="text-[#6dd6db] mt-1 flex-shrink-0" />
+                <MapPin size={16} className="text-[#387f79] mt-1 flex-shrink-0" />
                 <p className="font-bricolage text-sm text-gray-600">
                   PO Box 386<br />
                   NY, NY 10276
@@ -101,7 +99,7 @@ const Footer = () => {
             <div className="space-y-2">
               <h3 className="font-bricolage text-base font-bold text-black">Senegal Office</h3>
               <div className="flex items-start gap-2">
-                <MapPin size={16} className="text-[#6dd6db] mt-1 flex-shrink-0" />
+                <MapPin size={16} className="text-[#387f79] mt-1 flex-shrink-0" />
                 <p className="font-bricolage text-sm text-gray-600">
                   1453 Malicounda<br />
                   Peage Malicounda<br />
@@ -121,18 +119,12 @@ const Footer = () => {
                   <input 
                     type="email" 
                     placeholder="Enter Your Email" 
-                    className="w-full px-4 py-2 pl-10 border border-gray-200 rounded-lg font-bricolage text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#6dd6db] focus:border-transparent" 
+                    className="w-full px-4 py-2 pl-10 border border-gray-200 rounded-lg font-bricolage text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#387f79] focus:border-transparent" 
                   />
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
                 </div>
                 <Button 
-                  className="w-full bg-[#1E5987] text-white font-bricolage text-sm px-8 py-2 rounded-full 
-                    border-2 border-dashed border-white/60 transition-all hover:bg-[#1E5987]"
-                  style={{
-                    backgroundImage: `url('/lovable-uploads/b8954deb-dd19-4087-8329-72a90b45e6bc.png')`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center'
-                  }}
+                  className="w-full rounded-full bg-white/10 hover:bg-white/20 border border-[#387f79] text-[#387f79] font-bricolage text-sm px-8 py-2 transition-all hover:scale-105 hover:shadow-lg"
                 >
                   JOIN US
                 </Button>

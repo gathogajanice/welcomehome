@@ -17,7 +17,7 @@ const NavLink = ({
 }) => {
   return (
     <Link to={to} className={cn("nav-link px-3 py-1", className)} onClick={onClick}>
-      <span className="text-black text-[11px] tracking-[0.075em] font-medium uppercase font-apercu-mono">
+      <span className="text-black text-[11px] tracking-[0.075em] font-medium uppercase font-bricolage">
         {children}
       </span>
     </Link>
@@ -72,7 +72,7 @@ const Navbar = () => {
     <>
       <header 
         className={cn(
-          "w-full h-16 px-8 md:px-12 flex items-center justify-between fixed top-0 left-0 z-50 rounded-lg font-canela",
+          "w-full h-16 px-8 md:px-12 flex items-center justify-between fixed top-0 left-0 z-50 rounded-lg font-bricolage",
           "bg-white/30 backdrop-blur-[10px] border border-white/20",
           "transition-all duration-600 ease-out will-change-transform will-change-opacity",
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-[10px]"
@@ -91,7 +91,7 @@ const Navbar = () => {
               <div className="w-6 h-[1.5px] bg-black transition-all duration-300 origin-center hamburger-line-1"></div>
               <div className="w-5 h-[1.5px] bg-black transition-all duration-300 origin-center hamburger-line-2"></div>
             </div>
-            <span className="text-black text-xs tracking-[0.15em] font-light uppercase">Menu</span>
+            <span className="text-black text-xs tracking-[0.15em] font-light uppercase font-bricolage">Menu</span>
           </div>
           
           {/* Navigation Links Container */}
@@ -103,21 +103,14 @@ const Navbar = () => {
         </div>
 
         {/* Right Side Content */}
-        <div className="flex items-center space-x-6">
-          {/* Phone Number */}
-          <div className="hidden md:flex items-center sleek-hover-container px-3 py-1 rounded-md relative">
-            <span className="text-black text-xs font-light relative z-10">+254 710293233</span>
-            <span className="text-black mx-2 font-light separator-line relative z-10">/</span>
-            <span className="text-black text-xs font-light relative z-10">SE</span>
-          </div>
-          
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center">
+        <div className="flex items-center">
+          {/* CTA Button - visible on all devices */}
+          <div className="flex items-center">
             <a 
               href="#" 
-              className="sleek-hover-container bg-cream text-black text-xs tracking-[0.075em] font-light uppercase px-4 py-1.5 rounded-md relative"
+              className="inline-flex items-center px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full text-black transition-all duration-300 ease-in-out group hover:scale-105 hover:shadow-lg text-xs tracking-[0.075em] font-bricolage uppercase"
             >
-              <span className="relative z-10">Start Investing</span>
+              <span className="relative z-10">Reserve Spot</span>
             </a>
           </div>
         </div>
@@ -142,7 +135,6 @@ const Navbar = () => {
             <MobileMenuLink to="/" delay={100} onClick={closeMenu}>Home</MobileMenuLink>
             <MobileMenuLink to="/features" delay={200} onClick={closeMenu}>Features</MobileMenuLink>
             <MobileMenuLink to="/about" delay={300} onClick={closeMenu}>About</MobileMenuLink>
-            <MobileMenuLink to="/contact" delay={400} onClick={closeMenu}>Contact</MobileMenuLink>
           </nav>
         </div>
       </div>

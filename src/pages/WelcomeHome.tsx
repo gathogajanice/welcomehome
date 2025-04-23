@@ -1,5 +1,7 @@
+
 import React, { useState, useEffect } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { motion } from "framer-motion";
 
 const WelcomeHome: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -15,7 +17,7 @@ const WelcomeHome: React.FC = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden" style={{ backgroundColor: "#387f79" }}>
-      {/* Single background image */}
+      {/* Single background image - stretched to fit */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -31,10 +33,11 @@ const WelcomeHome: React.FC = () => {
       <div className="relative z-10 container mx-auto px-4 sm:px-8 md:px-16 py-12 md:py-24 flex flex-col md:flex-row items-start justify-between gap-8 md:gap-16">
         {/* Left: Title and subtext */}
         <div className="w-full md:w-1/2 pl-0 md:pl-8 text-left">
-          <h2 
-            className={`font-cormorant text-4xl lg:text-6xl leading-tight font-bold text-slate-50 tracking-tight opacity-0 ${
-              isLoaded ? 'animate-fade-in opacity-100' : ''
-            }`}
+          <motion.h2 
+            className="font-cormorant text-4xl lg:text-6xl leading-tight font-bold text-slate-50 tracking-tight"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
           >
             YOUR<br />
             INVESTMENT IS<br />
@@ -42,7 +45,7 @@ const WelcomeHome: React.FC = () => {
             TO PREMIUM<br />
             STAYS AND<br />
             GLOBAL IMPACT
-          </h2>
+          </motion.h2>
           
           <div className="mt-8 mb-10">
             <p className="font-bricolage text-sm md:text-base text-white/90 leading-relaxed max-w-md">
@@ -79,9 +82,7 @@ const WelcomeHome: React.FC = () => {
             <img
               src="/lovable-uploads/ca87bf3e-2857-43b0-acdc-ea06e8785fe8.png"
               alt="Scenic property view"
-              className={`w-full h-full object-cover rounded-3xl shadow-lg transition-transform duration-700 hover:scale-105 opacity-0 ${
-                isLoaded ? 'animate-fade-in opacity-100' : ''
-              }`}
+              className="w-full h-full object-cover rounded-3xl shadow-lg transition-transform duration-700 hover:scale-105"
               style={{ objectPosition: "center" }}
               loading="eager"
             />

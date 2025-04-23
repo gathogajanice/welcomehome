@@ -199,6 +199,44 @@
     box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.06);
   }
   
+  /* Enhanced Card Styling */
+  .card {
+    @apply bg-white rounded-xl shadow-lg transform transition-all duration-500 hover:shadow-2xl;
+  }
+  
+  .card__img-container {
+    @apply relative overflow-hidden;
+  }
+  
+  .card__img {
+    @apply h-full w-full transition-all duration-700;
+  }
+  
+  .card:hover .card__img {
+    @apply scale-110;
+  }
+  
+  .card__info {
+    @apply p-6 bg-white transition-all duration-300;
+  }
+  
+  .card:hover .card__info {
+    @apply bg-opacity-90;
+  }
+  
+  .card__title {
+    @apply text-xl font-bold text-gray-900 mb-1 transition-all duration-300;
+  }
+  
+  .card:hover .card__title {
+    @apply text-[#387f79];
+  }
+  
+  .card__subtitle {
+    @apply text-sm text-gray-600 font-bricolage uppercase tracking-wider transition-all duration-300;
+  }
+  
+  /* Hamburger menu animations */
   .hamburger-icon {
     @apply transition-transform duration-300;
   }
@@ -229,72 +267,6 @@
     will-change: transform;
   }
   
-  .hero-swiper {
-    @apply w-full h-full;
-  }
-  
-  .slide-image-container {
-    @apply w-full h-full;
-    position: relative;
-  }
-  
-  .slide-image {
-    @apply w-full h-screen;
-    object-fit: cover;
-    opacity: 0;
-    transform: translateX(0) scale(1.05);
-    transition: opacity 1s ease-in-out, transform 1.5s ease;
-    will-change: opacity, transform;
-  }
-  
-  .swiper-slide-active .slide-image {
-    opacity: 1;
-    transform: translateX(0) scale(1.0);
-  }
-  
-  /* Responsive styling for mobile devices */
-  @media (max-width: 768px) {
-    .hero-container {
-      height: 100vh;
-    }
-    
-    .slide-image {
-      object-position: center;
-    }
-  }
-  
-  /* Location Card Styles */
-  .scrollbar-none {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  
-  .scrollbar-none::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .scroll-snap-align-start {
-    scroll-snap-align: start;
-  }
-  
-  .overflow-x-auto {
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  /* Remove border-wavy class since we don't want the wave underline anymore */
-  
-  /* Team Card Hover Effects */
-  .team-card {
-    box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
-  }
-  
-  .team-card:hover {
-    box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
-    transform: scale(1.05, 1.05);
-  }
-  
   /* Social Icon Animations */
   .social-icon-container {
     @apply w-9 h-9 rounded-full bg-white/20 flex items-center justify-center border border-white/30 relative overflow-hidden transition-all duration-300;
@@ -310,65 +282,37 @@
   
   .social-icon-container::before {
     content: "";
-    @apply absolute top-full left-0 w-full h-full bg-[#1E5987] transition-all duration-500 z-0;
+    @apply absolute top-full left-0 w-full h-full bg-[#387f79] transition-all duration-500 z-0;
   }
   
   .social-icon-container:hover::before {
     @apply top-0;
   }
   
-  .social-icons a:nth-child(1) .social-icon-container::before {
-    @apply bg-[#3b5999];
-  }
-  
-  .social-icons a:nth-child(2) .social-icon-container::before {
-    @apply bg-[#55acee];
-  }
-  
-  .social-icons a:nth-child(3) .social-icon-container::before {
-    @apply bg-[#0077b5];
-  }
-  
-  .social-icons a:nth-child(4) .social-icon-container::before {
-    @apply bg-[#E1306C];
-  }
-  
-  /* Utility for Y-axis rotation (for icons) */
-  .rotateY-360 {
-    transform: rotateY(360deg);
-  }
-  
-  /* Text motion animation */
-  .text-motion {
-    animation: textFloat 4s ease-in-out infinite;
-  }
-
-  @keyframes socialFill {
-    0%, 100% { background-color: rgba(255, 255, 255, 0.2); }
-    50% { background-color: var(--social-color, #1E5987); }
-  }
-
+  /* Ripple animation for map hotspots */
   @keyframes pulse {
     0% {
-      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 0 0 rgba(56, 127, 121, 0.5);
     }
     70% {
-      box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+      box-shadow: 0 0 0 15px rgba(56, 127, 121, 0);
     }
     100% {
-      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      box-shadow: 0 0 0 0 rgba(56, 127, 121, 0);
     }
   }
-  .social-icon-container {
-    transition: all 0.3s ease;
+
+  /* Page title animations */
+  .page-title {
+    @apply opacity-0 transform translate-y-8;
+    animation: titleFloatUp 0.8s forwards ease-out;
   }
 
-  .social-icon-container:hover {
-    background-color: #1E5987;
-  }
-
-  .social-icon-container:hover .social-icon {
-    color: white;
+  @keyframes titleFloatUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 

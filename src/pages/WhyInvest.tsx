@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
@@ -61,43 +62,48 @@ const WhyInvest = () => {
           <img src="/lovable-uploads/1572c4f2-eb33-483a-a261-ad6032ac617d.png" alt="Africa Outline" className="w-full h-auto max-w-[500px] mx-auto" />
           
           {hotspots.map(hotspot => (
-        <div 
-          key={hotspot.id} 
-          className="absolute h-8 w-8 rounded-full bg-black/80
-                     hover:scale-[1.15] transition-all duration-500 cursor-pointer
-                     hover:bg-[#387f79]"
-          style={{
-            top: hotspot.position.top,
-            left: hotspot.position.left,
-            transform: 'translate(-50%, -50%)',
-            animation: 'pulse 3s ease-in-out infinite',
-          }}
-        >
-          <HoverCard openDelay={50} closeDelay={0}>
-            <HoverCardTrigger asChild>
-              <button className="w-full h-full flex items-center justify-center">
-                <span className="sr-only">{hotspot.title}</span>
-              </button>
-            </HoverCardTrigger>
-            <HoverCardContent className="backdrop-blur-md bg-white/90 border-none shadow-lg p-4 w-72 transform scale-105">
-              <div className="flex items-center space-x-2">
-                <div className="rounded-full bg-[#387f79] bg-opacity-10 p-2">
-                  {hotspot.icon}
-                </div>
-                <h4 className="font-bricolage text-lg text-[#387f79]">{hotspot.title}</h4>
-              </div>
-              <p className="text-sm text-gray-600 mt-2">{hotspot.description}</p>
-            </HoverCardContent>
-          </HoverCard>
-        </div>
-      ))}
+            <div 
+              key={hotspot.id} 
+              className="absolute h-8 w-8 rounded-full bg-black/80
+                         hover:scale-[1.5] transition-all duration-500 cursor-pointer
+                         hover:bg-[#387f79] z-20"
+              style={{
+                top: hotspot.position.top,
+                left: hotspot.position.left,
+                transform: 'translate(-50%, -50%)',
+                animation: 'pulse 3s ease-in-out infinite',
+              }}
+            >
+              <HoverCard openDelay={50} closeDelay={0}>
+                <HoverCardTrigger asChild>
+                  <button className="w-full h-full flex items-center justify-center">
+                    <span className="sr-only">{hotspot.title}</span>
+                  </button>
+                </HoverCardTrigger>
+                <HoverCardContent className="backdrop-blur-md bg-white/90 border-none shadow-lg p-4 w-80 transform scale-105 z-30">
+                  <div className="flex items-center space-x-2">
+                    <div className="rounded-full bg-[#387f79] bg-opacity-10 p-2">
+                      {hotspot.icon}
+                    </div>
+                    <h4 className="font-bricolage text-lg text-[#387f79]">{hotspot.title}</h4>
+                  </div>
+                  <p className="text-sm text-gray-600 mt-2">{hotspot.description}</p>
+                </HoverCardContent>
+              </HoverCard>
+            </div>
+          ))}
         </div>
 
         <div className="space-y-8 text-left">
-          <div className="space-y-4">
-            <h1 className="text-[2.5rem] font-bricolage">
+          <motion.div 
+            className="space-y-4"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.7 }}
+          >
+            <h1 className="text-[2.5rem] font-cormorant">
               <span className="text-[#1f1f2e] relative inline-block">Why Invest in Real Estate in </span>
-              <span className="text-[#6DD6DB]">Africa</span>
+              <span className="text-[#387f79]">Africa</span>
             </h1>
             
             <p className="text-gray-700 font-apercu max-w-[90%] text-base">
@@ -110,14 +116,10 @@ const WhyInvest = () => {
               generally appreciates in value due to factors such as location,
               improvements, and demand.
             </p>
-          </div>
+          </motion.div>
 
-          <Button className="bg-[#1E5987] text-white font-bricolage px-8 py-2 rounded-full text-base 
-                     border-2 border-dashed border-white/60 transition-all hover:bg-[#1E5987]" style={{
-            backgroundImage: `url('/lovable-uploads/b8954deb-dd19-4087-8329-72a90b45e6bc.png')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}>
+          <Button className="bg-white/10 hover:bg-white/20 rounded-full text-[#387f79] font-bricolage px-8 py-2 text-base 
+                     border border-[#387f79]/20 transition-all hover:scale-105 hover:shadow-lg">
             START INVESTING TODAY
           </Button>
         </div>

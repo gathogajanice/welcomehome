@@ -67,10 +67,10 @@ const Team = () => {
               className="card-container relative max-w-[300px] mx-auto w-full"
             >
               {/* Card with hover effects */}
-              <div className="team-card overflow-hidden rounded-2xl transition-all duration-500 ease-in-out hover:transform hover:scale-105 hover:-skew-y-2 hover:shadow-xl">
+              <div className="team-card overflow-hidden rounded-2xl transition-all duration-500 ease-in-out hover:transform hover:scale-105 hover:shadow-xl">
                 {/* Background with grid pattern */}
                 <div 
-                  className="absolute inset-0 bg-[#1E5987] rounded-2xl"
+                  className="absolute inset-0 bg-[#387f79] rounded-2xl"
                   style={{
                     backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)",
                     backgroundSize: "20px 20px"

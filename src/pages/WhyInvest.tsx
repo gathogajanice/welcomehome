@@ -4,7 +4,6 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/h
 import { DollarSign, Globe, Home, LineChart } from "lucide-react";
 import { motion } from 'framer-motion';
 
-// Define data for the hotspots
 const hotspots = [{
   id: 1,
   position: {
@@ -51,7 +50,7 @@ const WhyInvest = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-[#eaf6ff] px-4 py-16"
       style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1566041510639-8d95a2490bfb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+        backgroundImage: "url('https://images.unsplash.com/photo-1566041510639-8d95a2490bfb?q=80&w=1974&auto=format&fit=crop')",
         backgroundBlendMode: "overlay",
         backgroundSize: "cover",
         backgroundPosition: "center"
@@ -62,35 +61,36 @@ const WhyInvest = () => {
           <img src="/lovable-uploads/1572c4f2-eb33-483a-a261-ad6032ac617d.png" alt="Africa Outline" className="w-full h-auto max-w-[500px] mx-auto" />
           
           {hotspots.map(hotspot => (
-            <div 
-              key={hotspot.id} 
-              className="absolute h-7 w-7 rounded-full bg-black/80
-                         hover:scale-110 transition-transform duration-500"
-              style={{
-                top: hotspot.position.top,
-                left: hotspot.position.left,
-                transform: 'translate(-50%, -50%)',
-                animation: 'pulse 3s ease-in-out infinite',
-              }}
-            >
-              <HoverCard openDelay={50} closeDelay={0}>
-                <HoverCardTrigger asChild>
-                  <button className="w-full h-full flex items-center justify-center">
-                    <span className="sr-only">{hotspot.title}</span>
-                  </button>
-                </HoverCardTrigger>
-                <HoverCardContent className="backdrop-blur-md bg-white/80 border-none shadow-lg p-4 w-64">
-                  <div className="flex items-center space-x-2">
-                    <div className="rounded-full bg-[#f8f6f2] p-2">
-                      {hotspot.icon}
-                    </div>
-                    <h4 className="font-bricolage text-lg text-[#1f1f2e]">{hotspot.title}</h4>
-                  </div>
-                  <p className="text-sm text-gray-600 mt-2">{hotspot.description}</p>
-                </HoverCardContent>
-              </HoverCard>
-            </div>
-          ))}
+        <div 
+          key={hotspot.id} 
+          className="absolute h-8 w-8 rounded-full bg-black/80
+                     hover:scale-[1.15] transition-all duration-500 cursor-pointer
+                     hover:bg-[#387f79]"
+          style={{
+            top: hotspot.position.top,
+            left: hotspot.position.left,
+            transform: 'translate(-50%, -50%)',
+            animation: 'pulse 3s ease-in-out infinite',
+          }}
+        >
+          <HoverCard openDelay={50} closeDelay={0}>
+            <HoverCardTrigger asChild>
+              <button className="w-full h-full flex items-center justify-center">
+                <span className="sr-only">{hotspot.title}</span>
+              </button>
+            </HoverCardTrigger>
+            <HoverCardContent className="backdrop-blur-md bg-white/90 border-none shadow-lg p-4 w-72 transform scale-105">
+              <div className="flex items-center space-x-2">
+                <div className="rounded-full bg-[#387f79] bg-opacity-10 p-2">
+                  {hotspot.icon}
+                </div>
+                <h4 className="font-bricolage text-lg text-[#387f79]">{hotspot.title}</h4>
+              </div>
+              <p className="text-sm text-gray-600 mt-2">{hotspot.description}</p>
+            </HoverCardContent>
+          </HoverCard>
+        </div>
+      ))}
         </div>
 
         <div className="space-y-8 text-left">

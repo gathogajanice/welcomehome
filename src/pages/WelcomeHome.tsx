@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
@@ -16,17 +15,15 @@ const WelcomeHome: React.FC = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden" style={{ backgroundColor: "#387f79" }}>
-      {/* Background pattern overlay, subtle but visible */}
+      {/* Single background image */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: 'url("/lovable-uploads/ff9648d3-36eb-4d7a-ba6e-b8fe0ffb8d0f.png")',
-          backgroundSize: "340px auto",           // balance pattern subtlety and repetition
+          backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundRepeat: "repeat",
-          opacity: 0.34,                          // slightly increase: visible but not overpowering
-          mixBlendMode: "overlay",                // keeps the #387f79 color strong everywhere
-          zIndex: 2
+          opacity: 0.15,
+          mixBlendMode: "overlay"
         }}
       />
 

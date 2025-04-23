@@ -277,7 +277,7 @@
   }
   
   .social-icon-container:hover .social-icon {
-    @apply text-white transform rotateY-360;
+    @apply text-white transform rotate-y-360;
   }
   
   .social-icon-container::before {

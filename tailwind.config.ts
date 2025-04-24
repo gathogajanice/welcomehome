@@ -103,6 +103,9 @@ export default {
         'clash': ['Clash Display', 'sans-serif'],
         'troye': ['Troye Sans', 'system-ui'],
       },
+      rotate: {
+        'y-360': 'rotateY(360deg)'
+      }
     }
   },
   plugins: [require("tailwindcss-animate")],

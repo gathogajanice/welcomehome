@@ -1,24 +1,24 @@
 import type { Config } from "tailwindcss";
 
 export default {
-	darkMode: ["class"],
-	content: [
-		"./pages/**/*.{ts,tsx}",
-		"./components/**/*.{ts,tsx}",
-		"./app/**/*.{ts,tsx}",
-		"./src/**/*.{ts,tsx}",
-	],
-	prefix: "",
-	theme: {
-		container: {
-			center: true,
-			padding: '2rem',
-			screens: {
-				'2xl': '1400px'
-			}
-		},
-		extend: {
-			colors: {
+  darkMode: ["class"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
+  prefix: "",
+  theme: {
+    container: {
+      center: true,
+      padding: '2rem',
+      screens: {
+        '2xl': '1400px'
+      }
+    },
+    extend: {
+      colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -64,12 +64,12 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
-			borderRadius: {
+      borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
-			keyframes: {
+      keyframes: {
 				'accordion-down': {
 					from: {
 						height: '0'
@@ -89,24 +89,21 @@ export default {
                     '100%': { boxShadow: '0 0 0 0 rgba(0, 0, 0, 0)' }
                 },
 			},
-			animation: {
+      animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
 			},
-			fontFamily: {
-				'bricolage': ['"Bricolage Grotesque"', 'sans-serif'],
-				'cormorant': ['"Cormorant Garamond"', 'serif'],
-				'delicious': ['"Beautifully Delicious"', 'cursive'],
-				'canela': ['Canela', 'serif'],
-				'apercu': ['ApercuMono', 'sans-serif'],
-				'bricolage': ['Bricolage Grotesque', 'sans-serif'],
-				'clash': ['Clash Display', 'sans-serif']
-			},
-			rotate: {
-        'y-360': 'rotateY(360deg)',
+      fontFamily: {
+        'bricolage': ['Bricolage Grotesque', 'sans-serif'],
+        'cormorant': ['Cormorant Garamond', 'serif'],
+        'delicious': ['Beautifully Delicious', 'cursive'],
+        'canela': ['Canela', 'serif'],
+        'apercu': ['ApercuMono', 'sans-serif'],
+        'clash': ['Clash Display', 'sans-serif'],
+        'troye': ['Troye Sans', 'system-ui'],
       },
-		}
-	},
-	plugins: [require("tailwindcss-animate")],
+    }
+  },
+  plugins: [require("tailwindcss-animate")],
 } satisfies Config;

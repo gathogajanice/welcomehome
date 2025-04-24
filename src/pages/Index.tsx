@@ -14,7 +14,7 @@ const Index = () => {
       {/* Hero section is loaded in App.tsx */}
       
       {/* Main content */}
-      <div className="relative z-10 mt-[100vh]">
+      <div className="relative z-10">
         <WelcomeHome />
         <Perks />
         <WhyInvest />

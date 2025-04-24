@@ -4,22 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Canela';
-  src: url('/fonts/Canela-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ApercuMono';
-  src: url('/fonts/ApercuMono-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* Add Troye Sans custom font face */
 @font-face {
   font-family: 'Troye Sans';

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Autoplay } from 'swiper/modules';
@@ -7,14 +8,11 @@ import 'swiper/css/effect-fade';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-// Property images - Add the new uploaded image as the first one
+// Optimized list of property images
 const propertyImages = [
-  "/lovable-uploads/a7deb50e-14f0-44cb-89db-2271fb5bb36b.png", // New image first
+  "/lovable-uploads/a7deb50e-14f0-44cb-89db-2271fb5bb36b.png",
   "/lovable-uploads/e1b40968-92f2-43da-9c58-0421ededaeed.png",
   "/lovable-uploads/63427f01-4ea6-496d-9b20-f3eccdda8757.png",
-  "/lovable-uploads/fc99c9e7-80a3-4106-9a9f-1502fa6ca251.png",
-  "/lovable-uploads/6c3020ad-df5a-430d-9920-608d492d64ec.png",
-  "/lovable-uploads/e2fd9bc5-9787-406b-963d-2a0b8f8515a1.png",
   "/lovable-uploads/3c1c89aa-56ec-4553-8aaa-7e7c12feea72.png",
   "/lovable-uploads/1d4323f5-9936-4e6f-9c63-382444393b84.png"
 ];
@@ -25,25 +23,33 @@ const Hero = () => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [allImagesLoaded, setAllImagesLoaded] = useState(0);
 
-  // Improved image preloading
+  // Aggressive image preloading for faster initial load
   useEffect(() => {
-    const loadImages = async () => {
-      const imagePromises = propertyImages.map((src) => {
-        return new Promise((resolve) => {
-          const img = new Image();
-          img.src = src;
-          img.onload = () => {
-            setAllImagesLoaded(prev => prev + 1);
-            resolve(true);
-          };
+    // Preload first image immediately
+    const firstImage = new Image();
+    firstImage.src = propertyImages[0];
+    firstImage.onload = () => {
+      setAllImagesLoaded(prev => prev + 1);
+      // Start loading the rest of the images only after first one is loaded
+      const loadRemainingImages = async () => {
+        const remainingImages = propertyImages.slice(1);
+        const imagePromises = remainingImages.map((src) => {
+          return new Promise((resolve) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = () => {
+              setAllImagesLoaded(prev => prev + 1);
+              resolve(true);
+            };
+          });
         });
-      });
 
-      await Promise.all(imagePromises);
-      setImagesLoaded(true);
+        await Promise.all(imagePromises);
+        setImagesLoaded(true);
+      };
+
+      loadRemainingImages();
     };
-
-    loadImages();
   }, []);
 
   // Handle slide change
@@ -65,14 +71,14 @@ const Hero = () => {
       {/* Subtle dark green tint */}
       <div className="absolute inset-0 bg-[#032b22]/40 pointer-events-none z-10" />
       
-      {/* Main slider - only show when images are loaded */}
-      <div className={`w-full h-full transition-opacity duration-1000 ${imagesLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      {/* Main slider - only show when first image is loaded */}
+      <div className={`w-full h-full transition-opacity duration-1000 ${allImagesLoaded > 0 ? 'opacity-100' : 'opacity-0'}`}>
         <Swiper 
           modules={[EffectFade, Autoplay]} 
           effect="fade"
           loop={true} 
           autoplay={{
-            delay: 5000,
+            delay: 6000, // Increased delay to 6 seconds
             disableOnInteraction: false
           }} 
           className="hero-swiper" 
@@ -86,8 +92,11 @@ const Hero = () => {
                   src={url} 
                   alt={`Luxury property ${i + 1}`} 
                   className="slide-image opacity-90"
-                  loading="eager"
-                  fetchPriority="high"
+                  loading={i === 0 ? "eager" : "lazy"} // Eager load first image, lazy load rest
+                  fetchPriority={i === 0 ? "high" : "auto"}
+                  width={1920} // Add explicit dimensions to prevent layout shift
+                  height={1080}
+                  style={{ objectFit: 'cover', width: '100%', height: '100%' }}
                 />
               </div>
             </SwiperSlide>

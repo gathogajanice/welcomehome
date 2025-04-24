@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Autoplay } from 'swiper/modules';
@@ -8,9 +7,11 @@ import 'swiper/css/effect-fade';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-// Optimized list of property images
+// First image imported statically to ensure it's included in the initial bundle
+const firstImage = "/lovable-uploads/a7deb50e-14f0-44cb-89db-2271fb5bb36b.png";
+
+// Rest of the property images
 const propertyImages = [
-  "/lovable-uploads/a7deb50e-14f0-44cb-89db-2271fb5bb36b.png",
   "/lovable-uploads/e1b40968-92f2-43da-9c58-0421ededaeed.png",
   "/lovable-uploads/63427f01-4ea6-496d-9b20-f3eccdda8757.png",
   "/lovable-uploads/3c1c89aa-56ec-4553-8aaa-7e7c12feea72.png",
@@ -20,35 +21,24 @@ const propertyImages = [
 const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-  const [allImagesLoaded, setAllImagesLoaded] = useState(0);
+  const [firstImageLoaded, setFirstImageLoaded] = useState(false);
+  const [remainingImagesLoaded, setRemainingImagesLoaded] = useState(0);
 
-  // Aggressive image preloading for faster initial load
+  // Preload first image immediately on component mount
   useEffect(() => {
-    // Preload first image immediately
-    const firstImage = new Image();
-    firstImage.src = propertyImages[0];
-    firstImage.onload = () => {
-      setAllImagesLoaded(prev => prev + 1);
-      // Start loading the rest of the images only after first one is loaded
-      const loadRemainingImages = async () => {
-        const remainingImages = propertyImages.slice(1);
-        const imagePromises = remainingImages.map((src) => {
-          return new Promise((resolve) => {
-            const img = new Image();
-            img.src = src;
-            img.onload = () => {
-              setAllImagesLoaded(prev => prev + 1);
-              resolve(true);
-            };
-          });
-        });
-
-        await Promise.all(imagePromises);
-        setImagesLoaded(true);
-      };
-
-      loadRemainingImages();
+    const img = new Image();
+    img.src = firstImage;
+    img.onload = () => {
+      setFirstImageLoaded(true);
+      
+      // Start loading remaining images after first one is loaded
+      propertyImages.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => {
+          setRemainingImagesLoaded(prev => prev + 1);
+        };
+      });
     };
   }, []);
 
@@ -58,45 +48,65 @@ const Hero = () => {
   };
 
   return (
-    <div className="hero-container">
-      {/* Ambient frame - decorative borders */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-white/25 pointer-events-none z-20" />
-      <div className="absolute top-0 left-0 h-full w-[1px] bg-white/25 pointer-events-none z-20" />
+    <div className="relative w-full h-[100svh] overflow-hidden">
+      {/* No ambient frames until first image loads */}
+      {firstImageLoaded && (
+        <>
+          <div className="absolute top-0 left-0 w-full h-[1px] bg-white/25 pointer-events-none z-20" />
+          <div className="absolute top-0 left-0 h-full w-[1px] bg-white/25 pointer-events-none z-20" />
+        </>
+      )}
       
       {/* Left/Right vignette blur */}
       <div className="absolute inset-0 pointer-events-none z-10" style={{
         background: 'linear-gradient(to right, rgba(0,0,0,0.3), transparent 15%, transparent 85%, rgba(0,0,0,0.3))'
       }} />
       
-      {/* Subtle dark green tint */}
-      <div className="absolute inset-0 bg-[#032b22]/40 pointer-events-none z-10" />
+      {/* Dark tint - only show after first image loads */}
+      {firstImageLoaded && (
+        <div className="absolute inset-0 bg-black/20 pointer-events-none z-10" />
+      )}
       
-      {/* Main slider - only show when first image is loaded */}
-      <div className={`w-full h-full transition-opacity duration-1000 ${allImagesLoaded > 0 ? 'opacity-100' : 'opacity-0'}`}>
+      {/* Main slider */}
+      <div className="w-full h-full">
         <Swiper 
           modules={[EffectFade, Autoplay]} 
           effect="fade"
           loop={true} 
           autoplay={{
-            delay: 6000, // Increased delay to 6 seconds
+            delay: activeIndex === 0 ? 8000 : 6000, // Longer delay for first slide
             disableOnInteraction: false
           }} 
           className="hero-swiper" 
           onSwiper={setSwiperInstance} 
           onSlideChange={handleSlideChange}
         >
+          {/* First Image Slide */}
+          <SwiperSlide>
+            <div className="w-full h-full">
+              <img 
+                src={firstImage} 
+                alt="Luxury property 1" 
+                className="w-full h-full object-cover"
+                loading="eager"
+                fetchPriority="high"
+                width={1920}
+                height={1080}
+              />
+            </div>
+          </SwiperSlide>
+
+          {/* Remaining Image Slides */}
           {propertyImages.map((url, i) => (
-            <SwiperSlide key={`property-${i}`}>
-              <div className="slide-image-container">
+            <SwiperSlide key={`property-${i + 1}`}>
+              <div className="w-full h-full">
                 <img 
                   src={url} 
-                  alt={`Luxury property ${i + 1}`} 
-                  className="slide-image opacity-90"
-                  loading={i === 0 ? "eager" : "lazy"} // Eager load first image, lazy load rest
-                  fetchPriority={i === 0 ? "high" : "auto"}
-                  width={1920} // Add explicit dimensions to prevent layout shift
+                  alt={`Luxury property ${i + 2}`} 
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  width={1920}
                   height={1080}
-                  style={{ objectFit: 'cover', width: '100%', height: '100%' }}
                 />
               </div>
             </SwiperSlide>
@@ -107,7 +117,7 @@ const Hero = () => {
       {/* Hero content */}
       <div className="absolute inset-0 flex items-end pb-28 md:pb-36 justify-center z-40 px-6">
         <div className="flex flex-col items-center justify-center space-y-2">
-          <h1 className="font-bricolage text-6xl sm:text-7xl md:text-8xl text-[#fffbf0] leading-tight tracking-wide font-bold">
+          <h1 className="font-bricolage text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-[#fffbf0] leading-tight tracking-wide font-bold">
             WELCOME HOME
           </h1>
 

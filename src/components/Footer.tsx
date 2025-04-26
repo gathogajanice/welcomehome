@@ -13,9 +13,9 @@ const Footer = () => {
       backgroundPosition: "center"
     }}>
       <div className="container mx-auto border border-[#387f79] rounded-2xl p-4 sm:p-6 md:p-8 bg-white">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-6 lg:gap-8">
           {/* Brand Section */}
-          <div className="space-y-4">
+          <div className="space-y-6">
             <div className="text-left">
               <div className="backdrop-blur-sm bg-white/30 border border-[#387f79] shadow-lg rounded-xl p-4 inline-block">
                 <h2 className="font-cormorant font-normal text-lg font-bold">
@@ -24,7 +24,7 @@ const Footer = () => {
                   Investment <span className="text-xs align-top">®</span>
                 </h2>
               </div>
-              <div className="flex flex-col items-start">
+              <div className="flex flex-col items-start mt-4">
                 <h2 className="font-cormorant font-normal text-lg">
                   Welcome Home
                 </h2>
@@ -32,7 +32,7 @@ const Footer = () => {
               </div>
             </div>
             
-            <div className="space-y-3 pt-4">
+            <div className="space-y-3">
               <h3 className="text-black font-cormorant font-normal text-lg text-left">Contact Us</h3>
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
@@ -43,7 +43,7 @@ const Footer = () => {
             </div>
 
             {/* Social Media Links */}
-            <div className="flex space-x-4 pt-4">
+            <div className="flex space-x-4">
               {['facebook', 'twitter', 'linkedin', 'instagram'].map((platform, index) => (
                 <a 
                   key={platform} 
@@ -74,6 +74,7 @@ const Footer = () => {
 
           {/* Navigation Links */}
           <div className="text-left space-y-3">
+            <h3 className="font-cormorant font-normal text-lg font-bold text-black mb-4">Quick Links</h3>
             <Link to="/" className="block text-gray-600 hover:text-black transition-colors font-cormorant font-normal text-sm">Home</Link>
             <Link to="/about" className="block text-gray-600 hover:text-black transition-colors font-cormorant font-normal text-sm">About Us</Link>
             <Link to="/why-invest" className="block text-gray-600 hover:text-black transition-colors font-cormorant font-normal text-sm">Why Invest</Link>
@@ -84,7 +85,7 @@ const Footer = () => {
           {/* Office Locations */}
           <div className="text-left space-y-6">
             <div className="space-y-2">
-              <h3 className="font-cormorant font-normal text-base font-bold text-black">New York Office</h3>
+              <h3 className="font-cormorant font-normal text-lg font-bold text-black">New York Office</h3>
               <div className="flex items-start gap-2 mt-2">
                 <MapPin className="h-4 w-4 text-gray-600 mt-1" />
                 <p className="font-cormorant font-normal text-sm text-gray-600">
@@ -95,7 +96,7 @@ const Footer = () => {
             </div>
             
             <div className="space-y-2">
-              <h3 className="font-cormorant font-normal text-base font-bold text-black">Senegal Office</h3>
+              <h3 className="font-cormorant font-normal text-lg font-bold text-black">Senegal Office</h3>
               <div className="flex items-start gap-2 mt-2">
                 <MapPin className="h-4 w-4 text-gray-600 mt-1" />
                 <p className="font-cormorant font-normal text-sm text-gray-600">

@@ -1,132 +1,74 @@
 import React, { useEffect, useState } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 
 const stats = [
-  {
-    number: "70%",
-    title: "Reduction in Transaction Costs",
-    description: "(Compared to traditional real estate channels)"
-  },
-  {
-    number: "12B+",
-    title: "Market Opportunity",
-    description: "(Africa's real estate by 2030 is within reach)"
-  },
-  {
-    number: "100+",
-    title: "Investors Showing Interest",
-    description: "(From the U.S., Europe, and Senegal)"
-  },
-  {
-    number: "24/7",
-    title: "Service Availability",
-    description: "(Supporting global time zones)"
-  },
-  {
-    number: "42%",
-    title: "Annual Growth Rate",
-    description: "(Exceeding market averages)"
-  },
-  {
-    number: "93%",
-    title: "Client Satisfaction",
-    description: "(Based on post-investment surveys)"
-  }
+  { number: "150+", description: "Properties Worldwide" },
+  { number: "10K+", description: "Happy Customers" },
+  { number: "99%", description: "Customer Satisfaction" },
+  { number: "24/7", description: "Customer Support" },
+  { number: "15+", description: "Years Experience" },
+  { number: "50+", description: "Countries Served" }
 ];
 
 const StatsSection = () => {
-  const [isPaused, setIsPaused] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const controls = useAnimation();
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    const duration = 50000; // Reduced to 50 seconds for slightly faster animation
-    let startTime = Date.now();
-    let animationFrame: number;
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % stats.length);
+    }, 3000);
 
-    const animate = () => {
-      if (!isPaused) {
-        const now = Date.now();
-        const elapsed = now - startTime;
-        const progress = (elapsed % duration) / duration;
-        
-        setScrollPosition(progress * -100);
-      }
-      animationFrame = requestAnimationFrame(animate);
-    };
+    return () => clearInterval(interval);
+  }, []);
 
-    animationFrame = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationFrame);
-  }, [isPaused]);
+  const visibleStats = [...stats.slice(currentIndex), ...stats.slice(0, currentIndex)].slice(0, 4);
 
   return (
-    <section 
-      className="w-full bg-[#387f79] py-10 relative overflow-hidden"
-      style={{
-        backgroundImage: 'url("/lovable-uploads/ff9648d3-36eb-4d7a-ba6e-b8fe0ffb8d0f.png")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundBlendMode: 'overlay'
-      }}
-    >
-      {/* Background Overlay */}
-      <div className="absolute inset-0 bg-[#387f79]/90 backdrop-blur-sm" />
-
-      <div className="px-4 relative z-10">
-        {/* Title with animation */}
-        <motion.h2 
-          className="font-cormorant text-3xl sm:text-4xl md:text-5xl text-white text-center mb-8 font-bold uppercase"
-          animate={{
-            y: [0, -8, 0],
-            opacity: [1, 0.8, 1],
-          }}
-          transition={{
-            duration: 4,
-            ease: "easeInOut",
-            repeat: Infinity,
-          }}
-        >
-          NUMBERS DON'T LIE
-        </motion.h2>
-
-        <div className="overflow-hidden">
-          <motion.div 
-            className="flex gap-6 py-4"
-            style={{
-              transform: `translateX(${scrollPosition}%)`,
-              width: 'fit-content',
-              willChange: 'transform'
-            }}
-          >
-            {/* Render stats three times for smoother loop */}
-            {[...stats, ...stats, ...stats].map((stat, index) => (
-              <div 
-                key={index}
-                className={cn(
-                  "flex flex-col items-center justify-center text-center",
-                  "bg-white/10 backdrop-blur-sm rounded-xl border border-white/20",
-                  "p-4 min-w-[220px] space-y-2.5",
-                  "transition-all duration-300 hover:bg-white/20 hover:border-white/30",
-                  "cursor-pointer"
-                )}
-                onMouseEnter={() => setIsPaused(true)}
-                onMouseLeave={() => setIsPaused(false)}
+    <section className="bg-[#387f79] py-20 relative overflow-hidden">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'url("/lovable-uploads/ff9648d3-36eb-4d7a-ba6e-b8fe0ffb8d0f.png")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: 0.15,
+          mixBlendMode: "overlay"
+        }}
+      />
+      
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+          {visibleStats.map((stat, index) => (
+            <motion.div
+              key={`${stat.number}-${index}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.5,
+                delay: index * 0.1,
+                ease: [0.33, 1, 0.68, 1]
+              }}
+              className="text-center"
+            >
+              <motion.div
+                initial={{ scale: 0.95 }}
+                animate={{ scale: 1 }}
+                transition={{ 
+                  duration: 0.8,
+                  ease: [0.33, 1, 0.68, 1],
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }}
               >
-                <h2 className="font-bd-sans text-3xl sm:text-4xl font-bold text-[#032b22]">
+                <h3 className="font-bd-sans text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
                   {stat.number}
-                </h2>
-                <div className="space-y-1.5">
-                  <h3 className="font-bd-sans font-bold text-xs text-white tracking-wide uppercase">
-                    {stat.title}
-                  </h3>
-                  <p className="font-cormorant text-xs text-white/80 italic">
-                    {stat.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </motion.div>
+                </h3>
+              </motion.div>
+              <p className="font-cormorant text-lg md:text-xl text-white/80">
+                {stat.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

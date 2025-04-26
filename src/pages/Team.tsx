@@ -41,12 +41,13 @@ const Team = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="bg-[#eaf6ff] py-16"
+      className="bg-[#efede7] py-16"
       style={{
         backgroundImage: "url('https://images.unsplash.com/photo-1566041510639-8d95a2490bfb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
         backgroundBlendMode: "overlay",
         backgroundSize: "cover",
-        backgroundPosition: "center"
+        backgroundPosition: "center",
+        backgroundColor: "#efede7"
       }}
     >
       <div className="container mx-auto px-4">
@@ -56,7 +57,7 @@ const Team = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <h1 className="text-[2.5rem] font-cormorant font-medium">
+          <h1 className="text-[2.5rem] font-bd-sans font-medium">
             Meet the <span className="text-[#387f79]">Incredible</span> Team
           </h1>
         </motion.div>
@@ -96,16 +97,16 @@ const Team = () => {
                   
                   {/* Name and Role */}
                   <div className="text-center">
-                    <h2 className="font-cormorant font-normal text-2xl text-white mb-1">
+                    <h2 className="font-bd-sans font-normal text-xl text-white mb-1">
                       {member.name}
                     </h2>
-                    <p className="font-cormorant font-normal text-lg text-white/90 mb-3">
+                    <p className="font-bd-sans font-normal text-base text-white/90 mb-3">
                       {member.role}
                     </p>
                   </div>
 
                   {/* Quote */}
-                  <p className="text-white/80 italic mb-4 text-sm">
+                  <p className="font-cormorant text-white/80 italic mb-4 text-xs">
                     "{member.quote}"
                   </p>
                   

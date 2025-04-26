@@ -50,14 +50,14 @@ const titleVariants = {
 };
 
 // First image imported statically to ensure it's included in the initial bundle for faster LCP
-const firstImage = "/lovable-uploads/a7deb50e-14f0-44cb-89db-2271fb5bb36b.png";
+const firstImage = "/lovable-uploads/Boys.png";
 
 // Array of property images for the slideshow
 const propertyImages = [
-  "/lovable-uploads/e1b40968-92f2-43da-9c58-0421ededaeed.png",
-  "/lovable-uploads/63427f01-4ea6-496d-9b20-f3eccdda8757.png",
-  "/lovable-uploads/3c1c89aa-56ec-4553-8aaa-7e7c12feea72.png",
-  "/lovable-uploads/1d4323f5-9936-4e6f-9c63-382444393b84.png"
+  "/lovable-uploads/Boys.png",
+  "/lovable-uploads/SenegalBus.png",
+  "/lovable-uploads/Boats.png",
+  "/lovable-uploads/House.png"
 ];
 
 /**
@@ -93,7 +93,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative w-full h-[100svh] overflow-hidden">
+    <div className="relative w-full h-[100vh] overflow-hidden">
       {/* Decorative grid lines */}
       {firstImageLoaded && (
         <>
@@ -114,7 +114,7 @@ const Hero = () => {
       {firstImageLoaded && <div className="absolute inset-0 bg-black/20 pointer-events-none z-10" />}
       
       {/* Image carousel */}
-      <div className="w-full h-full">
+      <div className="absolute inset-0">
         <Swiper
           modules={[EffectFade, Autoplay]}
           effect="fade"
@@ -123,12 +123,12 @@ const Hero = () => {
             delay: activeIndex === 0 ? 8000 : 6000,
             disableOnInteraction: false
           }}
-          className="hero-swiper"
+          className="h-full"
           onSwiper={setSwiperInstance}
           onSlideChange={handleSlideChange}
         >
           {/* First slide - eagerly loaded */}
-          <SwiperSlide>
+          <SwiperSlide className="h-full">
             <div className="w-full h-full">
               <img 
                 src={firstImage} 
@@ -144,7 +144,7 @@ const Hero = () => {
 
           {/* Remaining slides - lazy loaded */}
           {propertyImages.map((url, i) => (
-            <SwiperSlide key={`property-${i + 1}`}>
+            <SwiperSlide key={`property-${i + 1}`} className="h-full">
               <div className="w-full h-full">
                 <img 
                   src={url} 
@@ -160,10 +160,10 @@ const Hero = () => {
         </Swiper>
       </div>
 
-      {/* Hero content */}
-      <div className="absolute inset-0 flex items-center justify-center z-40 px-4 sm:px-6">
+      {/* Hero content - Updated positioning */}
+      <div className="absolute inset-x-0 bottom-[10vh] flex items-end justify-center z-40 px-4 sm:px-6">
         <motion.div 
-          className="flex flex-col items-center justify-center space-y-4 sm:space-y-5 md:space-y-6 max-w-4xl mx-auto w-full"
+          className="flex flex-col items-center justify-center space-y-6 sm:space-y-7 md:space-y-8 max-w-4xl mx-auto w-full"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -172,7 +172,7 @@ const Hero = () => {
           <motion.div variants={titleVariants} className="text-center w-full">
             <h1 className="troye-font text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#fffbf0] leading-tight tracking-wide font-bold">
               <motion.span
-                className="block"
+                className="block mb-1"
                 variants={titleVariants}
               >
                 WELCOME
@@ -189,7 +189,7 @@ const Hero = () => {
           {/* Tagline */}
           <motion.p 
             variants={itemVariants}
-            className="font-cormorant text-sm xs:text-base sm:text-lg md:text-xl text-[#fffbf0] uppercase tracking-[0.15em] text-center max-w-[90%] sm:max-w-[80%] mx-auto"
+            className="font-cormorant text-sm xs:text-base sm:text-lg md:text-xl text-[#fffbf0] uppercase tracking-[0.15em] text-center max-w-[90%] sm:max-w-[80%] mx-auto mt-2"
           >
             WHERE OWNERSHIP MEETS ADVENTURE
           </motion.p>
@@ -197,7 +197,7 @@ const Hero = () => {
           {/* Locations */}
           <motion.p 
             variants={itemVariants}
-            className="font-bd-sans font-bold text-xs xs:text-sm sm:text-base md:text-lg text-[#fffbf0] tracking-[0.2em] text-center"
+            className="font-bd-sans font-bold text-xs xs:text-sm sm:text-base md:text-lg text-[#fffbf0] tracking-[0.2em] text-center mt-2"
           >
             SENEGAL | GHANA | KENYA
           </motion.p>
@@ -205,7 +205,7 @@ const Hero = () => {
           {/* CTA Button */}
           <motion.button 
             variants={itemVariants}
-            className="mt-4 sm:mt-6 px-5 sm:px-6 py-2 sm:py-2.5 border border-[#cbe9e9] rounded-xl 
+            className="mt-8 sm:mt-10 px-5 sm:px-6 py-2 sm:py-2.5 border border-[#cbe9e9] rounded-xl 
                      bg-white/10 backdrop-blur-sm
                      text-[#fffbf0] font-bd-sans tracking-wider text-xs sm:text-sm
                      transition-all duration-300 flex items-center gap-2

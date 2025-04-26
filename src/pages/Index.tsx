@@ -3,7 +3,6 @@ import Perks from "@/components/Perks";
 import StatsSection from "@/components/StatsSection";
 import WhyInvest from "@/pages/WhyInvest";
 import Team from "@/pages/Team";
-import Footer from "@/components/Footer";
 import WelcomeHome from "@/pages/WelcomeHome";
 
 const Index = () => {
@@ -18,7 +17,6 @@ const Index = () => {
         <WhyInvest />
         <StatsSection />
         <Team />
-        <Footer />
       </div>
     </div>
   );

@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Instagram, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -96,12 +95,14 @@ const Team = () => {
                   </div>
                   
                   {/* Name and Role */}
-                  <h2 className="font-bricolage text-2xl font-bold text-white mb-1">
-                    {member.name}
-                  </h2>
-                  <p className="font-bricolage text-lg text-white/90 mb-3">
-                    {member.role}
-                  </p>
+                  <div className="text-center">
+                    <h2 className="font-cormorant font-normal text-2xl text-white mb-1">
+                      {member.name}
+                    </h2>
+                    <p className="font-cormorant font-normal text-lg text-white/90 mb-3">
+                      {member.role}
+                    </p>
+                  </div>
 
                   {/* Quote */}
                   <p className="text-white/80 italic mb-4 text-sm">

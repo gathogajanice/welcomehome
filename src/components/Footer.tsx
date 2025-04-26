@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Instagram, Facebook, Linkedin } from 'lucide-react';
@@ -25,22 +24,27 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="text-left">
               <div className="backdrop-blur-sm bg-white/30 border border-[#387f79] shadow-lg rounded-xl p-4 inline-block">
-                <h2 className="font-bricolage text-lg font-bold">
+                <h2 className="font-cormorant font-normal text-lg font-bold">
                   The Future of<br />
                   <span className="text-[#387f79] text-2xl font-medium">Real Estate</span><br />
                   Investment <span className="text-xs align-top">®</span>
                 </h2>
               </div>
-              <p className="text-xs font-bricolage uppercase text-gray-600 mt-2">Own a piece of the world</p>
+              <div className="flex flex-col items-start">
+                <h2 className="font-cormorant font-normal text-lg">
+                  Welcome Home
+                </h2>
+                <p className="text-xs font-cormorant font-normal uppercase text-gray-600 mt-2">Own a piece of the world</p>
+              </div>
             </div>
             
             <div className="space-y-3 pt-4">
-              <h3 className="text-black font-bricolage text-lg text-left font-medium">Contact Us</h3>
+              <h3 className="text-black font-cormorant font-normal text-lg text-left">Contact Us</h3>
               <div className="space-y-2">
-                <a href="mailto:info@welcomehomeintl.com" className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
-                  <Mail size={16} className="text-[#387f79]" />
-                  <span className="font-bricolage text-sm">info@welcomehomeintl.com</span>
-                </a>
+                <div className="flex items-center gap-2">
+                  <Mail className="h-4 w-4 text-gray-600" />
+                  <span className="font-cormorant font-normal text-sm">info@welcomehomeintl.com</span>
+                </div>
               </div>
             </div>
 
@@ -76,35 +80,33 @@ const Footer = () => {
 
           {/* Navigation Links */}
           <div className="text-left space-y-3">
-            <Link to="/" className="block text-gray-600 hover:text-black transition-colors font-bricolage text-sm">Home</Link>
-            <Link to="/about" className="block text-gray-600 hover:text-black transition-colors font-bricolage text-sm">About Us</Link>
-            <Link to="/why-invest" className="block text-gray-600 hover:text-black transition-colors font-bricolage text-sm">Why Invest</Link>
-            <Link to="/communities" className="block text-gray-600 hover:text-black transition-colors font-bricolage text-sm">Communities</Link>
-            <Link to="/team" className="block text-gray-600 hover:text-black transition-colors font-bricolage text-sm">The Team</Link>
+            <Link to="/" className="block text-gray-600 hover:text-black transition-colors font-cormorant font-normal text-sm">Home</Link>
+            <Link to="/about" className="block text-gray-600 hover:text-black transition-colors font-cormorant font-normal text-sm">About Us</Link>
+            <Link to="/why-invest" className="block text-gray-600 hover:text-black transition-colors font-cormorant font-normal text-sm">Why Invest</Link>
+            <Link to="/communities" className="block text-gray-600 hover:text-black transition-colors font-cormorant font-normal text-sm">Communities</Link>
+            <Link to="/team" className="block text-gray-600 hover:text-black transition-colors font-cormorant font-normal text-sm">The Team</Link>
           </div>
 
           {/* Office Locations */}
           <div className="text-left space-y-6">
             <div className="space-y-2">
-              <h3 className="font-bricolage text-base font-bold text-black">New York Office</h3>
-              <div className="flex items-start gap-2">
-                <MapPin size={16} className="text-[#387f79] mt-1 flex-shrink-0" />
-                <p className="font-bricolage text-sm text-gray-600">
-                  PO Box 386<br />
-                  NY, NY 10276
+              <h3 className="font-cormorant font-normal text-base font-bold text-black">New York Office</h3>
+              <div className="flex items-start gap-2 mt-2">
+                <MapPin className="h-4 w-4 text-gray-600 mt-1" />
+                <p className="font-cormorant font-normal text-sm text-gray-600">
+                  123 Business Avenue<br />
+                  New York, NY 10001
                 </p>
               </div>
             </div>
             
             <div className="space-y-2">
-              <h3 className="font-bricolage text-base font-bold text-black">Senegal Office</h3>
-              <div className="flex items-start gap-2">
-                <MapPin size={16} className="text-[#387f79] mt-1 flex-shrink-0" />
-                <p className="font-bricolage text-sm text-gray-600">
-                  1453 Malicounda<br />
-                  Peage Malicounda<br />
-                  Mbour Thies,<br />
-                  Senegal.
+              <h3 className="font-cormorant font-normal text-base font-bold text-black">Senegal Office</h3>
+              <div className="flex items-start gap-2 mt-2">
+                <MapPin className="h-4 w-4 text-gray-600 mt-1" />
+                <p className="font-cormorant font-normal text-sm text-gray-600">
+                  456 Main Street<br />
+                  Dakar, Senegal
                 </p>
               </div>
             </div>
@@ -113,20 +115,20 @@ const Footer = () => {
           {/* Subscribe Section */}
           <div className="text-left space-y-6">
             <div className="space-y-4">
-              <h3 className="text-black font-bricolage text-lg font-bold">Subscribe Today</h3>
+              <h3 className="text-black font-cormorant font-normal text-lg font-bold">Subscribe Today</h3>
               <div className="space-y-3">
                 <div className="relative">
-                  <input 
-                    type="email" 
-                    placeholder="Enter Your Email" 
-                    className="w-full px-4 py-2 pl-10 border border-gray-200 rounded-lg font-bricolage text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#387f79] focus:border-transparent" 
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    className="w-full px-4 py-2 pl-10 border border-gray-200 rounded-lg font-cormorant font-normal text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#387f79] focus:border-transparent"
                   />
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
                 </div>
                 <Button 
-                  className="w-full rounded-full bg-white/10 hover:bg-white/20 border border-[#387f79] text-[#387f79] font-bricolage text-sm px-8 py-2 transition-all hover:scale-105 hover:shadow-lg"
+                  className="w-full rounded-full bg-white/10 hover:bg-white/20 border border-[#387f79] text-[#387f79] font-cormorant font-normal text-sm px-8 py-2 transition-all hover:scale-105 hover:shadow-lg"
                 >
-                  JOIN US
+                  Subscribe to Newsletter
                 </Button>
               </div>
             </div>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
@@ -80,12 +79,12 @@ const WhyInvest = () => {
                     <span className="sr-only">{hotspot.title}</span>
                   </button>
                 </HoverCardTrigger>
-                <HoverCardContent className="backdrop-blur-md bg-white/90 border-none shadow-lg p-4 w-80 transform scale-105 z-30">
+                <HoverCardContent className="w-64 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-xl border border-white/20">
                   <div className="flex items-center space-x-2">
                     <div className="rounded-full bg-[#387f79] bg-opacity-10 p-2">
                       {hotspot.icon}
                     </div>
-                    <h4 className="font-bricolage text-lg text-[#387f79]">{hotspot.title}</h4>
+                    <h4 className="font-cormorant font-normal text-lg text-[#387f79]">{hotspot.title}</h4>
                   </div>
                   <p className="text-sm text-gray-600 mt-2">{hotspot.description}</p>
                 </HoverCardContent>
@@ -118,7 +117,7 @@ const WhyInvest = () => {
             </p>
           </motion.div>
 
-          <Button className="bg-white/10 hover:bg-white/20 rounded-full text-[#387f79] font-bricolage px-8 py-2 text-base 
+          <Button className="bg-white/10 hover:bg-white/20 rounded-full text-[#387f79] font-cormorant font-normal px-8 py-2 text-base 
                      border border-[#387f79]/20 transition-all hover:scale-105 hover:shadow-lg">
             START INVESTING TODAY
           </Button>

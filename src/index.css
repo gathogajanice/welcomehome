@@ -7,11 +7,15 @@
 /* Add Troye Sans custom font face */
 @font-face {
   font-family: 'Troye Sans';
-  src: url('/fonts/TroyeSans-Bold.woff2') format('woff2'),
-       url('/fonts/TroyeSans-Bold.woff') format('woff');
-  font-weight: 700;
+  src: url('/fonts/TroyeSans.otf') format('opentype');
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
+}
+
+/* Optionally set it for the body or create a class */
+.troye-font {
+  font-family: 'Troye Sans', sans-serif;
 }
 
 /* Beautifully Delicious custom font face */
@@ -22,6 +26,31 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+}
+
+/* TroyeSans font
+@font-face {
+  font-family: 'Troye Sans';
+  src: url('/fonts/TroyeSans.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+} */
+
+/* BD Sans font */
+@font-face {
+  font-family: 'BD Sans';
+  src: url('/fonts/BDSans-Regular.woff2') format('woff2'),
+       url('/fonts/BDSans-Regular.woff') format('woff'),
+       url('/fonts/BDSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Utility class for BD Sans */
+.bd-sans-font {
+  font-family: 'BD Sans', sans-serif;
 }
 
 @layer base {
@@ -217,7 +246,7 @@
   }
   
   .card__subtitle {
-    @apply text-sm text-gray-600 font-bricolage uppercase tracking-wider transition-all duration-300;
+    @apply text-sm text-gray-600 font-cormorant font-normal uppercase tracking-wider transition-all duration-300;
   }
   
   /* Hamburger menu animations */

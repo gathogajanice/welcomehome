@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { motion } from "framer-motion";
@@ -34,7 +33,7 @@ const WelcomeHome: React.FC = () => {
         {/* Left: Title and subtext */}
         <div className="w-full md:w-1/2 pl-0 md:pl-8 text-left">
           <motion.h2 
-            className="font-cormorant text-4xl lg:text-6xl leading-tight font-bold text-slate-50 tracking-tight"
+            className="font-troye-sans text-4xl lg:text-6xl leading-tight font-bold text-slate-50 tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
@@ -48,13 +47,13 @@ const WelcomeHome: React.FC = () => {
           </motion.h2>
           
           <div className="mt-8 mb-10">
-            <p className="font-bricolage text-sm md:text-base text-white/90 leading-relaxed max-w-md">
+            <p className="font-cormorant font-normal text-sm md:text-base text-white/90 leading-relaxed max-w-md">
               Welcome Home is a blockchain-powered real estate platform reimagining how the African Diaspora builds wealth, reclaims land, and experiences the world.
             </p>
             
             <button 
               onClick={toggleExpand}
-              className="mt-6 inline-flex items-center px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all duration-300 ease-in-out group hover:scale-105 hover:shadow-lg"
+              className="mt-6 inline-flex items-center px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all duration-300 ease-in-out group hover:scale-105 hover:shadow-lg font-bd-sans"
             >
               {isExpanded ? 'Read less' : 'Read more'}
               {isExpanded ? 

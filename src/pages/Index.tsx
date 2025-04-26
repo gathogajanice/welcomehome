@@ -1,8 +1,6 @@
-
 import React from 'react';
 import Perks from "@/components/Perks";
 import StatsSection from "@/components/StatsSection";
-import Invest from "@/pages/Invest";
 import WhyInvest from "@/pages/WhyInvest";
 import Team from "@/pages/Team";
 import Footer from "@/components/Footer";
@@ -19,7 +17,6 @@ const Index = () => {
         <Perks />
         <WhyInvest />
         <StatsSection />
-        <Invest />
         <Team />
         <Footer />
       </div>

@@ -95,13 +95,13 @@ export default {
 				'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
 			},
       fontFamily: {
-        'bricolage': ['Bricolage Grotesque', 'sans-serif'],
         'cormorant': ['Cormorant Garamond', 'serif'],
         'delicious': ['Beautifully Delicious', 'cursive'],
         'canela': ['Canela', 'serif'],
         'apercu': ['ApercuMono', 'sans-serif'],
         'clash': ['Clash Display', 'sans-serif'],
-        'troye': ['Troye Sans', 'system-ui'],
+        'troye-sans': ['Troye Sans', 'sans-serif'],
+        'bd-sans': ['BD Sans', 'sans-serif'],
       },
       rotate: {
         'y-360': 'rotateY(360deg)'

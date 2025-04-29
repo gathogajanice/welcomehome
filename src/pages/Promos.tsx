@@ -134,10 +134,11 @@ const Promos = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="text-center font-troye text-3xl sm:text-4xl text-white mb-16"
+            className="text-center font-troye text-3xl sm:text-4xl text-white mb-4"
           >
-            PROMOS AND OFFERS
+           A NEW ERA OF REAL ESTATE—VERIFIED, FRACTIONAL, UNFORGETTABLE.
           </motion.h2>
+          
 
           {/* Promos Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">

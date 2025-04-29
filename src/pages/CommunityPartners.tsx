@@ -32,13 +32,16 @@ const CommunityPartners = () => {
   return (
     <section className="bg-[#f5f3ee] min-h-screen py-16 px-4 flex flex-col items-center">
       <motion.h1
-        className="text-[#387f79] text-2xl md:text-3xl font-troye text-center mb-16 tracking-widest uppercase"
+        className="text-[#387f79] text-2xl md:text-3xl font-troye text-center mb-6 tracking-widest uppercase"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
         COMMUNITY PARTNERS
       </motion.h1>
+      <div className="w-full flex justify-center mb-10">
+       
+      </div>
       <div className="flex flex-col md:flex-row gap-12 w-full max-w-6xl items-center justify-center">
         {/* Zebra Image */}
         <div className="flex-1 flex justify-center">

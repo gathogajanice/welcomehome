@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { PerkCardProps } from './types';
 
-const PerkCard: React.FC<PerkCardProps> = ({ title, subtitle, imageUrl, alt }) => {
+const PerkCard: React.FC<PerkCardProps> = ({ title, subtitle, description, imageUrl, alt }) => {
   const [imageError, setImageError] = useState(false);
 
   return (
@@ -38,7 +38,10 @@ const PerkCard: React.FC<PerkCardProps> = ({ title, subtitle, imageUrl, alt }) =
       {/* Text content */}
       <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
         <h3 className="font-bd-sans text-lg font-bold text-white mb-2">{title}</h3>
-        <p className="font-bd-sans text-sm text-white/80 uppercase tracking-wider">{subtitle}</p>
+        <p className="font-bd-sans text-sm text-white/80 uppercase tracking-wider mb-2">{subtitle}</p>
+        {description && (
+          <p className="font-cormorant text-sm text-white/90">{description}</p>
+        )}
       </div>
     </motion.div>
   );

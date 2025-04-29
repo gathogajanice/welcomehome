@@ -8,20 +8,22 @@ const PERKS_DATA: PerkCardProps[] = [
     id: 1,
     title: "Fractional Land Meets Luxury Mobility",
     subtitle: "INVEST IN VERIFIED PROPERTIES ACROSS AFRICA",
+    description: "Senegal: Starting at $1000 investments. Explore the beauty of West Africa and invest in your future",
     imageUrl: "/lovable-uploads/26ef1349-80ee-413e-9de4-565b3cfefb56.png",
     alt: "African Monument at Sunset"
   },
   {
     id: 2,
     title: "Unlock Luxury Travel Perks",
-    subtitle: "2 ADULTS | 1 CHILD BELOW 7",
+    subtitle: "YOUR INVESTMENT UNLOCKS UNFORGETTABLE TRAVEL EXPERIENCES",
     imageUrl: "/lovable-uploads/911a6f88-6adf-4bb8-8d32-35ed7b3163f3.png",
     alt: "Safari Experience with Elephant"
   },
   {
     id: 3,
-    title: "The Wellhall Family Suite",
-    subtitle: "4 ADULTS | 2 CHILDREN BELOW 7",
+    title: "Welcome to the New Village",
+    subtitle: "WE ARE CONNECTED BY CODE & UNITED BY CULTURE",
+    description: "Where ownership, community, and innovation come together to build the future",
     imageUrl: "/lovable-uploads/happyafrican.png",
     alt: "Happy African Man with a Bright Smile"
   }

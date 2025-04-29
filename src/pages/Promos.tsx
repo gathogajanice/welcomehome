@@ -3,19 +3,19 @@ import { motion } from 'framer-motion';
 
 const promoOffers = [
   {
-    title: "Early Bird Discount",
+    title: "STEP 1: INVEST IN VERIFIED LAND OWNERSHIP",
     image: "/lovable-uploads/home.png",
-    description: "List your offers, promos, or special membership privileges and perks here to entice people to book your property."
+    description: "Secure fractional ownership in curated properties across Africa. Every asset is blockchain-verified for transparency, security, and ease—giving you a direct stake in real estate's fastest-growing frontier."
   },
   {
-    title: "Book 3 Nights, Get 1 Night Free",
+    title: "STEP 2: UNLOCK TRAVEL, REWARDS, AND COMMUNITY ACCESS",
     image: "/lovable-uploads/poolside.png",
-    description: "List your offers, promos, or special membership privileges and perks here to entice people to book your property."
+    description: "Your investment unlocks luxury travel perks, exclusive cultural experiences, and early access to new developments. Enjoy annual stay credits, community events, and the pride of being a founding investor."
   },
   {
-    title: "Wellhall Members Club",
+    title: "STEP 3: BUILD WEALTH, IMPACT, AND LEGACY",
     image: "/lovable-uploads/lounge.png",
-    description: "List your offers, promos, or special membership privileges and perks here to entice people to book your property."
+    description: "Watch your investment grow over time. Through land appreciation, sustainable community projects, and innovative tokenized opportunities, you're creating generational wealth and contributing to Africa's global rise."
   }
 ];
 
@@ -36,6 +36,15 @@ const Promos = () => {
         transition={{ duration: 0.8 }}
       >
         <div className="container mx-auto px-8 md:px-16">
+          {/* New right-aligned title */}
+          <motion.h1
+            className="text-right font-troye text-3xl sm:text-4xl text-[#032b22] mb-16 uppercase"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            AFRICA'S FUTURE IS BEING BUILT TODAY.<br />WILL YOU BE PART OF IT?
+          </motion.h1>
           {/* Cards Container */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {/* Traditional Card - Vertical */}
@@ -68,15 +77,6 @@ const Promos = () => {
                   />
                 </motion.div>
               </motion.div>
-              <motion.div 
-                className="text-left pl-4"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-              >
-                <p className="font-cormorant text-base text-[#387f79]/80 italic">An intriguing caption that describes the room goes here.</p>
-                <p className="font-cormorant text-base text-[#387f79]/80 italic">Use a flattering photo, then describe away!</p>
-              </motion.div>
             </div>
 
             {/* Luxury Card - Horizontal */}
@@ -108,15 +108,6 @@ const Promos = () => {
                     whileHover={{ opacity: 1 }}
                   />
                 </motion.div>
-              </motion.div>
-              <motion.div 
-                className="text-left pl-4"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-              >
-                <p className="font-cormorant text-base text-[#387f79]/80 italic">An intriguing caption that describes the room goes here. Use a</p>
-                <p className="font-cormorant text-base text-[#387f79]/80 italic">flattering photo, then describe away!</p>
               </motion.div>
             </div>
           </div>

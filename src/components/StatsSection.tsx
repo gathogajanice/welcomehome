@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const stats = [
-  { number: "150+", description: "Properties Worldwide" },
-  { number: "10K+", description: "Happy Customers" },
-  { number: "99%", description: "Customer Satisfaction" },
-  { number: "24/7", description: "Customer Support" },
-  { number: "15+", description: "Years Experience" },
-  { number: "50+", description: "Countries Served" }
+  { number: "50+", description: "Countries Launched" },
+  { number: "150+", description: "Properties Secured" },
+  { number: "10K+", description: "Community Interest" },
+  { number: "99%", description: "Member Target 2025" },
+  { number: "15+", description: "Travel Perks Program" },
+  { number: "$1.2T", description: "Real Estate Pipeline Value" }
 ];
 
 const StatsSection = () => {

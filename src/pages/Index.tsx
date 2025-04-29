@@ -5,6 +5,8 @@ import WhyInvest from "@/pages/WhyInvest";
 import Team from "@/pages/Team";
 import WelcomeHome from "@/pages/WelcomeHome";
 import Promos from "@/pages/Promos";
+import Vision from "@/pages/Vision";
+import CommunityPartners from "@/pages/CommunityPartners";
 
 const Index = () => {
   return (
@@ -17,7 +19,9 @@ const Index = () => {
         <Perks />
         <WhyInvest />
         <StatsSection />
+        <Vision />
         <Promos />
+        <CommunityPartners />
         <Team />
       </div>
     </div>

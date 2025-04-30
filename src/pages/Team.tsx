@@ -16,7 +16,7 @@ const teamMembers = [
 
 const Team = () => {
   return (
-    <section className="bg-[#f5f3ee] min-h-screen py-4 px-2 flex flex-col items-center">
+    <section className="bg-[#f5f3ee] min-h-screen py-8 px-2 flex flex-col items-center">
       <motion.h1
         className="text-[#032b22] text-3xl sm:text-4xl font-troye text-center mb-10 tracking-widest uppercase"
         initial={{ opacity: 0, y: 30 }}
@@ -25,7 +25,7 @@ const Team = () => {
       >
         MEET OUR TEAM
       </motion.h1>
-      <div className="flex flex-row gap-6 sm:gap-10 md:gap-16 w-full max-w-3xl items-start justify-center flex-wrap">
+      <div className="flex flex-row gap-8 sm:gap-12 md:gap-16 w-full max-w-3xl items-start justify-center flex-wrap">
         {teamMembers.map((member, idx) => (
           <div key={member.name} className="flex flex-col items-center w-full max-w-[180px] sm:max-w-[220px] md:max-w-[260px]">
             <div className="w-[120px] h-[130px] sm:w-[180px] sm:h-[190px] md:w-[260px] md:h-[270px] rounded-none overflow-hidden flex items-center justify-center bg-white">

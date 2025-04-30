@@ -37,6 +37,11 @@ const StatsSection = () => {
       />
       
       <div className="container mx-auto px-4">
+        <div className="text-center mb-8">
+          <span className="font-troye-sans text-white text-xl md:text-2xl tracking-wide">
+            Where Ownership, Legacy, and Travel Begin Together
+          </span>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
           {visibleStats.map((stat, index) => (
             <motion.div

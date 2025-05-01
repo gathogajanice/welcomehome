@@ -50,7 +50,7 @@ const WelcomeHome = () => {
         </div>
 
         {/* Right: Main image with smooth load-in */}
-        <div className="w-full md:w-2/5 xl:w-2/5 overflow-hidden transition-all duration-500 rounded-3xl">
+        <div className="w-full md:w-2/5 xl:w-2/5 overflow-hidden transition-all duration-500 rounded-3xl flex flex-col items-center">
           <div className="aspect-[3/4] relative rounded-3xl overflow-hidden shadow-xl">
             <img
               src="/lovable-uploads/ca87bf3e-2857-43b0-acdc-ea06e8785fe8.png"
@@ -60,6 +60,22 @@ const WelcomeHome = () => {
               loading="eager"
             />
           </div>
+          <motion.button
+            className="mt-8 px-8 py-3 rounded-full bg-white border border-[#387f79] text-[#387f79] font-bd-sans font-bold transition-all duration-300 flex items-center gap-2 text-base shadow-md hover:bg-[#e6f4f1] hover:scale-105 hover:shadow-xl"
+            whileHover={{ scale: 1.06 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            START YOUR INVESTMENT JOURNEY
+            <motion.span
+              initial={{ x: 0 }}
+              whileHover={{ x: -8 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="h-5 w-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 12h10.5m0 0l-4.5-4.5m4.5 4.5l-4.5 4.5" />
+              </svg>
+            </motion.span>
+          </motion.button>
         </div>
       </div>
     </div>

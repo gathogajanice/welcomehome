@@ -189,7 +189,7 @@ const Hero = () => {
           {/* Tagline */}
           <motion.p 
             variants={itemVariants}
-            className="font-cormorant text-sm xs:text-base sm:text-lg md:text-xl text-[#fffbf0] uppercase tracking-[0.15em] text-center max-w-[90%] sm:max-w-[80%] mx-auto mt-2"
+            className="font-cormorant text-sm xs:text-base sm:text-lg md:text-xl text-[#fffbf0] uppercase tracking-[0.3em] font-bold text-center max-w-[90%] sm:max-w-[80%] mx-auto mt-2"
           >
             WHERE OWNERSHIP MEETS ADVENTURE
           </motion.p>

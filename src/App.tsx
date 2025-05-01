@@ -10,10 +10,7 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Team from "./pages/Team";
-import WelcomeHome from "@/pages/WelcomeHome";
-import Promos from "@/pages/Promos";
-import Vision from "@/pages/Vision";
-import CommunityPartners from "@/pages/CommunityPartners";
+import WelcomeHome from "./pages/WelcomeHome";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -32,11 +29,7 @@ const App = () => (
         <Sonner />
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/welcome" element={<WelcomeHome />} />
           <Route path="/team" element={<Team />} />
-          <Route path="/promos" element={<Promos />} />
-          <Route path="/vision" element={<Vision />} />
-          <Route path="/community-partners" element={<CommunityPartners />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

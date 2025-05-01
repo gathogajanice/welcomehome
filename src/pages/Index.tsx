@@ -3,7 +3,6 @@ import Perks from "@/components/Perks";
 import StatsSection from "@/components/StatsSection";
 import WhyInvest from "@/pages/WhyInvest";
 import Team from "@/pages/Team";
-import WelcomeHome from "@/pages/WelcomeHome";
 import Promos from "@/pages/Promos";
 import Vision from "@/pages/Vision";
 import CommunityPartners from "@/pages/CommunityPartners";
@@ -15,7 +14,6 @@ const Index = () => {
       
       {/* Main content */}
       <div className="relative z-10">
-        <WelcomeHome />
         <Perks />
         <WhyInvest />
         <StatsSection />

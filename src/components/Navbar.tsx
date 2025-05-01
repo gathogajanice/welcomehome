@@ -48,7 +48,7 @@ const Navbar = () => {
       {/* Right side CTA */}
       <Link
         to="/invest"
-        className="hidden md:block font-bd-sans text-white uppercase tracking-wider text-sm bg-[#00634dcc] px-6 py-2 rounded-md hover:bg-[#00634dbb] transition-all duration-300"
+        className="hidden md:block font-bd-sans text-white uppercase tracking-wider text-sm bg-white/10 px-6 py-2 rounded-full hover:bg-white/20 transition-all duration-300"
       >
         Reserve Your Spot
       </Link>
@@ -80,7 +80,7 @@ const Navbar = () => {
             </Link>
             <Link
               to="/invest"
-              className="font-bd-sans text-white uppercase tracking-wider text-sm bg-[#00634dcc] px-6 py-2 rounded-md hover:bg-[#00634dbb] transition-all duration-300 text-center"
+              className="font-bd-sans text-white uppercase tracking-wider text-sm bg-white/10 px-6 py-2 rounded-full hover:bg-white/20 transition-all duration-300 text-center"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Reserve Your Spot

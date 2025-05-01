@@ -13,10 +13,29 @@
   font-display: swap;
 }
 
-/* Troye Sans utility class */
+/* Optionally set it for the body or create a class */
 .troye-font {
   font-family: 'Troye Sans', sans-serif;
 }
+
+/* Beautifully Delicious custom font face */
+@font-face {
+  font-family: 'Beautifully Delicious';
+  src: url('/fonts/BeautifullyDelicious-9Ym2.woff2') format('woff2'),
+       url('/fonts/BeautifullyDelicious-9Ym2.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* TroyeSans font
+@font-face {
+  font-family: 'Troye Sans';
+  src: url('/fonts/TroyeSans.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+} */
 
 /* BD Sans font */
 @font-face {
@@ -38,34 +57,87 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
+
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
+
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
+
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
+
     --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
+
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
+
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
+
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -77,9 +149,137 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Responsive image preloading */
+  img {
+    @apply transition-opacity duration-300;
+  }
+  
+  img.loading {
+    @apply opacity-0;
+  }
+  
+  img.loaded {
+    @apply opacity-100;
+  }
 }
 
 @layer components {
+  .nav-link {
+    @apply relative inline-block;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute h-[2px] bg-black w-0 left-0 bottom-[-4px] origin-left transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* Mobile menu link styling */
+  .mobile-nav-link {
+    @apply relative inline-block;
+  }
+
+  .mobile-nav-link::after {
+    @apply content-[''] absolute h-[2px] bg-white w-0 left-1/2 -translate-x-1/2 bottom-[-4px] origin-center transition-all duration-300;
+  }
+
+  .mobile-nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .menu-overlay .overflow-hidden {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  /* New sleek hover animation */
+  .sleek-hover-container {
+    @apply relative overflow-hidden;
+  }
+
+  .sleek-hover-container::before {
+    @apply content-[''] absolute inset-0 -z-0 bg-black/5 opacity-0 scale-95 transition-all duration-300 ease-out rounded-md;
+    transform-origin: center;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+
+  .sleek-hover-container:hover::before {
+    @apply opacity-100 scale-100;
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.06);
+  }
+  
+  /* Enhanced Card Styling */
+  .card {
+    @apply bg-white rounded-xl shadow-lg transform transition-all duration-500 hover:shadow-2xl;
+  }
+  
+  .card__img-container {
+    @apply relative overflow-hidden;
+  }
+  
+  .card__img {
+    @apply h-full w-full transition-all duration-700;
+  }
+  
+  .card:hover .card__img {
+    @apply scale-110;
+  }
+  
+  .card__info {
+    @apply p-6 bg-white transition-all duration-300;
+  }
+  
+  .card:hover .card__info {
+    @apply bg-opacity-90;
+  }
+  
+  .card__title {
+    @apply text-xl font-bold text-gray-900 mb-1 transition-all duration-300;
+  }
+  
+  .card:hover .card__title {
+    @apply text-[#387f79];
+  }
+  
+  .card__subtitle {
+    @apply text-sm text-gray-600 font-cormorant font-normal uppercase tracking-wider transition-all duration-300;
+  }
+  
+  /* Hamburger menu animations */
+  .hamburger-icon {
+    @apply transition-transform duration-300;
+  }
+  
+  .hamburger-icon:hover {
+    @apply scale-110;
+  }
+  
+  .separator-line {
+    @apply animate-pulse;
+  }
+
+  /* Hamburger to X animation */
+  .hamburger-icon.active .hamburger-line-1 {
+    transform: translateY(3px) rotate(45deg);
+    width: 24px;
+  }
+
+  .hamburger-icon.active .hamburger-line-2 {
+    transform: translateY(-3px) rotate(-45deg);
+    width: 24px;
+  }
+  
+  /* Hero Section Styles - optimized */
+  .hero-container {
+    @apply absolute top-0 left-0 w-full h-screen z-0;
+    overflow: hidden;
+    will-change: transform;
+  }
+  
   /* Social Icon Animations */
   .social-icon-container {
     @apply w-9 h-9 rounded-full bg-white/20 flex items-center justify-center border border-white/30 relative overflow-hidden transition-all duration-300;
@@ -101,11 +301,126 @@
   .social-icon-container:hover::before {
     @apply top-0;
   }
+  
+  /* Ripple animation for map hotspots */
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(56, 127, 121, 0.5);
+    }
+    70% {
+      box-shadow: 0 0 0 15px rgba(56, 127, 121, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(56, 127, 121, 0);
+    }
+  }
+
+  /* Page title animations */
+  .page-title {
+    @apply opacity-0 transform translate-y-8;
+    animation: titleFloatUp 0.8s forwards ease-out;
+  }
+
+  @keyframes titleFloatUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* New animations for page transitions */
+@keyframes pageTransition {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Text motion animation */
+@keyframes textFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Ripple animation for map hotspots */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(0, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+#root {
+  margin: 0 auto;
+  text-align: center;
 }
 
 /* Responsive adjustments */
 @media (max-width: 640px) {
+  h1 {
+    font-size: calc(1.8rem + 1vw) !important;
+  }
+  
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Mobile optimizations for AboutUs2 */
+  #about-us-capsules {
+    @apply flex overflow-x-auto snap-x snap-mandatory -mx-4 px-4 pb-4;
+  }
+  
+  #about-us-capsules > div {
+    @apply flex-shrink-0 w-[85%] snap-start mr-4;
+  }
+  
+  /* Footer mobile optimizations */
   .footer-container {
     @apply grid-cols-1 sm:grid-cols-2 gap-y-8;
   }
+}
+
+/* Medium screens */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .team-container {
+    @apply max-w-4xl;
+  }
+}
+
+/* Font face for Beautifully Delicious if CDN fails */
+@font-face {
+  font-family: 'Beautifully Delicious';
+  src: url('https://fonts.cdnfonts.com/s/12194/BeautifullyDelicious-9Ym2.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }

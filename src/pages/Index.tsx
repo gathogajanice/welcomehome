@@ -7,7 +7,6 @@ import WelcomeHome from "@/pages/WelcomeHome";
 import Promos from "@/pages/Promos";
 import Vision from "@/pages/Vision";
 import CommunityPartners from "@/pages/CommunityPartners";
-import WelcomeHome from "@/pages/WelcomeHome";
 
 const Index = () => {
   return (

@@ -20,7 +20,7 @@ const WelcomeHome = () => {
         {/* Left: Title and subtext */}
         <div className="w-full md:w-1/2 pl-0 md:pl-8 text-left">
           <motion.h2 
-            className="font-troye-sans text-3xl lg:text-5xl leading-tight font-bold text-slate-50 tracking-tight"
+            className="font-troye-sans text-3xl lg:text-5xl leading-tight font-bold text-[#fffbf0] tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
@@ -50,7 +50,7 @@ const WelcomeHome = () => {
         </div>
 
         {/* Right: Main image with smooth load-in */}
-        <div className="w-full md:w-2/5 xl:w-2/5 overflow-hidden transition-all duration-500 rounded-3xl">
+        <div className="w-full md:w-2/5 xl:w-2/5 overflow-hidden transition-all duration-500 rounded-3xl flex flex-col items-center">
           <div className="aspect-[3/4] relative rounded-3xl overflow-hidden shadow-xl">
             <img
               src="/lovable-uploads/ca87bf3e-2857-43b0-acdc-ea06e8785fe8.png"
@@ -60,6 +60,18 @@ const WelcomeHome = () => {
               loading="eager"
             />
           </div>
+          <motion.button
+            className="mt-8 px-12 py-2 rounded-full bg-white border border-[#387f79] text-[#387f79] font-bd-sans font-bold transition-all duration-300 flex items-center gap-2 text-base shadow-md hover:bg-[#e6f4f1] hover:scale-105 hover:shadow-xl group"
+            whileHover={{ scale: 1.06 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Start Investing Today
+            <span className="ml-2 transition-transform group-hover:translate-x-1">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="h-5 w-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 12h10.5m0 0l-4.5-4.5m4.5 4.5l-4.5 4.5" />
+              </svg>
+            </span>
+          </motion.button>
         </div>
       </div>
     </div>

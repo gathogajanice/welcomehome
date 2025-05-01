@@ -9,14 +9,14 @@ const PERKS_DATA: PerkCardProps[] = [
     title: "Fractional Land Meets Luxury Mobility",
     subtitle: "INVEST IN VERIFIED PROPERTIES ACROSS AFRICA",
     description: "Senegal: Starting at $1000 investments. Explore the beauty of West Africa and invest in your future",
-    imageUrl: "/lovable-uploads/26ef1349-80ee-413e-9de4-565b3cfefb56.png",
+    imageUrl: "/lovable-uploads/Senegal.png",
     alt: "African Monument at Sunset"
   },
   {
     id: 2,
     title: "Unlock Luxury Travel Perks",
     subtitle: "YOUR INVESTMENT UNLOCKS UNFORGETTABLE TRAVEL EXPERIENCES",
-    imageUrl: "/lovable-uploads/911a6f88-6adf-4bb8-8d32-35ed7b3163f3.png",
+    imageUrl: "/lovable-uploads/Elephant.png",
     alt: "Safari Experience with Elephant"
   },
   {
@@ -72,6 +72,22 @@ const Perks = () => {
               <PerkCard {...perk} />
             </motion.div>
           ))}
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-[1400px] mx-auto mt-4">
+          <div className="text-center">
+            <div className="font-cormorant-garamond text-xl text-[#032b22] mb-2 font-normal">Fractional Land Meets Luxury Mobility</div>
+            <div className="font-bd-sans text-sm text-[#032b22] uppercase mb-2 font-normal">INVEST IN VERIFIED PROPERTIES ACROSS AFRICA</div>
+            <div className="font-bd-sans text-sm text-[#032b22] font-normal">Senegal: Starting at $1000 investments. Explore the beauty of West Africa and invest in your future</div>
+          </div>
+          <div className="text-center">
+            <div className="font-cormorant-garamond text-xl text-[#032b22] mb-2 font-normal">Unlock Luxury Travel Perks</div>
+            <div className="font-bd-sans text-sm text-[#032b22] uppercase mb-2 font-normal">YOUR INVESTMENT UNLOCKS UNFORGETTABLE TRAVEL EXPERIENCES</div>
+          </div>
+          <div className="text-center">
+            <div className="font-cormorant-garamond text-xl text-[#032b22] mb-2 font-normal">Welcome to the New Village</div>
+            <div className="font-bd-sans text-sm text-[#032b22] uppercase mb-2 font-normal">WE ARE CONNECTED BY CODE & UNITED BY CULTURE</div>
+            <div className="font-bd-sans text-sm text-[#032b22] font-normal">Where ownership, community, and innovation come together to build the future</div>
+          </div>
         </div>
       </motion.div>
     </section>

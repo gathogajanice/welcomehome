@@ -16,7 +16,7 @@ const PerkCard: React.FC<PerkCardProps> = ({ title, subtitle, description, image
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
           className="h-full w-full relative"
-          whileHover={{ scale: 1.15 }}
+          whileHover={{ scale: 1.25 }}
         >
           <img 
             src={imageUrl} 
@@ -36,13 +36,7 @@ const PerkCard: React.FC<PerkCardProps> = ({ title, subtitle, description, image
       </div>
       
       {/* Text content */}
-      <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-        <h3 className="font-bd-sans text-lg font-bold text-white mb-2">{title}</h3>
-        <p className="font-bd-sans text-sm text-white/80 uppercase tracking-wider mb-2">{subtitle}</p>
-        {description && (
-          <p className="font-cormorant text-sm text-white/90">{description}</p>
-        )}
-      </div>
+      {/* Removed text overlay, only image remains in the card */}
     </motion.div>
   );
 };

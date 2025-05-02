@@ -102,6 +102,7 @@ const Vision = () => {
               src="/lovable-uploads/cultural women.png"
               alt="Cultural women in traditional attire"
               className="w-full h-full object-cover rounded-2xl"
+              loading="eager"
             />
           </motion.div>
         </div>

@@ -177,6 +177,7 @@ const Promos = () => {
                     src={promo.image}
                     alt={promo.title}
                     className="w-full h-full object-cover"
+                    loading={index === 1 || index === 2 ? "eager" : undefined}
                     whileHover={{ 
                       scale: 1.08,
                       transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] }

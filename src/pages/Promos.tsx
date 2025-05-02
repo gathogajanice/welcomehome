@@ -9,12 +9,12 @@ const promoOffers = [
   },
   {
     title: "STEP 2: UNLOCK TRAVEL, REWARDS, AND COMMUNITY ACCESS",
-    image: "/lovable-uploads/happy woman.png",
+    image: "/lovable-uploads/landpng",
     description: "Your investment unlocks luxury travel perks, exclusive cultural experiences, and early access to new developments. Enjoy annual stay credits, community events, and the pride of being a founding investor."
   },
   {
     title: "STEP 3: BUILD WEALTH, IMPACT, AND LEGACY",
-    image: "/lovable-uploads/posh home.png",
+    image: "/lovable-uploads/land.png",
     description: "Watch your investment grow over time. Through land appreciation, sustainable community projects, and innovative tokenized opportunities, you're creating generational wealth and contributing to Africa's global rise."
   }
 ];

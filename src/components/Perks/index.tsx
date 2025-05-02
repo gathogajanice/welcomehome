@@ -6,7 +6,7 @@ import type { PerkCardProps } from './types';
 const PERKS_DATA: PerkCardProps[] = [
   {
     id: 1,
-    title: "Fractional Land Meets Luxury Mobility",
+    title: "FRACTIONAL LAND MEETS LUXURY MOBILITY",
     subtitle: "INVEST IN VERIFIED PROPERTIES ACROSS AFRICA",
     description: "Senegal: Starting at $1000 investments. Explore the beauty of West Africa and invest in your future",
     imageUrl: "/lovable-uploads/Senegal.png",
@@ -14,14 +14,14 @@ const PERKS_DATA: PerkCardProps[] = [
   },
   {
     id: 2,
-    title: "Unlock Luxury Travel Perks",
+    title: "UNLOCK LUXURY TRAVEL PERKS",
     subtitle: "YOUR INVESTMENT UNLOCKS UNFORGETTABLE TRAVEL EXPERIENCES",
     imageUrl: "/lovable-uploads/Elephant.png",
     alt: "Safari Experience with Elephant"
   },
   {
     id: 3,
-    title: "Welcome to the New Village",
+    title: "WELCOME TO THE NEW VILLAGE",
     subtitle: "WE ARE CONNECTED BY CODE & UNITED BY CULTURE",
     description: "Where ownership, community, and innovation come together to build the future",
     imageUrl: "/lovable-uploads/happyafrican.png",

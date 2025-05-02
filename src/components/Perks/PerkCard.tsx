@@ -16,7 +16,8 @@ const PerkCard: React.FC<PerkCardProps> = ({ title, subtitle, description, image
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
           className="h-full w-full relative"
-          whileHover={{ scale: 1.25 }}
+          whileHover={{ scale: 1.35 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <img 
             src={imageUrl} 

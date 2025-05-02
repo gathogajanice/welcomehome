@@ -16,8 +16,8 @@ const hotspots = [{
 }, {
   id: 2,
   position: {
-    top: '45%',
-    left: '55%'
+    top: '40%',
+    left: '75%'
   },
   title: 'Generational Wealth',
   description: 'Build lasting financial security for your family',
@@ -56,6 +56,21 @@ const WhyInvest = () => {
         backgroundPosition: "center"
       }}
     >
+      <style>
+        {`
+          @keyframes pulse {
+            0% {
+              box-shadow: 0 0 0 0 rgba(0, 99, 77, 0.7);
+            }
+            70% {
+              box-shadow: 0 0 0 20px rgba(0, 99, 77, 0);
+            }
+            100% {
+              box-shadow: 0 0 0 0 rgba(0, 99, 77, 0);
+            }
+          }
+        `}
+      </style>
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
         <div className="relative">
           <img src="/lovable-uploads/1572c4f2-eb33-483a-a261-ad6032ac617d.png" alt="Africa Outline" className="w-full h-auto max-w-[500px] mx-auto" />
@@ -63,14 +78,15 @@ const WhyInvest = () => {
           {hotspots.map(hotspot => (
             <div 
               key={hotspot.id} 
-              className="absolute h-8 w-8 rounded-full bg-black/80
+              className="absolute h-8 w-8 rounded-full bg-[#00634d]
                          hover:scale-[1.5] transition-all duration-500 cursor-pointer
-                         hover:bg-[#387f79] z-20"
+                         hover:bg-[#00634d] z-20"
               style={{
                 top: hotspot.position.top,
                 left: hotspot.position.left,
                 transform: 'translate(-50%, -50%)',
-                animation: 'pulse 3s ease-in-out infinite',
+                animation: 'pulse 1.5s ease-in-out infinite',
+                boxShadow: '0 0 0 0 rgba(0, 99, 77, 0.7)',
               }}
             >
               <HoverCard openDelay={50} closeDelay={0}>
@@ -99,9 +115,9 @@ const WhyInvest = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
         >
-          <h1 className="text-[2.5rem] font-bd-sans leading-tight font-bold">
-            <span className="text-[#1f1f2e] relative inline-block">WHY INVEST IN</span>{" "}
-            <span className="text-[#387f79]">AFRICA?</span>
+          <h1 className="text-[2.5rem] font-troye-sans leading-tight font-bold">
+            <span className="text-[#00634d] relative inline-block">WHY INVEST IN</span>{" "}
+            <span className="text-[#00634d]">AFRICA?</span>
           </h1>
           
           <div className="space-y-4">

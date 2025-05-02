@@ -99,7 +99,7 @@ const Vision = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
           >
             <img
-              src="/lovable-uploads/cultural women.png"
+              src="/lovable-uploads/cultural-women.png"
               alt="Cultural women in traditional attire"
               className="w-full h-full object-cover rounded-2xl"
               loading="eager"

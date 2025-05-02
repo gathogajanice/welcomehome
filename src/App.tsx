@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Team from "./pages/Team";
 import WelcomeHome from "./pages/WelcomeHome";
@@ -21,9 +20,6 @@ const App = () => (
       <BrowserRouter>
         {/* Hero slider positioned behind everything */}
         <Hero />
-        
-        {/* Navbar - fixed position on top of hero */}
-        <Navbar />
         
         <Toaster />
         <Sonner />

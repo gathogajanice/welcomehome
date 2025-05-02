@@ -170,7 +170,7 @@ const Hero = () => {
         >
           {/* Main heading */}
           <motion.div variants={titleVariants} className="text-center w-full">
-            <h1 className="troye-font text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-[#fffbf0] leading-tight tracking-wide font-bold">
+            <h1 className="troye-font text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#fffbf0] leading-tight tracking-wide font-bold">
               <motion.span
                 className="block mb-1"
                 variants={titleVariants}
@@ -213,7 +213,7 @@ const Hero = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            Join The Movement
+            JOIN THE MOVEMENT
             <motion.span
               initial={{ x: 0 }}
               whileHover={{ x: 3 }}

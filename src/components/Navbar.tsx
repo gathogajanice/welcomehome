@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <header 
       className={cn(
-        "w-full h-16 px-4 sm:px-12 flex items-center justify-between fixed top-0 left-0 z-50",
+        "w-full h-16 px-4 sm:px-12 flex items-center justify-between fixed top-0 left-0 z-[100]",
         "bg-transparent",
         "transition-all duration-600 ease-out",
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-[10px]"

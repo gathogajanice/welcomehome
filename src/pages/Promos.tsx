@@ -30,7 +30,7 @@ const Promos = () => {
     <>
       {/* New Section: DISCOVER SENEGAL */}
       <motion.section 
-        className="bg-[#efede7] py-16 relative"
+        className="bg-white py-16 relative"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -38,12 +38,13 @@ const Promos = () => {
         <div className="container mx-auto px-8 md:px-16">
           {/* New right-aligned title */}
           <motion.h1
-            className="text-right font-troye text-3xl sm:text-4xl text-[#032b22] mb-4 uppercase"
+            className="text-right font-troye text-3xl sm:text-4xl text-[#00634d] mb-4 uppercase"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
           >
-            AFRICA'S FUTURE IS BEING BUILT TODAY.<br />WILL YOU BE PART OF IT?
+            AFRICA'S FUTURE IS BEING BUILT TODAY.<br />
+            WILL YOU BE PART OF IT?
           </motion.h1>
           <div className="w-full flex justify-end mb-12">
             <motion.button
@@ -71,12 +72,13 @@ const Promos = () => {
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, ease: [0.33, 1, 0.68, 1] }}
-                className="group w-full md:max-w-[280px] justify-self-end overflow-hidden relative"
+                className="group w-full md:max-w-[420px] justify-self-end overflow-hidden relative"
+                whileHover={{ scale: 1.04, boxShadow: '0 8px 32px 0 rgba(56,127,121,0.18)' }}
               >
                 <motion.div 
                   className="aspect-[3/4] overflow-hidden"
                   whileHover={{ 
-                    scale: 1.03,
+                    scale: 1.06,
                     transition: { duration: 0.4, ease: [0.33, 1, 0.68, 1] }
                   }}
                 >
@@ -103,12 +105,14 @@ const Promos = () => {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, ease: [0.33, 1, 0.68, 1] }}
-                className="group w-full md:max-w-[460px] justify-self-start overflow-hidden relative"
+                className="group w-full max-w-none justify-self-start overflow-hidden relative"
+                style={{maxWidth: '1000px'}}
+                whileHover={{ scale: 1.04, boxShadow: '0 8px 32px 0 rgba(56,127,121,0.18)' }}
               >
                 <motion.div 
                   className="aspect-[16/9] overflow-hidden"
                   whileHover={{ 
-                    scale: 1.03,
+                    scale: 1.06,
                     transition: { duration: 0.4, ease: [0.33, 1, 0.68, 1] }
                   }}
                 >
@@ -152,11 +156,9 @@ const Promos = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="text-center font-troye text-2xl sm:text-4xl text-white mb-16 whitespace-pre-line"
+            className="text-center font-troye text-2xl sm:text-4xl text-white mb-16"
           >
-            A NEW ERA OF REAL ESTATE—
-            <br />VERIFIED, FRACTIONAL,
-            <br />UNFORGETTABLE.
+            A NEW ERA OF REAL ESTATE—VERIFIED, FRACTIONAL, UNFORGETTABLE.
           </motion.h2>
           
 
@@ -200,9 +202,9 @@ const Promos = () => {
           {/* Join the movement button */}
           <div className="flex justify-center mt-12">
             <button
-              className="px-8 py-3 rounded-full bg-white border border-[#387f79] text-[#387f79] font-bd-sans font-semibold transition-all duration-300 flex items-center gap-2 text-lg shadow-md hover:bg-[#e6f4f1] hover:scale-105 hover:shadow-xl"
+              className="px-8 py-3 rounded-full bg-white border border-[#387f79] text-[#387f79] font-bd-sans font-semibold transition-all duration-300 flex items-center gap-2 text-lg shadow-md hover:bg-[#e6f4f1] hover:scale-105 hover:shadow-xl uppercase"
             >
-              Join the movement
+              JOIN THE MOVEMENT
             </button>
           </div>
         </div>

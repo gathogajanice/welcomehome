@@ -115,7 +115,7 @@ const WhyInvest = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
         >
-          <h1 className="text-[2.5rem] font-troye-sans leading-tight font-bold">
+          <h1 className="text-[2.5rem] font-troye-sans leading-tight">
             <span className="text-[#00634d] relative inline-block">WHY INVEST IN</span>{" "}
             <span className="text-[#00634d]">AFRICA?</span>
           </h1>

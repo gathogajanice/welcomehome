@@ -5,23 +5,17 @@ import { Rocket, Globe2, Users } from 'lucide-react';
 const Vision = () => {
   return (
     <section className="bg-[#efede7] py-16 relative overflow-hidden">
-      <div className="container mx-auto px-8 md:px-16 lg:px-24 max-w-7xl">
+      <div className="container mx-auto px-8 md:px-24 lg:px-32 max-w-7xl">
         {/* Title at the top */}
         <motion.h1 
-          className="font-bd-sans text-2xl md:text-3xl leading-tight mb-12 text-[#032b22] max-w-2xl text-left"
+          className="font-troye-sans text-2xl md:text-[1.8rem] lg:text-[2rem] leading-tight mb-12 text-[#00634d] max-w-4xl text-left pl-0"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-         <div>
-  <p>
-    SCALING ACROSS <span className="font-bold">AFRICA</span>. EMPOWERING A <span className="font-bold">NEW GENERATION</span>
-  </p>
-  <p>
-    OF OWNERS. <span className="font-bold">REDEFINING WEALTH</span> FOR THE DIASPORA.
-  </p>
-</div>
+          SCALING ACROSS AFRICA. EMPOWERING A NEW GENERATION OF OWNERS.<br />
+          REDEFINING WEALTH FOR THE DIASPORA.
         </motion.h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
@@ -35,7 +29,7 @@ const Vision = () => {
           >
             <div className="space-y-6">
               <motion.h2 
-                className="font-troye text-xl text-[#387f79] text-left"
+                className="font-bd-sans text-xl text-[#387f79] text-left"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -52,16 +46,16 @@ const Vision = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.4 }}
               >
-                <p className="font-bd-sans text-base text-left">
+                <p className="font-cormorant text-lg text-left">
                   Welcome Home is more than a platform – it's a movement.
                 </p>
-                <p className="font-bd-sans text-base text-left">
-                  By 2027, we aim to expand into 10+ African countries, tokenize $100M in real estate assets, and welcome 10,000 global investors into a connected ownership ecosystem.
+                <p className="font-cormorant text-lg text-left">
+                  By <strong>2027</strong>, we aim to expand into <strong>10+ African countries</strong>, tokenize <strong>$100M</strong> in real estate assets, and welcome <strong>10,000 global investors</strong> into a connected ownership ecosystem.
                 </p>
-                <p className="font-bd-sans text-base text-left">
-                  Every parcel acquired, every journey taken, and every community built helps shape a new story of wealth, freedom, and belonging.
+                <p className="font-cormorant text-lg text-left">
+                  Every parcel acquired, every journey taken, and every community built helps shape a new story of <strong>wealth</strong>, <strong>freedom</strong>, and <strong>belonging</strong>.
                 </p>
-                <p className="font-bd-sans text-base text-left">
+                <p className="font-cormorant text-lg text-left">
                   Now is your time to own a piece of it.
                 </p>
               </motion.div>
@@ -76,20 +70,20 @@ const Vision = () => {
               >
                 <div className="flex items-center gap-3">
                   <Rocket className="h-5 w-5 text-[#387f79]" />
-                  <p className="font-bd-sans text-base">
-                    2025 | Launch Senegal
+                  <p className="font-cormorant text-lg">
+                    <strong>2025</strong> | Launch Senegal
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
                   <Globe2 className="h-5 w-5 text-[#387f79]" />
-                  <p className="font-bd-sans text-base">
-                    2026 | Expansion to Ghana and Kenya
+                  <p className="font-cormorant text-lg">
+                    <strong>2026</strong> | Expansion to Ghana and Kenya
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
                   <Users className="h-5 w-5 text-[#387f79]" />
-                  <p className="font-bd-sans text-base text-left">
-                    2027 | 10,000+ Investors, $100M+ Assets Tokenized
+                  <p className="font-cormorant text-lg text-left">
+                    <strong>2027</strong> | <strong>10,000+</strong> Investors, <strong>$100M+</strong> Assets Tokenized
                   </p>
                 </div>
               </motion.div>
@@ -116,4 +110,4 @@ const Vision = () => {
   );
 };
 
-export default Vision; 
+export default Vision;

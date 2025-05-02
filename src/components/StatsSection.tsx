@@ -24,7 +24,7 @@ const StatsSection = () => {
   const visibleStats = [...stats.slice(currentIndex), ...stats.slice(0, currentIndex)].slice(0, 4);
 
   return (
-    <section className="bg-[#387f79] py-20 relative overflow-hidden">
+    <section className="bg-[#387f79] py-16 relative overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -37,8 +37,8 @@ const StatsSection = () => {
       />
       
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <span className="font-troye-sans text-white text-xl md:text-2xl tracking-wide">
+        <div className="text-center mb-6">
+          <span className="font-troye-sans text-white text-lg md:text-xl tracking-wide">
             Where Ownership, Legacy, and Travel Begin Together
           </span>
         </div>

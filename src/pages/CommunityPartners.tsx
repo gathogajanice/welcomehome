@@ -13,7 +13,7 @@ const logos = [
     delay: 0.2
   },
   {
-    src: '/lovable-uploads/minsitry logo.png',
+    src: '/lovable-uploads/minsitry-logo.png',
     alt: 'Ministry of Tourism and Air Transport',
     delay: 0.3
   },

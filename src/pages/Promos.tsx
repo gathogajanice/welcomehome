@@ -100,13 +100,13 @@ const Promos = () => {
             </div>
 
             {/* Luxury Card - Horizontal */}
-            <div className="flex flex-col space-y-4 px-8 md:px-12 md:mt-[120px]">
+            <div className="flex flex-col space-y-4 px-0 md:px-0 md:mt-[120px] w-full">
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, ease: [0.33, 1, 0.68, 1] }}
-                className="group w-full max-w-none justify-self-start overflow-hidden relative"
-                style={{maxWidth: '1000px'}}
+                className="group w-full justify-self-start overflow-hidden relative"
+                style={{maxWidth: '100vw'}}
                 whileHover={{ scale: 1.04, boxShadow: '0 8px 32px 0 rgba(56,127,121,0.18)' }}
               >
                 <motion.div 

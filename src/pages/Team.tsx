@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 
 const teamMembers = [
   {
-    name: "Sharufa Walker",
-    role: "CEO & Co-founder",
+    name: "Sharufa Rashied-Walker",
+    role: "CEO | Co-Founder",
     image: "/lovable-uploads/f07d7f91-c94c-43b8-85b4-25f9d3f4b04c.png",
     quote: "Building the future of finance",
     social: {
@@ -16,7 +16,7 @@ const teamMembers = [
   },
   {
     name: "Mamadou Ka",
-    role: "Co-founder",
+    role: "COO | Co-Founder",
     image: "/lovable-uploads/91c0dd1d-dbf3-48d6-904c-21dcf5c1f23c.png",
     quote: "Innovation through collaboration",
     social: {
@@ -57,8 +57,8 @@ const Team = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <h1 className="text-[2.5rem] font-bd-sans font-medium">
-            Meet the <span className="text-[#387f79]">Incredible</span> Team
+          <h1 className="text-[2.5rem] font-troye-sans text-[#00634d]">
+            Meet the Incredible Team
           </h1>
         </motion.div>
 
@@ -97,7 +97,7 @@ const Team = () => {
                   
                   {/* Name and Role */}
                   <div className="text-center">
-                    <h2 className="font-bd-sans font-normal text-xl text-white mb-1">
+                    <h2 className="font-troye-sans font-normal text-xl text-white mb-1">
                       {member.name}
                     </h2>
                     <p className="font-bd-sans font-normal text-base text-white/90 mb-3">

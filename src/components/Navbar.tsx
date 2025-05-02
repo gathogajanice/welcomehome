@@ -34,6 +34,7 @@ const Navbar = () => {
       <nav className="hidden md:flex items-center space-x-12">
         <Link to="/" className="font-bd-sans text-white uppercase tracking-wider text-sm">Home</Link>
         <Link to="/about" className="font-bd-sans text-white uppercase tracking-wider text-sm">About</Link>
+        <Link to="/membership" className="font-bd-sans text-white uppercase tracking-wider text-sm">Membership</Link>
         <Link to="/contact" className="font-bd-sans text-white uppercase tracking-wider text-sm">Contact</Link>
       </nav>
 
@@ -70,6 +71,13 @@ const Navbar = () => {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               About
+            </Link>
+            <Link 
+              to="/membership" 
+              className="font-bd-sans text-white uppercase tracking-wider text-sm text-center"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Membership
             </Link>
             <Link 
               to="/contact" 

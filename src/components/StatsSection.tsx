@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const stats = [
-  { number: "50+", description: "Countries Launched" },
-  { number: "150+", description: "Properties Secured" },
-  { number: "10K+", description: "Community Interest" },
-  { number: "99%", description: "Member Target 2025" },
-  { number: "15+", description: "Travel Perks Program" },
-  { number: "$1.2T", description: "Real Estate Pipeline Value" }
+  { number: "1", description: "Countries Launched" },
+  { number: "2", description: "Travel Perks Program" },
+  { number: "5", description: "Properties Secured" },
+  { number: "200+", description: "Community Interest" },
+  { number: "1,000", description: "Member Target 2025" },
+  { number: "100%", description: "Blockchain Verified Assets" }
 ];
 
 const StatsSection = () => {
@@ -38,7 +38,7 @@ const StatsSection = () => {
       
       <div className="container mx-auto px-4">
         <div className="text-center mb-6">
-          <span className="font-troye-sans text-white text-lg md:text-xl tracking-wide">
+          <span className="font-troye text-white text-lg md:text-xl uppercase">
             Where Ownership, Legacy, and Travel Begin Together
           </span>
         </div>

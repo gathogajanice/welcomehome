@@ -65,7 +65,7 @@ const WelcomeHome = () => {
             whileHover={{ scale: 1.06 }}
             whileTap={{ scale: 0.98 }}
           >
-            START INVESTING TODAY
+            CLAIM YOUR EARLY ACCESS
             <span className="ml-2 transition-transform group-hover:translate-x-1">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="h-5 w-5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 12h10.5m0 0l-4.5-4.5m4.5 4.5l-4.5 4.5" />

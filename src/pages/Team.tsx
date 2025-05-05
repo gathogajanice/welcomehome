@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const teamMembers = [
   {
-    name: "SHARUFA R. WALKER",
+    name: "Sharufa Rashied-Walker",
     role: "CEO | Co-Founder",
     image: "/lovable-uploads/f07d7f91-c94c-43b8-85b4-25f9d3f4b04c.png",
     quote: "Building the future of finance",
@@ -15,9 +15,9 @@ const teamMembers = [
     }
   },
   {
-    name: "MAMADOU KA",
+    name: "Mamadou Ka",
     role: "COO | Co-Founder",
-    image: "/lovable-uploads/Mamadou.png",
+    image: "/lovable-uploads/91c0dd1d-dbf3-48d6-904c-21dcf5c1f23c.png",
     quote: "Innovation through collaboration",
     social: {
       twitter: "#",
@@ -57,8 +57,8 @@ const Team = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <h1 className="text-[2.5rem] font-troye text-[#00634d] uppercase">
-            MEET THE INCREDIBLE TEAM
+          <h1 className="text-[2.5rem] font-troye-sans text-[#00634d]">
+            Meet the Incredible Team
           </h1>
         </motion.div>
 
@@ -73,10 +73,10 @@ const Team = () => {
               className="card-container relative max-w-[300px] mx-auto w-full"
             >
               {/* Card with hover effects */}
-              <div className="team-card overflow-hidden transition-all duration-500 ease-in-out">
+              <div className="team-card overflow-hidden rounded-2xl transition-all duration-500 ease-in-out hover:transform hover:scale-105 hover:shadow-xl">
                 {/* Background with grid pattern */}
                 <div 
-                  className="absolute inset-0 bg-[#387f79]"
+                  className="absolute inset-0 bg-[#387f79] rounded-2xl"
                   style={{
                     backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)",
                     backgroundSize: "20px 20px"
@@ -90,17 +90,17 @@ const Team = () => {
                     <img
                       src={member.image}
                       alt={member.name}
-                      className={`w-full h-full object-cover scale-125 ${member.name === 'MAMADOU KA' ? 'object-[50%_15%]' : 'object-center'}`}
+                      className="w-full h-full object-cover object-center scale-125"
                       loading="eager"
                     />
                   </div>
                   
                   {/* Name and Role */}
                   <div className="text-center">
-                    <h2 className="font-troye font-normal text-xl text-white mb-1">
+                    <h2 className="font-troye-sans font-normal text-xl text-white mb-1">
                       {member.name}
                     </h2>
-                    <p className="font-bd-sans font-normal text-sm text-white/90 mb-3">
+                    <p className="font-bd-sans font-normal text-base text-white/90 mb-3">
                       {member.role}
                     </p>
                   </div>

@@ -8,7 +8,7 @@ const WelcomeHome = () => {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: 'url("/lovable-uploads/bg-img.png")',
+          backgroundImage: 'url("/lovable-uploads/ff9648d3-36eb-4d7a-ba6e-b8fe0ffb8d0f.png")',
           backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: 0.15,
@@ -50,22 +50,22 @@ const WelcomeHome = () => {
         </div>
 
         {/* Right: Main image with smooth load-in */}
-        <div className="w-full md:w-2/5 xl:w-2/5 overflow-hidden transition-all duration-500 flex flex-col items-center">
-          <div className="aspect-[3/4] relative overflow-hidden shadow-xl">
+        <div className="w-full md:w-2/5 xl:w-2/5 overflow-hidden transition-all duration-500 rounded-3xl flex flex-col items-center">
+          <div className="aspect-[3/4] relative rounded-3xl overflow-hidden shadow-xl">
             <img
-              src="/lovable-uploads/scenicview.png"
+              src="/lovable-uploads/ca87bf3e-2857-43b0-acdc-ea06e8785fe8.png"
               alt="Scenic property view"
-              className="w-full h-full object-cover shadow-lg transition-transform duration-700 hover:scale-105"
+              className="w-full h-full object-cover rounded-3xl shadow-lg transition-transform duration-700 hover:scale-105"
               style={{ objectPosition: "center" }}
               loading="eager"
             />
           </div>
           <motion.button
-            className="mt-8 px-12 py-2 rounded-full bg-white/70 border border-[#387f79] text-[#387f79] font-bd-sans font-bold transition-all duration-300 flex items-center gap-2 text-base shadow-md hover:bg-[#e6f4f1] hover:scale-105 hover:shadow-xl group"
+            className="mt-8 px-12 py-2 rounded-full bg-white border border-[#387f79] text-[#387f79] font-bd-sans font-bold transition-all duration-300 flex items-center gap-2 text-base shadow-md hover:bg-[#e6f4f1] hover:scale-105 hover:shadow-xl group"
             whileHover={{ scale: 1.06 }}
             whileTap={{ scale: 0.98 }}
           >
-            CLAIM YOUR EARLY ACCESS
+            START INVESTING TODAY
             <span className="ml-2 transition-transform group-hover:translate-x-1">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="h-5 w-5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 12h10.5m0 0l-4.5-4.5m4.5 4.5l-4.5 4.5" />

@@ -7,7 +7,7 @@ const PerkCard: React.FC<PerkCardProps> = ({ title, subtitle, description, image
 
   return (
     <motion.div 
-      className="card relative overflow-hidden transform transition-all duration-500 hover:shadow-2xl h-[400px]"
+      className="card relative overflow-hidden rounded-xl transform transition-all duration-500 hover:shadow-2xl h-[400px]"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}

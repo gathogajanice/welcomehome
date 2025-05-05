@@ -6,24 +6,25 @@ import type { PerkCardProps } from './types';
 const PERKS_DATA: PerkCardProps[] = [
   {
     id: 1,
-    title: "FRACTIONAL LAND MEETS LUXURY MOBILITY",
-    subtitle: "INVEST IN VERIFIED PROPERTIES ACROSS AFRICA",
-    description: "Senegal: Starting at $1000 investments. Explore the beauty of West Africa and invest in your future",
+    title: "FRACTIONAL LAND X LUXURY MOBILITY",
+    subtitle: "WELCOME HOME MAKES IT POSSIBLE TO CO-OWN PROPERTY ON THE AFRICAN CONTINENT",
+    description: "WITH OUR BLOCKCHAIN-SECURED PLATFORM, YOU CAN INVEST FRACTIONALLY IN VERIFIED PROPERTIES. STARTING WITH OUR FLAGSHIP OPPORTUNITIES IN SENEGAL, WITH AS LITTLE AS $1000",
     imageUrl: "/lovable-uploads/Senegal.png",
     alt: "African Monument at Sunset"
   },
   {
     id: 2,
     title: "UNLOCK LUXURY TRAVEL PERKS",
-    subtitle: "YOUR INVESTMENT UNLOCKS UNFORGETTABLE TRAVEL EXPERIENCES",
+    subtitle: "WHEN YOU INVEST IN AFRICAN REAL ESTATE THROUGH WELCOME HOME, YOU UNLOCK MORE THAN OWNERSHIP —YOU UNLOCK ACCESS.",
+    description: "AS A MEMBER, YOU'LL ENJOY CURATED TRAVEL PERKS THAT CONNECT YOU TO THE LAND YOU'VE INVESTED IN, THE CULTURE THAT SHAPED IT, AND THE COMMUNITIES BUILDING ITS FUTURE.",
     imageUrl: "/lovable-uploads/Elephant.png",
     alt: "Safari Experience with Elephant"
   },
   {
     id: 3,
     title: "WELCOME TO THE NEW VILLAGE",
-    subtitle: "WE ARE CONNECTED BY CODE & UNITED BY CULTURE",
-    description: "Where ownership, community, and innovation come together to build the future",
+    subtitle: "WELCOME HOME IS MORE THAN A PLATFORM — IT'S A REIMAGINED VILLAGE FOR THE MODERN ERA.",
+    description: "ROOTED IN THE SPIRIT OF COMMUNITY AND POWERED BY BLOCKCHAIN TECHNOLOGY. WE'VE CREATED A SPACE",
     imageUrl: "/lovable-uploads/happyafrican.png",
     alt: "Happy African Man with a Bright Smile"
   }
@@ -51,7 +52,7 @@ const Perks = () => {
         variants={containerVariants}
       >
         <motion.h1 
-          className="text-[#032b22] font-bd-sans text-5xl text-center mb-16 font-bold"
+          className="text-[#00634d] font-bd-sans text-5xl text-center mb-16 font-bold"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -74,19 +75,29 @@ const Perks = () => {
           ))}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-[1400px] mx-auto mt-4">
-          <div className="text-center">
-            <div className="font-cormorant-garamond text-xl text-[#032b22] mb-2 font-normal">Fractional Land Meets Luxury Mobility</div>
-            <div className="font-bd-sans text-sm text-[#032b22] uppercase mb-2 font-normal">INVEST IN VERIFIED PROPERTIES ACROSS AFRICA</div>
-            <div className="font-bd-sans text-sm text-[#032b22] font-normal">Senegal: Starting at $1000 investments. Explore the beauty of West Africa and invest in your future</div>
+          <div className="text-left flex flex-col h-full justify-start">
+            <div className="font-cormorant-garamond text-xl text-[#032b22] mb-2 font-normal">Fractional Land x Luxury Mobility</div>
+            <div className="font-bd-sans text-xl font-bold mb-2" style={{ color: '#032b22' }}>WELCOME HOME MAKES IT POSSIBLE TO CO-OWN PROPERTY ON THE AFRICAN CONTINENT</div>
+            <div className="font-cormorant text-sm text-left" style={{ color: '#032b22' }}>
+              Without the complexity, overhead, or uncertainty of traditional real estate.
+              With our blockchain-secured platform, you can invest fractionally in verified properties.
+              Starting with our flagship opportunities in Senegal, with as little as $1000.
+            </div>
+            <div className="flex-1" />
           </div>
-          <div className="text-center">
+          <div className="text-left flex flex-col h-full justify-start">
             <div className="font-cormorant-garamond text-xl text-[#032b22] mb-2 font-normal">Unlock Luxury Travel Perks</div>
-            <div className="font-bd-sans text-sm text-[#032b22] uppercase mb-2 font-normal">YOUR INVESTMENT UNLOCKS UNFORGETTABLE TRAVEL EXPERIENCES</div>
+            <div className="font-bd-sans text-xl font-bold mb-2" style={{ color: '#032b22' }}>WHEN YOU INVEST IN AFRICAN REAL ESTATE THROUGH WELCOME HOME</div>
+            <div className="font-cormorant text-sm text-left" style={{ color: '#032b22' }}>You unlock more than ownership, you unlock access</div>
+            <div className="font-cormorant text-sm text-left" style={{ color: '#032b22' }}>As a member, you'll enjoy curated travel perks that connect you to the land you've invested in, the culture that shaped it, and the communities building its future.</div>
+            <div className="flex-1" />
           </div>
-          <div className="text-center">
+          <div className="text-left flex flex-col h-full justify-start">
             <div className="font-cormorant-garamond text-xl text-[#032b22] mb-2 font-normal">Welcome to the New Village</div>
-            <div className="font-bd-sans text-sm text-[#032b22] uppercase mb-2 font-normal">WE ARE CONNECTED BY CODE & UNITED BY CULTURE</div>
-            <div className="font-bd-sans text-sm text-[#032b22] font-normal">Where ownership, community, and innovation come together to build the future</div>
+            <div className="font-bd-sans text-xl font-bold mb-2" style={{ color: '#032b22' }}>WELCOME HOME IS MORE THAN A PLATFORM</div>
+            <div className="font-cormorant text-sm text-left" style={{ color: '#032b22' }}>It's a reimagined village for the modern era.</div>
+            <div className="font-cormorant text-sm text-left" style={{ color: '#032b22' }}>Rooted in the spirit of community and powered by blockchain technology. We've created a space for you to belong and build legacy.</div>
+            <div className="flex-1" />
           </div>
         </div>
       </motion.div>

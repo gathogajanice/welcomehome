@@ -111,7 +111,7 @@ const Hero = () => {
       />
       
       {/* Image overlay for better text contrast */}
-      {firstImageLoaded && <div className="absolute inset-0 bg-black/20 pointer-events-none z-10" />}
+      {firstImageLoaded && <div className="absolute inset-0 bg-black/30 sm:bg-black/20 pointer-events-none z-10" />}
       
       {/* Image carousel */}
       <div className="absolute inset-0">
@@ -160,17 +160,17 @@ const Hero = () => {
         </Swiper>
       </div>
 
-      {/* Hero content - Updated positioning */}
-      <div className="absolute inset-x-0 bottom-[10vh] flex items-end justify-center z-40 px-4 sm:px-6">
+      {/* Hero content - Improved mobile responsiveness */}
+      <div className="absolute inset-x-0 bottom-[8vh] sm:bottom-0 top-0 flex items-end sm:items-end md:items-end lg:items-end justify-center z-40 px-2 xs:px-4 sm:px-6 py-6 sm:py-0">
         <motion.div 
-          className="flex flex-col items-center justify-center space-y-6 sm:space-y-7 md:space-y-8 max-w-4xl mx-auto w-full"
+          className="flex flex-col items-center justify-center space-y-4 xs:space-y-5 sm:space-y-7 md:space-y-8 max-w-4xl mx-auto w-full h-full sm:h-auto justify-center"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           {/* Main heading */}
           <motion.div variants={titleVariants} className="text-center w-full">
-            <h1 className="troye-font text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#fffbf0] leading-tight tracking-wide font-bold">
+            <h1 className="troye-font text-4xl xs:text-5xl sm:text-5xl md:text-7xl lg:text-8xl text-[#fffbf0] leading-tight tracking-wide font-bold">
               <motion.span
                 className="block mb-1"
                 variants={titleVariants}
@@ -189,7 +189,7 @@ const Hero = () => {
           {/* Tagline */}
           <motion.p 
             variants={itemVariants}
-            className="font-cormorant text-base xs:text-lg sm:text-xl md:text-2xl text-[#fffbf0] uppercase tracking-[0.3em] font-bold text-center max-w-[90%] sm:max-w-[80%] mx-auto mt-2"
+            className="font-cormorant text-xs xs:text-sm sm:text-lg md:text-2xl text-[#fffbf0] uppercase tracking-[0.25em] font-bold text-center max-w-[95%] sm:max-w-[80%] mx-auto mt-1 sm:mt-2"
           >
             WHERE OWNERSHIP MEETS ADVENTURE
           </motion.p>
@@ -197,7 +197,7 @@ const Hero = () => {
           {/* Locations */}
           <motion.p 
             variants={itemVariants}
-            className="font-bd-sans font-bold text-xs xs:text-sm sm:text-base md:text-lg text-[#fffbf0] tracking-[0.2em] text-center mt-2"
+            className="font-bd-sans font-bold text-[10px] xs:text-xs sm:text-base md:text-lg text-[#fffbf0] tracking-[0.15em] text-center mt-1 sm:mt-2"
           >
             SENEGAL | GHANA | KENYA
           </motion.p>
@@ -205,10 +205,10 @@ const Hero = () => {
           {/* CTA Button */}
           <motion.button 
             variants={itemVariants}
-            className="mt-8 sm:mt-10 px-5 sm:px-6 py-2 sm:py-2.5 border border-[#cbe9e9] rounded-xl 
+            className="mt-6 sm:mt-10 w-full xs:w-auto max-w-xs px-4 xs:px-5 sm:px-6 py-2 xs:py-2.5 border border-[#cbe9e9] rounded-xl 
                      bg-white/10 backdrop-blur-sm
-                     text-[#fffbf0] font-bd-sans tracking-wider text-xs sm:text-sm
-                     transition-all duration-300 flex items-center gap-2
+                     text-[#fffbf0] font-bd-sans tracking-wider text-xs xs:text-sm sm:text-sm
+                     transition-all duration-300 flex items-center justify-center gap-2
                      hover:bg-white/15 hover:shadow-[0_0_15px_rgba(203,233,233,0.3)]"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -219,7 +219,7 @@ const Hero = () => {
               whileHover={{ x: 3 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4" />
+              <ArrowRight className="h-3 w-3 xs:h-4 xs:w-4 sm:h-4 sm:w-4" />
             </motion.span>
           </motion.button>
         </motion.div>

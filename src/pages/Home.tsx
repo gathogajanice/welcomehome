@@ -8,7 +8,7 @@ const WelcomeHome = () => {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: 'url("/lovable-uploads/ff9648d3-36eb-4d7a-ba6e-b8fe0ffb8d0f.png")',
+          backgroundImage: 'url("/lovable-uploads/bg-img.png")',
           backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: 0.15,

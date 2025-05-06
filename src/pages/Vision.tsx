@@ -5,6 +5,8 @@ import { Rocket, Globe2, Users } from 'lucide-react';
 const Vision = () => {
   return (
     <section className="bg-[#efede7] py-16 relative overflow-hidden">
+      {/* Removed container to make background visible behind the image */}
+
       <div className="container mx-auto px-8 md:px-24 lg:px-[90px] max-w-[1800px]">
         {/* Title at the top */}
         <motion.h1 
@@ -90,21 +92,12 @@ const Vision = () => {
           </motion.div>
 
           {/* Right side - Image */}
-          <motion.div
-            className="relative h-[520px] w-[420px] overflow-hidden mx-auto"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-          >
-            <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden">
-              <img
-                src="/lovable-uploads/cultural-women.png"
-                alt="Cultural women"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-          </motion.div>
+          <img
+            src="/lovable-uploads/cultural-women.png"
+            alt="Cultural women"
+            className="max-w-full h-[500px] sm:h-[500px] md:h-[500px] lg:h-[500px] w-auto object-contain"
+            style={{ display: 'block', margin: '0 auto' }}
+          />
         </div>
       </div>
     </section>

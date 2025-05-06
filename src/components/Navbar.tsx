@@ -32,10 +32,10 @@ const Navbar = () => {
     >
       {/* Left side navigation - Hidden on mobile */}
       <nav className="hidden md:flex items-center space-x-12">
-        <Link to="/" className="font-bd-sans text-white uppercase tracking-wider text-sm">Home</Link>
-        <Link to="/about" className="font-bd-sans text-white uppercase tracking-wider text-sm">About</Link>
-        <Link to="/membership" className="font-bd-sans text-white uppercase tracking-wider text-sm">Membership</Link>
-        <Link to="/contact" className="font-bd-sans text-white uppercase tracking-wider text-sm">Contact</Link>
+        <a href="#hero" className="font-bd-sans text-white uppercase tracking-wider text-sm scroll-smooth">Home</a>
+        <a href="#welcome" className="font-bd-sans text-white uppercase tracking-wider text-sm scroll-smooth">About</a>
+        <a href="#promos" className="font-bd-sans text-white uppercase tracking-wider text-sm scroll-smooth">Membership</a>
+        <a href="#footer" className="font-bd-sans text-white uppercase tracking-wider text-sm scroll-smooth">Contact</a>
       </nav>
 
       {/* Mobile menu button */}
@@ -58,34 +58,34 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="absolute top-16 left-0 right-0 bg-[#032b22]/95 backdrop-blur-sm p-4 md:hidden">
           <nav className="flex flex-col space-y-4">
-            <Link 
-              to="/" 
+            <a 
+              href="#hero" 
               className="font-bd-sans text-white uppercase tracking-wider text-sm text-center"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Home
-            </Link>
-            <Link 
-              to="/about" 
+            </a>
+            <a 
+              href="#welcome" 
               className="font-bd-sans text-white uppercase tracking-wider text-sm text-center"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               About
-            </Link>
-            <Link 
-              to="/membership" 
+            </a>
+            <a 
+              href="#promos" 
               className="font-bd-sans text-white uppercase tracking-wider text-sm text-center"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Membership
-            </Link>
-            <Link 
-              to="/contact" 
+            </a>
+            <a 
+              href="#footer" 
               className="font-bd-sans text-white uppercase tracking-wider text-sm text-center"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contact
-            </Link>
+            </a>
             <Link
               to="/invest"
               className="font-bd-sans text-white uppercase tracking-wider text-sm bg-[#00634dcc] px-6 py-2 rounded-md hover:bg-[#00634dbb] transition-all duration-300 text-center"

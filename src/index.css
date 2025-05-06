@@ -109,3 +109,7 @@
     @apply grid-cols-1 sm:grid-cols-2 gap-y-8;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}

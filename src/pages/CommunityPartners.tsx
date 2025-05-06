@@ -33,7 +33,7 @@ const CommunityPartners = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        COMMUNITY PARTNERS
+        OUR PARTNERS
       </motion.h1>
       <div className="w-full flex justify-center mb-2">
       </div>

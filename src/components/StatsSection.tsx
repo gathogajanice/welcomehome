@@ -6,7 +6,7 @@ const stats = [
   { number: "2", description: "Travel Perks Program" },
   { number: "5", description: "Properties Secured" },
   { number: "200+", description: "Community Interest" },
-  { number: "1,000", description: "Member Target 2025" },
+  { number: "1k", description: "Member Target 2025" },
   { number: "100%", description: "Blockchain Verified Assets" }
 ];
 

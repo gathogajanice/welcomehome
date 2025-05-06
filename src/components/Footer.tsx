@@ -45,7 +45,7 @@ const Footer = () => {
             {/* Office Locations */}
             <div className="text-left space-y-6">
               <div className="space-y-2">
-                <h3 className="font-bd-sans text-lg text-[#fffbf0]">New York Office</h3>
+                <h3 className="font-bd-sans text-sm text-[#fffbf0]">New York Office</h3>
                 <div className="flex items-start gap-2 mt-2">
                   <MapPin className="h-4 w-4 text-[#fffbf0] mt-1" />
                   <p className="font-cormorant text-sm text-[#fffbf0]">
@@ -55,7 +55,7 @@ const Footer = () => {
                 </div>
               </div>
               <div className="space-y-2">
-                <h3 className="font-bd-sans text-lg text-[#fffbf0]">Senegal Office</h3>
+                <h3 className="font-bd-sans text-sm text-[#fffbf0]">Senegal Office</h3>
                 <div className="flex items-start gap-2 mt-2">
                   <MapPin className="h-4 w-4 text-[#fffbf0] mt-1" />
                   <p className="font-cormorant text-sm text-[#fffbf0]">

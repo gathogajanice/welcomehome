@@ -76,27 +76,24 @@ const Perks = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-[1400px] mx-auto mt-4">
           <div className="text-left flex flex-col h-full justify-start">
-            <div className="font-cormorant-garamond text-xl text-[#032b22] mb-2 font-normal">Fractional Land x Luxury Mobility</div>
-            <div className="font-bd-sans text-xl font-bold mb-2" style={{ color: '#032b22' }}>WELCOME HOME MAKES IT POSSIBLE TO CO-OWN PROPERTY ON THE AFRICAN CONTINENT</div>
-            <div className="font-cormorant text-sm text-left" style={{ color: '#032b22' }}>
-              Without the complexity, overhead, or uncertainty of traditional real estate.
-              With our blockchain-secured platform, you can invest fractionally in verified properties.
-              Starting with our flagship opportunities in Senegal, with as little as $1000.
+            <div className="font-bd-sans text-xl font-bold mb-2 uppercase text-[#032b22]">Fractional Land x Luxury Mobility</div>
+            <div className="font-cormorant text-sm text-[#032b22] mb-2">
+              Welcome Home makes it possible to co-own property on the African continent. Without the complexity, overhead, or uncertainty of traditional real estate. With our blockchain-secured platform, you can invest fractionally in verified properties. Starting with our flagship opportunities in Senegal, with as little as $1000.
             </div>
             <div className="flex-1" />
           </div>
           <div className="text-left flex flex-col h-full justify-start">
-            <div className="font-cormorant-garamond text-xl text-[#032b22] mb-2 font-normal">Unlock Luxury Travel Perks</div>
-            <div className="font-bd-sans text-xl font-bold mb-2" style={{ color: '#032b22' }}>WHEN YOU INVEST IN AFRICAN REAL ESTATE THROUGH WELCOME HOME</div>
-            <div className="font-cormorant text-sm text-left" style={{ color: '#032b22' }}>You unlock more than ownership, you unlock access</div>
-            <div className="font-cormorant text-sm text-left" style={{ color: '#032b22' }}>As a member, you'll enjoy curated travel perks that connect you to the land you've invested in, the culture that shaped it, and the communities building its future.</div>
+            <div className="font-bd-sans text-xl font-bold mb-2 uppercase text-[#032b22]">Unlock Luxury Travel Perks</div>
+            <div className="font-cormorant text-sm text-[#032b22] mb-2">
+              When you invest in African real estate through Welcome Home, you unlock more than ownership — you unlock access. As a member, you'll enjoy curated travel perks that connect you to the land you've invested in, the culture that shaped it, and the communities building its future.
+            </div>
             <div className="flex-1" />
           </div>
           <div className="text-left flex flex-col h-full justify-start">
-            <div className="font-cormorant-garamond text-xl text-[#032b22] mb-2 font-normal">Welcome to the New Village</div>
-            <div className="font-bd-sans text-xl font-bold mb-2" style={{ color: '#032b22' }}>WELCOME HOME IS MORE THAN A PLATFORM</div>
-            <div className="font-cormorant text-sm text-left" style={{ color: '#032b22' }}>It's a reimagined village for the modern era.</div>
-            <div className="font-cormorant text-sm text-left" style={{ color: '#032b22' }}>Rooted in the spirit of community and powered by blockchain technology. We've created a space for you to belong and build legacy.</div>
+            <div className="font-bd-sans text-xl font-bold mb-2 uppercase text-[#032b22]">Welcome to the New Village</div>
+            <div className="font-cormorant text-sm text-[#032b22] mb-2">
+              Welcome Home is more than a platform — it's a reimagined village for the modern era. Rooted in the spirit of community and powered by blockchain technology. We've created a space for you to belong and build legacy.
+            </div>
             <div className="flex-1" />
           </div>
         </div>

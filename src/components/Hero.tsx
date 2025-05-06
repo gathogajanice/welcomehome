@@ -161,7 +161,7 @@ const Hero = () => {
       </div>
 
       {/* Hero content - Improved mobile responsiveness */}
-      <div className="absolute inset-x-0 bottom-[8vh] sm:bottom-0 top-0 flex items-end sm:items-end md:items-end lg:items-end justify-center z-40 px-2 xs:px-4 sm:px-6 py-6 sm:py-0">
+      <div className="absolute inset-x-0 bottom-[8vh] sm:bottom-0 top-0 flex items-center sm:items-center md:items-center lg:items-center justify-center z-40 px-2 xs:px-4 sm:px-6 py-6 sm:py-0 pt-0 sm:pt-0 mt-8 sm:mt-12">
         <motion.div 
           className="flex flex-col items-center justify-center space-y-4 xs:space-y-5 sm:space-y-7 md:space-y-8 max-w-4xl mx-auto w-full h-full sm:h-auto justify-center"
           variants={containerVariants}

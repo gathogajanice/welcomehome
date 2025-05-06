@@ -110,10 +110,10 @@ const Footer = () => {
           <div className="mt-12">
             <div className="relative z-10 w-full flex flex-col items-center justify-center">
               <h1 className="font-troye-sans text-3xl md:text-6xl lg:text-7xl text-[#fffbf0] text-center leading-none mb-2">WELCOME HOME</h1>
-              <p className="font-cormorant italic text-[#fffbf0] text-xs md:text-sm text-center max-w-2xl mx-auto">
-                "OUR COMMUNITY IS BUILDING NEW PATHWAYS TO WEALTH, TRAVEL, AND CULTURAL RECONNECTION—ONE INVESTMENT AT A TIME"
-              </p>
             </div>
+            <p className="font-cormorant italic text-[#fffbf0] text-[10px] md:text-xs text-center max-w-2xl mx-auto mt-3">
+              "OUR COMMUNITY IS BUILDING NEW PATHWAYS TO WEALTH, TRAVEL, AND CULTURAL RECONNECTION—ONE INVESTMENT AT A TIME"
+            </p>
           </div>
         </div>
       </div>

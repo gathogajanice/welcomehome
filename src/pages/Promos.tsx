@@ -126,9 +126,9 @@ const Promos = () => {
 
           <div className="flex justify-center mt-12">
             <Link to="/form">
-              <button className="px-8 py-3 rounded-full bg-white border border-[#387f79] text-[#387f79] font-bd-sans font-semibold transition-all duration-300 flex items-center gap-2 text-lg shadow-md hover:bg-[#e6f4f1] hover:scale-105 hover:shadow-xl uppercase">
-                JOIN THE MOVEMENT
-              </button>
+            <button className="px-8 py-3 rounded-full bg-white border border-[#387f79] text-[#387f79] font-bd-sans font-semibold transition-all duration-300 flex items-center gap-2 text-lg shadow-md hover:bg-[#e6f4f1] hover:scale-105 hover:shadow-xl uppercase">
+              JOIN THE MOVEMENT
+            </button>
             </Link>
           </div>
         </div>

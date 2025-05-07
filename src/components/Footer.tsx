@@ -121,8 +121,8 @@ const Footer = () => {
                         style={{boxShadow: '0 4px 24px 0 rgba(31, 38, 135, 0.10)'}}
                       >
                         {icon}
-                      </motion.a>
-                    ))}
+                    </motion.a>
+                  ))}
                   </div>
                 </div>
                 {/* Newsletter Signup */}

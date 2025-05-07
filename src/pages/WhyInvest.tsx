@@ -136,11 +136,11 @@ const WhyInvest = () => {
           </div>
 
           <Link to="/form">
-            <Button className="bg-white/10 hover:bg-white/20 rounded-full text-[#387f79] font-bd-sans font-bold px-8 py-2 text-base 
+          <Button className="bg-white/10 hover:bg-white/20 rounded-full text-[#387f79] font-bd-sans font-bold px-8 py-2 text-base 
                      border border-[#387f79]/20 transition-all hover:scale-105 hover:shadow-lg group">
-              UNLOCK OWNERSHIP OPPORTUNITIES
-              <ArrowRight className="ml-2 h-4 w-4 inline-block transition-transform group-hover:translate-x-1" />
-            </Button>
+            UNLOCK OWNERSHIP OPPORTUNITIES
+            <ArrowRight className="ml-2 h-4 w-4 inline-block transition-transform group-hover:translate-x-1" />
+          </Button>
           </Link>
         </motion.div>
       </div>

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const WelcomeHome = () => {
   return (
     <div id="welcome" className="relative min-h-screen overflow-hidden" style={{ backgroundColor: "#387f79" }}>
-      {/* Single background image - stretched to fit */}
+      {/* Background */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -18,7 +18,7 @@ const WelcomeHome = () => {
       />
 
       <div className="relative z-10 container mx-auto px-4 sm:px-8 md:px-16 py-12 md:py-24 flex flex-col md:flex-row items-start justify-between gap-8 md:gap-16">
-        {/* Left: Title and subtext */}
+        {/* Left: Text */}
         <div className="w-full md:w-1/2 pl-0 md:pl-8 text-left">
           <motion.h2 
             className="font-troye-sans text-3xl lg:text-5xl leading-tight font-bold text-[#fffbf0] tracking-tight"
@@ -36,21 +36,21 @@ const WelcomeHome = () => {
           
           <div className="mt-8 space-y-6">
             <p className="font-cormorant text-sm md:text-base text-white/90 leading-relaxed max-w-md">
-              Blockchain-Powered Real Estate for the African Diaspora. Fractional Land. Luxury Travel. Global Legacy.
+              Welcome Home is a blockchain-powered real estate platform reimagining how the African Diaspora builds wealth, reclaims land, and experiences the world.
             </p>
             
             <div className="font-cormorant text-sm md:text-base text-white/90 leading-relaxed max-w-md space-y-4">
               <p>
-                Through fractional ownership, we make it possible for anyone—anywhere—to invest in verified property across Africa and beyond. But we're more than just real estate. Every investment unlocks luxury travel perks, exclusive cultural experiences, and access to a global community committed to legacy, sustainability, and economic empowerment.
+                Through fractional ownership, we make it possible for anyone—anywhere—to invest in verified property across Africa and beyond. But we’re more than just real estate. Every investment unlocks luxury travel perks, exclusive cultural experiences, and access to a global community committed to legacy, sustainability, and economic empowerment.
               </p>
               <p>
-                This is where technology meets tradition, and ownership becomes a lifestyle. Welcome Home transforms your capital into a deeper connection—with land, with culture, and with a movement rooted in reclaiming what's ours. From digital deeds secured by smart contracts to curated stays in vibrant destinations like Senegal, your investment isn't just an asset—it's a gateway to impact, identity, and generational wealth.
+                This is where technology meets tradition, and ownership becomes a lifestyle. Welcome Home transforms your capital into a deeper connection—with land, with culture, and with a movement rooted in reclaiming what’s ours. From digital deeds secured by smart contracts to curated stays in vibrant destinations like Senegal, your investment isn’t just an asset—it’s a gateway to impact, identity, and generational wealth.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Right: Main image with smooth load-in */}
+        {/* Right: Image and CTA */}
         <div className="w-full md:w-2/5 xl:w-2/5 overflow-hidden transition-all duration-500 flex flex-col items-center">
           <div className="aspect-[3/4] relative overflow-hidden shadow-xl">
             <img

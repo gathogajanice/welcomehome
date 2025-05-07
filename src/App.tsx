@@ -6,33 +6,43 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import Hero from "./components/Hero";
-import Footer from "./components/Footer";
 import Team from "./pages/Team";
 import WelcomeHome from "./pages/WelcomeHome";
+import FormPage from "./pages/form";
+import Hero from "./components/Hero";
+import Footer from "./components/Footer";
 
-// Create a client
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider delayDuration={0}>
       <BrowserRouter>
-        {/* Hero slider positioned behind everything */}
-        <Hero />
-        
         <Toaster />
         <Sonner />
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/welcome" element={<WelcomeHome />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <Index />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/form"
+            element={
+              <>
+                <FormPage />
+              </>
+            }
+          />
           <Route path="/team" element={<Team />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/welcome" element={<WelcomeHome />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        
-        {/* Footer */}
-        <Footer />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

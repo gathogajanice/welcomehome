@@ -17,7 +17,6 @@ const StatsSection = () => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % stats.length);
     }, 3000);
-
     return () => clearInterval(interval);
   }, []);
 
@@ -42,34 +41,35 @@ const StatsSection = () => {
             Where Ownership, Legacy, and Travel Begin Together
           </span>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+
+        <div className="flex justify-center items-center gap-8 flex-wrap">
           {visibleStats.map((stat, index) => (
             <motion.div
               key={`${stat.number}-${index}`}
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ 
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
                 duration: 0.5,
                 delay: index * 0.1,
                 ease: [0.33, 1, 0.68, 1]
               }}
-              className="text-center"
+              className="text-center w-[40%] sm:w-[30%] md:w-[20%] min-w-[130px]"
             >
               <motion.div
                 initial={{ scale: 0.95 }}
                 animate={{ scale: 1 }}
-                transition={{ 
+                transition={{
                   duration: 0.8,
                   ease: [0.33, 1, 0.68, 1],
                   repeat: Infinity,
                   repeatType: "reverse"
                 }}
               >
-                <h3 className="font-bd-sans text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+                <h3 className="font-bd-sans text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">
                   {stat.number}
                 </h3>
               </motion.div>
-              <p className="font-cormorant text-lg md:text-xl text-white/80">
+              <p className="font-cormorant text-base sm:text-lg md:text-xl text-white/80">
                 {stat.description}
               </p>
             </motion.div>

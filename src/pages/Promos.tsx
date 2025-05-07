@@ -33,22 +33,21 @@ const Promos = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="container mx-auto px-4 max-w-5xl">
+        <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex flex-col md:flex-row items-end justify-center gap-10 md:gap-12">
             {/* Left Image */}
-            <div className="flex-1 flex justify-center md:justify-start md:pr-2">
+            <div className="flex-1 flex justify-center md:justify-start">
               <img
                 src="/lovable-uploads/Canoe.png"
                 alt="Traditional Senegalese canoe"
-                className="w-full max-w-[340px] h-[480px] md:h-[520px] object-cover"
-                style={{ objectPosition: 'center' }}
+                className="w-full max-w-[340px] h-[440px] md:h-[480px] object-cover"
               />
             </div>
 
             {/* Right Section */}
-            <div className="flex-[1.7] flex flex-col items-end w-full max-w-3xl md:ml-8">
+            <div className="flex-[1.7] flex flex-col items-end w-full max-w-3xl">
               <div className="w-full flex flex-col items-center">
-                <h1 className="font-troye text-[#387f79] text-center uppercase text-2xl md:text-3xl lg:text-4xl mt-2 md:mt-4 mb-6 md:mb-10 max-w-2xl mx-auto">
+                <h1 className="font-troye text-[#387f79] text-center uppercase text-xl sm:text-2xl md:text-3xl lg:text-4xl mt-2 mb-6 max-w-2xl mx-auto">
                   AFRICA'S FUTURE IS BEING BUILT TODAY. WILL YOU BE PART OF IT?
                 </h1>
               </div>
@@ -56,14 +55,13 @@ const Promos = () => {
               <img
                 src="/lovable-uploads/hotel.png"
                 alt="Luxury hotel amenities"
-                className="w-full max-w-[600px] h-[280px] md:h-[340px] object-cover"
-                style={{ objectPosition: 'center' }}
+                className="w-full max-w-[600px] h-[240px] sm:h-[300px] md:h-[340px] object-cover"
               />
             </div>
           </div>
 
           <div className="flex justify-center mt-12">
-            <button className="px-8 py-3 rounded-full bg-white border border-[#387f79] text-[#387f79] font-bd-sans font-bold transition-all duration-300 flex items-center gap-2 text-base shadow-md hover:bg-[#e6f4f1] hover:scale-105 hover:shadow-xl uppercase">
+            <button className="px-6 sm:px-8 py-2 sm:py-3 rounded-full bg-white border border-[#387f79] text-[#387f79] font-bd-sans font-bold transition-all duration-300 flex items-center gap-2 text-sm sm:text-base shadow-md hover:bg-[#e6f4f1] hover:scale-105 hover:shadow-xl uppercase">
               RESERVE YOUR SPOT TODAY
             </button>
           </div>
@@ -88,19 +86,19 @@ const Promos = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="text-center font-troye text-2xl sm:text-4xl text-white mb-16"
+            className="text-center font-troye text-xl sm:text-3xl md:text-4xl text-white mb-16"
           >
             A NEW ERA OF REAL ESTATE—VERIFIED, FRACTIONAL, UNFORGETTABLE.
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
             {promoOffers.map((promo, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="bg-white/10 backdrop-blur-sm overflow-hidden group"
+                className="bg-white/10 backdrop-blur-sm overflow-hidden group rounded-lg"
               >
                 <div className="aspect-[4/3] overflow-hidden relative">
                   <motion.img
@@ -115,7 +113,7 @@ const Promos = () => {
                 </div>
 
                 <div className="p-6 space-y-3">
-                  <h3 className="font-bd-sans text-lg text-white">{promo.title}</h3>
+                  <h3 className="font-bd-sans text-base sm:text-lg text-white">{promo.title}</h3>
                   <p className="font-cormorant text-sm text-white/80">
                     {promo.description}
                   </p>
@@ -126,9 +124,9 @@ const Promos = () => {
 
           <div className="flex justify-center mt-12">
             <Link to="/form">
-            <button className="px-8 py-3 rounded-full bg-white border border-[#387f79] text-[#387f79] font-bd-sans font-semibold transition-all duration-300 flex items-center gap-2 text-lg shadow-md hover:bg-[#e6f4f1] hover:scale-105 hover:shadow-xl uppercase">
-              JOIN THE MOVEMENT
-            </button>
+              <button className="px-6 sm:px-8 py-2 sm:py-3 rounded-full bg-white border border-[#387f79] text-[#387f79] font-bd-sans font-semibold transition-all duration-300 flex items-center gap-2 text-sm sm:text-base shadow-md hover:bg-[#e6f4f1] hover:scale-105 hover:shadow-xl uppercase">
+                JOIN THE MOVEMENT
+              </button>
             </Link>
           </div>
         </div>

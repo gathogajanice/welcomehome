@@ -1,16 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'sonner';
+import { toast, Toaster } from 'sonner';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import { motion } from 'framer-motion';
 
 const titleVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 }
-};
-
-const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 }
 };
@@ -39,30 +34,32 @@ const FormPage = () => {
         REFERRAL: referralValue,
         EARLYACCESS: data.get("earlyaccess")
       },
-      listIds: [5], // Replace with your real Brevo list ID
+      listIds: [5],
       updateEnabled: true
     };
 
-    const res = await fetch("https://api.brevo.com/v3/contacts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "api-key": import.meta.env.VITE_BREVO_API_KEY as string
-      },
-      body: JSON.stringify(payload)
-    });
+    try {
+      const res = await fetch("http://localhost:3001/api/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
 
-    if (res.ok) {
-      toast("You’ve joined the waitlist. Thank you.");
-      setTimeout(() => navigate("/"), 3000);
-    } else {
-      toast.error("Something went wrong. Please try again.");
+      if (res.ok) {
+        toast.success("You’ve joined the waitlist. Thank you!");
+        setTimeout(() => navigate("/"), 3000);
+      } else {
+        toast.error("Submission failed. Please try again.");
+      }
+    } catch (error) {
+      toast.error("Network error. Check connection or try later.");
     }
   };
 
   return (
     <>
       <Navbar />
+      <Toaster position="top-center" richColors />
       <div className="min-h-screen bg-[#387f79] flex items-center justify-center px-4 py-10 relative">
         <div
           className="absolute inset-0 z-0"
@@ -78,17 +75,13 @@ const FormPage = () => {
           onSubmit={handleSubmit}
           className="relative z-10 bg-white/10 p-8 sm:p-12 rounded-xl shadow-lg w-full max-w-2xl space-y-6 text-white mt-16"
         >
-          {/* Main heading */}
-          <motion.div variants={titleVariants} className="text-center w-full">
-  <h1 className="font-bd-sans text-xl sm:text-2xl md:text-3xl text-[#fffbf0] font-bold tracking-wide leading-tight">
-    BE THE FIRST TO OWN WITH WELCOME HOME
-  </h1>
-</motion.div>
+          <motion.div variants={titleVariants} initial="hidden" animate="visible">
+            <h1 className="font-bd-sans text-xl sm:text-2xl md:text-3xl text-[#fffbf0] font-bold tracking-wide leading-tight text-center">
+              BE THE FIRST TO OWN WITH WELCOME HOME
+            </h1>
+          </motion.div>
 
-
-          {/* Input fields */}
-          {[
-            { name: "firstname", label: "First name" },
+          {[{ name: "firstname", label: "First name" },
             { name: "lastname", label: "Last name" },
             { name: "email", label: "Email address", type: "email" },
             { name: "phone", label: "Phone number (optional)", type: "tel" },
@@ -107,14 +100,9 @@ const FormPage = () => {
             </div>
           ))}
 
-          {/* Dropdown - Interest */}
           <div>
             <label className="block mb-1 font-bd-sans text-sm">What best describes your interest?</label>
-            <select
-              name="interest"
-              className="w-full p-3 rounded-xl bg-[#387f79] border border-white text-white font-cormorant"
-              defaultValue="curious"
-            >
+            <select name="interest" className="w-full p-3 rounded-xl bg-[#387f79] border border-white text-white font-cormorant" defaultValue="curious">
               <option value="ready">I'm ready to invest</option>
               <option value="curious">I'm curious and want to learn more</option>
               <option value="travel">Interested in travel membership</option>
@@ -122,16 +110,14 @@ const FormPage = () => {
             </select>
           </div>
 
-          {/* Early Access */}
           <div>
-            <label className="block mb-1 font-bd-sans text-sm">Would you like early access to our first property in Senegal?</label>
+            <label className="block mb-1 font-bd-sans text-sm">Would you like early access?</label>
             <div className="space-x-6 mt-1">
               <label><input type="radio" name="earlyaccess" value="yes" required /> Yes</label>
               <label><input type="radio" name="earlyaccess" value="no" /> No</label>
             </div>
           </div>
 
-          {/* Referral */}
           <div>
             <label className="block mb-1 font-bd-sans text-sm">How did you hear about us?</label>
             <select
@@ -160,18 +146,16 @@ const FormPage = () => {
             />
           </div>
 
-          {/* Privacy checkbox */}
           <div className="flex items-start gap-3 mt-4">
             <input type="checkbox" name="privacy" id="privacy-check" className="scale-110 mt-1" />
             <label htmlFor="privacy-check" className="font-bd-sans text-sm text-[#fffbf0]">
-              We respect your privacy and promise to never share your information.
+              We respect your privacy and never share your information.
             </label>
           </div>
 
-          {/* Submit */}
           <button
             type="submit"
-            className="w-full py-3 rounded-xl bg-[#fffbf0] text-[#387f79] font-bd-sans uppercase font-bold shadow-lg border border-white/40 hover:bg-[#fff]"
+            className="w-full py-3 rounded-xl bg-[#fffbf0] text-[#387f79] font-bd-sans uppercase font-bold shadow-lg border border-white/40 hover:bg-white"
           >
             Submit
           </button>

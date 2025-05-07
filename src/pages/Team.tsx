@@ -28,7 +28,6 @@ const teamMembers = [
 ];
 
 const Team = () => {
-  // Preload images
   useEffect(() => {
     teamMembers.forEach(member => {
       const img = new Image();
@@ -37,55 +36,49 @@ const Team = () => {
   }, []);
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       className="bg-[#efede7] py-16"
       style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1566041510639-8d95a2490bfb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+        backgroundImage: "url('https://images.unsplash.com/photo-1566041510639-8d95a2490bfb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3')",
         backgroundBlendMode: "overlay",
         backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundColor: "#efede7"
+        backgroundPosition: "center"
       }}
     >
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <h1 className="text-[2.5rem] font-troye text-[#00634d] uppercase">
+          <h1 className="font-troye text-2xl sm:text-3xl md:text-4xl text-[#00634d] uppercase leading-tight">
             MEET THE INCREDIBLE TEAM
           </h1>
         </motion.div>
 
-        {/* Team Members Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           {teamMembers.map((member, index) => (
-            <motion.div 
-              key={index} 
+            <motion.div
+              key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * index, duration: 0.7 }}
               className="card-container relative max-w-[300px] mx-auto w-full"
             >
-              {/* Card with hover effects */}
               <div className="team-card overflow-hidden transition-all duration-500 ease-in-out">
-                {/* Background with grid pattern */}
-                <div 
+                <div
                   className="absolute inset-0 bg-[#387f79]"
                   style={{
                     backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)",
                     backgroundSize: "20px 20px"
                   }}
                 ></div>
-                
-                {/* Content */}
+
                 <div className="relative p-6 flex flex-col items-center">
-                  {/* Profile Image - More zoomed in */}
                   <div className="mb-4 rounded-full overflow-hidden w-44 h-44 border-4 border-white shadow-xl">
                     <img
                       src={member.image}
@@ -94,8 +87,7 @@ const Team = () => {
                       loading="eager"
                     />
                   </div>
-                  
-                  {/* Name and Role */}
+
                   <div className="text-center">
                     <h2 className="font-troye font-normal text-xl text-white mb-1">
                       {member.name}
@@ -104,20 +96,42 @@ const Team = () => {
                       {member.role}
                     </p>
                   </div>
-                  
-                  {/* Social Links with enhanced hover effects */}
+
                   <div className="flex space-x-4">
-                    <a href={member.social.twitter} className="social-icon-container" target="_blank" rel="noopener noreferrer">
-                      <svg viewBox="0 0 24 24" className="w-4 h-4 text-white z-10" fill="currentColor">
-                        <path d="M22 5.8a8.5 8.5 0 0 1-2.4.7 4.2 4.2 0 0 0 1.9-2.4 8.5 8.5 0 0 1-2.7 1 4.2 4.2 0 0 0-7.2 3.9A12 12 0 0 1 3 4.3a4.2 4.2 0 0 0 1.3 5.7 4.2 4.2 0 0 1-1.9-.5v.1a4.2 4.2 0 0 0 3.4 4.1 4.2 4.2 0 0 1-1.9.1A4.2 4.2 0 0 0 7.8 17 8.5 8.5 0 0 1 2 18.8a12 12 0 0 0 6.5 1.9c7.8 0 12.1-6.5 12.1-12.1v-.5A8.5 8.5 0 0 0 22 5.8z"/>
+                    <motion.a
+                      href={member.social.twitter}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.15, rotate: -6 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="w-9 h-9 rounded-full bg-white/10 border border-white/50 flex items-center justify-center backdrop-blur-md transition-all duration-300 shadow-md"
+                    >
+                      <svg viewBox="0 0 24 24" className="w-4 h-4 text-white" fill="currentColor">
+                        <path d="M22 5.8a8.5 8.5 0 0 1-2.4.7 4.2 4.2 0 0 0 1.9-2.4 8.5 8.5 0 0 1-2.7 1 4.2 4.2 0 0 0-7.2 3.9A12 12 0 0 1 3 4.3a4.2 4.2 0 0 0 1.3 5.7 4.2 4.2 0 0 1-1.9-.5v.1a4.2 4.2 0 0 0 3.4 4.1 4.2 4.2 0 0 1-1.9.1A4.2 4.2 0 0 0 7.8 17 8.5 8.5 0 0 1 2 18.8a12 12 0 0 0 6.5 1.9c7.8 0 12.1-6.5 12.1-12.1v-.5A8.5 8.5 0 0 0 22 5.8z" />
                       </svg>
-                    </a>
-                    <a href={member.social.linkedin} className="social-icon-container" target="_blank" rel="noopener noreferrer">
-                      <Linkedin size={20} className="social-icon text-white" />
-                    </a>
-                    <a href={member.social.instagram} className="social-icon-container" target="_blank" rel="noopener noreferrer">
-                      <Instagram size={20} className="social-icon text-white" />
-                    </a>
+                    </motion.a>
+
+                    <motion.a
+                      href={member.social.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.15, rotate: -6 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="w-9 h-9 rounded-full bg-white/10 border border-white/50 flex items-center justify-center backdrop-blur-md transition-all duration-300 shadow-md"
+                    >
+                      <Linkedin size={18} className="text-white" />
+                    </motion.a>
+
+                    <motion.a
+                      href={member.social.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.15, rotate: -6 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="w-9 h-9 rounded-full bg-white/10 border border-white/50 flex items-center justify-center backdrop-blur-md transition-all duration-300 shadow-md"
+                    >
+                      <Instagram size={18} className="text-white" />
+                    </motion.a>
                   </div>
                 </div>
               </div>

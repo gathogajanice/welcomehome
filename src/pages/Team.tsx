@@ -9,9 +9,9 @@ const teamMembers = [
     image: "/lovable-uploads/f07d7f91-c94c-43b8-85b4-25f9d3f4b04c.png",
     quote: "Building the future of finance",
     social: {
-      twitter: "#",
-      linkedin: "#",
-      instagram: "#"
+      twitter: "https://x.com/SharufaRWalker",
+      linkedin: "https://www.linkedin.com/in/sharufawalker",
+      instagram: "https://www.instagram.com/sharufawalker/?hl=en"
     }
   },
   {
@@ -20,9 +20,9 @@ const teamMembers = [
     image: "/lovable-uploads/Mamadou.png",
     quote: "Innovation through collaboration",
     social: {
-      twitter: "#",
-      linkedin: "#",
-      instagram: "#"
+      twitter: "https://x.com/welcomehomeintl",
+      linkedin: "https://www.linkedin.com/company/welcome-home-international-realty-group/?viewAsMember=true",
+      instagram: "https://www.instagram.com/welcomehomeinternational/"
     }
   }
 ];
@@ -104,23 +104,18 @@ const Team = () => {
                       {member.role}
                     </p>
                   </div>
-
-                  {/* Quote */}
-                  <p className="font-cormorant text-white/80 italic mb-4 text-xs">
-                    "{member.quote}"
-                  </p>
                   
                   {/* Social Links with enhanced hover effects */}
                   <div className="flex space-x-4">
-                    <a href={member.social.twitter} className="social-icon-container">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="social-icon text-white">
-                        <path d="M15.2 0h3.9l-8.5 9.8 9.9 14.2h-7.8l-6.1-8.7-6.9 8.7H-4.2l9.1-10.5L-4.5 0h8l5.5 7.9L15.2 0zm-1.4 21.5h2.1L5.1 2.4H2.9l10.9 19.1z"/>
+                    <a href={member.social.twitter} className="social-icon-container" target="_blank" rel="noopener noreferrer">
+                      <svg viewBox="0 0 24 24" className="w-4 h-4 text-white z-10" fill="currentColor">
+                        <path d="M22 5.8a8.5 8.5 0 0 1-2.4.7 4.2 4.2 0 0 0 1.9-2.4 8.5 8.5 0 0 1-2.7 1 4.2 4.2 0 0 0-7.2 3.9A12 12 0 0 1 3 4.3a4.2 4.2 0 0 0 1.3 5.7 4.2 4.2 0 0 1-1.9-.5v.1a4.2 4.2 0 0 0 3.4 4.1 4.2 4.2 0 0 1-1.9.1A4.2 4.2 0 0 0 7.8 17 8.5 8.5 0 0 1 2 18.8a12 12 0 0 0 6.5 1.9c7.8 0 12.1-6.5 12.1-12.1v-.5A8.5 8.5 0 0 0 22 5.8z"/>
                       </svg>
                     </a>
-                    <a href={member.social.linkedin} className="social-icon-container">
+                    <a href={member.social.linkedin} className="social-icon-container" target="_blank" rel="noopener noreferrer">
                       <Linkedin size={20} className="social-icon text-white" />
                     </a>
-                    <a href={member.social.instagram} className="social-icon-container">
+                    <a href={member.social.instagram} className="social-icon-container" target="_blank" rel="noopener noreferrer">
                       <Instagram size={20} className="social-icon text-white" />
                     </a>
                   </div>

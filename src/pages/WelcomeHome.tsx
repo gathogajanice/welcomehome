@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const WelcomeHome = () => {
   return (
-    <div className="relative min-h-screen overflow-hidden" style={{ backgroundColor: "#387f79" }}>
+    <div id="welcome" className="relative min-h-screen overflow-hidden" style={{ backgroundColor: "#387f79" }}>
       {/* Single background image - stretched to fit */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -35,7 +36,7 @@ const WelcomeHome = () => {
           
           <div className="mt-8 space-y-6">
             <p className="font-cormorant text-sm md:text-base text-white/90 leading-relaxed max-w-md">
-              Welcome Home is a blockchain-powered real estate platform reimagining how the African Diaspora builds wealth, reclaims land, and experiences the world.
+              Blockchain-Powered Real Estate for the African Diaspora. Fractional Land. Luxury Travel. Global Legacy.
             </p>
             
             <div className="font-cormorant text-sm md:text-base text-white/90 leading-relaxed max-w-md space-y-4">
@@ -60,18 +61,20 @@ const WelcomeHome = () => {
               loading="eager"
             />
           </div>
-          <motion.button
-            className="mt-8 px-12 py-2 rounded-full bg-white/70 border border-[#387f79] text-[#387f79] font-bd-sans font-bold transition-all duration-300 flex items-center gap-2 text-base shadow-md hover:bg-[#e6f4f1] hover:scale-105 hover:shadow-xl group"
-            whileHover={{ scale: 1.06 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            CLAIM YOUR EARLY ACCESS
-            <span className="ml-2 transition-transform group-hover:translate-x-1">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="h-5 w-5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 12h10.5m0 0l-4.5-4.5m4.5 4.5l-4.5 4.5" />
-              </svg>
-            </span>
-          </motion.button>
+          <Link to="/form">
+            <motion.button
+              className="mt-8 px-12 py-2 rounded-full bg-white/70 border border-[#387f79] text-[#387f79] font-bd-sans font-bold transition-all duration-300 flex items-center gap-2 text-base shadow-md hover:bg-[#e6f4f1] hover:scale-105 hover:shadow-xl group"
+              whileHover={{ scale: 1.06 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              CLAIM YOUR EARLY ACCESS
+              <span className="ml-2 transition-transform group-hover:translate-x-1">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="h-5 w-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 12h10.5m0 0l-4.5-4.5m4.5 4.5l-4.5 4.5" />
+                </svg>
+              </span>
+            </motion.button>
+          </Link>
         </div>
       </div>
     </div>

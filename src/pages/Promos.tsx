@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const promoOffers = [
   {
@@ -46,14 +47,12 @@ const Promos = () => {
 
             {/* Right Section */}
             <div className="flex-[1.7] flex flex-col items-end w-full max-w-3xl md:ml-8">
-              {/* No heading here, per user request */}
               <div className="w-full flex flex-col items-center">
                 <h1 className="font-troye text-[#387f79] text-center uppercase text-2xl md:text-3xl lg:text-4xl mt-2 md:mt-4 mb-6 md:mb-10 max-w-2xl mx-auto">
                   AFRICA'S FUTURE IS BEING BUILT TODAY. WILL YOU BE PART OF IT?
                 </h1>
               </div>
 
-              {/* Hotel Image */}
               <img
                 src="/lovable-uploads/hotel.png"
                 alt="Luxury hotel amenities"
@@ -63,7 +62,6 @@ const Promos = () => {
             </div>
           </div>
 
-          {/* Reserve Button */}
           <div className="flex justify-center mt-12">
             <button className="px-8 py-3 rounded-full bg-white border border-[#387f79] text-[#387f79] font-bd-sans font-bold transition-all duration-300 flex items-center gap-2 text-base shadow-md hover:bg-[#e6f4f1] hover:scale-105 hover:shadow-xl uppercase">
               RESERVE YOUR SPOT TODAY
@@ -73,7 +71,7 @@ const Promos = () => {
       </motion.section>
 
       {/* Promos Section */}
-      <section className="bg-[#387f79] py-12 relative overflow-hidden">
+      <section id="promos" className="bg-[#387f79] py-12 relative overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -86,7 +84,6 @@ const Promos = () => {
         />
 
         <div className="container mx-auto px-4">
-          {/* Section Title */}
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -96,7 +93,6 @@ const Promos = () => {
             A NEW ERA OF REAL ESTATE—VERIFIED, FRACTIONAL, UNFORGETTABLE.
           </motion.h2>
 
-          {/* Promos Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
             {promoOffers.map((promo, index) => (
               <motion.div
@@ -128,11 +124,12 @@ const Promos = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
           <div className="flex justify-center mt-12">
-            <button className="px-8 py-3 rounded-full bg-white border border-[#387f79] text-[#387f79] font-bd-sans font-semibold transition-all duration-300 flex items-center gap-2 text-lg shadow-md hover:bg-[#e6f4f1] hover:scale-105 hover:shadow-xl uppercase">
-              JOIN THE MOVEMENT
-            </button>
+            <Link to="/form">
+              <button className="px-8 py-3 rounded-full bg-white border border-[#387f79] text-[#387f79] font-bd-sans font-semibold transition-all duration-300 flex items-center gap-2 text-lg shadow-md hover:bg-[#e6f4f1] hover:scale-105 hover:shadow-xl uppercase">
+                JOIN THE MOVEMENT
+              </button>
+            </Link>
           </div>
         </div>
       </section>

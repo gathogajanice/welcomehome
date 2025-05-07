@@ -18,8 +18,8 @@ const logos = [
     delay: 0.3
   },
   {
-    src: '/lovable-uploads/hedera.png',
-    alt: 'Hedera Hashgraph',
+    src: '/lovable-uploads/alkebeluemlogo.png',
+    alt: 'Alkebuleum',
     delay: 0.4
   }
 ];
@@ -49,7 +49,7 @@ const CommunityPartners = () => {
           </div>
         </div>
         {/* Logos/Partners */}
-        <div className="flex-1 grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 md:gap-8 w-full max-w-[420px] sm:max-w-xl md:max-w-2xl items-center justify-items-start pl-8 md:pl-16 lg:pl-24">
+        <div className="flex-1 grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 md:gap-8 w-full max-w-[420px] sm:max-w-xl md:max-w-2xl items-center justify-items-start pl-12 md:pl-20 lg:pl-28">
           {logos.map((logo, idx) => (
             <motion.div
               key={logo.src}

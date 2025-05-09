@@ -1,73 +1,108 @@
-# Welcome to your Lovable project
+# Welcome Home Project
 
-## Project info
+This is a React-based web application built with Vite, TypeScript, and modern web technologies.
 
-**URL**: https://lovable.dev/projects/cd5d8107-cae8-49e6-b5c6-8464fc9e6f1e
+## Prerequisites
 
-## How can I edit this code?
+Before you begin, ensure you have the following installed:
+- Node.js (version 18 or higher)
+- npm (comes with Node.js)
+- Git
 
-There are several ways of editing your application.
+## Getting Started
 
-**Use Lovable**
+1. Clone the repository:
+```bash
+git clone [your-repository-url]
+cd welcomehome
+```
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/cd5d8107-cae8-49e6-b5c6-8464fc9e6f1e) and start prompting.
+2. Install dependencies:
+```bash
+npm install
+```
 
-Changes made via Lovable will be committed automatically to this repo.
+This will install all required dependencies including:
+- React 18
+- TypeScript
+- TailwindCSS
+- Framer Motion
+- React Router DOM
+- And other UI components from Radix UI
 
-**Use your preferred IDE**
+## Key Dependencies
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+The project uses several important libraries:
+- **Framer Motion** (`framer-motion`) - For animations
+- **React Router** (`react-router-dom`) - For routing
+- **React Query** (`@tanstack/react-query`) - For data fetching
+- **TailwindCSS** - For styling
+- **Radix UI** - For accessible UI components
+- **React Hook Form** - For form handling
+- **Zod** - For form validation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Development
 
-Follow these steps:
+To start the development server:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+This will start the Vite development server, typically at `http://localhost:5173`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Available Scripts
 
-**Use GitHub Codespaces**
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run build:dev` - Build for development
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project Structure
 
-## What technologies are used for this project?
+```
+welcomehome/
+├── src/               # Source files
+├── public/           # Static assets
+├── dist/             # Build output
+├── brevo-relay/      # Email relay service
+├── node_modules/     # Dependencies
+└── various config files
+```
 
-This project is built with:
+## Environment Setup
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Make sure to set up any required environment variables. Create a `.env` file in the root directory if needed.
 
-## How can I deploy this project?
+## Browser Support
 
-Simply open [Lovable](https://lovable.dev/projects/cd5d8107-cae8-49e6-b5c6-8464fc9e6f1e) and click on Share -> Publish.
+The application is built with modern web technologies and supports:
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
-## Can I connect a custom domain to my Lovable project?
+## Troubleshooting
 
-Yes it is!
+If you encounter any issues:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+1. Make sure all dependencies are installed correctly
+2. Clear npm cache: `npm cache clean --force`
+3. Delete node_modules and reinstall: 
+   ```bash
+   rm -rf node_modules
+   npm install
+   ```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
+
+[Your License Here]

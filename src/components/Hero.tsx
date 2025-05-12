@@ -33,12 +33,12 @@ const titleVariants = {
   }
 };
 
-const firstImage = "/lovable-uploads/Boys.png";
+const firstImage = "/images/Boys.png";
 const propertyImages = [
-  "/lovable-uploads/Boys.png",
-  "/lovable-uploads/SenegalBus.png",
-  "/lovable-uploads/Boats.png",
-  "/lovable-uploads/House.png"
+  "/images/Boys.png",
+  "/images/SenegalBus.png",
+  "/images/Boats.png",
+  "/images/House.png"
 ];
 
 const Hero = () => {
@@ -87,14 +87,15 @@ const Hero = () => {
 
       <div className="absolute inset-x-0 bottom-[8vh] flex justify-center z-40 px-4 sm:px-6">
         <motion.div
-          className="flex flex-col items-center space-y-6 max-w-4xl mx-auto mt-10 sm:mt-20"
+          className="flex flex-col items-center justify-center space-y-6 max-w-4xl mx-auto min-h-[60vh] sm:min-h-0"
+          style={{ minHeight: '60vh' }}
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           {/* Main heading */}
           <motion.div variants={titleVariants} className="text-center w-full">
-            <h1 className="troye-font text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#fffbf0] leading-tight tracking-wide font-bold text-balance">
+            <h1 className="troye-font text-5xl xs:text-6xl sm:text-7xl md:text-7xl lg:text-8xl text-[#fffbf0] leading-tight tracking-wide font-bold text-balance">
               <motion.span className="block mb-1" variants={titleVariants}>
                 WELCOME
               </motion.span>

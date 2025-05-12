@@ -6,7 +6,7 @@ const teamMembers = [
   {
     name: "SHARUFA R. WALKER",
     role: "CEO | Co-Founder",
-    image: "/lovable-uploads/f07d7f91-c94c-43b8-85b4-25f9d3f4b04c.png",
+    image: "/images/f07d7f91-c94c-43b8-85b4-25f9d3f4b04c.png",
     quote: "Building the future of finance",
     social: {
       twitter: "https://x.com/SharufaRWalker",
@@ -17,7 +17,7 @@ const teamMembers = [
   {
     name: "MAMADOU KA",
     role: "COO | Co-Founder",
-    image: "/lovable-uploads/Mamadou.png",
+    image: "/images/Mamadou.png",
     quote: "Innovation through collaboration",
     social: {
       twitter: "https://x.com/welcomehomeintl",

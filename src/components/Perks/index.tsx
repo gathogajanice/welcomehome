@@ -10,7 +10,7 @@ const PERKS_DATA: PerkCardProps[] = [
     subtitle: "Welcome Home makes it possible to co-own property on the African continent.",
     description:
       "With our blockchain-secured platform, you can invest fractionally in verified properties. Starting with our flagship opportunities in Senegal, with as little as $1000.",
-    imageUrl: "/lovable-uploads/Senegal.png",
+    imageUrl: "/images/Senegal.png",
     alt: "African Monument at Sunset"
   },
   {
@@ -19,7 +19,7 @@ const PERKS_DATA: PerkCardProps[] = [
     subtitle: "When you invest in African real estate through Welcome Home, you unlock more than ownership — you unlock access.",
     description:
       "As a member, you'll enjoy curated travel perks that connect you to the land you've invested in, the culture that shaped it, and the communities building its future.",
-    imageUrl: "/lovable-uploads/Elephant.png",
+    imageUrl: "/images/Elephant.png",
     alt: "Safari Experience with Elephant"
   },
   {
@@ -28,7 +28,7 @@ const PERKS_DATA: PerkCardProps[] = [
     subtitle: "Welcome Home is more than a platform — it's a reimagined village for the modern era.",
     description:
       "Rooted in the spirit of community and powered by blockchain technology. We've created a space for you to belong and build legacy.",
-    imageUrl: "/lovable-uploads/happyafrican.png",
+    imageUrl: "/images/happyafrican.png",
     alt: "Happy African Man with a Bright Smile"
   }
 ];

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { DollarSign, Globe, Home, LineChart, ArrowRight } from "lucide-react";
@@ -37,6 +37,8 @@ const hotspots = [
 ];
 
 const WhyInvest = () => {
+  const [activeHotspot, setActiveHotspot] = useState<number | null>(null);
+
   return (
     <motion.section 
       initial={{ opacity: 0 }}
@@ -64,39 +66,45 @@ const WhyInvest = () => {
         
         {/* Image + Hotspots */}
         <div className="relative max-w-[500px] mx-auto">
-          <img src="/lovable-uploads/1572c4f2-eb33-483a-a261-ad6032ac617d.png" alt="Africa Outline" className="w-full h-auto" />
-          {hotspots.map(h => (
-            <div 
-              key={h.id}
-              className="absolute h-8 w-8 rounded-full bg-[#00634d]
-                         hover:scale-[1.5] transition-all duration-500 cursor-pointer
-                         hover:bg-[#00634d] z-20"
-              style={{
-                top: h.position.top,
-                left: h.position.left,
-                transform: 'translate(-50%, -50%)',
-                animation: 'pulse 1.5s ease-in-out infinite',
-                boxShadow: '0 0 0 0 rgba(0, 99, 77, 0.7)'
-              }}
-            >
-              <HoverCard openDelay={50} closeDelay={0}>
-                <HoverCardTrigger asChild>
-                  <button className="w-full h-full flex items-center justify-center">
-                    <span className="sr-only">{h.title}</span>
-                  </button>
-                </HoverCardTrigger>
-                <HoverCardContent className="w-64 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-xl border border-white/20">
-                  <div className="flex items-center space-x-2">
-                    <div className="rounded-full bg-[#387f79] bg-opacity-10 p-2">
-                      {h.icon}
+          <img src="/images/1572c4f2-eb33-483a-a261-ad6032ac617d.png" alt="Africa Outline" className="w-full h-auto" />
+          {hotspots.map(h => {
+            const isActive = activeHotspot === h.id;
+            return (
+              <div 
+                key={h.id}
+                className={`absolute h-8 w-8 rounded-full bg-[#00634d] transition-all duration-500 cursor-pointer z-20
+                  ${isActive ? 'scale-[1.5] bg-[#00634d]' : ''}
+                `}
+                style={{
+                  top: h.position.top,
+                  left: h.position.left,
+                  transform: 'translate(-50%, -50%)',
+                  animation: 'pulse 1.5s ease-in-out infinite',
+                  boxShadow: '0 0 0 0 rgba(0, 99, 77, 0.7)'
+                }}
+                onTouchStart={() => setActiveHotspot(h.id)}
+                onMouseLeave={() => setActiveHotspot(null)}
+                onMouseEnter={() => setActiveHotspot(h.id)}
+              >
+                <HoverCard openDelay={50} closeDelay={0}>
+                  <HoverCardTrigger asChild>
+                    <span className="w-full h-full flex items-center justify-center">
+                      <span className="sr-only">{h.title}</span>
+                    </span>
+                  </HoverCardTrigger>
+                  <HoverCardContent className="w-64 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-xl border border-white/20">
+                    <div className="flex items-center space-x-2">
+                      <div className="rounded-full bg-[#387f79] bg-opacity-10 p-2">
+                        {h.icon}
+                      </div>
+                      <h4 className="font-bd-sans text-lg text-[#387f79] font-bold">{h.title}</h4>
                     </div>
-                    <h4 className="font-bd-sans text-lg text-[#387f79] font-bold">{h.title}</h4>
-                  </div>
-                  <p className="text-sm text-gray-600 mt-2 font-cormorant">{h.description}</p>
-                </HoverCardContent>
-              </HoverCard>
-            </div>
-          ))}
+                    <p className="text-sm text-gray-600 mt-2 font-cormorant">{h.description}</p>
+                  </HoverCardContent>
+                </HoverCard>
+              </div>
+            );
+          })}
         </div>
 
         {/* Text Content */}
@@ -107,8 +115,7 @@ const WhyInvest = () => {
           transition={{ duration: 0.7 }}
         >
           <h1 className="text-[2rem] sm:text-[2.5rem] font-troye leading-tight">
-            <span className="text-[#00634d] relative inline-block">WHY INVEST IN</span>{" "}
-            <span className="text-[#00634d]">AFRICA?</span>
+            <span className="font-troye text-2xl sm:text-3xl md:text-4xl text-[#00634d] relative inline-block">WHY INVEST IN AFRICA?</span>
           </h1>
 
           <div className="space-y-4">

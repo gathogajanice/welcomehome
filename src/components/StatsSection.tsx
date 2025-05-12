@@ -27,7 +27,7 @@ const StatsSection = () => {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: 'url("/lovable-uploads/bg-img.png")',
+          backgroundImage: 'url("/images/bg-img.png")',
           backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: 0.15,

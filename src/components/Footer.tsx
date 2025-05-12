@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
 import { Mail, MapPin, Instagram, Linkedin, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -10,7 +11,7 @@ const Footer = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center pointer-events-none"
         style={{
-          backgroundImage: 'url("/lovable-uploads/bg-img.png")',
+          backgroundImage: 'url("/images/bg-img.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           opacity: 0.15,
@@ -37,21 +38,11 @@ const Footer = () => {
             {/* Links */}
             <div>
               <h3 className="font-bd-sans text-base text-[#fffbf0] mb-3">Quick Links</h3>
-              {[
-                { to: '/', label: 'Home' },
-                { to: '/about', label: 'About Us' },
-                { to: '/why-invest', label: 'Why Invest' },
-                { to: '/membership', label: 'Membership' },
-                { to: '/team', label: 'The Team' }
-              ].map(link => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  className="block font-cormorant text-sm text-[#fffbf0] hover:text-[#fffbf0]/80 transition"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              <span className="block font-cormorant text-sm text-[#fffbf0] hover:text-[#fffbf0]/80 transition cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Home</span>
+              <ScrollLink to="welcome" smooth duration={600} offset={-60} className="block font-cormorant text-sm text-[#fffbf0] hover:text-[#fffbf0]/80 transition cursor-pointer">About</ScrollLink>
+              <Link to="/why-invest" className="block font-cormorant text-sm text-[#fffbf0] hover:text-[#fffbf0]/80 transition">Why Invest</Link>
+              <ScrollLink to="promos" smooth duration={600} offset={-60} className="block font-cormorant text-sm text-[#fffbf0] hover:text-[#fffbf0]/80 transition cursor-pointer">Membership</ScrollLink>
+              <Link to="/team" className="block font-cormorant text-sm text-[#fffbf0] hover:text-[#fffbf0]/80 transition">The Team</Link>
             </div>
 
             {/* Offices */}

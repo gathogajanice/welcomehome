@@ -9,7 +9,7 @@ const WelcomeHome = () => {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: 'url("/lovable-uploads/bg-img.png")',
+          backgroundImage: 'url("/images/bg-img.png")',
           backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: 0.15,
@@ -54,7 +54,7 @@ const WelcomeHome = () => {
         <div className="w-full md:w-2/5 xl:w-2/5 flex flex-col items-center">
           <div className="aspect-[3/4] w-full relative overflow-hidden shadow-xl">
             <img
-              src="/lovable-uploads/scenicview.png"
+              src="/images/scenicview.png"
               alt="Scenic property view"
               className="w-full h-full object-cover shadow-lg transition-transform duration-700 hover:scale-105"
               style={{ objectPosition: "center" }}

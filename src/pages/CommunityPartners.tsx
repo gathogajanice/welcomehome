@@ -3,22 +3,22 @@ import { motion } from 'framer-motion';
 
 const logos = [
   {
-    src: '/lovable-uploads/afritech.png',
+    src: '/images/afritech.png',
     alt: 'Africatech NYC',
     delay: 0.1
   },
   {
-    src: '/lovable-uploads/afrideslogo.png',
+    src: '/images/afrideslogo.png',
     alt: 'Afrides',
     delay: 0.2
   },
   {
-    src: '/lovable-uploads/minsitry-logo.png',
+    src: '/images/minsitry-logo.png',
     alt: 'Ministry of Tourism and Air Transport',
     delay: 0.3
   },
   {
-    src: '/lovable-uploads/alkebeluemlogo.png',
+    src: '/images/alkebeluemlogo.png',
     alt: 'Alkebuleum',
     delay: 0.4
   }
@@ -28,7 +28,7 @@ const CommunityPartners = () => {
   return (
     <section className="bg-[#f5f3ee] min-h-screen py-16 px-4 flex flex-col items-center">
       <motion.h1
-        className="font-troye text-3xl sm:text-4xl md:text-[2.5rem] text-[#00634d] text-center mb-12 tracking-tight uppercase"
+        className="font-troye text-2xl sm:text-3xl md:text-4xl text-[#00634d] text-center mb-12 tracking-tight uppercase"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -41,7 +41,7 @@ const CommunityPartners = () => {
         <div className="flex justify-center">
           <div className="w-[240px] h-[280px] sm:w-[340px] sm:h-[400px] md:w-[460px] md:h-[520px] overflow-hidden">
             <img 
-              src="/lovable-uploads/zebra.png" 
+              src="/images/zebra.png" 
               alt="Zebra" 
               className="object-cover w-full h-full transition-transform duration-700 hover:scale-105" 
             />

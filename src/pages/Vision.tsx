@@ -8,7 +8,7 @@ const Vision = () => {
       <div className="max-w-[1800px] mx-auto">
         {/* Title */}
         <motion.h1 
-          className="font-troye text-2xl sm:text-3xl lg:text-4xl leading-tight mb-12 text-[#00634d] text-center max-w-[1100px] mx-auto"
+          className="font-troye text-2xl sm:text-3xl md:text-4xl leading-tight mb-12 text-[#00634d] text-center max-w-[1100px] mx-auto"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -88,7 +88,7 @@ const Vision = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <img
-              src="/lovable-uploads/cultural-women.png"
+              src="/images/cultural-women.png"
               alt="Cultural women"
               className="w-full max-w-md md:max-w-full h-auto object-contain mx-auto"
             />

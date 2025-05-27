@@ -79,7 +79,7 @@ const WhyInvest = () => {
         {/* Image + Hotspots */}
         <div className="relative max-w-[500px] mx-auto">
           <img src="/images/1572c4f2-eb33-483a-a261-ad6032ac617d.png" alt="Africa Outline" className="w-full h-auto" />
-          {hotspots.map(h => {
+          {!isMobile && hotspots.map(h => {
             const isActive = activeHotspot === h.id;
             return (
               <div
@@ -93,12 +93,8 @@ const WhyInvest = () => {
                   boxShadow: '0 0 0 0 rgba(0, 99, 77, 0.7)'
                 }}
                 onClick={() => setActiveHotspot(isActive ? null : h.id)}
-                onTouchEnd={e => {
-                  e.preventDefault();
-                  setActiveHotspot(isActive ? null : h.id);
-                }}
-                onMouseEnter={() => !isMobile && setActiveHotspot(h.id)}
-                onMouseLeave={() => !isMobile && setActiveHotspot(null)}
+                onMouseEnter={() => setActiveHotspot(h.id)}
+                onMouseLeave={() => setActiveHotspot(null)}
               >
                 <HoverCard openDelay={50} closeDelay={0}>
                   <HoverCardTrigger asChild>

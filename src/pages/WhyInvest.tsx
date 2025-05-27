@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { DollarSign, Globe, Home, LineChart, ArrowRight } from "lucide-react";
@@ -38,6 +38,18 @@ const hotspots = [
 
 const WhyInvest = () => {
   const [activeHotspot, setActiveHotspot] = useState<number | null>(null);
+  // Detect mobile
+  const isMobile = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
+
+  // Dismiss hotspot on outside click (mobile)
+  useEffect(() => {
+    if (!isMobile) return;
+    const handle = (e: any) => {
+      if (!e.target.closest('.africa-hotspot')) setActiveHotspot(null);
+    };
+    document.addEventListener('touchstart', handle);
+    return () => document.removeEventListener('touchstart', handle);
+  }, [isMobile]);
 
   return (
     <motion.section 
@@ -70,11 +82,9 @@ const WhyInvest = () => {
           {hotspots.map(h => {
             const isActive = activeHotspot === h.id;
             return (
-              <div 
+              <div
                 key={h.id}
-                className={`absolute h-6 w-6 sm:h-8 sm:w-8 rounded-full bg-[#00634d] transition-all duration-500 cursor-pointer z-20
-                  ${isActive ? 'scale-[1.5] bg-[#00634d]' : ''}
-                `}
+                className={`africa-hotspot absolute h-6 w-6 sm:h-8 sm:w-8 rounded-full bg-[#00634d] transition-all duration-500 cursor-pointer z-20 ${isActive ? 'scale-[1.5] bg-[#00634d]' : ''}`}
                 style={{
                   top: h.position.top,
                   left: h.position.left,
@@ -82,13 +92,13 @@ const WhyInvest = () => {
                   animation: 'pulse 1.5s ease-in-out infinite',
                   boxShadow: '0 0 0 0 rgba(0, 99, 77, 0.7)'
                 }}
-                onClick={() => setActiveHotspot(h.id)}
-                onTouchEnd={(e) => {
+                onClick={() => setActiveHotspot(isActive ? null : h.id)}
+                onTouchEnd={e => {
                   e.preventDefault();
-                  setActiveHotspot(h.id);
+                  setActiveHotspot(isActive ? null : h.id);
                 }}
-                onMouseLeave={() => setActiveHotspot(null)}
-                onMouseEnter={() => setActiveHotspot(h.id)}
+                onMouseEnter={() => !isMobile && setActiveHotspot(h.id)}
+                onMouseLeave={() => !isMobile && setActiveHotspot(null)}
               >
                 <HoverCard openDelay={50} closeDelay={0}>
                   <HoverCardTrigger asChild>

@@ -22,6 +22,10 @@ export default function PrivacyPolicyPage() {
   const refs = useRef({});
   const [active, setActive] = useState(toc[0].id);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, []);
+
   // Scroll to section on ToC click
   const scrollToSection = (id) => {
     const el = refs.current[id];
@@ -194,7 +198,7 @@ function PolicySection({ id }) {
           <li>To communicate & support you</li>
           <li>To fulfill/manage orders</li>
           <li>To enable user communications</li>
-          <li>To protect individuals’ vital interests</li>
+          <li>To protect individuals' vital interests</li>
         </ul>
       );
     case "legal":

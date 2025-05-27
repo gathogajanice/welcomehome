@@ -22,6 +22,10 @@ export default function TermsPage() {
   const refs = useRef({});
   const [active, setActive] = useState(toc[0].id);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, []);
+
   // Scroll to section
   const scrollToSection = (id) => {
     const el = refs.current[id];

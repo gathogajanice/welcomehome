@@ -137,7 +137,14 @@ const Footer = () => {
               "Our community is building new pathways to wealth, travel, and cultural reconnection—one investment at a time."
             </p>
             <p className="font-cormorant text-[10px] text-[#fffbf0] opacity-80">
-              Privacy | Terms & Conditions | © Welcome Home Intl 2025
+              <Link to="/privacy" className="hover:underline">
+                Privacy
+              </Link>
+              {' | '}
+              <Link to="/terms" className="hover:underline">
+                Terms & Conditions
+              </Link>
+              {' | © Welcome Home Intl 2025'}
             </p>
           </div>
         </div>

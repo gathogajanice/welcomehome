@@ -72,7 +72,7 @@ const WhyInvest = () => {
             return (
               <div 
                 key={h.id}
-                className={`absolute h-8 w-8 rounded-full bg-[#00634d] transition-all duration-500 cursor-pointer z-20
+                className={`absolute h-6 w-6 sm:h-8 sm:w-8 rounded-full bg-[#00634d] transition-all duration-500 cursor-pointer z-20
                   ${isActive ? 'scale-[1.5] bg-[#00634d]' : ''}
                 `}
                 style={{
@@ -82,7 +82,11 @@ const WhyInvest = () => {
                   animation: 'pulse 1.5s ease-in-out infinite',
                   boxShadow: '0 0 0 0 rgba(0, 99, 77, 0.7)'
                 }}
-                onTouchStart={() => setActiveHotspot(h.id)}
+                onClick={() => setActiveHotspot(h.id)}
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  setActiveHotspot(h.id);
+                }}
                 onMouseLeave={() => setActiveHotspot(null)}
                 onMouseEnter={() => setActiveHotspot(h.id)}
               >

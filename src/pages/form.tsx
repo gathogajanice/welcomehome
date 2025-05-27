@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
+import IframeModal from '@/components/IframeModal';
 
 const FormPage = () => {
   const navigate = useNavigate();
@@ -38,22 +39,11 @@ const FormPage = () => {
           }}
         />
         <div className="relative z-10 w-full max-w-2xl">
-          {isLoading && (
-            <div className="w-full min-h-[400px] flex items-center justify-center bg-white/10 rounded-xl shadow-lg">
-              <div className="text-white text-center">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
-                <p className="font-bd-sans">Loading form...</p>
-              </div>
-            </div>
-          )}
-          <iframe
-            src="https://www.powr.io/form-builder/i/39548157#page"
+          <IframeModal
+            isOpen={true}
+            onClose={() => navigate('/')}
+            url="https://www.powr.io/form-builder/i/39548157#page"
             title="Welcome Home Form"
-            className={`w-full border-0 rounded-xl shadow-lg ${isLoading ? 'hidden' : 'block'}`}
-            style={{ minHeight: '900px' }}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            onLoad={() => setIsLoading(false)}
-            loading="eager"
           />
         </div>
       </div>

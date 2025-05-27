@@ -11,6 +11,8 @@ import WelcomeHome from "./pages/WelcomeHome";
 import FormPage from "./pages/form";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
+import Privacy from "./pages/Privacy";
+import TermsPage from "./pages/Terms";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +43,8 @@ const App = () => (
           />
           <Route path="/team" element={<Team />} />
           <Route path="/welcome" element={<WelcomeHome />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<TermsPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

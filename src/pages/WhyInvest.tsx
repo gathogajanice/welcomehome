@@ -94,61 +94,86 @@ const WhyInvest = () => {
                   height: isMobile ? '1.25rem' : '2rem',
                   width: isMobile ? '1.25rem' : '2rem',
                 }}
-                onClick={() => setActiveHotspot(isActive ? null : h.id)}
-                onTouchEnd={e => {
-                  e.preventDefault();
-                  setActiveHotspot(isActive ? null : h.id);
+                onClick={e => {
+                  if (isMobile) {
+                    e.stopPropagation();
+                    setActiveHotspot(isActive ? null : h.id);
+                  } else {
+                    setActiveHotspot(isActive ? null : h.id);
+                  }
                 }}
-                onMouseEnter={() => setActiveHotspot(h.id)}
-                onMouseLeave={() => setActiveHotspot(null)}
+                onTouchEnd={e => {
+                  if (isMobile) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setActiveHotspot(isActive ? null : h.id);
+                  }
+                }}
+                onMouseEnter={() => !isMobile && setActiveHotspot(h.id)}
+                onMouseLeave={() => !isMobile && setActiveHotspot(null)}
               >
-                <HoverCard openDelay={50} closeDelay={0}>
-                  <HoverCardTrigger asChild>
-                    <span className="w-full h-full flex items-center justify-center">
-                      <span className="sr-only">{h.title}</span>
-                    </span>
-                  </HoverCardTrigger>
-                  <HoverCardContent className="w-64 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-xl border border-white/20">
-                    <div className="flex items-center space-x-2">
-                      <div className="rounded-full bg-[#387f79] bg-opacity-10 p-2">
-                        {h.icon}
+                {!isMobile ? (
+                  <HoverCard openDelay={50} closeDelay={0} open={isActive}>
+                    <HoverCardTrigger asChild>
+                      <span className="w-full h-full flex items-center justify-center">
+                        <span className="sr-only">{h.title}</span>
+                      </span>
+                    </HoverCardTrigger>
+                    <HoverCardContent className="w-64 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-xl border border-white/20">
+                      <div className="flex items-center space-x-2">
+                        <div className="rounded-full bg-[#387f79] bg-opacity-10 p-2">
+                          {h.icon}
+                        </div>
+                        <h4 className="font-bd-sans text-lg text-[#387f79] font-bold">{h.title}</h4>
                       </div>
-                      <h4 className="font-bd-sans text-lg text-[#387f79] font-bold">{h.title}</h4>
+                      <p className="text-sm text-gray-600 mt-2 font-cormorant">{h.description}</p>
+                    </HoverCardContent>
+                  </HoverCard>
+                ) : (
+                  isActive && (
+                    <div
+                      className="absolute left-1/2 mt-3 -translate-x-1/2 z-30 w-56 bg-white/95 border border-[#387f79]/20 rounded-xl shadow-xl p-4"
+                      style={{ top: '110%' }}
+                    >
+                      <div className="flex items-center space-x-2 mb-1">
+                        <div className="rounded-full bg-[#387f79] bg-opacity-10 p-2">
+                          {h.icon}
+                        </div>
+                        <h4 className="font-bd-sans text-base text-[#387f79] font-bold">{h.title}</h4>
+                      </div>
+                      <p className="text-sm text-gray-700 font-cormorant">{h.description}</p>
                     </div>
-                    <p className="text-sm text-gray-600 mt-2 font-cormorant">{h.description}</p>
-                  </HoverCardContent>
-                </HoverCard>
+                  )
+                )}
               </div>
             );
           })}
         </div>
 
-        {/* Text Content */}
+        {/* Text Content - match WelcomeHome style */}
         <motion.div 
-          className="space-y-6 text-left md:text-left flex flex-col justify-center items-center md:items-start md:justify-start px-2 sm:px-0"
-          style={{ maxWidth: isMobile ? '100%' : 'none', textAlign: isMobile ? 'center' : 'left' }}
+          className="w-full md:w-1/2 text-left"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
         >
-          <h1 className="text-[1.5rem] sm:text-[2rem] md:text-[2.5rem] font-troye leading-tight w-full" style={{textAlign: isMobile ? 'center' : 'left'}}>
-            <span className="font-troye text-2xl sm:text-3xl md:text-4xl text-[#00634d] relative inline-block">WHY INVEST IN AFRICA?</span>
-          </h1>
-
-          <div className="space-y-4 w-full max-w-xl mx-auto" style={{textAlign: isMobile ? 'center' : 'left'}}>
-            <p className="text-gray-700 font-cormorant text-base sm:text-lg leading-relaxed">
+          <h2 className="font-troye-sans text-3xl sm:text-4xl md:text-5xl leading-tight font-bold text-[#00634d] tracking-tight">
+            WHY INVEST IN AFRICA?
+          </h2>
+          <div className="mt-8 space-y-6 max-w-md">
+            <p className="font-cormorant text-sm md:text-base text-[#032b22] leading-relaxed">
               Africa is the world's next real estate frontier, with its population projected to double to 2.5 billion by 2050 and urbanization rates accelerating faster than any other region.
             </p>
-            <p className="text-gray-700 font-cormorant text-base sm:text-lg leading-relaxed">
-              The continent holds 60% of the world's undeveloped arable land and is seeing a $1.2 trillion projected real estate market growth by 2030. Yet despite this opportunity, land ownership remains difficult for diaspora communities due to systemic barriers and lack of transparency.
-            </p>
-            <p className="text-gray-700 font-cormorant text-base sm:text-lg leading-relaxed">
-              Welcome Home bridges that gap—giving investors direct access to secure, blockchain-verified land ownership and a stake in the future of Africa's wealth, development, and prosperity.
-            </p>
+            <div className="font-cormorant text-sm md:text-base text-[#032b22] leading-relaxed space-y-4">
+              <p>
+                The continent holds 60% of the world's undeveloped arable land and is seeing a $1.2 trillion projected real estate market growth by 2030. Yet despite this opportunity, land ownership remains difficult for diaspora communities due to systemic barriers and lack of transparency.
+              </p>
+              <p>
+                Welcome Home bridges that gap—giving investors direct access to secure, blockchain-verified land ownership and a stake in the future of Africa's wealth, development, and prosperity.
+              </p>
+            </div>
           </div>
-
-          {/* ✅ Fixed Responsive Button */}
-          <Link to="/form" className="block w-full sm:w-fit mt-4">
+          <Link to="/form" className="block w-full sm:w-fit mt-8">
             <Button
               className="w-full sm:w-fit text-center bg-white/10 hover:bg-white/20 
                          rounded-full text-[#387f79] font-bd-sans font-bold 

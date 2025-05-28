@@ -79,8 +79,10 @@ const WhyInvest = () => {
         {/* Image + Hotspots */}
         <div className="relative max-w-[500px] mx-auto">
           <img src="/images/1572c4f2-eb33-483a-a261-ad6032ac617d.png" alt="Africa Outline" className="w-full h-auto" />
-          {hotspots.map(h => {
+          {hotspots.map((h, idx) => {
             const isActive = activeHotspot === h.id;
+            // Determine if this is a top hotspot (first two)
+            const showAbove = isMobile && (idx === 0 || idx === 1);
             return (
               <div
                 key={h.id}
@@ -133,8 +135,12 @@ const WhyInvest = () => {
                   isActive && (
                     <div
                       className="fixed z-50 w-60 bg-white/95 border border-[#387f79]/20 rounded-xl shadow-xl p-4"
-                      style={{
-                        left: `calc(${h.position.left} + 40px)`,
+                      style={showAbove ? {
+                        left: `calc(${h.position.left} + 40px)` ,
+                        top: undefined,
+                        bottom: `calc(100vh - ((${h.position.top} + 0px) * 1.2) - 40px)`
+                      } : {
+                        left: `calc(${h.position.left} + 40px)` ,
                         top: `calc(${h.position.top} + 120px)`
                       }}
                     >

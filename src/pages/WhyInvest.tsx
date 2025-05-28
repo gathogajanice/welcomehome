@@ -79,20 +79,26 @@ const WhyInvest = () => {
         {/* Image + Hotspots */}
         <div className="relative max-w-[500px] mx-auto">
           <img src="/images/1572c4f2-eb33-483a-a261-ad6032ac617d.png" alt="Africa Outline" className="w-full h-auto" />
-          {!isMobile && hotspots.map(h => {
+          {hotspots.map(h => {
             const isActive = activeHotspot === h.id;
             return (
               <div
                 key={h.id}
-                className={`africa-hotspot absolute h-6 w-6 sm:h-8 sm:w-8 rounded-full bg-[#00634d] transition-all duration-500 cursor-pointer z-20 ${isActive ? 'scale-[1.5] bg-[#00634d]' : ''}`}
+                className={`africa-hotspot absolute rounded-full bg-[#00634d] transition-all duration-500 cursor-pointer z-20 ${isActive ? 'scale-[1.5] bg-[#00634d]' : ''}`}
                 style={{
                   top: h.position.top,
                   left: h.position.left,
                   transform: 'translate(-50%, -50%)',
                   animation: 'pulse 1.5s ease-in-out infinite',
-                  boxShadow: '0 0 0 0 rgba(0, 99, 77, 0.7)'
+                  boxShadow: '0 0 0 0 rgba(0, 99, 77, 0.7)',
+                  height: isMobile ? '1.25rem' : '2rem',
+                  width: isMobile ? '1.25rem' : '2rem',
                 }}
                 onClick={() => setActiveHotspot(isActive ? null : h.id)}
+                onTouchEnd={e => {
+                  e.preventDefault();
+                  setActiveHotspot(isActive ? null : h.id);
+                }}
                 onMouseEnter={() => setActiveHotspot(h.id)}
                 onMouseLeave={() => setActiveHotspot(null)}
               >
@@ -119,29 +125,30 @@ const WhyInvest = () => {
 
         {/* Text Content */}
         <motion.div 
-          className="space-y-6 text-left"
+          className="space-y-6 text-left md:text-left flex flex-col justify-center items-center md:items-start md:justify-start px-2 sm:px-0"
+          style={{ maxWidth: isMobile ? '100%' : 'none', textAlign: isMobile ? 'center' : 'left' }}
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
         >
-          <h1 className="text-[2rem] sm:text-[2.5rem] font-troye leading-tight">
+          <h1 className="text-[1.5rem] sm:text-[2rem] md:text-[2.5rem] font-troye leading-tight w-full" style={{textAlign: isMobile ? 'center' : 'left'}}>
             <span className="font-troye text-2xl sm:text-3xl md:text-4xl text-[#00634d] relative inline-block">WHY INVEST IN AFRICA?</span>
           </h1>
 
-          <div className="space-y-4">
-            <p className="text-gray-700 font-cormorant max-w-[90%] text-lg">
+          <div className="space-y-4 w-full max-w-xl mx-auto" style={{textAlign: isMobile ? 'center' : 'left'}}>
+            <p className="text-gray-700 font-cormorant text-base sm:text-lg leading-relaxed">
               Africa is the world's next real estate frontier, with its population projected to double to 2.5 billion by 2050 and urbanization rates accelerating faster than any other region.
             </p>
-            <p className="text-gray-700 font-cormorant max-w-[90%] text-lg">
+            <p className="text-gray-700 font-cormorant text-base sm:text-lg leading-relaxed">
               The continent holds 60% of the world's undeveloped arable land and is seeing a $1.2 trillion projected real estate market growth by 2030. Yet despite this opportunity, land ownership remains difficult for diaspora communities due to systemic barriers and lack of transparency.
             </p>
-            <p className="text-gray-700 font-cormorant max-w-[90%] text-lg">
+            <p className="text-gray-700 font-cormorant text-base sm:text-lg leading-relaxed">
               Welcome Home bridges that gap—giving investors direct access to secure, blockchain-verified land ownership and a stake in the future of Africa's wealth, development, and prosperity.
             </p>
           </div>
 
           {/* ✅ Fixed Responsive Button */}
-          <Link to="/form" className="block w-full sm:w-fit">
+          <Link to="/form" className="block w-full sm:w-fit mt-4">
             <Button
               className="w-full sm:w-fit text-center bg-white/10 hover:bg-white/20 
                          rounded-full text-[#387f79] font-bd-sans font-bold 

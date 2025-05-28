@@ -84,7 +84,7 @@ const WhyInvest = () => {
             return (
               <div
                 key={h.id}
-                className={`africa-hotspot absolute rounded-full bg-[#00634d] transition-all duration-500 cursor-pointer z-20 ${isActive ? 'scale-[1.5] bg-[#00634d]' : ''}`}
+                className={`africa-hotspot absolute rounded-full bg-[#00634d] transition-all duration-500 cursor-pointer z-30 ${isActive ? 'scale-[1.5] bg-[#00634d]' : ''}`}
                 style={{
                   top: h.position.top,
                   left: h.position.left,
@@ -119,7 +119,7 @@ const WhyInvest = () => {
                         <span className="sr-only">{h.title}</span>
                       </span>
                     </HoverCardTrigger>
-                    <HoverCardContent className="w-64 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-xl border border-white/20">
+                    <HoverCardContent className="w-64 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-xl border border-white/20 z-50">
                       <div className="flex items-center space-x-2">
                         <div className="rounded-full bg-[#387f79] bg-opacity-10 p-2">
                           {h.icon}
@@ -132,8 +132,11 @@ const WhyInvest = () => {
                 ) : (
                   isActive && (
                     <div
-                      className="absolute left-1/2 mt-3 -translate-x-1/2 z-30 w-56 bg-white/95 border border-[#387f79]/20 rounded-xl shadow-xl p-4"
-                      style={{ top: '110%' }}
+                      className="fixed z-50 w-60 bg-white/95 border border-[#387f79]/20 rounded-xl shadow-xl p-4"
+                      style={{
+                        left: `calc(${h.position.left} + 40px)`,
+                        top: `calc(${h.position.top} + 120px)`
+                      }}
                     >
                       <div className="flex items-center space-x-2 mb-1">
                         <div className="rounded-full bg-[#387f79] bg-opacity-10 p-2">
@@ -150,9 +153,9 @@ const WhyInvest = () => {
           })}
         </div>
 
-        {/* Text Content - match WelcomeHome style */}
+        {/* Text Content - match WelcomeHome style, left-aligned, margin */}
         <motion.div 
-          className="w-full md:w-1/2 text-left"
+          className="w-full md:w-1/2 text-left px-4 sm:px-8 md:px-0"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}

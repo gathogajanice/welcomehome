@@ -134,14 +134,13 @@ const WhyInvest = () => {
                 ) : (
                   isActive && (
                     <div
-                      className="fixed z-50 w-60 bg-white/95 border border-[#387f79]/20 rounded-xl shadow-xl p-4"
-                      style={showAbove ? {
-                        left: `calc(${h.position.left} + 40px)` ,
-                        top: undefined,
-                        bottom: `calc(100vh - ((${h.position.top} + 0px) * 1.2) - 40px)`
-                      } : {
-                        left: `calc(${h.position.left} + 40px)` ,
-                        top: `calc(${h.position.top} + 120px)`
+                      className="absolute z-50 w-60 bg-white/95 border border-[#387f79]/20 rounded-xl shadow-xl p-4"
+                      style={{
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        ...(showAbove
+                          ? { bottom: '110%', top: 'auto' }
+                          : { top: '110%', bottom: 'auto' })
                       }}
                     >
                       <div className="flex items-center space-x-2 mb-1">

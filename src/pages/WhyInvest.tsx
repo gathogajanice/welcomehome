@@ -153,30 +153,31 @@ const WhyInvest = () => {
           })}
         </div>
 
-        {/* Text Content - match WelcomeHome style, left-aligned, margin */}
+        {/* Text Content */}
         <motion.div 
-          className="w-full md:w-1/2 text-left px-4 sm:px-8 md:px-0"
+          className="space-y-6 text-left"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="font-troye-sans text-3xl sm:text-4xl md:text-5xl leading-tight font-bold text-[#00634d] tracking-tight">
-            WHY INVEST IN AFRICA?
-          </h2>
-          <div className="mt-8 space-y-6 max-w-md">
-            <p className="font-cormorant text-sm md:text-base text-[#032b22] leading-relaxed">
+          <h1 className="text-[2rem] sm:text-[2.5rem] font-troye leading-tight">
+            <span className="font-troye text-2xl sm:text-3xl md:text-4xl text-[#00634d] relative inline-block">WHY INVEST IN AFRICA?</span>
+          </h1>
+
+          <div className="space-y-4">
+            <p className="text-gray-700 font-cormorant max-w-[90%] text-lg">
               Africa is the world's next real estate frontier, with its population projected to double to 2.5 billion by 2050 and urbanization rates accelerating faster than any other region.
             </p>
-            <div className="font-cormorant text-sm md:text-base text-[#032b22] leading-relaxed space-y-4">
-              <p>
-                The continent holds 60% of the world's undeveloped arable land and is seeing a $1.2 trillion projected real estate market growth by 2030. Yet despite this opportunity, land ownership remains difficult for diaspora communities due to systemic barriers and lack of transparency.
-              </p>
-              <p>
-                Welcome Home bridges that gap—giving investors direct access to secure, blockchain-verified land ownership and a stake in the future of Africa's wealth, development, and prosperity.
-              </p>
-            </div>
+            <p className="text-gray-700 font-cormorant max-w-[90%] text-lg">
+              The continent holds 60% of the world's undeveloped arable land and is seeing a $1.2 trillion projected real estate market growth by 2030. Yet despite this opportunity, land ownership remains difficult for diaspora communities due to systemic barriers and lack of transparency.
+            </p>
+            <p className="text-gray-700 font-cormorant max-w-[90%] text-lg">
+              Welcome Home bridges that gap—giving investors direct access to secure, blockchain-verified land ownership and a stake in the future of Africa's wealth, development, and prosperity.
+            </p>
           </div>
-          <Link to="/form" className="block w-full sm:w-fit mt-8">
+
+          {/* ✅ Fixed Responsive Button */}
+          <Link to="/form" className="block w-full sm:w-fit">
             <Button
               className="w-full sm:w-fit text-center bg-white/10 hover:bg-white/20 
                          rounded-full text-[#387f79] font-bd-sans font-bold 

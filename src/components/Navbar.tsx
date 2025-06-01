@@ -56,27 +56,30 @@ const Navbar = () => {
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-[10px]"
         )}
       >
-        <nav className="hidden md:flex items-center space-x-12">
-          <span onClick={handleHomeClick} className={navLinkClasses}>Home</span>
-          {location.pathname === '/' && (
-            <>
-              <ScrollLink to="welcome" smooth duration={600} offset={-60} className={navLinkClasses}>About</ScrollLink>
-              <ScrollLink to="promos" smooth duration={600} offset={-60} className={navLinkClasses}>Membership</ScrollLink>
-            </>
-          )}
-          <ScrollLink to="footer" smooth duration={600} offset={-60} className={navLinkClasses}>Contact</ScrollLink>
-        </nav>
+        <div className="absolute inset-0 w-full h-full bg-white/40 backdrop-blur-md border border-white/30 shadow-sm" style={{borderRadius: 0, zIndex: 0}} />
+        <div className="relative w-full flex items-center justify-between h-full z-10">
+          <nav className="hidden md:flex items-center space-x-12">
+            <span onClick={handleHomeClick} className={navLinkClasses}>Home</span>
+            {location.pathname === '/' && (
+              <>
+                <ScrollLink to="welcome" smooth duration={600} offset={-60} className={navLinkClasses}>About</ScrollLink>
+                <ScrollLink to="promos" smooth duration={600} offset={-60} className={navLinkClasses}>Membership</ScrollLink>
+              </>
+            )}
+            <ScrollLink to="footer" smooth duration={600} offset={-60} className={navLinkClasses}>Contact</ScrollLink>
+          </nav>
 
-        <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden text-white p-2">
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden text-white p-2">
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
 
-        <Link to="/form" className="hidden md:block font-bd-sans text-white uppercase tracking-wider text-sm bg-[#00634dcc] px-6 py-2 rounded-md hover:bg-[#00634dbb] transition-all duration-300">
-          Reserve Your Spot
-        </Link>
+          <Link to="/form" className="hidden md:block font-bd-sans text-white uppercase tracking-wider text-sm bg-[#00634dcc] px-6 py-2 rounded-md hover:bg-[#00634dbb] transition-all duration-300">
+            Reserve Your Spot
+          </Link>
+        </div>
 
         {isMobileMenuOpen && (
-          <div className="absolute top-16 left-0 right-0 bg-[#032b22]/95 backdrop-blur-sm p-4 md:hidden">
+          <div className="absolute top-16 left-0 right-0 bg-white/40 backdrop-blur-md border border-white/30 shadow-sm p-4 md:hidden">
             <nav className="flex flex-col space-y-4 items-center">
               <span onClick={() => { handleHomeClick(); setIsMobileMenuOpen(false); }} className={navLinkClasses}>Home</span>
               {location.pathname === '/' && (

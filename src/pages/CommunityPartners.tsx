@@ -3,13 +3,13 @@ import { motion } from 'framer-motion';
 
 const logos = [
   {
-    src: '/images/afritech.png',
-    alt: 'Africatech NYC',
+    src: '/images/bwslogo.png',
+    alt: 'BWS',
     delay: 0.1
   },
   {
-    src: '/images/afrideslogo.png',
-    alt: 'Afrides',
+    src: '/images/frenchlogo.png',
+    alt: 'Ministère des Infrastructures, des Transports Terrestres et du Désenclavement',
     delay: 0.2
   },
   {
@@ -50,7 +50,7 @@ const CommunityPartners = () => {
 
         {/* Logos */}
         <div className="grid grid-cols-2 gap-6 sm:gap-8 md:gap-10 max-w-xl">
-          {logos.map((logo) => (
+          {logos.map((logo, idx) => (
             <motion.div
               key={logo.src}
               initial={{ opacity: 0, y: 30 }}
@@ -61,7 +61,11 @@ const CommunityPartners = () => {
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="object-contain w-36 h-24 sm:w-44 sm:h-28 md:w-52 md:h-32"
+                className={
+                  logo.alt.includes('Ministère des Infrastructures')
+                    ? 'object-contain w-44 h-28 sm:w-56 sm:h-36 md:w-64 md:h-40'
+                    : 'object-contain w-36 h-24 sm:w-44 sm:h-28 md:w-52 md:h-32'
+                }
               />
             </motion.div>
           ))}

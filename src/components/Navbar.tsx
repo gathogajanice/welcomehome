@@ -75,13 +75,13 @@ const Navbar = () => {
           </button>
 
           <div className="hidden md:flex items-center gap-3">
+            <Link to="/form" className="font-bd-sans text-white uppercase tracking-wider text-sm bg-[#00634dcc] px-6 py-2 rounded-md hover:bg-[#00634dbb] transition-all duration-300 whitespace-nowrap">
+              Reserve Your Spot
+            </Link>
             <a href="https://marketplace.welcomehomeintl.com" target="_blank" rel="noopener noreferrer" aria-label="Sign In" className="font-bd-sans uppercase bg-white text-[#00634d] border border-[#00634d] px-3 py-2 rounded-md hover:bg-[#00634d]/5 transition-all duration-300 flex items-center justify-center gap-1 whitespace-nowrap">
               <FaUser size={14} className="text-[#00634d]" />
               <span className="text-sm">Sign In</span>
             </a>
-            <Link to="/form" className="font-bd-sans text-white uppercase tracking-wider text-sm bg-[#00634dcc] px-6 py-2 rounded-md hover:bg-[#00634dbb] transition-all duration-300">
-              Reserve Your Spot
-            </Link>
           </div>
         </div>
 
@@ -96,13 +96,13 @@ const Navbar = () => {
                 </>
               )}
               <ScrollLink to="footer" smooth duration={600} offset={-60} className={navLinkClasses} onClick={() => setIsMobileMenuOpen(false)}>Contact</ScrollLink>
-              <a href="https://marketplace.welcomehomeintl.com" target="_blank" rel="noopener noreferrer" aria-label="Sign In" className="font-bd-sans uppercase bg-white text-[#00634d] border border-[#00634d] px-3 py-2 rounded-md hover:bg-[#00634d]/5 transition-all duration-300 flex items-center justify-center gap-1 whitespace-nowrap">
+              <Link to="/form" className="font-bd-sans text-white uppercase tracking-wider text-sm bg-[#00634dcc] px-6 py-2 rounded-md hover:bg-[#00634dbb] transition-all duration-300 text-center w-full">
+                Reserve Your Spot
+              </Link>
+              <a href="https://marketplace.welcomehomeintl.com" target="_blank" rel="noopener noreferrer" aria-label="Sign In" className="font-bd-sans uppercase bg-white text-[#00634d] border border-[#00634d] px-3 py-2 rounded-md hover:bg-[#00634d]/5 transition-all duration-300 flex items-center justify-center gap-1 whitespace-nowrap w-full">
                 <FaUser size={14} className="text-[#00634d]" />
                 <span className="text-sm">Sign In</span>
               </a>
-              <Link to="/form" className="font-bd-sans text-white uppercase tracking-wider text-sm bg-[#00634dcc] px-6 py-2 rounded-md hover:bg-[#00634dbb] transition-all duration-300 text-center">
-                Reserve Your Spot
-              </Link>
             </nav>
           </div>
         )}

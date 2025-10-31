@@ -45,7 +45,7 @@ const Navbar = () => {
     setShowIframe(true);
   };
 
-  const navLinkClasses = "font-bd-sans text-white uppercase tracking-wider text-sm cursor-pointer";
+  const navLinkClasses = "font-bd-sans text-white uppercase tracking-wider text-sm cursor-pointer font-semibold";
 
   return (
     <>
